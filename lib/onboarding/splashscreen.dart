@@ -1,5 +1,5 @@
-import 'package:clubon/pages/homepage.dart';
-import 'package:clubon/pages/signinmethod.dart';
+
+import 'package:clubon/onboarding/signinmethod.dart';
 import 'package:clubon/utils/styles/stylings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,19 +16,13 @@ class _SplashscreenState extends State<Splashscreen>
   @override
   void initState() {
     super.initState();
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
     Future.delayed(const Duration(seconds: 5), () {
       Navigator.of(context)
           .pushReplacement(MaterialPageRoute(builder: (_) => const Signinmethod()));
     });
   }
 
-  @override
-  void dispose() {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-        overlays: SystemUiOverlay.values);
-    super.dispose();
-  }
+
 
   @override
   Widget build(BuildContext context) {

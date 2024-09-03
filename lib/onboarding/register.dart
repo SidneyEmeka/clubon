@@ -1,6 +1,6 @@
-import 'package:clubon/pages/loginpage.dart';
-import 'package:clubon/pages/signinmethod.dart';
-import 'package:clubon/pages/verifyotp.dart';
+import 'package:clubon/onboarding/loginpage.dart';
+import 'package:clubon/onboarding/signinmethod.dart';
+import 'package:clubon/onboarding/verifyotp.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/styles/stylings.dart';

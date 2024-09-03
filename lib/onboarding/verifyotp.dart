@@ -1,4 +1,5 @@
-import 'package:clubon/pages/signinmethod.dart';
+import 'package:clubon/onboarding/chooselocation.dart';
+import 'package:clubon/onboarding/signinmethod.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/styles/stylings.dart';
@@ -88,7 +89,7 @@ class Verifyotp extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_){
-                  return Verifyotp();
+                  return const Chooselocation();
                 }));
               },
               child: Container(
@@ -99,7 +100,7 @@ class Verifyotp extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Stylings.orange,
                     borderRadius: BorderRadius.circular(8)),
-                child: Text("Create Account", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600,color: Colors.white),),
+                child: Text("Confirm", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600,color: Colors.white),),
 
               ),
             ),
@@ -115,7 +116,7 @@ class Verifyotp extends StatelessWidget {
                   const SizedBox(
                     width: 5,
                   ),
-                  Text("30s",
+                  Text("30 secs",
                       style: Stylings.titles
                           .copyWith(color: Stylings.orange, fontSize: 12)),
                 ],

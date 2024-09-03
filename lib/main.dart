@@ -1,5 +1,5 @@
-import 'package:clubon/pages/homepage.dart';
-import 'package:clubon/pages/splashscreen.dart';
+
+import 'package:clubon/onboarding/splashscreen.dart';
 import 'package:clubon/utils/styles/stylings.dart';
 import 'package:flutter/material.dart';
 

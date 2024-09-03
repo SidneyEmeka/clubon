@@ -1,5 +1,6 @@
-import 'package:clubon/pages/loginpage.dart';
-import 'package:clubon/pages/register.dart';
+import 'package:clubon/homepage.dart';
+import 'package:clubon/onboarding/loginpage.dart';
+import 'package:clubon/onboarding/register.dart';
 import 'package:clubon/utils/styles/stylings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -100,6 +101,9 @@ class _SigninmethodState extends State<Signinmethod> {
                       ///google///
                       GestureDetector(
                         onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (_){
+                            return Homepage();
+                          }));
                         },
                         child: Container(
                           margin: const EdgeInsets.symmetric(horizontal: 10),

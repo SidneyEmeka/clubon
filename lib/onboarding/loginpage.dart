@@ -1,5 +1,5 @@
-import 'package:clubon/pages/register.dart';
-import 'package:clubon/pages/signinmethod.dart';
+import 'package:clubon/onboarding/register.dart';
+import 'package:clubon/onboarding/signinmethod.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -216,7 +216,7 @@ class _LoginpageState extends State<Loginpage> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-       height: size.height*0.25,
+       height: size.height*0.22,
         color: Colors.white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
