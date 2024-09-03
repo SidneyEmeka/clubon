@@ -159,8 +159,8 @@ class _SigninmethodState extends State<Signinmethod> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              "Don't have an account?",
-                              style: Stylings.body
+                                "Don't have an account?",
+                                style: Stylings.body
                             ),
                             const SizedBox(width: 5,),
                             GestureDetector(
@@ -170,8 +170,8 @@ class _SigninmethodState extends State<Signinmethod> {
                                 }));
                               },
                               child: Text(
-                                "Register",
-                                style: Stylings.body.copyWith(color: Stylings.orange)
+                                  "Register",
+                                  style: Stylings.body.copyWith(color: Stylings.orange)
                               ),
                             ),
                           ],

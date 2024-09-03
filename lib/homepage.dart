@@ -1,3 +1,4 @@
+import 'package:clubon/homes/timeline.dart';
 import 'package:clubon/utils/styles/stylings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class _UserTimelineState extends State<Homepage> {
   Widget buildBody(int selectedIndex) {
     switch (selectedIndex) {
       case 0:
-        return const Center(child: Text("Home"),);
+        return const Timeline();
       case 1:
         return const Center(child: Text("Friends"),);
       case 2:
@@ -137,17 +138,6 @@ class _UserTimelineState extends State<Homepage> {
     ),
   ];
 
-  Widget horizontalSpace(double val) {
-    return SizedBox(
-      width: val,
-    );
-  }
-
-  Widget verticalSpace(double val) {
-    return SizedBox(
-      height: val,
-    );
-  }
 
   Widget buildtitle(int selectedIndex) {
     switch (selectedIndex) {
@@ -199,24 +189,24 @@ class _UserTimelineState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (_) {
-              return const Signinmethod();
-            }));
-          },
-          child: Icon(
-            Icons.arrow_back_ios,
-            color: Stylings.brown,
-            size: 20,
-          ),
-        ),
-        scrolledUnderElevation: 0,
-        backgroundColor: Colors.white,
-        title: buildtitle(selectedIndex),
-        centerTitle: true,
-      ),
+      // appBar: AppBar(
+      //   leading: GestureDetector(
+      //     onTap: () {
+      //       Navigator.push(context, MaterialPageRoute(builder: (_) {
+      //         return const Signinmethod();
+      //       }));
+      //     },
+      //     child: Icon(
+      //       Icons.arrow_back_ios,
+      //       color: Stylings.brown,
+      //       size: 20,
+      //     ),
+      //   ),
+      //   scrolledUnderElevation: 0,
+      //   backgroundColor: Colors.white,
+      //   title: buildtitle(selectedIndex),
+      //   centerTitle: true,
+      // ),
       body: buildBody(selectedIndex),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0),
