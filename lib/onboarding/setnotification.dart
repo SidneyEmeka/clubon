@@ -39,7 +39,7 @@ class Setnotification extends StatelessWidget {
             height: size.height*0.335,
             width: size.width,
             margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-            padding: const EdgeInsets.symmetric(vertical: 50),
+            padding: const EdgeInsets.only(top:  50),
             decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.8),
                 boxShadow: [
@@ -63,7 +63,7 @@ class Setnotification extends StatelessWidget {
               children: [
                 Text(
                   "Choose Your Notification",
-                  style: Stylings.titles.copyWith(fontSize: 30, fontWeight: FontWeight.w900),
+                  style: Stylings.titles.copyWith(fontSize: 27, fontWeight: FontWeight.w900),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5.0),
@@ -72,7 +72,7 @@ class Setnotification extends StatelessWidget {
                       "Select what you want to be notified on",
                       style: Stylings.subTitles.copyWith(fontSize: 14)),
                 ),
-                const Expanded(child: SizedBox()),
+             //   const Expanded(child: SizedBox()),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (_){
@@ -106,6 +106,7 @@ class Setnotification extends StatelessWidget {
 
                   ),
                 ),
+                Expanded(child: SizedBox())
               ],
             ),
           )

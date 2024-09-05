@@ -38,6 +38,7 @@ class _RegisterState extends State<Register> {
         ),
       ),
       body: Container(
+        padding: EdgeInsets.symmetric(vertical: 20),
         width: size.width,
         height: size.height,
         child: Column(
@@ -45,10 +46,8 @@ class _RegisterState extends State<Register> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              margin: EdgeInsets.only(top: size.height*0.05),
-              padding: const EdgeInsets.all(15),
-              width: 70,
-              height: 70,
+              width: 50,
+              height: 50,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
               ),
@@ -71,7 +70,7 @@ class _RegisterState extends State<Register> {
                   "Enter your details to continue",
                   style: Stylings.body),
             ),
-            SizedBox(height: size.height*0.08),
+            SizedBox(height: size.height*0.06),
             Expanded(
                 child: SingleChildScrollView(
               scrollDirection: Axis.vertical,

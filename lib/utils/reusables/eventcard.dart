@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '../styles/stylings.dart';
 
 class Eventcard extends StatelessWidget {
+  final String pfp;
+  final String username;
   final String imgUrl;
   final String comments;
   final String likes;
@@ -11,13 +13,13 @@ class Eventcard extends StatelessWidget {
   final String date;
   final String location;
   final String price;
-  const Eventcard({super.key, required this.imgUrl, required this.comments, required this.likes, required this.title, required this.date, required this.location, required this.price});
+  const Eventcard({super.key, required this.imgUrl, required this.comments, required this.likes, required this.title, required this.date, required this.location, required this.price, required this.pfp, required this.username});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 20),
+      margin: const EdgeInsets.only(top: 20),
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
@@ -34,11 +36,47 @@ class Eventcard extends StatelessWidget {
         children: [
           //event banner
           Container(
+            alignment: Alignment.topCenter,
             margin: const EdgeInsets.symmetric(horizontal: 10),
-            height: size.height*0.5,
+            height: size.height*0.48,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               image: DecorationImage(image: AssetImage(imgUrl), fit: BoxFit.cover)
+            ),
+            child: Container(
+              height: size.height*0.1,
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.15),
+                backgroundBlendMode: BlendMode.darken,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(right: 10),
+                        width: 35,
+                        height: 35,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.asset(
+                          pfp,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Text(username,style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),)
+                    ],
+                  ),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.more_horiz,color: Colors.white,))
+                ],
+              ),
             ),
           ),
           //reactions
@@ -55,9 +93,9 @@ class Eventcard extends StatelessWidget {
                   children: [
                     Icon(FluentSystemIcons.ic_fluent_heart_regular,color: Colors.black, size: 25,),
                     SizedBox(width: 10,),
-                    Icon(FluentSystemIcons.ic_fluent_chat_regular,color: Colors.black, size: 25,),
+                    Icon(FluentSystemIcons.ic_fluent_chat_regular,color: Colors.black, size: 23,),
                     SizedBox(width: 10,),
-                    Icon(FluentSystemIcons.ic_fluent_share_ios_regular,color: Colors.black, size: 25,),
+                    Icon(FluentSystemIcons.ic_fluent_share_ios_regular,color: Colors.black, size: 23,),
                   ],
                 ),
                 //counts

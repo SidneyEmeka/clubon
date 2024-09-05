@@ -39,8 +39,7 @@ class _SigninmethodState extends State<Signinmethod> {
               Positioned(
                 top: size.height * 0.43,
                 child: Container(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 50, horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   width: size.width,
                   height: size.height * 0.57,
                   decoration: BoxDecoration(
@@ -52,7 +51,6 @@ class _SigninmethodState extends State<Signinmethod> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const Expanded(child: SizedBox()),
-                      //const SizedBox(height: 20),
                       Text(
                         "Welcome to Clubon",
                         style: Stylings.titles.copyWith(fontSize: 20),
@@ -177,9 +175,7 @@ class _SigninmethodState extends State<Signinmethod> {
                           ],
                         ),
                       ),
-                      const Expanded(child: SizedBox()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10.0),
+                      Expanded(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -190,7 +186,7 @@ class _SigninmethodState extends State<Signinmethod> {
                             ),
                             GestureDetector(
                               onTap: (){
-
+                        
                               },
                               child: Text(
                                   "Privacy Policy",

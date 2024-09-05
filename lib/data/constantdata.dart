@@ -6,9 +6,26 @@ class Clubon {
     "Popular": "assets/images/popular.png",
   };
 
+  static List<String> florida = [
+    "Miami", "Fort Lauderdale", "Key West"
+  ];
+  static List<String> canada = [
+    "Hamilton", "Toronto", "Vancouver"
+  ];
+  static List<String> andorra = [
+    "Andorra", "El Pas de la Casa"
+  ];
+  static List<String>austria = [
+    "Brisbane", "Fremantle", "Melbourne", "Perth", "Sydney"
+  ];
+  static List<String>belguim = [
+    "Brussels", "Ghent"
+  ];
 
   static List<Map<String, dynamic>> tonight = [
     {
+      "pfp":"assets/images/jlop.png",
+      "username": "Andelyn Jun",
       "imgUrl": "assets/images/location.png",
       "comments": "3k",
       "likes": "55k",
@@ -19,7 +36,9 @@ class Clubon {
       "price": "35"
     },
     {
-      "imgUrl": "assets/images/location.png",
+      "pfp":"assets/images/clock.png",
+      "username": "Kain Mix",
+      "imgUrl": "assets/images/ban1.png",
       "comments": "7k",
       "likes": "500",
       "title":
@@ -29,6 +48,8 @@ class Clubon {
       "price": "52"
     },
     {
+      "pfp":"assets/images/jlop.png",
+      "username": "Smile bar",
       "imgUrl": "assets/images/location.png",
       "comments": "21k",
       "likes": "2k",
@@ -38,7 +59,9 @@ class Clubon {
       "price": "34"
     },
     {
-      "imgUrl": "assets/images/location.png",
+      "pfp":"assets/images/clock.png",
+      "username": "Marylene moore",
+      "imgUrl": "assets/images/ban2.png",
       "comments": "300",
       "likes": "55k",
       "title":
@@ -48,6 +71,8 @@ class Clubon {
       "price": "35"
     },
     {
+      "pfp":"assets/images/jlop.png",
+      "username": "Jacuzzi Spin",
       "imgUrl": "assets/images/location.png",
       "comments": "3",
       "likes": "55",
@@ -58,7 +83,9 @@ class Clubon {
       "price": "17"
     },
     {
-      "imgUrl": "assets/images/location.png",
+      "pfp":"assets/images/clock.png",
+      "username": "Chris notEvans",
+      "imgUrl": "assets/images/ban3.png",
       "comments": "3.4k",
       "likes": "5k",
       "title":
@@ -68,6 +95,8 @@ class Clubon {
       "price": "35"
     },
     {
+      "pfp":"assets/images/jlop.png",
+      "username": "Maudib Kwitz",
       "imgUrl": "assets/images/location.png",
       "comments": "3.6k",
       "likes": "50k",
