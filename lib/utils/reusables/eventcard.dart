@@ -1,9 +1,11 @@
+import 'package:clubon/screens/buyticket.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 
 import '../styles/stylings.dart';
 
 class Eventcard extends StatelessWidget {
+  final Map<String,dynamic> theEvent;
   final String pfp;
   final String username;
   final String imgUrl;
@@ -13,7 +15,7 @@ class Eventcard extends StatelessWidget {
   final String date;
   final String location;
   final String price;
-  const Eventcard({super.key, required this.imgUrl, required this.comments, required this.likes, required this.title, required this.date, required this.location, required this.price, required this.pfp, required this.username});
+  const Eventcard({super.key, required this.imgUrl, required this.comments, required this.likes, required this.title, required this.date, required this.location, required this.price, required this.pfp, required this.username, required this.theEvent});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,7 @@ class Eventcard extends StatelessWidget {
             child: Container(
               height: size.height*0.1,
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.15),
+                color: Colors.black.withOpacity(0.08),
                 backgroundBlendMode: BlendMode.darken,
                 borderRadius: BorderRadius.circular(20),
               ),
@@ -160,15 +162,22 @@ class Eventcard extends StatelessWidget {
                    ),
                  ]
                )),
-                  Container(
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: Stylings.orange,
-                      borderRadius: BorderRadius.circular(5)
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (_){
+                        return Buyticket(theEvent: theEvent);
+                      }));
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Stylings.orange,
+                        borderRadius: BorderRadius.circular(5)
+                      ),
+                      width: size.width*0.4,
+                      height: 40,
+                      child: Text("Buy Ticket", style: Stylings.titles.copyWith(color: Colors.white, fontSize: 15),),
                     ),
-                    width: size.width*0.4,
-                    height: 40,
-                    child: Text("Buy Ticket", style: Stylings.titles.copyWith(color: Colors.white, fontSize: 15),),
                   )
                 ],
               ),

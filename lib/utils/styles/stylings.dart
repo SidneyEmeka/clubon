@@ -4,7 +4,7 @@ class Stylings {
   //Colors
   static Color orange = const Color(0xFFFF1515);
   static Color brown = Colors.brown.shade700;
-  static Color bgColor = const Color(0xfffffdf2);
+  static Color bgColor = const Color(0xFFF6F6F6);
 
 //textStyles
   static TextStyle titles = const TextStyle(

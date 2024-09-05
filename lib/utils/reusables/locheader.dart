@@ -13,6 +13,8 @@ class Locheader extends StatefulWidget {
 
 class _LocheaderState extends State<Locheader> {
 
+  String location = "Miami";
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -80,107 +82,187 @@ class _LocheaderState extends State<Locheader> {
                               children: [
                                 //Florida
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20, top: 2,bottom: 10),
-                                  child: Text("Florida",style: Stylings.titles.copyWith(fontSize: 15),),
+                                  padding:
+                                  const EdgeInsets.only(left: 20, top: 2, bottom: 10),
+                                  child: Text(
+                                    "Florida",
+                                    style: Stylings.titles.copyWith(fontSize: 15),
+                                  ),
                                 ),
-                                Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
-                                ...Clubon.florida.map((aFcity){
-                                  return Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 15),
-                                    decoration: BoxDecoration(
-                                        border: Border(
-                                            bottom: BorderSide(
-                                              width: 2,
-                                              color: Colors.black12.withOpacity(0.05),
-                                            )
-                                        )
+                                Divider(
+                                  color: Colors.black12.withOpacity(0.05),
+                                  height: 2,
+                                ),
+                                ...Clubon.florida.map((aFcity) {
+                                  return GestureDetector(
+                                    onTap: (){
+                                      setState(() {
+                                      location = aFcity;
+                                      });
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 20, vertical: 15),
+                                      decoration: BoxDecoration(
+                                          border: Border(
+                                              bottom: BorderSide(
+                                                width: 2,
+                                                color: Colors.black12.withOpacity(0.05),
+                                              ))),
+                                      width: MediaQuery.of(context).size.width,
+                                      child: Text(
+                                        aFcity,
+                                        style: Stylings.subTitles.copyWith(fontSize: 13),
+                                      ),
                                     ),
-                                    width: MediaQuery.of(context).size.width,
-                                    child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
                                   );
                                 }),
                                 //Canada
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
-                                  child: Text("Canada",style: Stylings.titles.copyWith(fontSize: 15),),
+                                  padding: const EdgeInsets.only(
+                                      left: 20, top: 20, bottom: 10),
+                                  child: Text(
+                                    "Canada",
+                                    style: Stylings.titles.copyWith(fontSize: 15),
+                                  ),
                                 ),
-                                Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
-                                ...Clubon.canada.map((aFcity){
-                                  return Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 15),
-                                    decoration: BoxDecoration(
-                                        border: Border(
-                                            bottom: BorderSide(
-                                              width: 2,
-                                              color: Colors.black12.withOpacity(0.05),
-                                            )
-                                        )
+                                Divider(
+                                  color: Colors.black12.withOpacity(0.05),
+                                  height: 2,
+                                ),
+                                ...Clubon.canada.map((aFcity) {
+                                  return GestureDetector(
+                                    onTap: (){
+                                      setState(() {
+                                        location = aFcity;
+                                      });
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 20, vertical: 15),
+                                      decoration: BoxDecoration(
+                                          border: Border(
+                                              bottom: BorderSide(
+                                                width: 2,
+                                                color: Colors.black12.withOpacity(0.05),
+                                              ))),
+                                      width: MediaQuery.of(context).size.width,
+                                      child: Text(
+                                        aFcity,
+                                        style: Stylings.subTitles.copyWith(fontSize: 13),
+                                      ),
                                     ),
-                                    width: MediaQuery.of(context).size.width,
-                                    child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
                                   );
                                 }),
                                 //Andorra
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
-                                  child: Text("Andorra",style: Stylings.titles.copyWith(fontSize: 15),),
+                                  padding: const EdgeInsets.only(
+                                      left: 20, top: 20, bottom: 10),
+                                  child: Text(
+                                    "Andorra",
+                                    style: Stylings.titles.copyWith(fontSize: 15),
+                                  ),
                                 ),
-                                Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
-                                ...Clubon.andorra.map((aFcity){
-                                  return Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 13),
-                                    decoration: BoxDecoration(
-                                        border: Border(
-                                            bottom: BorderSide(
-                                              width: 2,
-                                              color: Colors.black12.withOpacity(0.05),
-                                            )
-                                        )
+                                Divider(
+                                  color: Colors.black12.withOpacity(0.05),
+                                  height: 2,
+                                ),
+                                ...Clubon.andorra.map((aFcity) {
+                                  return GestureDetector(
+                                    onTap: (){
+                                      setState(() {
+                                        location = aFcity;
+                                      });
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 20, vertical: 13),
+                                      decoration: BoxDecoration(
+                                          border: Border(
+                                              bottom: BorderSide(
+                                                width: 2,
+                                                color: Colors.black12.withOpacity(0.05),
+                                              ))),
+                                      width: MediaQuery.of(context).size.width,
+                                      child: Text(
+                                        aFcity,
+                                        style: Stylings.subTitles.copyWith(fontSize: 13),
+                                      ),
                                     ),
-                                    width: MediaQuery.of(context).size.width,
-                                    child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
                                   );
                                 }),
                                 //Austria
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
-                                  child: Text("Austria",style: Stylings.titles.copyWith(fontSize: 15),),
+                                  padding: const EdgeInsets.only(
+                                      left: 20, top: 20, bottom: 10),
+                                  child: Text(
+                                    "Austria",
+                                    style: Stylings.titles.copyWith(fontSize: 15),
+                                  ),
                                 ),
-                                Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
-                                ...Clubon.austria.map((aFcity){
-                                  return Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 15),
-                                    decoration: BoxDecoration(
-                                        border: Border(
-                                            bottom: BorderSide(
-                                              width: 2,
-                                              color: Colors.black12.withOpacity(0.05),
-                                            )
-                                        )
+                                Divider(
+                                  color: Colors.black12.withOpacity(0.05),
+                                  height: 2,
+                                ),
+                                ...Clubon.austria.map((aFcity) {
+                                  return GestureDetector(
+                                    onTap: (){
+                                      setState(() {
+                                        location = aFcity;
+                                      });
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 20, vertical: 15),
+                                      decoration: BoxDecoration(
+                                          border: Border(
+                                              bottom: BorderSide(
+                                                width: 2,
+                                                color: Colors.black12.withOpacity(0.05),
+                                              ))),
+                                      width: MediaQuery.of(context).size.width,
+                                      child: Text(
+                                        aFcity,
+                                        style: Stylings.subTitles.copyWith(fontSize: 13),
+                                      ),
                                     ),
-                                    width: MediaQuery.of(context).size.width,
-                                    child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
                                   );
                                 }),
                                 //Belgium
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20, top: 20, bottom: 10),
-                                  child: Text("Belgium",style: Stylings.titles.copyWith(fontSize: 15),),
+                                  padding: const EdgeInsets.only(
+                                      left: 20, top: 20, bottom: 10),
+                                  child: Text(
+                                    "Belgium",
+                                    style: Stylings.titles.copyWith(fontSize: 15),
+                                  ),
                                 ),
-                                Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
-                                ...Clubon.belguim.map((aFcity){
-                                  return Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 15),
-                                    decoration: BoxDecoration(
-                                        border: Border(
-                                            bottom: BorderSide(
-                                              width: 2,
-                                              color: Colors.black12.withOpacity(0.05),
-                                            )
-                                        )
+                                Divider(
+                                  color: Colors.black12.withOpacity(0.05),
+                                  height: 2,
+                                ),
+                                ...Clubon.belguim.map((aFcity) {
+                                  return GestureDetector(
+                                    onTap: (){
+                                      setState(() {
+                                        location = aFcity;
+                                      });
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 20, vertical: 15),
+                                      decoration: BoxDecoration(
+                                          border: Border(
+                                              bottom: BorderSide(
+                                                width: 2,
+                                                color: Colors.black12.withOpacity(0.05),
+                                              ))),
+                                      width: MediaQuery.of(context).size.width,
+                                      child: Text(
+                                        aFcity,
+                                        style: Stylings.subTitles.copyWith(fontSize: 13),
+                                      ),
                                     ),
-                                    width: MediaQuery.of(context).size.width,
-                                    child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
                                   );
                                 }),
                               ],
@@ -210,7 +292,7 @@ class _LocheaderState extends State<Locheader> {
                    mainAxisAlignment: MainAxisAlignment.start,
                    crossAxisAlignment: CrossAxisAlignment.center,
                    children: [
-                     Text("Miami", style: Stylings.subTitles.copyWith(fontSize: 15),),
+                     Text(location, style: Stylings.subTitles.copyWith(fontSize: 15),),
                      const SizedBox(width: 10,),
                      Container(
                        width: 15,
