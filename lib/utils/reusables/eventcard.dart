@@ -52,7 +52,7 @@ class Eventcard extends StatelessWidget {
                 backgroundBlendMode: BlendMode.darken,
                 borderRadius: BorderRadius.circular(20),
               ),
-              padding: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,7 +62,7 @@ class Eventcard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(right: 10),
+                        margin: const EdgeInsets.only(right: 10),
                         width: 35,
                         height: 35,
                         decoration: const BoxDecoration(
@@ -76,7 +76,7 @@ class Eventcard extends StatelessWidget {
                       Text(username,style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),)
                     ],
                   ),
-                  IconButton(onPressed: (){}, icon: Icon(Icons.more_horiz,color: Colors.white,))
+                  IconButton(onPressed: (){}, icon: const Icon(Icons.more_horiz,color: Colors.white,))
                 ],
               ),
             ),

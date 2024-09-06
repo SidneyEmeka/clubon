@@ -33,7 +33,10 @@ class Clubon {
       "Sustainability in Action: The 2024 Global Environmental Leadership Conference on Climate Change, Renewable Energy, and Eco-Friendly Technologies",
       "date": "Mon, 27 Sept",
       "location": "Smirks",
-      "price": "62"
+      "price": "62",
+      "place":"Conference Hall",
+      "direction":"Off Berger Street, Route 9, Conference Hall",
+      "rating": "3.7"
     },
     {
       "pfp":"assets/images/jlop.png",
@@ -56,7 +59,10 @@ class Clubon {
       "title":"Saturday Community Sip and Paint, Recovery Strategies for a Changing Climate",
       "date": "Mon, 27 Sept",
       "location": "Chrispie",
-      "price": "34"
+      "price": "34",
+    "place":"Conference Hall",
+    "direction":"Off Berger Street, Route 9, Conference Hall",
+    "rating": "3.7"
     },
     {
       "pfp":"assets/images/clock.png",
@@ -80,7 +86,10 @@ class Clubon {
           "Celebrating Cultural Diversity: The 10th Anniversary Festival of Music, Dance, and Art from Around the World",
       "date": "Mon, 27 Sept",
       "location": "Mazona",
-      "price": "17"
+      "price": "17",
+      "place":"Conference Hall",
+      "direction":"Off Berger Street, Route 9, Conference Hall",
+      "rating": "3.7"
     },
     {
       "pfp":"assets/images/clock.png",
@@ -104,7 +113,10 @@ class Clubon {
           "DJ Mix Battle 2024: Youth Summit on Sustainable Development and Social Responsibility",
       "date": "Mon, 27 Sept",
       "location": "Rexone",
-      "price": "95"
+      "price": "95",
+      "place":"Conference Hall",
+      "direction":"Off Berger Street, Route 9, Conference Hall",
+      "rating": "3.7"
     },
   ];
   static List<Map<String, dynamic>> thisweek = [
@@ -130,7 +142,10 @@ class Clubon {
       "Celebrating Cultural Diversity: The 10th Anniversary Festival of Music, Dance, and Art from Around the World",
       "date": "Mon, 27 Sept",
       "location": "Mazona",
-      "price": "17"
+      "price": "17",
+      "place":"Conference Hall",
+      "direction":"Off Berger Street, Route 9, Conference Hall",
+      "rating": "3.7"
     },
     {
       "pfp":"assets/images/clock.png",
@@ -154,7 +169,10 @@ class Clubon {
       "DJ Mix Battle 2024: Youth Summit on Sustainable Development and Social Responsibility",
       "date": "Mon, 27 Sept",
       "location": "Rexone",
-      "price": "95"
+      "price": "95",
+      "place":"Conference Hall",
+      "direction":"Off Berger Street, Route 9, Conference Hall",
+      "rating": "3.7"
     },
     {
       "pfp":"assets/images/clock.png",
@@ -178,7 +196,10 @@ class Clubon {
       "Transforming Education for the Digital Era: The 2nd International Summit on EdTech, Pedagogy, and 21st-Century Learning Skills",
       "date": "Mon, 27 Sept",
       "location": "Calacuta",
-      "price": "52"
+      "price": "52",
+      "place":"Conference Hall",
+      "direction":"Off Berger Street, Route 9, Conference Hall",
+      "rating": "3.7"
     },
     {
       "pfp":"assets/images/clock.png",
@@ -203,7 +224,10 @@ class Clubon {
       "title":"Saturday Community Sip and Paint, Recovery Strategies for a Changing Climate",
       "date": "Mon, 27 Sept",
       "location": "Chrispie",
-      "price": "34"
+      "price": "34",
+      "place":"Conference Hall",
+      "direction":"Off Berger Street, Route 9, Conference Hall",
+      "rating": "3.7"
     },
     {
       "pfp":"assets/images/jlop.png",
@@ -227,7 +251,10 @@ class Clubon {
       "Revolutionizing Healthcare: The International Conference on Artificial Intelligence, Machine Learning, and Medical Innovations in the Digital Age",
       "date": "Mon, 27 September",
       "location": "Maldives",
-      "price": "35"
+      "price": "35",
+      "place":"Conference Hall",
+      "direction":"Off Berger Street, Route 9, Conference Hall",
+      "rating": "3.7"
     },
     {
       "pfp":"assets/images/clock.png",
@@ -263,7 +290,10 @@ class Clubon {
       "DJ Mix Battle 2024: Youth Summit on Sustainable Development and Social Responsibility",
       "date": "Mon, 27 Sept",
       "location": "Rexone",
-      "price": "95"
+      "price": "95",
+      "place":"Conference Hall",
+      "direction":"Off Berger Street, Route 9, Conference Hall",
+      "rating": "3.7"
     },
     {
       "pfp":"assets/images/clock.png",
@@ -289,7 +319,10 @@ class Clubon {
       "Friday Hangout: Hangover Party for 9-5ers",
       "date": "Mon, 27 September",
       "location": "Maldives",
-      "price": "20"
+      "price": "20",
+      "place":"Conference Hall",
+      "direction":"Off Berger Street, Route 9, Conference Hall",
+      "rating": "3.7"
     },
     {
       "pfp":"assets/images/clock.png",
@@ -300,7 +333,10 @@ class Clubon {
       "title":"Saturday Community Sip and Paint, Recovery Strategies for a Changing Climate",
       "date": "Mon, 27 Sept",
       "location": "Chrispie",
-      "price": "61"
+      "price": "61",
+      "place":"Conference Hall",
+      "direction":"Off Berger Street, Route 9, Conference Hall",
+      "rating": "3.7"
     },
     {
       "pfp":"assets/images/jlop.png",
@@ -324,7 +360,10 @@ class Clubon {
       "Celebrating Cultural Diversity: The 10th Anniversary Festival of Music, Dance, and Art from Around the World",
       "date": "Mon, 27 Sept",
       "location": "Mazona",
-      "price": "17"
+      "price": "17",
+      "place":"Conference Hall",
+      "direction":"Off Berger Street, Route 9, Conference Hall",
+      "rating": "3.7"
     },
     {
       "pfp":"assets/images/clock.png",
@@ -336,7 +375,10 @@ class Clubon {
       "Party All Night Miami Cruise 3: The 2024 Miami Cruise for Blockchain, Cryptocurrency, and Fintech Innovations",
       "date": "Mon, 27 Sept",
       "location": "Phonox",
-      "price": "35"
+      "price": "35",
+      "place":"Conference Hall",
+      "direction":"Off Berger Street, Route 9, Conference Hall",
+      "rating": "3.7"
     },
     {
       "pfp":"assets/images/jlop.png",
@@ -360,10 +402,10 @@ class Clubon {
       "Sustainability in Action: The 2024 Global Environmental Leadership Conference on Climate Change, Renewable Energy, and Eco-Friendly Technologies",
       "date": "Mon, 27 Sept",
       "location": "Smirks",
-      "price": "35"
+      "price": "35",
+      "place":"Conference Hall",
+      "direction":"Off Berger Street, Route 9, Conference Hall",
+      "rating": "3.7"
     },
-
-
-
   ];
 }
