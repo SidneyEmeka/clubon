@@ -36,7 +36,7 @@ class _SigninmethodState extends State<Signinmethod> {
                       ),
                     ],
                   )),
-              Positioned(
+              Positioned.fill(
                 top: size.height * 0.43,
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),

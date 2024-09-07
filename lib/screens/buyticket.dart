@@ -353,6 +353,46 @@ class _BuyticketState extends State<Buyticket> {
               Text("\$${widget.theEvent['price']}",style: Stylings.titles.copyWith(fontSize: 15),),
               GestureDetector(
                 onTap: (){
+                  showModalBottomSheet(context: context,
+                      backgroundColor: Colors.white,
+                      builder: (_){
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 10,),
+                            Container(
+                              padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+                              decoration: BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(
+                                        width: 2,
+                                        color: Colors.black12.withOpacity(0.05),
+                                      ))
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    height: 20,
+                                    width: 20,
+                                    child: Image.asset("${Stylings.imgPath}/tickets.png"),
+                                  ),
+                                  SizedBox(width: 10,),
+                                  Text("Regular",style: Stylings.titles.copyWith(fontSize: 15),),
+                                  Expanded(child: SizedBox()),
+                                  SizedBox(
+                                    height: 20,
+                                    width: 20,
+                                    child: Image.asset("${Stylings.imgPath}/bad.png"),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        );
+                      });
                 },
                 child: Container(
                   alignment: Alignment.center,

@@ -2,7 +2,6 @@
 import 'package:clubon/onboarding/signinmethod.dart';
 import 'package:clubon/utils/styles/stylings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
