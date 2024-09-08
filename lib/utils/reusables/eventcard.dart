@@ -1,6 +1,8 @@
 import 'package:clubon/screens/buyticket.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../styles/stylings.dart';
 
@@ -163,10 +165,8 @@ class Eventcard extends StatelessWidget {
                  ]
                )),
                   GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (_){
-                        return Buyticket(theEvent: theEvent);
-                      }));
+                     onTap: (){
+                      Get.to(Buyticket(theEvent: theEvent));
                     },
                     child: Container(
                       alignment: Alignment.center,

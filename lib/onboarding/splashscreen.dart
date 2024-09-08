@@ -2,6 +2,8 @@
 import 'package:clubon/onboarding/signinmethod.dart';
 import 'package:clubon/utils/styles/stylings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
@@ -16,9 +18,8 @@ class _SplashscreenState extends State<Splashscreen>
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 5), () {
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (_) => const Signinmethod()));
-    });
+      Get.to(Signinmethod(),);
+     });
   }
 
 

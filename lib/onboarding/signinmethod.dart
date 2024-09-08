@@ -4,6 +4,9 @@ import 'package:clubon/onboarding/register.dart';
 import 'package:clubon/utils/styles/stylings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:get/get_common/get_reset.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class Signinmethod extends StatefulWidget {
   const Signinmethod({super.key});
@@ -130,6 +133,8 @@ class _SigninmethodState extends State<Signinmethod> {
                       ///apple//
                       GestureDetector(
                         onTap: () {
+                          Get.to(Register(),
+                              );
                         },
                         child: Container(
                           margin: const EdgeInsets.symmetric(horizontal: 10),

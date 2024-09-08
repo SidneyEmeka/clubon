@@ -2,6 +2,8 @@ import 'package:clubon/onboarding/loginpage.dart';
 import 'package:clubon/onboarding/signinmethod.dart';
 import 'package:clubon/onboarding/verifyotp.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../utils/styles/stylings.dart';
 
@@ -30,15 +32,15 @@ class _RegisterState extends State<Register> {
               return const Signinmethod();
             }));
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back_ios,
-            color: Stylings.brown,
+            color: Colors.black,
             size: 20,
           ),
         ),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.symmetric(vertical: 20),
         width: size.width,
         height: size.height,
         child: Column(
@@ -250,8 +252,9 @@ class _RegisterState extends State<Register> {
                   GestureDetector(
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (_){
-                        return Verifyotp();
+                        return const Verifyotp();
                       }));
+
                     },
                     child: Container(
                       margin: const EdgeInsets.symmetric(horizontal: 20.0),

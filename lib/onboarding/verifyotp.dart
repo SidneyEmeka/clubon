@@ -1,12 +1,20 @@
 import 'package:clubon/onboarding/chooselocation.dart';
 import 'package:clubon/onboarding/signinmethod.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../utils/styles/stylings.dart';
 
-class Verifyotp extends StatelessWidget {
+class Verifyotp extends StatefulWidget {
   const Verifyotp({super.key});
 
+  @override
+  State<Verifyotp> createState() => _VerifyotpState();
+}
+
+class _VerifyotpState extends State<Verifyotp> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -19,9 +27,9 @@ class Verifyotp extends StatelessWidget {
               return const Signinmethod();
             }));
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back_ios,
-            color: Stylings.brown,
+            color: Colors.black,
             size: 20,
           ),
         ),
@@ -88,10 +96,8 @@ class Verifyotp extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_){
-                  return const Chooselocation();
-                }));
-              },
+                Get.to(Chooselocation());
+                },
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20.0),
                 alignment: Alignment.center,

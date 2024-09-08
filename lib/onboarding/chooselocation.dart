@@ -3,6 +3,8 @@ import 'package:clubon/onboarding/setnotification.dart';
 import 'package:clubon/onboarding/signinmethod.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../utils/styles/stylings.dart';
 
@@ -16,14 +18,18 @@ class Chooselocation extends StatefulWidget {
 class _ChooselocationState extends State<Chooselocation> {
   Future _dispayBottomSheet() {
     return showModalBottomSheet(context: context,
+        isScrollControlled: true,
+        useSafeArea: true,
         backgroundColor: Colors.white,
+        enableDrag: true,
+        showDragHandle: true,
         builder: (_){
       return Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,6 +68,7 @@ class _ChooselocationState extends State<Chooselocation> {
               ],
             ),
           ),
+          SizedBox(height: 20,),
           Container(
             child: Expanded(
               child: ListView(
@@ -213,7 +220,7 @@ class _ChooselocationState extends State<Chooselocation> {
             margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
            padding: const EdgeInsets.symmetric(vertical: 60),
            decoration: BoxDecoration(
-               color: Colors.white.withOpacity(0.8),
+               color: Colors.white.withOpacity(0.6),
                boxShadow: [
                  BoxShadow(
                      blurRadius: 20,
@@ -248,6 +255,24 @@ class _ChooselocationState extends State<Chooselocation> {
                 const Expanded(child: SizedBox()),
                 GestureDetector(
                   onTap: () {
+                    Get.snackbar(
+                      icon:Container(
+                        width: 20,
+                        height: 20,
+                        decoration: const BoxDecoration(
+                          color: Colors.transparent,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.asset("${Stylings.imgPath}/home.png", fit: BoxFit.contain,),
+                      ) ,
+                      isDismissible: true,
+                      dismissDirection: DismissDirection.horizontal,
+                      "Apple Sign in not available",
+                      "The Method is not supported for andriod devices",
+                      titleText: Text("One Time Password",style: Stylings.titles.copyWith(fontSize: 12),),
+                      messageText: Text("Your OTP code is 989299",style: Stylings.subTitles.copyWith(fontSize: 14),),
+
+                    );
                     Navigator.push(context, MaterialPageRoute(builder: (_){
                       return const Setnotification();
                     }));

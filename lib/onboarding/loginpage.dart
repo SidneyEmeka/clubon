@@ -33,7 +33,7 @@ class _LoginpageState extends State<Loginpage> {
           },
           child: Icon(
             Icons.arrow_back_ios,
-            color: Stylings.brown,
+            color: Colors.black,
             size: 20,
           ),
         ),
