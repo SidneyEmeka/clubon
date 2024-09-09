@@ -17,28 +17,63 @@ class Buyticket extends StatefulWidget {
 }
 
 class _BuyticketState extends State<Buyticket> {
+  @override
+  void initState() {
+    business.ticketPrice.value=double.parse("${widget.theEvent['price']}.99");
+    super.initState();
+  }
 var business = Businness();
-
-  var ticketType = "Regular".obs;
-  Future _dispayBottomSheet() {
+Future _dispayBottomSheet() {
     return showModalBottomSheet(context: context,
-        useSafeArea: true,
         backgroundColor: Colors.white,
         enableDrag: true,
-        showDragHandle: true,
         builder: (_){
           return Container(
+            margin: EdgeInsets.only(bottom: 10),
             width: Get.size.width,
             height: Get.size.height,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Obx(()=>Text(ticketType.value)),
+                Obx(()=>Container(
+                  width: Get.size.width,
+                  margin: EdgeInsets.only(top: 15,bottom: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border(
+                        bottom: BorderSide(
+                          color: Colors.black12.withOpacity(0.05),
+                        ),
+                       )
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(FluentSystemIcons.ic_fluent_ticket_regular, size: 25, color: Colors.black,),
+                      SizedBox(width: 20,),
+                      Text(business.ticketType.toString(),style: Stylings.titles.copyWith(fontSize: 15),),
+                      Expanded(child: SizedBox()),
+                      GestureDetector(
+                        onTap: (){
+                          Get.back();
+                        },
+                        child: SizedBox(
+                          height: 20,
+                          width: 20,
+                          child: Image.asset("${Stylings.imgPath}/bad.png"),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),),
                 //regular
-                GestureDetector(
+                Obx(()=>GestureDetector(
                   onTap: (){
-                   ticketType.value = "Regular";
+                    business.ticketType.value = "Regular";
+                    business.ticketPrice.value=double.parse("${widget.theEvent['price']}.99");
                   },
                   child: Container(
                     width: Get.size.width,
@@ -47,7 +82,7 @@ var business = Businness();
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
-                          color: ticketType.value=="Regular"?Stylings.orange:Colors.black12.withOpacity(0.05),
+                          color: business.ticketType.value=="Regular"?Stylings.orange:Colors.black12.withOpacity(0.05),
                         )
                     ),
                     child: Row(
@@ -55,7 +90,7 @@ var business = Businness();
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text("Regular  (\$${widget.theEvent['price']}.99)",style: Stylings.titles.copyWith(fontSize: 14),),
-                        ticketType.value=="Regular"?
+                        business.ticketType.value=="Regular"?
                         Icon(
                           Icons.check_circle_rounded,
                           color: Stylings.orange,
@@ -70,11 +105,12 @@ var business = Businness();
                       ],
                     ),
                   ),
-                ),
+                ),),
                 //Vip
-                GestureDetector(
+                Obx(()=>GestureDetector(
                   onTap: (){
-                    ticketType.value="VIP";
+                    business.ticketType.value="VIP";
+                    business.ticketPrice.value=(10+double.parse("${widget.theEvent['price']}.99"));
                   },
                   child: Container(
                     width: Get.size.width,
@@ -83,7 +119,7 @@ var business = Businness();
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
-                          color: ticketType.value=="VIP"?Stylings.orange:Colors.black12.withOpacity(0.05),
+                          color: business.ticketType.value=="VIP"?Stylings.orange:Colors.black12.withOpacity(0.05),
                         )
                     ),
                     child: Row(
@@ -91,7 +127,7 @@ var business = Businness();
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text("VIP  (\$${int.parse(widget.theEvent['price'])+10}.99)",style: Stylings.titles.copyWith(fontSize: 14),),
-                        ticketType.value=="VIP"?
+                        business.ticketType.value=="VIP"?
                         Icon(
                           Icons.check_circle_rounded,
                           color: Stylings.orange,
@@ -106,11 +142,12 @@ var business = Businness();
                       ],
                     ),
                   ),
-                ),
+                ),),
                 //MVP
-                GestureDetector(
+                Obx(()=>GestureDetector(
                   onTap: (){
-                    ticketType.value="MVP";
+                    business.ticketType.value="MVP";
+                    business.ticketPrice.value=(20+double.parse("${widget.theEvent['price']}.99"));
                   },
                   child: Container(
                     width: Get.size.width,
@@ -119,7 +156,7 @@ var business = Businness();
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
-                          color: ticketType.value=="MVP"?Stylings.orange:Colors.black12.withOpacity(0.05),
+                          color: business.ticketType.value=="MVP"?Stylings.orange:Colors.black12.withOpacity(0.05),
                         )
                     ),
                     child: Row(
@@ -127,7 +164,7 @@ var business = Businness();
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text("MVP  (\$${int.parse(widget.theEvent['price'])+20}.99)",style: Stylings.titles.copyWith(fontSize: 14),),
-                        ticketType.value=="MVP"?
+                        business.ticketType.value=="MVP"?
                         Icon(
                           Icons.check_circle_rounded,
                           color: Stylings.orange,
@@ -142,84 +179,104 @@ var business = Businness();
                       ],
                     ),
                   ),
-                ),
+                ),),
                 //How many
-                Container(
-                  margin: const EdgeInsets.only(top: 40),
-                  height: Get.size.height*0.1,
-                  width: Get.size.width*0.55,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                        onTap: (){
-                            business.increment();
-                        },
-                        child: Container(
-                          width: 25,
-                          height: 25,
-                          decoration: const BoxDecoration(
-                            color: Colors.transparent,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Image.asset("${Stylings.imgPath}/add.png", fit: BoxFit.contain,),
-                        ),
-                      ),
-                      Container(
-                        alignment: Alignment.center,
-                        width: Get.size.width*0.2,
-                        height: Get.size.height*0.1,
-                        decoration: const BoxDecoration(
-                          color: Colors.black12,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              width: 25,
-                              height: 15,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(50))
-                              ),
+                Expanded(
+                  child: Container(
+                    height: Get.size.height*0.08,
+                    width: Get.size.width*0.55,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                          onTap: (){
+                              business.increment();
+                          },
+                          child: Container(
+                            width: 25,
+                            height: 25,
+                            decoration: const BoxDecoration(
+                              color: Colors.transparent,
+                              shape: BoxShape.circle,
                             ),
-                            Obx(()=>Text(business.count.toString(),style: Stylings.titles.copyWith(fontSize: 15),),),
-                            Container(
-                              width: 25,
-                              height: 15,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.vertical(top: Radius.circular(50))
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: (){
-                             business.decreament();
-                        },
-                        child: Container(
-                          width: 25,
-                          height: 25,
-                          decoration: const BoxDecoration(
-                            color: Colors.transparent,
-                            shape: BoxShape.circle,
+                            child: Image.asset("${Stylings.imgPath}/add.png", fit: BoxFit.contain,),
                           ),
-                          child: Image.asset("${Stylings.imgPath}/remove.png", fit: BoxFit.contain,),
                         ),
-                      ),
-                    ],
+                        Container(
+                          alignment: Alignment.center,
+                          width: Get.size.width*0.18,
+                          height: Get.size.height*0.08,
+                          decoration: BoxDecoration(
+                            color: Colors.black12,
+                            borderRadius: BorderRadius.circular(5)
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                width: 25,
+                                height: 15,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.vertical(bottom: Radius.circular(50))
+                                ),
+                              ),
+                              Obx(()=>Text(business.count.toString(),style: Stylings.titles.copyWith(fontSize: 15),),),
+                              Container(
+                                width: 25,
+                                height: 15,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.vertical(top: Radius.circular(50))
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: (){
+                               business.decreament();
+                          },
+                          child: Container(
+                            width: 25,
+                            height: 25,
+                            decoration: const BoxDecoration(
+                              color: Colors.transparent,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Image.asset("${Stylings.imgPath}/remove.png", fit: BoxFit.contain,),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                )
-
+                ),
+                //checkout
+                Obx(()=>GestureDetector(
+                  onTap: (){
+                    business.bookingTotal=(business.ticketPrice*business.count.value).toDouble();
+                   // print(business.bookingTotal);
+                   Get.to(Payment(booking: widget.theEvent), arguments: (business.bookingTotal), );
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: Get.size.width,
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Stylings.orange
+                    ),
+                    child: Text(
+                          "Pay ${(business.ticketPrice*business.count.value).toStringAsFixed(2)}", style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),)
+                  ),
+                ),),
               ],
             ),
           );
         });
   }
-
 
   @override
   Widget build(BuildContext context) {

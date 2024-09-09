@@ -23,10 +23,10 @@ class MyApp extends StatelessWidget {
           hintStyle: Stylings.body.copyWith(color: Colors.black54)
         ),
         scaffoldBackgroundColor: Colors.white,
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           color: Colors.white
         ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Stylings.orange),
         useMaterial3: true,
       ),
       home: const Splashscreen(),
