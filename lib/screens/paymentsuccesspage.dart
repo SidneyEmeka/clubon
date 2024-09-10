@@ -29,20 +29,20 @@ class _PaymentsuccesspageState extends State<Paymentsuccesspage> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           scrolledUnderElevation: 0,
-          leading: IconButton(
+          leading: Obx(()=>finBiz.paymentStatus.value==false?Container():IconButton(
             onPressed: () {
               Get.back();
             },
-            icon: const Icon(
+            icon: finBiz.paymentStatus.value==false?Container():const Icon(
               FluentSystemIcons.ic_fluent_ios_arrow_left_filled,
               size: 20,
               color: Colors.black,
             ),
-          ),
-          title: Text(
+          ),),
+          title: Obx(()=>finBiz.paymentStatus.value==false?Container():Text(
             "Let's go have fun",
             style: Stylings.titles.copyWith(fontSize: 13),
-          ),
+          ),),
           centerTitle: true,
         ),
       body: Obx(()=>Center(child: finBiz.paymentStatus.value==false?CircularProgressIndicator(

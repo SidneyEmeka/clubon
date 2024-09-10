@@ -408,4 +408,16 @@ class Clubon {
       "rating": "3.7"
     },
   ];
+
+  static List<String> reports = [
+    "Search history can't be seen",
+    "Recent search history disappeared",
+    "The suggested searches are not interesting or are not personalized",
+    "The suggested searches have misspelling/grammar mistakes",
+    "he suggested searches have illegal/unverified terms in them",
+    "he suggested searches have inappropriate terms (explicit or sickening)",
+    "Others",
+  ];
+
+
 }

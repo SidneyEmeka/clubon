@@ -18,7 +18,7 @@ class _SplashscreenState extends State<Splashscreen>
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 5), () {
-      Get.to(Signinmethod(),);
+      Get.to(const Signinmethod());
      });
   }
 

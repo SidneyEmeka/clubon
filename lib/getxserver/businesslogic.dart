@@ -1,4 +1,5 @@
 import 'package:clubon/onboarding/chooselocation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class Businness {
@@ -27,4 +28,9 @@ class Businness {
   var saveCard = false.obs;
 
   var paymentStatus = false.obs;
+
+  var reportId = "Others".obs;
+  var otherReport = ''.obs;
+  var feedbackStatus = false.obs;
+
 }

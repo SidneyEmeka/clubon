@@ -1,5 +1,6 @@
 import 'package:clubon/homepage.dart';
 import 'package:clubon/onboarding/signinmethod.dart';
+import 'package:clubon/utils/reusables/glassmorph.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/styles/stylings.dart';
@@ -39,28 +40,11 @@ class Setnotification extends StatelessWidget {
             height: size.height*0.335,
             width: size.width,
             margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-            padding: const EdgeInsets.only(top:  50),
-            decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.8),
-                boxShadow: [
-                  BoxShadow(
-                      blurRadius: 20,
-                      offset: const Offset(-10, -10),
-                      color: Colors.black.withOpacity(0.3)
-                  ),
-                  BoxShadow(
-                      blurRadius: 20,
-                      offset: const Offset(10, 10),
-                      color: Colors.white.withOpacity(0.5)
-                  ),
-
-                ],
-                borderRadius: BorderRadius.circular(20)
-            ),
-            child: Column(
+            child: Glassmorph(blur: 20, opacity: 0.2, child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                const SizedBox(height: 40,),
                 Text(
                   "Choose Your Notification",
                   style: Stylings.titles.copyWith(fontSize: 27, fontWeight: FontWeight.w900),
@@ -72,7 +56,7 @@ class Setnotification extends StatelessWidget {
                       "Select what you want to be notified on",
                       style: Stylings.subTitles.copyWith(fontSize: 14)),
                 ),
-             //   const Expanded(child: SizedBox()),
+                //   const Expanded(child: SizedBox()),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (_){
@@ -106,9 +90,9 @@ class Setnotification extends StatelessWidget {
 
                   ),
                 ),
-                Expanded(child: SizedBox())
+                const Expanded(child: SizedBox())
               ],
-            ),
+            ),)
           )
         ],
       ),

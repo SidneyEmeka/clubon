@@ -288,9 +288,7 @@ Future _dispayBottomSheet() {
         scrolledUnderElevation: 0,
         leading: GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (_) {
-              return const Homepage();
-            }));
+            Get.back();
           },
           child: Icon(
             Icons.arrow_back_ios,
@@ -615,7 +613,7 @@ Future _dispayBottomSheet() {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("\$${widget.theEvent['price']}",style: Stylings.titles.copyWith(fontSize: 15),),
+              Text("\$${widget.theEvent['price']}.99",style: Stylings.titles.copyWith(fontSize: 15),),
               GestureDetector(
                 onTap: (){
                   //
