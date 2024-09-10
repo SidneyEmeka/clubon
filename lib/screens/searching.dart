@@ -519,42 +519,44 @@ class _SearchingState extends State<Searching> {
                                            mainAxisAlignment: MainAxisAlignment.start,
                                            crossAxisAlignment: CrossAxisAlignment.center,
                                            children: [
-                                             GestureDetector(
-                                               onTap: (){
-                                                 Get.to(const Report());
-                                               },
-                                               child: Container(
-                                                 margin: const EdgeInsets.only(left: 16,bottom: 10),
-                                                 height: 60,
-                                                 child: Row(
-                                                   mainAxisAlignment: MainAxisAlignment.start,
-                                                   crossAxisAlignment: CrossAxisAlignment.center,
-                                                   children: [
-                                                     const Icon(FluentSystemIcons.ic_fluent_flag_off_filled,color: Colors.black,size: 15,),
-                                                     const SizedBox(width: 15,),
-                                                     Text("Report",style: Stylings.titles.copyWith(fontSize: 12),)
-                                                   ],
+                                             Expanded(
+                                               child: GestureDetector(
+                                                 onTap: (){
+                                                   Get.to(const Report());
+                                                 },
+                                                 child: Container(
+                                                   margin: const EdgeInsets.only(left: 16,bottom: 10),
+                                                   child: Row(
+                                                     mainAxisAlignment: MainAxisAlignment.start,
+                                                     crossAxisAlignment: CrossAxisAlignment.center,
+                                                     children: [
+                                                       const Icon(FluentSystemIcons.ic_fluent_flag_off_filled,color: Colors.black,size: 15,),
+                                                       const SizedBox(width: 15,),
+                                                       Text("Report",style: Stylings.titles.copyWith(fontSize: 12),)
+                                                     ],
+                                                   ),
                                                  ),
                                                ),
                                              ),
-                                             GestureDetector(
-                                               onTap: (){
-                                                 setState(() {
-                                                   _foundEvent.remove(anEvent);
-                                                   Get.back();
-                                                 });
-                                               },
-                                               child: Container(
-                                                 margin: const EdgeInsets.only(left: 16,),
-                                                 height: 60,
-                                                 child: Row(
-                                                   mainAxisAlignment: MainAxisAlignment.start,
-                                                   crossAxisAlignment: CrossAxisAlignment.center,
-                                                   children: [
-                                                     const Icon(FluentSystemIcons.ic_fluent_eye_hide_filled,color: Colors.black,size: 15,),
-                                                     const SizedBox(width: 15,),
-                                                     Text("Mark as irrelevant",style: Stylings.titles.copyWith(fontSize: 12),)
-                                                   ],
+                                             Expanded(
+                                               child: GestureDetector(
+                                                 onTap: (){
+                                                   setState(() {
+                                                     _foundEvent.remove(anEvent);
+                                                     Get.back();
+                                                   });
+                                                 },
+                                                 child: Container(
+                                                   margin: const EdgeInsets.only(left: 16,),
+                                                   child: Row(
+                                                     mainAxisAlignment: MainAxisAlignment.start,
+                                                     crossAxisAlignment: CrossAxisAlignment.center,
+                                                     children: [
+                                                       const Icon(FluentSystemIcons.ic_fluent_eye_hide_filled,color: Colors.black,size: 15,),
+                                                       const SizedBox(width: 15,),
+                                                       Text("Mark as irrelevant",style: Stylings.titles.copyWith(fontSize: 12),)
+                                                     ],
+                                                   ),
                                                  ),
                                                ),
                                              ),
