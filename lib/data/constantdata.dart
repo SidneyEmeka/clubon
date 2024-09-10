@@ -419,5 +419,92 @@ class Clubon {
     "Others",
   ];
 
+  static  List<Map<String, dynamic>> friends = [
+    {
+      "id":1,
+    "imgUrl":"assets/images/f1.png",
+    "name":"Nnaemeka Sidney",
+    "username":"sidney",
+    },
+    {
+      "id":1,
+    "imgUrl":"assets/images/f1.png",
+    "name":"Nnaemeka Sidney",
+    "username":"sidney",
+    },
+    {
+      "id":1,
+    "imgUrl":"assets/images/f1.png",
+    "name":"Nnaemeka Sidney",
+    "username":"sidney",
+    },
+    {
+      "id":1,
+      "imgUrl":"assets/images/f1.png",
+      "name":"Nnaemeka Sidney",
+      "username":"sidney",
+    },
+    {
+      "id":1,
+      "imgUrl":"assets/images/f1.png",
+      "name":"Nnaemeka Sidney",
+      "username":"sidney",
+    },
+    {
+      "id":1,
+      "imgUrl":"assets/images/f1.png",
+      "name":"Nnaemeka Sidney",
+      "username":"sidney",
+    },
+    {
+      "id":1,
+      "imgUrl":"assets/images/f1.png",
+      "name":"Nnaemeka Sidney",
+      "username":"sidney",
+    },
+    {
+      "id":1,
+      "imgUrl":"assets/images/f1.png",
+      "name":"Nnaemeka Sidney",
+      "username":"sidney",
+    },
+    {
+      "id":1,
+      "imgUrl":"assets/images/f1.png",
+      "name":"Nnaemeka Sidney",
+      "username":"sidney",
+    },
+    {
+      "id":1,
+      "imgUrl":"assets/images/f1.png",
+      "name":"Nnaemeka Sidney",
+      "username":"sidney",
+    },
+  ];
+
+  static List<Map<String, dynamic>> upcoming = [
+    {"title": "Party or Party: All night, turn up and groove",
+    "imgUrl":"assets/images/recwt.png",
+    "pfp":"assets/images/f2.png",
+    "username":"Magdala Max",
+    "date":"2nd Mar, 2025"},
+    {"title": "Mix monster: Clubon users meet up",
+      "imgUrl":"assets/images/recdj.png",
+      "pfp":"assets/images/f4.png",
+      "username":"Qing June",
+      "date":"15th Oct, 2025"},
+  ];
+  static List<Map<String, dynamic>> past = [
+    {"title": "Saturday Sip and Paint: Community sip and paint party",
+      "imgUrl":"assets/images/ban3.jpg",
+      "pfp":"assets/images/f1.png",
+      "username":"Carllinaeus Mike",
+      "date":"2nd Jun, 2024"},
+    {"title": "Queens and Kings: Royalty all night party",
+      "imgUrl":"assets/images/ban5.jpg",
+      "pfp":"assets/images/f3.png",
+      "username":"Kenneth Chigozie",
+      "date":"12 May, 2024"},
+  ];
 
 }

@@ -1,10 +1,13 @@
+import 'package:clubon/getxserver/businesslogic.dart';
 import 'package:clubon/screens/searching.dart';
+import 'package:clubon/utils/reusables/eventcard.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../data/constantdata.dart';
+import '../utils/reusables/receventscard.dart';
 import '../utils/styles/stylings.dart';
 
 class Search extends StatefulWidget {
@@ -15,14 +18,16 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
+  var evBiz = Businness();
   Future _dispayBottomSheet() {
-    return showModalBottomSheet(context: context,
+    return showModalBottomSheet(
+        context: context,
         isScrollControlled: true,
         useSafeArea: true,
         backgroundColor: Colors.white,
         enableDrag: true,
         showDragHandle: true,
-        builder: (_){
+        builder: (_) {
           return Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -34,21 +39,22 @@ class _SearchState extends State<Search> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width*0.85,
+                      width: MediaQuery.of(context).size.width * 0.85,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
                           color: Colors.black12.withOpacity(0.04),
                           border: Border.all(color: Colors.white)),
                       child: TextFormField(
                         decoration: InputDecoration(
-                            contentPadding: EdgeInsets.only(left: 20),
+                            contentPadding: const EdgeInsets.only(left: 20),
                             hintText: "Search your city",
                             hintStyle: Stylings.titles.copyWith(fontSize: 12),
                             border: InputBorder.none),
                       ),
                     ),
-                    Expanded(child: GestureDetector(
-                      onTap: (){
+                    Expanded(
+                        child: GestureDetector(
+                      onTap: () {
                         Navigator.pop(context);
                       },
                       child: Container(
@@ -67,114 +73,161 @@ class _SearchState extends State<Search> {
                   ],
                 ),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               Container(
                 child: Expanded(
                   child: ListView(
                     children: [
                       //Florida
                       Padding(
-                        padding: const EdgeInsets.only(left: 20, top: 2,bottom: 10),
-                        child: Text("Florida",style: Stylings.titles.copyWith(fontSize: 15),),
+                        padding:
+                            const EdgeInsets.only(left: 20, top: 2, bottom: 10),
+                        child: Text(
+                          "Florida",
+                          style: Stylings.titles.copyWith(fontSize: 15),
+                        ),
                       ),
-                      Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
-                      ...Clubon.florida.map((aFcity){
+                      Divider(
+                        color: Colors.black12.withOpacity(0.05),
+                        height: 2,
+                      ),
+                      ...Clubon.florida.map((aFcity) {
                         return Container(
-                          padding: EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 15),
                           decoration: BoxDecoration(
                               border: Border(
                                   bottom: BorderSide(
-                                    width: 2,
-                                    color: Colors.black12.withOpacity(0.05),
-                                  )
-                              )
-                          ),
+                            width: 2,
+                            color: Colors.black12.withOpacity(0.05),
+                          ))),
                           width: MediaQuery.of(context).size.width,
-                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                          child: Text(
+                            aFcity,
+                            style: Stylings.subTitles.copyWith(fontSize: 13),
+                          ),
                         );
                       }),
                       //Canada
                       Padding(
-                        padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
-                        child: Text("Canada",style: Stylings.titles.copyWith(fontSize: 15),),
+                        padding: const EdgeInsets.only(
+                            left: 20, top: 20, bottom: 10),
+                        child: Text(
+                          "Canada",
+                          style: Stylings.titles.copyWith(fontSize: 15),
+                        ),
                       ),
-                      Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
-                      ...Clubon.canada.map((aFcity){
+                      Divider(
+                        color: Colors.black12.withOpacity(0.05),
+                        height: 2,
+                      ),
+                      ...Clubon.canada.map((aFcity) {
                         return Container(
-                          padding: EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 15),
                           decoration: BoxDecoration(
                               border: Border(
                                   bottom: BorderSide(
-                                    width: 2,
-                                    color: Colors.black12.withOpacity(0.05),
-                                  )
-                              )
-                          ),
+                            width: 2,
+                            color: Colors.black12.withOpacity(0.05),
+                          ))),
                           width: MediaQuery.of(context).size.width,
-                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                          child: Text(
+                            aFcity,
+                            style: Stylings.subTitles.copyWith(fontSize: 13),
+                          ),
                         );
                       }),
                       //Andorra
                       Padding(
-                        padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
-                        child: Text("Andorra",style: Stylings.titles.copyWith(fontSize: 15),),
+                        padding: const EdgeInsets.only(
+                            left: 20, top: 20, bottom: 10),
+                        child: Text(
+                          "Andorra",
+                          style: Stylings.titles.copyWith(fontSize: 15),
+                        ),
                       ),
-                      Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
-                      ...Clubon.andorra.map((aFcity){
+                      Divider(
+                        color: Colors.black12.withOpacity(0.05),
+                        height: 2,
+                      ),
+                      ...Clubon.andorra.map((aFcity) {
                         return Container(
-                          padding: EdgeInsets.symmetric(horizontal: 20,vertical: 13),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 13),
                           decoration: BoxDecoration(
                               border: Border(
                                   bottom: BorderSide(
-                                    width: 2,
-                                    color: Colors.black12.withOpacity(0.05),
-                                  )
-                              )
-                          ),
+                            width: 2,
+                            color: Colors.black12.withOpacity(0.05),
+                          ))),
                           width: MediaQuery.of(context).size.width,
-                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                          child: Text(
+                            aFcity,
+                            style: Stylings.subTitles.copyWith(fontSize: 13),
+                          ),
                         );
                       }),
                       //Austria
                       Padding(
-                        padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
-                        child: Text("Austria",style: Stylings.titles.copyWith(fontSize: 15),),
+                        padding: const EdgeInsets.only(
+                            left: 20, top: 20, bottom: 10),
+                        child: Text(
+                          "Austria",
+                          style: Stylings.titles.copyWith(fontSize: 15),
+                        ),
                       ),
-                      Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
-                      ...Clubon.austria.map((aFcity){
+                      Divider(
+                        color: Colors.black12.withOpacity(0.05),
+                        height: 2,
+                      ),
+                      ...Clubon.austria.map((aFcity) {
                         return Container(
-                          padding: EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 15),
                           decoration: BoxDecoration(
                               border: Border(
                                   bottom: BorderSide(
-                                    width: 2,
-                                    color: Colors.black12.withOpacity(0.05),
-                                  )
-                              )
-                          ),
+                            width: 2,
+                            color: Colors.black12.withOpacity(0.05),
+                          ))),
                           width: MediaQuery.of(context).size.width,
-                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                          child: Text(
+                            aFcity,
+                            style: Stylings.subTitles.copyWith(fontSize: 13),
+                          ),
                         );
                       }),
                       //Belgium
                       Padding(
-                        padding: const EdgeInsets.only(left: 20, top: 20, bottom: 10),
-                        child: Text("Belgium",style: Stylings.titles.copyWith(fontSize: 15),),
+                        padding: const EdgeInsets.only(
+                            left: 20, top: 20, bottom: 10),
+                        child: Text(
+                          "Belgium",
+                          style: Stylings.titles.copyWith(fontSize: 15),
+                        ),
                       ),
-                      Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
-                      ...Clubon.belguim.map((aFcity){
+                      Divider(
+                        color: Colors.black12.withOpacity(0.05),
+                        height: 2,
+                      ),
+                      ...Clubon.belguim.map((aFcity) {
                         return Container(
-                          padding: EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 15),
                           decoration: BoxDecoration(
                               border: Border(
                                   bottom: BorderSide(
-                                    width: 2,
-                                    color: Colors.black12.withOpacity(0.05),
-                                  )
-                              )
-                          ),
+                            width: 2,
+                            color: Colors.black12.withOpacity(0.05),
+                          ))),
                           width: MediaQuery.of(context).size.width,
-                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                          child: Text(
+                            aFcity,
+                            style: Stylings.subTitles.copyWith(fontSize: 13),
+                          ),
                         );
                       }),
                     ],
@@ -189,8 +242,10 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+        body: Obx(
+      () => SafeArea(
+          child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         width: Get.size.width,
         height: Get.size.height,
         child: Column(
@@ -201,32 +256,50 @@ class _SearchState extends State<Search> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Expanded(child: GestureDetector(
-                  onTap: (){
-                   // showSearch(context: context, delegate: CustomSearchDelegate());
-                    Get.to(Searching(), fullscreenDialog: true, transition: Transition.rightToLeft, duration: Duration(seconds: 3));
+                Expanded(
+                    child: GestureDetector(
+                  onTap: () {
+                    // showSearch(context: context, delegate: CustomSearchDelegate());
+                    Get.to(const Searching(),
+                        fullscreenDialog: true,
+                        transition: Transition.rightToLeft,
+                        duration: const Duration(seconds: 3));
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 15,vertical: 13),
-                    //height: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.circular(5)
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const Icon(FluentSystemIcons.ic_fluent_search_regular,color: Colors.black,size: 20,),
-                        SizedBox(width: 15,),
-                        Text("Search",style: Stylings.subTitles.copyWith(fontSize: 12),),
-                        Expanded(child: SizedBox()),
-                        Icon(FluentSystemIcons.ic_fluent_settings_dev_regular,color: Colors.black,size: 20,),
-                      ],
-                    )
-                  ),
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: 15, vertical: 13),
+                      //height: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.grey.shade200,
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const Icon(
+                            FluentSystemIcons.ic_fluent_search_regular,
+                            color: Colors.black,
+                            size: 20,
+                          ),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          Text(
+                            "Search",
+                            style: Stylings.subTitles.copyWith(fontSize: 12),
+                          ),
+                          const Expanded(child: SizedBox()),
+                          const Icon(
+                            FluentSystemIcons.ic_fluent_settings_dev_regular,
+                            color: Colors.black,
+                            size: 20,
+                          ),
+                        ],
+                      )),
                 )),
-                const SizedBox(width: 20,),
+                const SizedBox(
+                  width: 20,
+                ),
                 GestureDetector(
                   onTap: _dispayBottomSheet,
                   child: Container(
@@ -236,14 +309,221 @@ class _SearchState extends State<Search> {
                       color: Colors.transparent,
                       shape: BoxShape.circle,
                     ),
-                    child: Image.asset("${Stylings.imgPath}/locicon.png", fit: BoxFit.contain,),
+                    child: Image.asset(
+                      "${Stylings.imgPath}/locicon.png",
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
               ],
-            )
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    evBiz.searchPage.value = "All";
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    decoration: BoxDecoration(
+                        color: evBiz.searchPage.value == "All"
+                            ? Stylings.orange
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Text(
+                      "All",
+                      style: Stylings.titles.copyWith(
+                          fontSize: 15,
+                          color: evBiz.searchPage.value == "All"
+                              ? Colors.white
+                              : Colors.black),
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    evBiz.searchPage.value = "UC";
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    decoration: BoxDecoration(
+                        color: evBiz.searchPage.value == "UC"
+                            ? Stylings.orange
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Text(
+                      "Upcoming event",
+                      style: Stylings.titles.copyWith(
+                          fontSize: 15,
+                          color: evBiz.searchPage.value == "UC"
+                              ? Colors.white
+                              : Colors.black),
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    evBiz.searchPage.value = "P";
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    decoration: BoxDecoration(
+                        color: evBiz.searchPage.value == "P"
+                            ? Stylings.orange
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Text(
+                      "Past event",
+                      style: Stylings.titles.copyWith(
+                          fontSize: 15,
+                          color: evBiz.searchPage.value == "P"
+                              ? Colors.white
+                              : Colors.black),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            evBiz.searchPage.value=="All"?Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      color: Stylings.bgColor,
+                      height: Get.size.height * 0.06,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Past event",
+                            style: Stylings.titles.copyWith(
+                                fontSize: 15,
+                                color:  Colors.black),
+                          ),
+                          const Expanded(child: SizedBox()),
+                          Text(
+                            "See all",
+                            style: Stylings.titles.copyWith(
+                                fontSize: 12,
+                                color:  Colors.black),
+                          ),
+                          const SizedBox(width: 5,),
+                          const Icon(Icons.arrow_forward_ios_outlined,color: Colors.black,size: 20,)
+                        ],
+                      ),
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ...Clubon.past.take(2).map((uC){
+                            return Receventscard(imgUrl: uC['imgUrl'], title: uC['title'], date: uC['date'], pfp: uC['pfp'], username: uC['username'],);
+                          })
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      color: Stylings.bgColor,
+                      height: Get.size.height * 0.06,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Upcoming event",
+                            style: Stylings.titles.copyWith(
+                                fontSize: 15,
+                                color:  Colors.black),
+                          ),
+                          const Expanded(child: SizedBox()),
+                          Text(
+                            "See all",
+                            style: Stylings.titles.copyWith(
+                                fontSize: 12,
+                                color:  Colors.black),
+                          ),
+                          const SizedBox(width: 5,),
+                          const Icon(Icons.arrow_forward_ios_outlined,color: Colors.black,size: 20,)
+                        ],
+                      ),
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ...Clubon.upcoming.take(2).map((uC){
+                            return Receventscard(imgUrl: uC['imgUrl'], title: uC['title'], date: uC['date'], pfp: uC['pfp'], username: uC['username'],);
+                          })
+                        ],
+                      ),
+                    ),
+
+                  ],
+                ),
+              ),
+            ):evBiz.searchPage.value=="UC"?Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ...Clubon.tonight.map((uC){
+                      final eventPosterPfp = uC['pfp'];
+                      final eventPosterUsername = uC['username'];
+                      final eventBanner = uC['imgUrl'];
+                      final eventComments = uC['comments'];
+                      final eventLikes = uC['likes'];
+                      final eventTitle = uC['title'];
+                      final eventDate = uC['date'];
+                      final eventLocation = uC['location'];
+                      final eventPrice = uC['price'];
+                      return Eventcard(
+                        imgUrl: eventBanner,
+                        comments: eventComments,
+                        likes: eventLikes,
+                        title: eventTitle,
+                        date: eventDate,
+                        location: eventLocation,
+                        price: eventPrice,
+                        pfp: eventPosterPfp,
+                        username: eventPosterUsername, theEvent: uC,
+                      );
+                    }),
+                  ],
+                ),
+              ),
+            ):Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ...Clubon.past.map((uC){
+                  return Receventscard(imgUrl: uC['imgUrl'], title: uC['title'], date: uC['date'], pfp: uC['pfp'], username: uC['username'],isFull: true,);
+                }),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       )),
-    );
+    ));
   }
 }

@@ -33,4 +33,71 @@ class Businness {
   var otherReport = ''.obs;
   var feedbackStatus = false.obs;
 
+  var people = [
+  {
+  "id":1,
+  "imgUrl":"assets/images/jlop.png",
+  "name":"Jennifer Lopez",
+  "username":"jnotlop",
+  },
+  {
+  "id":2,
+  "imgUrl":"assets/images/clock.png",
+  "name":"MarkAnthony Sharad Woods",
+  "username":"mash",
+  },
+  {
+  "id":3,
+  "imgUrl":"assets/images/f1.png",
+  "name":"Millicent Brad",
+  "username":"millicentbrad",
+  },
+  {
+  "id":4,
+  "imgUrl":"assets/images/f2.png",
+  "name":"Evelyn Nwachukwu",
+  "username":"evenwa",
+  },
+  {
+  "id":5,
+  "imgUrl":"assets/images/f3.png",
+  "name":"Qing Sidney",
+  "username":"sidney",
+  },
+  {
+  "id":6,
+  "imgUrl":"assets/images/f4.png",
+  "name":"Adugo Jackson",
+  "username":"user276727276828297927",
+  },
+  {
+  "id":7,
+  "imgUrl":"assets/images/f5.png",
+  "name":"Uche Christian",
+  "username":"ucee",
+  },
+  {
+  "id":8,
+  "imgUrl":"assets/images/f1.png",
+  "name":"Malachy Steve",
+  "username":"malachysteve",
+  },
+  {
+  "id":9,
+  "imgUrl":"assets/images/jlop.png",
+  "name":"Mckenzie Makara",
+  "username":"msquared",
+  },
+  {
+  "id":10,
+  "imgUrl":"assets/images/f4.png",
+  "name":"Zendaya Ugwu",
+  "username":"zeezeebby",
+  },
+  ].obs;
+ var importContacts = false.obs;
+
+ var friendPage = 'Suggestion'.obs;
+
+ var searchPage = "All".obs;
 }
