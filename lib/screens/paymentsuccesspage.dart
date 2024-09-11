@@ -1,4 +1,5 @@
 import 'package:clubon/getxserver/businesslogic.dart';
+import 'package:clubon/homes/tickets.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,7 +19,7 @@ class _PaymentsuccesspageState extends State<Paymentsuccesspage> {
   var finBiz = Businness();
   @override
   void initState() {
-   Future.delayed(Duration(seconds: 3),(){
+   Future.delayed(const Duration(seconds: 3),(){
      finBiz.paymentStatus.value=true;
    });
     super.initState();
@@ -55,10 +56,10 @@ class _PaymentsuccesspageState extends State<Paymentsuccesspage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(FluentSystemIcons.ic_fluent_checkmark_circle_regular,color: Colors.green,size: 100,),
-            SizedBox(height: 10),
+            const Icon(FluentSystemIcons.ic_fluent_checkmark_circle_regular,color: Colors.green,size: 100,),
+            const SizedBox(height: 10),
             Text("Thank you for booking",style: Stylings.titles.copyWith(fontSize: 12),),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             RichText(
               textAlign: TextAlign.center,
                 text: TextSpan(
@@ -71,12 +72,13 @@ class _PaymentsuccesspageState extends State<Paymentsuccesspage> {
                   ),
                 ]
             )),
-            SizedBox(height: 80),
+            const SizedBox(height: 80),
             GestureDetector(
               onTap: (){
+                Get.to(const Tickets(),arguments: Get.arguments);
                },
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+                margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 20),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
                   color: Stylings.orange,

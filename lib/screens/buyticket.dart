@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../utils/styles/stylings.dart';
+import 'feedback.dart';
 
 class Buyticket extends StatefulWidget {
   final Map<String,dynamic> theEvent;
@@ -29,7 +30,7 @@ Future _dispayBottomSheet() {
         enableDrag: true,
         builder: (_){
           return Container(
-            margin: EdgeInsets.only(bottom: 10),
+            margin: const EdgeInsets.only(bottom: 10),
             width: Get.size.width,
             height: Get.size.height,
             child: Column(
@@ -38,7 +39,7 @@ Future _dispayBottomSheet() {
               children: [
                 Obx(()=>Container(
                   width: Get.size.width,
-                  margin: EdgeInsets.only(top: 15,bottom: 10),
+                  margin: const EdgeInsets.only(top: 15,bottom: 10),
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
@@ -52,10 +53,10 @@ Future _dispayBottomSheet() {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Icon(FluentSystemIcons.ic_fluent_ticket_regular, size: 25, color: Colors.black,),
-                      SizedBox(width: 20,),
+                      const Icon(FluentSystemIcons.ic_fluent_ticket_regular, size: 25, color: Colors.black,),
+                      const SizedBox(width: 20,),
                       Text(business.ticketType.toString(),style: Stylings.titles.copyWith(fontSize: 15),),
-                      Expanded(child: SizedBox()),
+                      const Expanded(child: SizedBox()),
                       GestureDetector(
                         onTap: (){
                           Get.back();
@@ -217,7 +218,7 @@ Future _dispayBottomSheet() {
                               Container(
                                 width: 25,
                                 height: 15,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.vertical(bottom: Radius.circular(50))
                                 ),
@@ -226,7 +227,7 @@ Future _dispayBottomSheet() {
                               Container(
                                 width: 25,
                                 height: 15,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.vertical(top: Radius.circular(50))
                                 ),
@@ -290,9 +291,9 @@ Future _dispayBottomSheet() {
           onTap: () {
             Get.back();
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back_ios,
-            color: Stylings.brown,
+            color: Colors.black,
             size: 20,
           ),
         ),
@@ -582,21 +583,26 @@ Future _dispayBottomSheet() {
                       ],
                     ),
                     const SizedBox(height: 10,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 18,
-                          height: 18,
-                          decoration: const BoxDecoration(
-                            color: Colors.transparent,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Image.asset("${Stylings.imgPath}/abt.png", fit: BoxFit.contain,),
-                        ), const SizedBox(width: 10,),
-                        Text('Need help?',style: Stylings.subTitles)
-                      ],
+                    GestureDetector(
+                      onTap: (){
+                          Get.to(const Report());
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 18,
+                            height: 18,
+                            decoration: const BoxDecoration(
+                              color: Colors.transparent,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Image.asset("${Stylings.imgPath}/abt.png", fit: BoxFit.contain,),
+                          ), const SizedBox(width: 10,),
+                          Text('Need help?',style: Stylings.subTitles)
+                        ],
+                      ),
                     ),
                   ],
                 ),

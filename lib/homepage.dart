@@ -6,7 +6,9 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 
 import 'homes/friends.dart';
+import 'homes/profile.dart';
 import 'homes/search.dart';
+import 'homes/tickets.dart';
 import 'onboarding/signinmethod.dart';
 
 
@@ -28,9 +30,9 @@ class _UserTimelineState extends State<Homepage> {
       case 2:
         return const Search();
       case 3:
-        return const Center(child: Text("Tickets"),);
+        return const Tickets();
       case 4:
-        return const Center(child: Text("Profile"),);
+        return const Profile();
       default:
         const Center(
           child: Text("Home"),

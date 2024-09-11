@@ -28,7 +28,7 @@ class _ReportState extends State<Report> {
           onPressed: () {
             Get.back();
           },
-          icon: Icon(
+          icon: const Icon(
             FluentSystemIcons.ic_fluent_ios_arrow_left_filled,
             size: 20,
             color: Colors.black,
@@ -43,16 +43,16 @@ class _ReportState extends State<Report> {
       body: Obx(()=>Container(
         width: Get.size.width,
         height: Get.size.height,
-        padding: EdgeInsets.symmetric(vertical: 15,horizontal: 15),
+        padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 15),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("What issue did you find ?",style: Stylings.titles.copyWith(fontSize: 12),),
-            SizedBox(height: 25,),
+            const SizedBox(height: 25,),
             Expanded(
               child: SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.vertical,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -73,7 +73,7 @@ class _ReportState extends State<Report> {
                                 width: Get.size.width*0.8,
                                 child: Text(aReport,style: Stylings.subTitles.copyWith(fontSize: 12),),
                               ),
-                              feedBiz.reportId.value==aReport?Icon(FluentSystemIcons.ic_fluent_record_regular,color: Stylings.orange,size: 20,):Icon(Icons.circle_outlined, size: 20, color: Colors.black54,)
+                              feedBiz.reportId.value==aReport?Icon(FluentSystemIcons.ic_fluent_record_regular,color: Stylings.orange,size: 20,):const Icon(Icons.circle_outlined, size: 20, color: Colors.black54,)
                             ],
                           ),
                         ),
@@ -102,7 +102,7 @@ class _ReportState extends State<Report> {
             ),
             GestureDetector(
               onTap: (){
-                Get.to(Feedbacksuccesspage());
+                Get.to(const Feedbacksuccesspage());
               },
               child: Container(
                 alignment: Alignment.center,

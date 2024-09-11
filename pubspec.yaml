@@ -38,6 +38,7 @@ dependencies:
   fluentui_icons: ^1.0.0
   get: ^4.6.6
   share_plus: ^10.0.2
+  barcode_widget: ^2.0.4
 
 
 dev_dependencies:

@@ -100,4 +100,6 @@ class Businness {
  var friendPage = 'Suggestion'.obs;
 
  var searchPage = "All".obs;
+
+ var ticketPage = "UC".obs;
 }
