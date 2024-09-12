@@ -1,4 +1,7 @@
 import 'package:clubon/homepage.dart';
+import 'package:clubon/screens/buyticket.dart';
+import 'package:clubon/screens/earnings.dart';
+import 'package:clubon/screens/frfopreviewpage.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,8 +23,11 @@ class Profile extends StatelessWidget {
         scrolledUnderElevation: 0,
         automaticallyImplyLeading: false,
         leading: Padding(
-          padding: const EdgeInsets.only(left: 15,top: 15.0),
-          child: Text("Profile",style: Stylings.titles.copyWith(fontSize: 15),),
+          padding: const EdgeInsets.only(left: 15, top: 15.0),
+          child: Text(
+            "Profile",
+            style: Stylings.titles.copyWith(fontSize: 15),
+          ),
         ),
         actions: [
           Padding(
@@ -37,7 +43,10 @@ class Profile extends StatelessWidget {
                     color: Colors.transparent,
                     shape: BoxShape.circle,
                   ),
-                  child: Image.asset("${Stylings.imgPath}/chatl.png", fit: BoxFit.contain,),
+                  child: Image.asset(
+                    "${Stylings.imgPath}/chatl.png",
+                    fit: BoxFit.contain,
+                  ),
                 ),
                 const SizedBox(width: 10),
                 Container(
@@ -47,18 +56,21 @@ class Profile extends StatelessWidget {
                     color: Colors.transparent,
                     shape: BoxShape.circle,
                   ),
-                  child: Image.asset("${Stylings.imgPath}/barl.png", fit: BoxFit.contain,),
+                  child: Image.asset(
+                    "${Stylings.imgPath}/barl.png",
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ],
             ),
           )
-         ],
+        ],
       ),
       body: ListView(
         children: [
           Container(
             width: Get.width,
-            height: Get.height*0.3,
+            height: Get.height * 0.3,
             color: Colors.white,
             child: Stack(
               children: [
@@ -68,11 +80,12 @@ class Profile extends StatelessWidget {
                   children: [
                     Container(
                       width: Get.width,
-                      height: Get.height*0.235,
+                      height: Get.height * 0.235,
                       decoration: const BoxDecoration(
                           color: Colors.black,
-                        image: DecorationImage(image: AssetImage("assets/images/ban4.jpg"),fit: BoxFit.fill)
-                      ),
+                          image: DecorationImage(
+                              image: AssetImage("assets/images/ban4.jpg"),
+                              fit: BoxFit.fill)),
                     ),
                     Positioned(
                       right: 15,
@@ -81,34 +94,37 @@ class Profile extends StatelessWidget {
                         width: 18,
                         height: 18,
                         decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Stylings.bgColor
+                            shape: BoxShape.circle, color: Stylings.bgColor),
+                        child: const Icon(
+                          Icons.mode_edit_outline_outlined,
+                          color: Colors.black,
+                          size: 10,
                         ),
-                        child: Icon(Icons.mode_edit_outline_outlined,color: Colors.black,size: 10,),
                       ),
                     ),
                   ],
                 ),
                 //pfp
                 Positioned(
-                  top: Get.height*0.18,
-                  left: Get.width*0.07,
+                  top: Get.height * 0.18,
+                  left: Get.width * 0.07,
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
                       Container(
-                        width: Get.width*0.22,
-                        height: Get.width*0.22,
+                        width: Get.width * 0.22,
+                        height: Get.width * 0.22,
                         decoration: const BoxDecoration(
-                            color: Colors.white,
-                          shape: BoxShape.circle ),
+                            color: Colors.white, shape: BoxShape.circle),
                       ),
                       Container(
-                        width: Get.width*0.2,
-                        height: Get.width*0.2,
+                        width: Get.width * 0.2,
+                        height: Get.width * 0.2,
                         decoration: const BoxDecoration(
-                            image: DecorationImage(image: AssetImage("assets/images/clock.png"),fit: BoxFit.fill),
-                            shape: BoxShape.circle ),
+                            image: DecorationImage(
+                                image: AssetImage("assets/images/clock.png"),
+                                fit: BoxFit.fill),
+                            shape: BoxShape.circle),
                       ),
                       Positioned(
                         top: 60,
@@ -117,10 +133,12 @@ class Profile extends StatelessWidget {
                           width: 20,
                           height: 20,
                           decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Stylings.bgColor
+                              shape: BoxShape.circle, color: Stylings.bgColor),
+                          child: const Icon(
+                            Icons.mode_edit_outline_outlined,
+                            color: Colors.black,
+                            size: 12,
                           ),
-                          child: Icon(Icons.mode_edit_outline_outlined,color: Colors.black,size: 12,),
                         ),
                       ),
                     ],
@@ -130,12 +148,15 @@ class Profile extends StatelessWidget {
                   alignment: Alignment.bottomRight,
                   child: Container(
                     alignment: Alignment.topLeft,
-                    width: Get.width*0.71,
+                    width: Get.width * 0.71,
                     height: 40,
                     decoration: const BoxDecoration(
-                        color: Colors.white,
-                      ),
-                    child: Text("Nnaemeka Sidney",style: Stylings.titles.copyWith(fontSize: 15),),
+                      color: Colors.white,
+                    ),
+                    child: Text(
+                      "Nnaemeka Sidney",
+                      style: Stylings.titles.copyWith(fontSize: 15),
+                    ),
                   ),
                 ),
               ],
@@ -148,44 +169,99 @@ class Profile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 //following
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text("0",style: Stylings.titles.copyWith(fontSize: 12),),
-                    const SizedBox(height: 5,),
-                    Text("Following",style: Stylings.titles.copyWith(fontSize: 11),),
-                  ],
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => const Frfopreviewpage(),
+                        arguments: "Following (0)");
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "0",
+                        style: Stylings.titles.copyWith(fontSize: 12),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "Following",
+                        style: Stylings.titles.copyWith(fontSize: 11),
+                      ),
+                    ],
+                  ),
                 ),
                 //followers
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text("1.2M",style: Stylings.titles.copyWith(fontSize: 12),),
-                    const SizedBox(height: 5,),
-                    Text("Followers",style: Stylings.titles.copyWith(fontSize: 11),),
-                  ],
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => const Frfopreviewpage(),
+                        arguments: "Followers (10)");
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "10",
+                        style: Stylings.titles.copyWith(fontSize: 12),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "Followers",
+                        style: Stylings.titles.copyWith(fontSize: 11),
+                      ),
+                    ],
+                  ),
                 ),
                 //Host
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text("9",style: Stylings.titles.copyWith(fontSize: 12),),
-                    const SizedBox(height: 5,),
-                    Text("Hosts",style: Stylings.titles.copyWith(fontSize: 11),),
-                  ],
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => const Frfopreviewpage(),
+                        arguments: "Hosts (5)");
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "5",
+                        style: Stylings.titles.copyWith(fontSize: 12),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "Hosts",
+                        style: Stylings.titles.copyWith(fontSize: 11),
+                      ),
+                    ],
+                  ),
                 ),
                 //Earning
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text("\$312k",style: Stylings.titles.copyWith(fontSize: 12),),
-                    const SizedBox(height: 5,),
-                    Text("Earnings",style: Stylings.titles.copyWith(fontSize: 11),),
-                  ],
+                GestureDetector(
+                  onTap: (){
+                    Get.to(()=> const Earnings());
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "\$32k",
+                        style: Stylings.titles.copyWith(fontSize: 12),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "Earnings",
+                        style: Stylings.titles.copyWith(fontSize: 11),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -200,37 +276,44 @@ class Profile extends StatelessWidget {
                 GestureDetector(
                   child: Container(
                     alignment: Alignment.center,
-                    width: Get.width*0.38,
+                    width: Get.width * 0.38,
                     height: 40,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Stylings.bgColor
+                        borderRadius: BorderRadius.circular(5),
+                        color: Stylings.bgColor),
+                    child: Text(
+                      "Edit profile",
+                      style: Stylings.titles.copyWith(fontSize: 12),
                     ),
-                    child: Text("Edit profile",style: Stylings.titles.copyWith(fontSize: 12),),
                   ),
                 ),
                 GestureDetector(
                   child: Container(
                     alignment: Alignment.center,
-                    width: Get.width*0.38,
+                    width: Get.width * 0.38,
                     height: 40,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
-                        color: Stylings.bgColor
+                        color: Stylings.bgColor),
+                    child: Text(
+                      "Share profile",
+                      style: Stylings.titles.copyWith(fontSize: 12),
                     ),
-                    child: Text("Share profile",style: Stylings.titles.copyWith(fontSize: 12),),
                   ),
                 ),
                 GestureDetector(
                   child: Container(
-                    alignment: Alignment.center,
-                    width: Get.width*0.13,
-                    height: 42,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Stylings.bgColor
-                    ),
-                    child: Icon(Icons.person_add_alt_outlined,size: 20,color: Colors.black,)),
+                      alignment: Alignment.center,
+                      width: Get.width * 0.13,
+                      height: 42,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: Stylings.bgColor),
+                      child: const Icon(
+                        Icons.person_add_alt_outlined,
+                        size: 20,
+                        color: Colors.black,
+                      )),
                 ),
               ],
             ),
@@ -247,19 +330,23 @@ class Profile extends StatelessWidget {
               children: [
                 Text(
                   "Upcoming events",
-                  style: Stylings.titles.copyWith(
-                      fontSize: 12,
-                      color:  Colors.black),
+                  style: Stylings.titles
+                      .copyWith(fontSize: 12, color: Colors.black),
                 ),
                 const Expanded(child: SizedBox()),
                 Text(
                   "See all",
-                  style: Stylings.titles.copyWith(
-                      fontSize: 12,
-                      color:  Colors.black),
+                  style: Stylings.titles
+                      .copyWith(fontSize: 12, color: Colors.black),
                 ),
-                const SizedBox(width: 5,),
-                const Icon(Icons.arrow_forward_ios_outlined,color: Colors.black,size: 15,)
+                const SizedBox(
+                  width: 5,
+                ),
+                const Icon(
+                  Icons.arrow_forward_ios_outlined,
+                  color: Colors.black,
+                  size: 15,
+                )
               ],
             ),
           ),
@@ -269,8 +356,14 @@ class Profile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ...Clubon.past.take(2).map((uC){
-                  return Receventscard(imgUrl: uC['imgUrl'], title: uC['title'], date: uC['date'], pfp: uC['pfp'], username: uC['username'],);
+                ...Clubon.past.take(2).map((uC) {
+                  return Receventscard(
+                    imgUrl: uC['imgUrl'],
+                    title: uC['title'],
+                    date: uC['date'],
+                    pfp: uC['pfp'],
+                    username: uC['username'],
+                  );
                 })
               ],
             ),
@@ -287,62 +380,68 @@ class Profile extends StatelessWidget {
               children: [
                 Text(
                   "Past events",
-                  style: Stylings.titles.copyWith(
-                      fontSize: 12,
-                      color:  Colors.black),
+                  style: Stylings.titles
+                      .copyWith(fontSize: 12, color: Colors.black),
                 ),
                 const Expanded(child: SizedBox()),
                 Text(
                   "See all",
-                  style: Stylings.titles.copyWith(
-                      fontSize: 12,
-                      color:  Colors.black),
+                  style: Stylings.titles
+                      .copyWith(fontSize: 12, color: Colors.black),
                 ),
-                const SizedBox(width: 5,),
-                const Icon(Icons.arrow_forward_ios_outlined,color: Colors.black,size: 15,)
+                const SizedBox(
+                  width: 5,
+                ),
+                const Icon(
+                  Icons.arrow_forward_ios_outlined,
+                  color: Colors.black,
+                  size: 15,
+                )
               ],
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 40,vertical: 10),
-            padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+            margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             color: Stylings.bgColor,
-            height: Get.height*0.07,
+            height: Get.height * 0.07,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   "No Past Events",
-                  style: Stylings.titles.copyWith(
-                      fontSize: 12,
-                      color:  Colors.black),
+                  style: Stylings.titles
+                      .copyWith(fontSize: 12, color: Colors.black),
                 ),
                 const Expanded(child: SizedBox()),
                 Text(
                   "You don't have any past events",
-                  style: Stylings.titles.copyWith(
-                      fontSize: 10,
-                      color:  Colors.black12),
+                  style: Stylings.titles
+                      .copyWith(fontSize: 10, color: Colors.black12),
                 ),
               ],
             ),
           ),
           GestureDetector(
-            onTap: (){
-              Get.off(Homepage());
+            onTap: () {
+              Get.off(const Homepage());
             },
             child: Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.symmetric(horizontal: 40),
-              padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
-              height: Get.height*0.05,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                color: Stylings.orange,
-              ),
-              child: Text("Browse Events",style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),)
-            ),
+                alignment: Alignment.center,
+                margin: const EdgeInsets.symmetric(horizontal: 40),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                height: Get.height * 0.05,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Stylings.orange,
+                ),
+                child: Text(
+                  "Browse Events",
+                  style: Stylings.titles
+                      .copyWith(fontSize: 12, color: Colors.white),
+                )),
           ),
           Container(
             margin: const EdgeInsets.symmetric(vertical: 10),
@@ -355,19 +454,23 @@ class Profile extends StatelessWidget {
               children: [
                 Text(
                   "Saved",
-                  style: Stylings.titles.copyWith(
-                      fontSize: 12,
-                      color:  Colors.black),
+                  style: Stylings.titles
+                      .copyWith(fontSize: 12, color: Colors.black),
                 ),
                 const Expanded(child: SizedBox()),
                 Text(
                   "See all",
-                  style: Stylings.titles.copyWith(
-                      fontSize: 12,
-                      color:  Colors.black),
+                  style: Stylings.titles
+                      .copyWith(fontSize: 12, color: Colors.black),
                 ),
-                const SizedBox(width: 5,),
-                const Icon(Icons.arrow_forward_ios_outlined,color: Colors.black,size: 15,)
+                const SizedBox(
+                  width: 5,
+                ),
+                const Icon(
+                  Icons.arrow_forward_ios_outlined,
+                  color: Colors.black,
+                  size: 15,
+                )
               ],
             ),
           ),
@@ -377,8 +480,14 @@ class Profile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ...Clubon.upcoming.take(2).map((uC){
-                  return Receventscard(imgUrl: uC['imgUrl'], title: uC['title'], date: uC['date'], pfp: uC['pfp'], username: uC['username'],);
+                ...Clubon.upcoming.take(2).map((uC) {
+                  return Receventscard(
+                    imgUrl: uC['imgUrl'],
+                    title: uC['title'],
+                    date: uC['date'],
+                    pfp: uC['pfp'],
+                    username: uC['username'],
+                  );
                 })
               ],
             ),

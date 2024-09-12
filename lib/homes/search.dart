@@ -399,7 +399,7 @@ class _SearchState extends State<Search> {
                       margin: const EdgeInsets.symmetric(vertical: 10),
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       color: Stylings.bgColor,
-                      height: Get.size.height * 0.06,
+                      height: Get.size.height * 0.05,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -438,7 +438,7 @@ class _SearchState extends State<Search> {
                       margin: const EdgeInsets.symmetric(vertical: 10),
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       color: Stylings.bgColor,
-                      height: Get.size.height * 0.06,
+                      height: Get.size.height * 0.05,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,

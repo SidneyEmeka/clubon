@@ -17,7 +17,7 @@ class Friendtile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 15),
+      padding: const EdgeInsets.only(left: 15),
       width: Get.size.width,
       height: Get.size.height*0.1,
       decoration: BoxDecoration(
@@ -45,7 +45,7 @@ class Friendtile extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Container(
             width: Get.size.width*0.4,
             child: Column(
@@ -66,9 +66,9 @@ class Friendtile extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(child: SizedBox()),
+          const Expanded(child: SizedBox()),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 12),
           //  width: Get.size.width*0.25,
             height: 33,
             decoration: BoxDecoration(
@@ -80,7 +80,7 @@ class Friendtile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(iP,color: Colors.black, size: 20,),
-                SizedBox(width: 7),
+                const SizedBox(width: 7),
                 Text(action,style: Stylings.titles.copyWith(fontSize: 12),)
               ],
             ),

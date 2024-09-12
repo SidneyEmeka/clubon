@@ -419,68 +419,68 @@ class Clubon {
     "Others",
   ];
 
-  static  List<Map<String, dynamic>> friends = [
-    {
-      "id":1,
-    "imgUrl":"assets/images/f1.png",
-    "name":"Nnaemeka Sidney",
-    "username":"sidney",
-    },
-    {
-      "id":1,
-    "imgUrl":"assets/images/f1.png",
-    "name":"Nnaemeka Sidney",
-    "username":"sidney",
-    },
-    {
-      "id":1,
-    "imgUrl":"assets/images/f1.png",
-    "name":"Nnaemeka Sidney",
-    "username":"sidney",
-    },
-    {
-      "id":1,
-      "imgUrl":"assets/images/f1.png",
-      "name":"Nnaemeka Sidney",
-      "username":"sidney",
-    },
-    {
-      "id":1,
-      "imgUrl":"assets/images/f1.png",
-      "name":"Nnaemeka Sidney",
-      "username":"sidney",
-    },
-    {
-      "id":1,
-      "imgUrl":"assets/images/f1.png",
-      "name":"Nnaemeka Sidney",
-      "username":"sidney",
-    },
-    {
-      "id":1,
-      "imgUrl":"assets/images/f1.png",
-      "name":"Nnaemeka Sidney",
-      "username":"sidney",
-    },
-    {
-      "id":1,
-      "imgUrl":"assets/images/f1.png",
-      "name":"Nnaemeka Sidney",
-      "username":"sidney",
-    },
-    {
-      "id":1,
-      "imgUrl":"assets/images/f1.png",
-      "name":"Nnaemeka Sidney",
-      "username":"sidney",
-    },
-    {
-      "id":1,
-      "imgUrl":"assets/images/f1.png",
-      "name":"Nnaemeka Sidney",
-      "username":"sidney",
-    },
-  ];
+  //static  List<Map<String, dynamic>> friends = [
+  //     {
+  //       "id":1,
+  //     "imgUrl":"assets/images/f1.png",
+  //     "name":"Nnaemeka Sidney",
+  //     "username":"sidney",
+  //     },
+  //     {
+  //       "id":1,
+  //     "imgUrl":"assets/images/f1.png",
+  //     "name":"Nnaemeka Sidney",
+  //     "username":"sidney",
+  //     },
+  //     {
+  //       "id":1,
+  //     "imgUrl":"assets/images/f1.png",
+  //     "name":"Nnaemeka Sidney",
+  //     "username":"sidney",
+  //     },
+  //     {
+  //       "id":1,
+  //       "imgUrl":"assets/images/f1.png",
+  //       "name":"Nnaemeka Sidney",
+  //       "username":"sidney",
+  //     },
+  //     {
+  //       "id":1,
+  //       "imgUrl":"assets/images/f1.png",
+  //       "name":"Nnaemeka Sidney",
+  //       "username":"sidney",
+  //     },
+  //     {
+  //       "id":1,
+  //       "imgUrl":"assets/images/f1.png",
+  //       "name":"Nnaemeka Sidney",
+  //       "username":"sidney",
+  //     },
+  //     {
+  //       "id":1,
+  //       "imgUrl":"assets/images/f1.png",
+  //       "name":"Nnaemeka Sidney",
+  //       "username":"sidney",
+  //     },
+  //     {
+  //       "id":1,
+  //       "imgUrl":"assets/images/f1.png",
+  //       "name":"Nnaemeka Sidney",
+  //       "username":"sidney",
+  //     },
+  //     {
+  //       "id":1,
+  //       "imgUrl":"assets/images/f1.png",
+  //       "name":"Nnaemeka Sidney",
+  //       "username":"sidney",
+  //     },
+  //     {
+  //       "id":1,
+  //       "imgUrl":"assets/images/f1.png",
+  //       "name":"Nnaemeka Sidney",
+  //       "username":"sidney",
+  //     },
+  //   ];
 
   static List<Map<String, dynamic>> upcoming = [
     {"title": "Party or Party: All night, turn up and groove",
@@ -506,5 +506,79 @@ class Clubon {
       "username":"Kenneth Chigozie",
       "date":"12 May, 2024"},
   ];
+
+  static List<Map<String, dynamic>> donations = [
+    {
+      "id":1,
+      "imgUrl":"assets/images/jlop.png",
+      "total":"2,500",
+      "gave":"225",
+      "username":"jnotlop",
+    },
+    {
+      "id":2,
+      "imgUrl":"assets/images/clock.png",
+      "total":"500",
+      "gave":"205",
+      "username":"mash",
+    },
+    {
+      "id":3,
+      "imgUrl":"assets/images/f1.png",
+      "total":"200",
+      "gave":"25",
+      "username":"millicentbrad",
+    },
+    {
+      "id":4,
+      "imgUrl":"assets/images/f2.png",
+      "total":"440",
+      "gave":"5",
+      "username":"evenwa",
+    },
+    {
+      "id":5,
+      "imgUrl":"assets/images/f3.png",
+      "total":"467",
+      "gave":"12",
+      "username":"sidney",
+    },
+    {
+      "id":6,
+      "imgUrl":"assets/images/f4.png",
+      "total":"500",
+      "gave":"314",
+      "username":"user276727276828297927",
+    },
+    {
+      "id":7,
+      "imgUrl":"assets/images/f5.png",
+      "total":"900",
+      "gave":"10",
+      "username":"ucee",
+    },
+    {
+      "id":8,
+      "imgUrl":"assets/images/f1.png",
+      "total":"939",
+      "gave":"132",
+      "username":"malachysteve",
+    },
+    {
+      "id":9,
+      "imgUrl":"assets/images/jlop.png",
+      "total":"9,000",
+      "gave":"331",
+      "username":"msquared",
+    },
+    {
+      "id":10,
+      "imgUrl":"assets/images/f4.png",
+      "total":"1,000",
+      "gave":"890",
+      "username":"zeezeebby",
+    },
+  ];
+
 
 }
