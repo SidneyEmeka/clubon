@@ -1,4 +1,5 @@
 import 'package:clubon/screens/earnbreakdown.dart';
+import 'package:clubon/screens/payout.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -277,16 +278,21 @@ class Earnings extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 14.0,vertical: 10),
               child: Text("You can only withdraw once every 30 days. Your next withdrawal is in 2 days time.", style: Stylings.titles.copyWith(fontSize: 10,color: Colors.black26),),
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 14),
-              alignment: Alignment.center,
-              width: Get.width,
-              height: Get.height*0.05,
-              decoration: BoxDecoration(
-                color: Stylings.orange,
-                borderRadius: BorderRadius.circular(5)
+            GestureDetector(
+              onTap: (){
+                Get.to(()=> const Payout());
+              },
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 14),
+                alignment: Alignment.center,
+                width: Get.width,
+                height: Get.height*0.05,
+                decoration: BoxDecoration(
+                  color: Stylings.orange,
+                  borderRadius: BorderRadius.circular(5)
+                ),
+                child: Text("Request payout",style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),),
               ),
-              child: Text("Request payout",style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),),
             ),
             const SizedBox(height: 40,),
           ],

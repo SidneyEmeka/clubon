@@ -96,10 +96,12 @@ class Businness {
   },
   ].obs;
  var importContacts = false.obs;
-
  var friendPage = 'Suggestion'.obs;
 
  var searchPage = "All".obs;
 
  var ticketPage = "UC".obs;
+
+ var countries = ["GBP","NIG"];
+ var bankAccs = [].obs;
 }
