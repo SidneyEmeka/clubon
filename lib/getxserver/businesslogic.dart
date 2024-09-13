@@ -102,6 +102,32 @@ class Businness {
 
  var ticketPage = "UC".obs;
 
+ var totalEarning = 32000.obs;
  var countries = ["GBP","NIG"];
+ var selectedRate = "GBP".obs;
+ var showError = false.obs;
+ var toSend = 0.0.obs;
+ var toRecieve = 0.00.obs;
+
+ void convert(num amount) {
+   if(amount > totalEarning.value){
+     showError.value=true;
+   }
+   else{
+     showError.value=false;
+     if(selectedRate.value=="NIG"){
+       toRecieve.value = amount * 1650;
+     }
+    else if(selectedRate.value=="GBP"){
+       toRecieve.value = amount * 0.76;
+     }
+   }
+ }
+
  var bankAccs = [].obs;
+ var actName = TextEditingController().obs;
+ var acctNumber = TextEditingController().obs;
+ var sortCode = TextEditingController().obs;
+ var userBankName = "Union Bank".obs;
+ var bankNames = ["Union Bank", "Zenith Bank", "UBA", "Moniepoint", "Opay", "First Bank"].obs;
 }

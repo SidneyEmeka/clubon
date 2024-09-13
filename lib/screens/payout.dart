@@ -15,6 +15,7 @@ class Payout extends StatelessWidget {
   Widget build(BuildContext context) {
     var moneyBiz = Businness();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.white,
         scrolledUnderElevation: 0,
@@ -36,7 +37,7 @@ class Payout extends StatelessWidget {
         title: Text("Payout",style: Stylings.titles.copyWith(fontSize: 12),),
         centerTitle: true,
       ),
-      body:   Container(
+      body:   Obx(()=>Container(
         margin: const EdgeInsets.symmetric(vertical: 20),
         width: Get.width,
         height: Get.height,
@@ -52,7 +53,7 @@ class Payout extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text("Amount to withdraw",style: Stylings.titles.copyWith(fontSize: 12),),
-                  Text("Amount exceed balance",style: Stylings.titles.copyWith(fontSize: 10,color: Colors.red),),
+                  moneyBiz.showError.value?Text("Amount exceed balance",style: Stylings.titles.copyWith(fontSize: 10,color: Colors.red),):Container(),
                 ],
               ),
             ),
@@ -96,12 +97,17 @@ class Payout extends StatelessWidget {
                   ),
                   const SizedBox(width: 50),
                   Expanded(child: TextField(
+                    onChanged: (value){
+                      moneyBiz.toSend.value = double.parse(value);
+                      moneyBiz.convert(moneyBiz.toSend.value);
+                    },
                     textAlign: TextAlign.end,
                     style: Stylings.titles.copyWith(fontSize: 15),
                     cursorColor: Colors.black45,
                     keyboardType: TextInputType.number,
-
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
+                      hintText: "0.0",
+                        hintStyle: Stylings.titles.copyWith(fontSize: 15,color: Colors.grey.shade500),
                         border: InputBorder.none
                     ),
                   ))
@@ -127,7 +133,7 @@ class Payout extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text("You will receive",style: Stylings.titles.copyWith(fontSize: 12),),
-                  Text("1 USD = 1.2 GBP",style: Stylings.titles.copyWith(fontSize: 11),),
+                  Text("1 USD = ${moneyBiz.selectedRate.value=="GBP"?"0.76 GBP":"1650 NGN"}",style: Stylings.titles.copyWith(fontSize: 11),),
                 ],
               ),
             ),
@@ -151,7 +157,7 @@ class Payout extends StatelessWidget {
                     height: 38,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
-                        image: const DecorationImage(image: AssetImage("assets/images/brt.png"),fit: BoxFit.cover)
+                        image: DecorationImage(image: AssetImage(moneyBiz.selectedRate.value=="GBP"?"assets/images/brt.png":"assets/images/ng.png"),fit: BoxFit.cover)
                     ),
                   ),
                   const SizedBox(width: 5),
@@ -159,7 +165,8 @@ class Payout extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 8),
                       menuMaxHeight: Get.height * 0.2,
                       borderRadius: BorderRadius.circular(10),
-                      value: "GBP",
+                      value: moneyBiz.selectedRate.value,
+                      dropdownColor: Stylings.bgColor,
                       iconEnabledColor: Colors.black,
                       icon: const Icon(Icons.keyboard_arrow_down_sharp,size: 17,color: Colors.black,),
                       underline: const SizedBox(),
@@ -174,14 +181,17 @@ class Payout extends StatelessWidget {
                         })
                       ],
                       onChanged: (value) {
+                        moneyBiz.selectedRate.value = value!;
+                        moneyBiz.convert(moneyBiz.toSend.value);
                       }),
                   const SizedBox(width: 50),
                   const Expanded(child:SizedBox()),
-                  Text("3,000",style: Stylings.titles.copyWith(fontSize: 15),)
+                  Text(moneyBiz.toRecieve.value.toString(),style: Stylings.titles.copyWith(fontSize: 15),)
                 ],
               ),
             ),
             //accts
+            Get.arguments==null?
             GestureDetector(
               onTap: (){
                 Get.to(()=>const Addbankacc());
@@ -203,14 +213,112 @@ class Payout extends StatelessWidget {
                   ],
                 ),
               ),
+            ):
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 19),
+                  padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 15),
+                  width: Get.width,
+                  decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.vertical(top: Radius.circular(5)),
+                      border: Border.all(color: Colors.grey.shade200)
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text("To",style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text(Get.arguments[0]['acname'],style: Stylings.titles.copyWith(fontSize: 12),),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 19),
+                  padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 15),
+                  width: Get.width,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey.shade200)
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text("Account number",style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text(Get.arguments[0]['acnum'],style: Stylings.titles.copyWith(fontSize: 12),),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 19),
+                  padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 15),
+                  width: Get.width,
+                  decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.vertical(top: Radius.circular(5)),
+                      border: Border.all(color: Colors.grey.shade200)
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text("Bank name",style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text(Get.arguments[0]['bankName'],style: Stylings.titles.copyWith(fontSize: 12),),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 19),
+                  padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 15),
+                  width: Get.width,
+                  decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.vertical(top: Radius.circular(5)),
+                      border: Border.all(color: Colors.grey.shade200)
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text("Sort code",style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text(Get.arguments[0]['sortcode'].toString().isEmpty?"XXXXX":Get.arguments[0]['sortcode'],style: Stylings.titles.copyWith(fontSize: 12),),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: (){
+                    Get.to(()=>const Addbankacc());
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 19),
+                    padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 15),
+                    width: Get.width,
+                    decoration: BoxDecoration(
+                        color: Colors.grey.shade200,
+                        borderRadius: const BorderRadius.vertical(bottom: Radius.circular(5)),
+                        border: Border.all(color: Colors.grey.shade200)
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text("Change account",style: Stylings.titles.copyWith(fontSize: 12),),
+                        const Icon(Icons.arrow_forward_ios,color: Colors.black,size: 15,)
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
+
             const Expanded(child: SizedBox()),
             GestureDetector(
               onTap: (){
-                if(moneyBiz.bankAccs.isEmpty)
-                  {
-                   Get.snackbar("Account Details", "Kindly add a payment account of your choice");
-                  }
+                if(Get.arguments==null)
+                {
+                  Get.snackbar(duration: const Duration(milliseconds: 2500),"Account Details", "Kindly add a payment account of your choice");
+                }
+                print(Get.arguments);
               },
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 14),
@@ -243,7 +351,7 @@ class Payout extends StatelessWidget {
             ),
           ],
         ),
-      )
+      ))
     );
   }
 }
