@@ -27,24 +27,25 @@ class _SigninmethodState extends State<Signinmethod> {
           Stack(
             alignment: Alignment.center,
             children: [
-              SizedBox(
+              Container(
                   height: size.height,
                   width: size.width,
+                  color: Colors.white,
                   child: Column(
                     children: [
                       Image.asset(
                         "${Stylings.imgPath}/dj.png",
                         fit: BoxFit.cover,
+                        width: size.width,
                         height: size.height * 0.5,
                       ),
                     ],
                   )),
               Positioned.fill(
-                top: size.height * 0.43,
+                top: size.height * 0.44,
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   width: size.width,
-                  height: size.height * 0.57,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
@@ -66,7 +67,7 @@ class _SigninmethodState extends State<Signinmethod> {
                             style: Stylings.body
                         ),
                       ),
-                      const SizedBox(height: 20,),
+                      const SizedBox(height: 15,),
                       ///email///
                       GestureDetector(
                         onTap: () {
@@ -75,9 +76,9 @@ class _SigninmethodState extends State<Signinmethod> {
                           }));
                         },
                         child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10,vertical: 12),
                           margin: const EdgeInsets.symmetric(horizontal: 10),
                           alignment: Alignment.center,
-                          height: 55,
                           decoration: BoxDecoration(
                               border: Border.all(
                                 color: Colors.black12,
@@ -96,8 +97,8 @@ class _SigninmethodState extends State<Signinmethod> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 15.0),
-                        child: Text("OR", style: Stylings.titles.copyWith(fontSize: 15),),
+                        padding: const EdgeInsets.symmetric(vertical: 10.0),
+                        child: Text("OR", style: Stylings.titles.copyWith(fontSize: 14),),
                       ),
                       ///google///
                       GestureDetector(
@@ -109,7 +110,7 @@ class _SigninmethodState extends State<Signinmethod> {
                         child: Container(
                           margin: const EdgeInsets.symmetric(horizontal: 10),
                           alignment: Alignment.center,
-                          height: 55,
+                         padding: EdgeInsets.symmetric(horizontal: 10,vertical: 14),
                           decoration: BoxDecoration(
                               color: const Color(0xffffffffff2f2f2),
                               borderRadius: BorderRadius.circular(8)
@@ -139,7 +140,7 @@ class _SigninmethodState extends State<Signinmethod> {
                         child: Container(
                           margin: const EdgeInsets.symmetric(horizontal: 10),
                           alignment: Alignment.center,
-                          height: 55,
+                          padding: EdgeInsets.symmetric(horizontal: 10,vertical: 12),
                           decoration: BoxDecoration(
                               color: const Color(0xffffffffff2f2f2),
                               borderRadius: BorderRadius.circular(8)
@@ -210,16 +211,16 @@ class _SigninmethodState extends State<Signinmethod> {
                 ),
               ),
               Positioned(
-                top: size.height * 0.39,
+                top: size.height * 0.4,
                 child: Container(
-                  padding: const EdgeInsets.all(20),
-                  width: 80,
-                  height: 80,
+                  padding: const EdgeInsets.all(18),
+                  width: Get.height*0.09,
+                  height: Get.height*0.09,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.circle,
                   ),
-                  child: Image.asset("${Stylings.imgPath}/redlogo.png", height: 14, width: 14,fit: BoxFit.contain,),
+                  child: Image.asset("${Stylings.imgPath}/redlogo.png",fit: BoxFit.cover,),
                 ),
               ),
             ],

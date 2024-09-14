@@ -37,7 +37,7 @@ class Setnotification extends StatelessWidget {
             ),
           ),
           Container(
-            height: size.height*0.335,
+            height: size.height*0.37,
             width: size.width,
             margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
             child: Glassmorph(blur: 20, opacity: 0.2, child: Column(
@@ -57,40 +57,45 @@ class Setnotification extends StatelessWidget {
                       style: Stylings.subTitles.copyWith(fontSize: 14)),
                 ),
                 //   const Expanded(child: SizedBox()),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_){
-                      return const Homepage();
-                    }));
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15),
-                    alignment: Alignment.center,
-                    width: size.width,
-                    height: 55,
-                    decoration: BoxDecoration(
-                        color: Stylings.orange,
-                        borderRadius: BorderRadius.circular(8)),
-                    child: Text("Everything", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600,color: Colors.white),),
+                Expanded(child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (_){
+                          return const Homepage();
+                        }));
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
+                        alignment: Alignment.center,
+                        width: size.width,
+                        height: 55,
+                        decoration: BoxDecoration(
+                            color: Stylings.orange,
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Text("Everything", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600,color: Colors.white),),
 
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                    alignment: Alignment.center,
-                    width: size.width,
-                    height: 55,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8)),
-                    child: Text("Just My Event", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600),),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 20.0),
+                        alignment: Alignment.center,
+                        width: size.width,
+                        height: 55,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Text("Just My Event", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600),),
 
-                  ),
-                ),
-                const Expanded(child: SizedBox())
+                      ),
+                    ),
+                  ],
+                ))
               ],
             ),)
           )

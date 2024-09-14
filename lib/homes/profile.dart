@@ -404,9 +404,9 @@ class Profile extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             color: Stylings.bgColor,
-            height: Get.height * 0.07,
+            height: Get.height * 0.09,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
@@ -414,7 +414,6 @@ class Profile extends StatelessWidget {
                   style: Stylings.titles
                       .copyWith(fontSize: 12, color: Colors.black),
                 ),
-                const Expanded(child: SizedBox()),
                 Text(
                   "You don't have any past events",
                   style: Stylings.titles

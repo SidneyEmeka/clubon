@@ -85,7 +85,7 @@ class Eventcard extends StatelessWidget {
           ),
           //reactions
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15.0),
+            padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -95,11 +95,11 @@ class Eventcard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(FluentSystemIcons.ic_fluent_heart_regular,color: Colors.black, size: 25,),
+                    Icon(FluentSystemIcons.ic_fluent_heart_regular,color: Colors.black, size: 23,),
                     SizedBox(width: 10,),
-                    Icon(FluentSystemIcons.ic_fluent_chat_regular,color: Colors.black, size: 23,),
+                    Icon(FluentSystemIcons.ic_fluent_chat_regular,color: Colors.black, size: 20,),
                     SizedBox(width: 10,),
-                    Icon(FluentSystemIcons.ic_fluent_share_ios_regular,color: Colors.black, size: 23,),
+                    Icon(FluentSystemIcons.ic_fluent_share_ios_regular,color: Colors.black, size: 20,),
                   ],
                 ),
                 //counts
@@ -149,7 +149,7 @@ class Eventcard extends StatelessWidget {
           //book
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 17),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -175,7 +175,7 @@ class Eventcard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5)
                       ),
                       width: size.width*0.4,
-                      height: 40,
+                      height: Get.height*0.045,
                       child: Text("Buy Ticket", style: Stylings.titles.copyWith(color: Colors.white, fontSize: 15),),
                     ),
                   )

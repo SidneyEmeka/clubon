@@ -237,57 +237,62 @@ class _ChooselocationState extends State<Chooselocation> {
                         "Select an area to get a tailored experience",
                         style: Stylings.subTitles.copyWith(fontSize: 14)),
                   ),
-                  const Expanded(child: SizedBox()),
-                  GestureDetector(
-                    onTap: () {
-                      Get.snackbar(
-                        icon:Container(
-                          width: 20,
-                          height: 20,
-                          decoration: const BoxDecoration(
-                            color: Colors.transparent,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Image.asset("${Stylings.imgPath}/home.png", fit: BoxFit.contain,),
-                        ) ,
-                        isDismissible: true,
-                        dismissDirection: DismissDirection.horizontal,
-                        "Apple Sign in not available",
-                        "The Method is not supported for andriod devices",
-                        titleText: Text("One Time Password",style: Stylings.titles.copyWith(fontSize: 12),),
-                        messageText: Text("Your OTP code is 989299",style: Stylings.subTitles.copyWith(fontSize: 14),),
+                  Expanded(child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Get.snackbar(
+                            icon:Container(
+                              width: 20,
+                              height: 20,
+                              decoration: const BoxDecoration(
+                                color: Colors.transparent,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Image.asset("${Stylings.imgPath}/home.png", fit: BoxFit.contain,),
+                            ) ,
+                            isDismissible: true,
+                            dismissDirection: DismissDirection.horizontal,
+                            "Apple Sign in not available",
+                            "The Method is not supported for andriod devices",
+                            titleText: Text("One Time Password",style: Stylings.titles.copyWith(fontSize: 12),),
+                            messageText: Text("Your OTP code is 989299",style: Stylings.subTitles.copyWith(fontSize: 14),),
 
-                      );
-                      Navigator.push(context, MaterialPageRoute(builder: (_){
-                        return const Setnotification();
-                      }));
-                    },
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15),
-                      alignment: Alignment.center,
-                      width: size.width,
-                      height: 55,
-                      decoration: BoxDecoration(
-                          color: Stylings.orange,
-                          borderRadius: BorderRadius.circular(8)),
-                      child: Text("Use Current Location", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600,color: Colors.white),),
+                          );
+                          Navigator.push(context, MaterialPageRoute(builder: (_){
+                            return const Setnotification();
+                          }));
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
+                          alignment: Alignment.center,
+                          width: size.width,
+                          height: 55,
+                          decoration: BoxDecoration(
+                              color: Stylings.orange,
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Text("Use Current Location", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600,color: Colors.white),),
 
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: _dispayBottomSheet,
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                      alignment: Alignment.center,
-                      width: size.width,
-                      height: 55,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8)),
-                      child: Text("Choose Location", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600),),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: _dispayBottomSheet,
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 20.0),
+                          alignment: Alignment.center,
+                          width: size.width,
+                          height: 55,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Text("Choose Location", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600),),
 
-                    ),
-                  ),
+                        ),
+                      ),
+                    ],
+                  ))
                 ],
               ),
             ),)

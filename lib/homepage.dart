@@ -1,9 +1,13 @@
 import 'package:clubon/homes/timeline.dart';
+import 'package:clubon/utils/reusables/bnavmorph.dart';
+import 'package:clubon/utils/reusables/glassmorph.dart';
 import 'package:clubon/utils/styles/stylings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import 'homes/friends.dart';
 import 'homes/profile.dart';
@@ -212,12 +216,13 @@ class _UserTimelineState extends State<Homepage> {
       //   centerTitle: true,
       // ),
       body: buildBody(selectedIndex),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10.0),
+      bottomNavigationBar: Bnavmorph(
+        blur: 20,
+        opacity: 0.2,
         child: BottomNavigationBar(
           elevation: 0,
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.transparent,
           showUnselectedLabels: true,
           showSelectedLabels: true,
           selectedLabelStyle: Stylings.subTitles.copyWith(color: Stylings.orange, fontSize: 10),

@@ -19,7 +19,7 @@ class _LocheaderState extends State<Locheader> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
       width: size.width,
       color: Colors.transparent,
       child: Row(
@@ -278,8 +278,8 @@ class _LocheaderState extends State<Locheader> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: 20,
-                  height: 20,
+                  width: 15,
+                  height: 15,
                   decoration: const BoxDecoration(
                     color: Colors.transparent,
                     shape: BoxShape.circle,
@@ -332,8 +332,8 @@ class _LocheaderState extends State<Locheader> {
                 ),
               ),
               Container(
-                width: 16,
-                height: 16,
+                width: 15,
+                height: 15,
                 decoration: const BoxDecoration(
                   color: Colors.transparent,
                   shape: BoxShape.circle,

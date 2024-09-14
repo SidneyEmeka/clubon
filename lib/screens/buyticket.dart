@@ -79,7 +79,7 @@ Future _dispayBottomSheet() {
                   child: Container(
                     width: Get.size.width,
                     margin: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-                    padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 15),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
@@ -116,7 +116,7 @@ Future _dispayBottomSheet() {
                   child: Container(
                     width: Get.size.width,
                     margin: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-                    padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 15),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
@@ -153,7 +153,7 @@ Future _dispayBottomSheet() {
                   child: Container(
                     width: Get.size.width,
                     margin: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-                    padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 15),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
@@ -185,7 +185,7 @@ Future _dispayBottomSheet() {
                 Expanded(
                   child: Container(
                     height: Get.size.height*0.08,
-                    width: Get.size.width*0.55,
+                    width: Get.size.width*0.5,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -263,14 +263,15 @@ Future _dispayBottomSheet() {
                   child: Container(
                     alignment: Alignment.center,
                     width: Get.size.width,
+                    height: Get.size.height*0.05,
                     margin: const EdgeInsets.symmetric(horizontal: 10),
-                    padding: const EdgeInsets.symmetric(vertical: 20),
+
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Stylings.orange
                     ),
                     child: Text(
-                          "Pay ${(business.ticketPrice*business.count.value).toStringAsFixed(2)}", style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),)
+                          "Pays ${(business.ticketPrice*business.count.value).toStringAsFixed(2)}", style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),)
                   ),
                 ),),
               ],

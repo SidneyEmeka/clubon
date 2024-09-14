@@ -245,13 +245,14 @@ class _SearchState extends State<Search> {
         body: Obx(
       () => SafeArea(
           child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 10),
         width: Get.size.width,
         height: Get.size.height,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -268,7 +269,6 @@ class _SearchState extends State<Search> {
                   child: Container(
                       padding:
                           const EdgeInsets.symmetric(horizontal: 15, vertical: 13),
-                      //height: 40,
                       decoration: BoxDecoration(
                           color: Colors.grey.shade200,
                           borderRadius: BorderRadius.circular(5)),
@@ -329,7 +329,9 @@ class _SearchState extends State<Search> {
                     evBiz.searchPage.value = "All";
                   },
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    alignment: Alignment.center,
+                    height: Get.height*0.04,
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
                     decoration: BoxDecoration(
                         color: evBiz.searchPage.value == "All"
                             ? Stylings.orange
@@ -338,7 +340,7 @@ class _SearchState extends State<Search> {
                     child: Text(
                       "All",
                       style: Stylings.titles.copyWith(
-                          fontSize: 15,
+                          fontSize: 13,
                           color: evBiz.searchPage.value == "All"
                               ? Colors.white
                               : Colors.black),
@@ -350,7 +352,9 @@ class _SearchState extends State<Search> {
                     evBiz.searchPage.value = "UC";
                   },
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    alignment: Alignment.center,
+                    height: Get.height*0.04,
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
                     decoration: BoxDecoration(
                         color: evBiz.searchPage.value == "UC"
                             ? Stylings.orange
@@ -359,7 +363,7 @@ class _SearchState extends State<Search> {
                     child: Text(
                       "Upcoming event",
                       style: Stylings.titles.copyWith(
-                          fontSize: 15,
+                          fontSize: 13,
                           color: evBiz.searchPage.value == "UC"
                               ? Colors.white
                               : Colors.black),
@@ -371,7 +375,9 @@ class _SearchState extends State<Search> {
                     evBiz.searchPage.value = "P";
                   },
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    alignment: Alignment.center,
+                    height: Get.height*0.04,
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
                     decoration: BoxDecoration(
                         color: evBiz.searchPage.value == "P"
                             ? Stylings.orange
@@ -380,7 +386,7 @@ class _SearchState extends State<Search> {
                     child: Text(
                       "Past event",
                       style: Stylings.titles.copyWith(
-                          fontSize: 15,
+                          fontSize: 13,
                           color: evBiz.searchPage.value == "P"
                               ? Colors.white
                               : Colors.black),

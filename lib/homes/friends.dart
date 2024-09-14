@@ -38,9 +38,9 @@ class _FriendsState extends State<Friends> {
             padding: const EdgeInsets.only(right: 5.0, top: 5),
             child: IconButton(
               onPressed: () {
-                Get.to(Searching());
+                Get.to(const Searching());
               },
-              icon: Icon(Icons.search),
+              icon: const Icon(Icons.search),
               color: Colors.black,
               iconSize: 20,
             ),
@@ -58,13 +58,13 @@ class _FriendsState extends State<Friends> {
                 children: [
                   //header
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                     height: Get.size.height * 0.1,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border(top: BorderSide(color: Colors.grey.shade200))),
                     child: Container(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 15,
                       ),
                       decoration: BoxDecoration(
@@ -86,7 +86,7 @@ class _FriendsState extends State<Friends> {
                                 style: Stylings.titles
                                     .copyWith(fontSize: 12, color: Colors.white),
                               )),
-                          SizedBox(width: 10),
+                          const SizedBox(width: 10),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,13 +102,13 @@ class _FriendsState extends State<Friends> {
                               )
                             ],
                           ),
-                          Expanded(child: SizedBox()),
+                          const Expanded(child: SizedBox()),
                           IconButton(
                               onPressed: () async {
                                 await Share.share(
                                     "Tired of missing awesome events? Join me on\nClubon.com/Sidney");
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 FluentSystemIcons.ic_fluent_share_ios_regular,
                                 color: Colors.black,
                                 size: 22,
@@ -121,13 +121,13 @@ class _FriendsState extends State<Friends> {
                   Expanded(child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: pplBiz.friendPage.value=="Suggestion"?Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
                           color: Stylings.bgColor,
                           child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -160,7 +160,7 @@ class _FriendsState extends State<Friends> {
                             Container(
                               color: Stylings.bgColor,
                               child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -182,12 +182,12 @@ class _FriendsState extends State<Friends> {
                           width: Get.width,
                           color: Colors.white,
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
-                                width: 150,
-                                height: 150,
+                                width: Get.width*0.25,
+                                height: Get.width*0.25,
                                 decoration: const BoxDecoration(
                                   color: Colors.transparent,
                                 ),
@@ -245,7 +245,6 @@ class _FriendsState extends State<Friends> {
 
 
                                   );
-
                                 },
                                 child: Container(
                                   alignment: Alignment.center,
@@ -253,8 +252,8 @@ class _FriendsState extends State<Friends> {
                                     color: Stylings.orange,
                                     borderRadius: BorderRadius.circular(5)
                                   ),
-                                  padding: EdgeInsets.symmetric(vertical: 12),
-                                              margin: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                                 height: Get.height*0.05,
+                                              margin: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
                                   width: Get.size.width,
                                   child: Text("Import my contacts",style: Stylings.titles.copyWith(color: Colors.white,fontSize: 12),),
                                 ),
@@ -271,7 +270,7 @@ class _FriendsState extends State<Friends> {
                         Container(
                           color: Stylings.bgColor,
                           child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -299,7 +298,7 @@ class _FriendsState extends State<Friends> {
                         Container(
                           color: Stylings.bgColor,
                           child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -322,7 +321,7 @@ class _FriendsState extends State<Friends> {
                         Container(
                           color: Stylings.bgColor,
                           child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -349,7 +348,7 @@ class _FriendsState extends State<Friends> {
           Positioned(
             bottom: 10,
             child: Container(
-              padding: EdgeInsets.all(5),
+              padding: const EdgeInsets.all(5),
               width: Get.size.width*0.75,
               height: Get.size.height*0.05,
               decoration: BoxDecoration(
@@ -365,7 +364,7 @@ class _FriendsState extends State<Friends> {
                         pplBiz.friendPage.value="Suggestion";
                       },
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
@@ -381,7 +380,7 @@ class _FriendsState extends State<Friends> {
                         pplBiz.friendPage.value="Friends";
                       },
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
@@ -397,7 +396,7 @@ class _FriendsState extends State<Friends> {
                         pplBiz.friendPage.value="Requests";
                       },
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
