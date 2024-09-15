@@ -63,6 +63,7 @@ class Addbankacc extends StatelessWidget {
             const SizedBox(height: 15),
             //number
             TextField(
+              keyboardType: TextInputType.number,
               controller: bankBiz.acctNumber.value,
               cursorColor: Stylings.bgColor,
               decoration: InputDecoration(
@@ -82,6 +83,7 @@ class Addbankacc extends StatelessWidget {
             const SizedBox(height: 15),
             //sort code
             TextField(
+              keyboardType: TextInputType.number,
               controller: bankBiz.sortCode.value,
               cursorColor: Stylings.bgColor,
               decoration: InputDecoration(
@@ -133,13 +135,16 @@ class Addbankacc extends StatelessWidget {
             const Expanded(child: SizedBox()),
             GestureDetector(
               onTap: (){
-                bankBiz.bankAccs.add({
-                  "acname": bankBiz.actName.value.text,
-                  "acnum": bankBiz.acctNumber.value.text,
-                  "sortcode": bankBiz.sortCode.value.text,
-                  "bankName": bankBiz.userBankName.value,
+                if(bankBiz.actName.value.text==""||bankBiz.acctNumber.value.text==""||bankBiz.sortCode.value.text==""){
+                  Get.snackbar(duration: const Duration(milliseconds: 2500),"Incomplete credentials", "Kindly complete your account credentials");
+                }
+                else {bankBiz.bankAccs.add({
+                "acname": bankBiz.actName.value.text,
+                "acnum": bankBiz.acctNumber.value.text,
+                "sortcode": bankBiz.sortCode.value.text,
+                "bankName": bankBiz.userBankName.value,
                 });
-                Get.to(()=>Payout(),arguments: bankBiz.bankAccs);
+                Get.to(()=>Payout(),arguments: bankBiz.bankAccs);}
               },
               child: Container(
                 alignment: Alignment.center,

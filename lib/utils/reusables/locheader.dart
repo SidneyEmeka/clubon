@@ -1,6 +1,8 @@
 import 'package:clubon/data/constantdata.dart';
+import 'package:clubon/getxserver/businesslogic.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../styles/stylings.dart';
 
@@ -292,8 +294,9 @@ class _LocheaderState extends State<Locheader> {
                    mainAxisAlignment: MainAxisAlignment.start,
                    crossAxisAlignment: CrossAxisAlignment.center,
                    children: [
-                     Text(location, style: Stylings.subTitles.copyWith(fontSize: 15),),
-                     const SizedBox(width: 10,),
+                     Obx(()=>Text(Businness().location.value, style: Stylings.subTitles.copyWith(fontSize: 15),),
+                     ),
+                      const SizedBox(width: 10,),
                      Container(
                        width: 15,
                        height: 15,

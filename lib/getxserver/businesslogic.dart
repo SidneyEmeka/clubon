@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class Businness {
+  var location = "location".obs;
   var ticketPrice = 0.0.obs;
   var count = 1.obs;
   var ticketType = "Regular".obs;
@@ -103,12 +104,18 @@ class Businness {
  var ticketPage = "UC".obs;
 
  var totalEarning = 32000.obs;
+ var totalPoints = 320000000.obs;
+ var latestLive = 2000.obs;
+ var thisWeek = 8500.obs;
+  var thisMonth = 14000.obs;
+ var lastPayout = 8700.67.obs;
+
+
  var countries = ["GBP","NIG"];
  var selectedRate = "GBP".obs;
  var showError = false.obs;
  var toSend = 0.0.obs;
  var toRecieve = 0.00.obs;
-
  void convert(num amount) {
    if(amount > totalEarning.value){
      showError.value=true;
@@ -123,6 +130,7 @@ class Businness {
      }
    }
  }
+ var withdrawalStatus = false.obs;
 
  var bankAccs = [].obs;
  var actName = TextEditingController().obs;

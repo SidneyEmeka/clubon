@@ -1,6 +1,7 @@
 import 'package:clubon/getxserver/businesslogic.dart';
 import 'package:clubon/screens/addbankacc.dart';
 import 'package:clubon/screens/earnings.dart';
+import 'package:clubon/screens/payoutsuccess.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -314,11 +315,21 @@ class Payout extends StatelessWidget {
             const Expanded(child: SizedBox()),
             GestureDetector(
               onTap: (){
-                if(Get.arguments==null)
+               if(Get.arguments==null&&moneyBiz.toRecieve.value==0.0)
+                {
+                Get.snackbar(duration: const Duration(milliseconds: 3000),"Incomplete Details", "Kindly add a payment account of your choice\nEnsure you are withdrawing more than \$1");
+                }
+                else if(Get.arguments==null)
                 {
                   Get.snackbar(duration: const Duration(milliseconds: 2500),"Account Details", "Kindly add a payment account of your choice");
                 }
-                print(Get.arguments);
+                else if(moneyBiz.toRecieve.value==0.0)
+                {
+                  Get.snackbar(duration: const Duration(milliseconds: 2500),"Withdrawal limit", "You cannot withdraw less than \$1");
+                }
+                else{
+                  Get.to(()=>Payoutsuccess(),arguments: {"amount":moneyBiz.toRecieve,"currency":moneyBiz.selectedRate});
+                }
               },
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 14),

@@ -1,3 +1,5 @@
+import 'package:clubon/getxserver/businesslogic.dart';
+import 'package:clubon/homepage.dart';
 import 'package:clubon/screens/earnbreakdown.dart';
 import 'package:clubon/screens/payout.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
@@ -13,6 +15,7 @@ class Earnings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var earnBiz = Businness();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -45,7 +48,7 @@ class Earnings extends StatelessWidget {
           children: [
             Text("Amount you have earned", style: Stylings.titles.copyWith(fontSize: 11),),
             const SizedBox(height: 4,),
-            Text("\$32,000", style: Stylings.titles.copyWith(fontSize: 25),),
+            Get.arguments!=0? Text("\$${earnBiz.totalEarning.value==32000?"32,000":"0.00"}", style: Stylings.titles.copyWith(fontSize: 25),):Text("\$0.00", style: Stylings.titles.copyWith(fontSize: 25),),
             const SizedBox(height: 5,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -53,7 +56,7 @@ class Earnings extends StatelessWidget {
               children: [
                 const Icon(FluentSystemIcons.ic_fluent_bank_filled,size: 12,color: Colors.orangeAccent,),
                  const SizedBox(width: 8,),
-                 Text("320,000,000", style: Stylings.titles.copyWith(fontSize: 10),),
+                Get.arguments!=0?  Text(earnBiz.totalPoints.value==320000000?"320,000,000":"0", style: Stylings.titles.copyWith(fontSize: 10),):Text("0", style: Stylings.titles.copyWith(fontSize: 10),),
               ],
             ),
             const SizedBox(height: 10,),
@@ -136,7 +139,48 @@ class Earnings extends StatelessWidget {
               ),
             ),
             //earnings
-            Padding(
+            Get.arguments==0?Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 14.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Stylings.bgColor,
+                    borderRadius: BorderRadius.circular(5)
+                  ),
+                  height: Get.height*0.08,
+                  width: Get.width,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 5,),
+                      Expanded(child: Text("No Gifting History",style: Stylings.titles.copyWith(fontSize: 12),)),
+                      Expanded(child: Text("No one has gifted you yet. Go live to start earning",textAlign: TextAlign.center,style: Stylings.titles.copyWith(fontSize: 12,color: Colors.grey.shade400),)),
+                    ],
+                  ),
+                ),
+                  const SizedBox(height: 15,),
+                  GestureDetector(
+                    onTap: (){
+                      Get.to(()=> const Homepage());
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: Get.width,
+                      height: Get.height*0.05,
+                      decoration: BoxDecoration(
+                          color: Stylings.orange,
+                          borderRadius: BorderRadius.circular(5)
+                      ),
+                      child: Text("Go live",style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),),
+                    ),
+                  ),
+                ],
+              ),
+            ):Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -166,7 +210,7 @@ class Earnings extends StatelessWidget {
                           ),
                           const Expanded(child: SizedBox()),
                           Text(
-                            "\$2,000",
+                            "\$${earnBiz.latestLive.value==2000?"2,000":"0.0"}",
                             style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black87,),
                           ),
                           const SizedBox(width: 5),
@@ -197,7 +241,7 @@ class Earnings extends StatelessWidget {
                           ),
                           const Expanded(child: SizedBox()),
                           Text(
-                            "\$8,500",
+                            "\$${earnBiz.thisWeek.value==8500?"8,500":"0.0"}",
                             style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black87,),
                           ),
                           const SizedBox(width: 5),
@@ -228,7 +272,7 @@ class Earnings extends StatelessWidget {
                           ),
                           const Expanded(child: SizedBox()),
                           Text(
-                            "\$14,000",
+                            "\$${earnBiz.thisMonth.value==14000?"14,000":"0.0"}",
                             style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black87,),
                           ),
                           const SizedBox(width: 5),
@@ -261,7 +305,7 @@ class Earnings extends StatelessWidget {
                           ),
                           const Expanded(child: SizedBox()),
                           Text(
-                            "\$8,700.67",
+                            "\$${earnBiz.lastPayout.value==8700.67?"8,700.67":"0.0"}",
                             style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black87,),
                           ),
                           const SizedBox(width: 5),
@@ -278,7 +322,7 @@ class Earnings extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 14.0,vertical: 10),
               child: Text("You can only withdraw once every 30 days. Your next withdrawal is in 2 days time.", style: Stylings.titles.copyWith(fontSize: 10,color: Colors.black26),),
             ),
-            GestureDetector(
+            Get.arguments==0?Container():GestureDetector(
               onTap: (){
                 Get.to(()=> const Payout());
               },

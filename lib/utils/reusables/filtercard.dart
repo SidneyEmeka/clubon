@@ -17,7 +17,7 @@ class Filtercard extends StatelessWidget {
         children: [
           Container(
             width: title=="Popular"?24:26,
-            height: title=="Popular"?24:26,
+            height: title=="Popular"?23:26,
             decoration: const BoxDecoration(
               color: Colors.transparent,
               shape: BoxShape.circle,
