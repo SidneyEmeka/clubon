@@ -83,7 +83,7 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.person_outline_sharp,size: 16,color: Colors.black,),
+                  const Icon(Icons.person_outline_sharp,size: 18,color: Colors.black,),
                   const SizedBox(width: 5,),
                   Text("My details",style: Stylings.titles.copyWith(fontSize: 12),),
                 ],
@@ -98,9 +98,9 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.person_outline_sharp,size: 16,color: Colors.black,),
+                  const Icon(Icons.privacy_tip_outlined,size: 18,color: Colors.black,),
                   const SizedBox(width: 5,),
-                  Text("My details",style: Stylings.titles.copyWith(fontSize: 12),),
+                  Text("Privacy",style: Stylings.titles.copyWith(fontSize: 12),),
                 ],
               ),
             ),
@@ -113,9 +113,9 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.person_outline_sharp,size: 16,color: Colors.black,),
+                  const Icon(Icons.star_outline_sharp,size: 18,color: Colors.black,),
                   const SizedBox(width: 5,),
-                  Text("My details",style: Stylings.titles.copyWith(fontSize: 12),),
+                  Text("Rate the app",style: Stylings.titles.copyWith(fontSize: 12),),
                 ],
               ),
             ),
@@ -128,9 +128,9 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.person_outline_sharp,size: 16,color: Colors.black,),
+                  const Icon(Icons.notifications_none_outlined,size: 18,color: Colors.black,),
                   const SizedBox(width: 5,),
-                  Text("My details",style: Stylings.titles.copyWith(fontSize: 12),),
+                  Text("Notifications",style: Stylings.titles.copyWith(fontSize: 12),),
                 ],
               ),
             ),
@@ -143,9 +143,9 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.person_outline_sharp,size: 16,color: Colors.black,),
+                  const Icon(Icons.location_on_outlined,size: 18,color: Colors.black,),
                   const SizedBox(width: 5,),
-                  Text("My details",style: Stylings.titles.copyWith(fontSize: 12),),
+                  Text("Address",style: Stylings.titles.copyWith(fontSize: 12),),
                 ],
               ),
             ),
@@ -158,9 +158,9 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.person_outline_sharp,size: 16,color: Colors.black,),
+                  const Icon(Icons.ios_share_sharp,size: 18,color: Colors.black,),
                   const SizedBox(width: 5,),
-                  Text("My details",style: Stylings.titles.copyWith(fontSize: 12),),
+                  Text("Share the app",style: Stylings.titles.copyWith(fontSize: 12),),
                 ],
               ),
             ),
@@ -173,9 +173,9 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.person_outline_sharp,size: 16,color: Colors.black,),
+                  const Icon(Icons.support_agent_rounded,size: 18,color: Colors.black,),
                   const SizedBox(width: 5,),
-                  Text("My details",style: Stylings.titles.copyWith(fontSize: 12),),
+                  Text("Give us feedback",style: Stylings.titles.copyWith(fontSize: 12),),
                 ],
               ),
             ),
@@ -188,14 +188,70 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.person_outline_sharp,size: 16,color: Colors.black,),
+                  const Icon(Icons.padding_outlined,size: 18,color: Colors.black,),
                   const SizedBox(width: 5,),
-                  Text("My details",style: Stylings.titles.copyWith(fontSize: 12),),
+                  Text("Terms and conditions",style: Stylings.titles.copyWith(fontSize: 12),),
                 ],
               ),
             ),
-
-
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              decoration: BoxDecoration(
+                  border: Border(bottom: BorderSide(color: Colors.grey.shade100))
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(Icons.delete_forever_outlined,size: 18,color: Colors.black,),
+                  const SizedBox(width: 5,),
+                  Text("Clear caches",style: Stylings.titles.copyWith(fontSize: 12),),
+                ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              decoration: BoxDecoration(
+                  border: Border(bottom: BorderSide(color: Colors.grey.shade100))
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(Icons.help_outline_outlined,size: 18,color: Colors.black,),
+                  const SizedBox(width: 5,),
+                  Text("Support",style: Stylings.titles.copyWith(fontSize: 12),),
+                ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              decoration: BoxDecoration(
+                  border: Border(bottom: BorderSide(color: Colors.grey.shade100))
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(Icons.logout,size: 18,color: Colors.black,),
+                  const SizedBox(width: 5,),
+                  Text("Log out",style: Stylings.titles.copyWith(fontSize: 12),),
+                ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(Icons.person_off_outlined,size: 18,color: Colors.black,),
+                  const SizedBox(width: 5,),
+                  Text("Delete account",style: Stylings.titles.copyWith(fontSize: 12),),
+                ],
+              ),
+            ),
+            const SizedBox(height: 40,)
           ],
         ),
       ),

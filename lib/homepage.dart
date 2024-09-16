@@ -218,7 +218,7 @@ class _UserTimelineState extends State<Homepage> {
       body: buildBody(selectedIndex),
       bottomNavigationBar: Bnavmorph(
         blur: 20,
-        opacity: 0.2,
+        opacity: 0.1,
         child: BottomNavigationBar(
           elevation: 0,
           type: BottomNavigationBarType.fixed,

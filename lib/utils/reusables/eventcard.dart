@@ -48,9 +48,9 @@ class Eventcard extends StatelessWidget {
               image: DecorationImage(image: AssetImage(imgUrl), fit: BoxFit.cover)
             ),
             child: Container(
-              height: size.height*0.1,
+              height: size.height*0.08,
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.08),
+                color: Colors.black.withOpacity(0.02),
                 backgroundBlendMode: BlendMode.darken,
                 borderRadius: BorderRadius.circular(20),
               ),
