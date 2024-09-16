@@ -1,5 +1,6 @@
 import 'package:clubon/data/constantdata.dart';
 import 'package:clubon/getxserver/businesslogic.dart';
+import 'package:clubon/homes/filter.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -52,7 +53,7 @@ class _LocheaderState extends State<Locheader> {
                                     border: Border.all(color: Colors.white)),
                                 child: TextFormField(
                                   decoration: InputDecoration(
-                                      contentPadding: EdgeInsets.only(left: 20),
+                                      contentPadding: const EdgeInsets.only(left: 20),
                                       hintText: "Search your city",
                                       hintStyle: Stylings.titles.copyWith(fontSize: 12),
                                       border: InputBorder.none),
@@ -294,8 +295,7 @@ class _LocheaderState extends State<Locheader> {
                    mainAxisAlignment: MainAxisAlignment.start,
                    crossAxisAlignment: CrossAxisAlignment.center,
                    children: [
-                     Obx(()=>Text(Businness().location.value, style: Stylings.subTitles.copyWith(fontSize: 15),),
-                     ),
+                     Text(location, style: Stylings.subTitles.copyWith(fontSize: 15),),
                       const SizedBox(width: 10,),
                      Container(
                        width: 15,
@@ -334,14 +334,19 @@ class _LocheaderState extends State<Locheader> {
                   ],
                 ),
               ),
-              Container(
-                width: 15,
-                height: 15,
-                decoration: const BoxDecoration(
-                  color: Colors.transparent,
-                  shape: BoxShape.circle,
+              GestureDetector(
+                onTap: (){
+                  Get.to(()=> const Filter());
+                },
+                child: Container(
+                  width: 15,
+                  height: 15,
+                  decoration: const BoxDecoration(
+                    color: Colors.transparent,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Image.asset("${Stylings.imgPath}/filterd.png", fit: BoxFit.contain,),
                 ),
-                child: Image.asset("${Stylings.imgPath}/filterd.png", fit: BoxFit.contain,),
               ),
             ],
           ),

@@ -124,7 +124,7 @@ class Payout extends StatelessWidget {
                   shape: BoxShape.circle
               ),
               child: Transform.rotate(angle: 3.14159/2,
-                  child: Icon(Icons.compare_arrows_outlined,size: 15,color: Stylings.orange,)),
+                  child: Icon(FluentSystemIcons.ic_fluent_arrow_swap_filled,size: 15,color: Stylings.orange,)),
             ),
             //to
             Padding(

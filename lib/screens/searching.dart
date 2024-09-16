@@ -1,4 +1,5 @@
 import 'package:clubon/data/constantdata.dart';
+import 'package:clubon/homes/filter.dart';
 import 'package:clubon/screens/buyticket.dart';
 import 'package:clubon/screens/feedback.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
@@ -454,6 +455,7 @@ class _SearchingState extends State<Searching> {
                 ),
                 Expanded(
                     child: TextField(
+                      cursorColor: Colors.black45,
                       style: Stylings.titles.copyWith(fontSize: 12),
                       controller: searchController,
                   onChanged: (value) => _runSearch(value),
@@ -468,10 +470,13 @@ class _SearchingState extends State<Searching> {
                         size: 20,
                       ),
                       hintText: "Search",
-                      suffixIcon: const Icon(
-                        FluentSystemIcons.ic_fluent_settings_dev_regular,
+                      suffixIcon:  IconButton(
+                        icon:const Icon(FluentSystemIcons.ic_fluent_settings_dev_regular,
                         color: Colors.black,
-                        size: 20,
+                        size: 20,),
+                        onPressed: (){
+                          Get.to(()=>const Filter());
+                        },
                       ),
                       hintStyle: Stylings.subTitles.copyWith(fontSize: 12),
                       border: OutlineInputBorder(
@@ -569,7 +574,7 @@ class _SearchingState extends State<Searching> {
                                    onTap: (){
                                      Get.to(Buyticket(theEvent: anEvent));
                                    },
-                                    trailing: IconButton(icon:const Icon(FluentSystemIcons.ic_fluent_arrow_up_left_filled,color: Colors.black, size: 10,), onPressed: () {
+                                    trailing: IconButton(icon: Icon(FluentSystemIcons.ic_fluent_arrow_trending_filled,color: Stylings.orange, size: 15,), onPressed: () {
                                       setState(() {
                                         searchController.text = anEvent['title'];
                                       });

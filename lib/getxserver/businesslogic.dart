@@ -1,5 +1,6 @@
 import 'package:clubon/onboarding/chooselocation.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Businness {
@@ -138,4 +139,17 @@ class Businness {
  var sortCode = TextEditingController().obs;
  var userBankName = "Union Bank".obs;
  var bankNames = ["Union Bank", "Zenith Bank", "UBA", "Moniepoint", "Opay", "First Bank"].obs;
+
+  var theRange =  RangeValues(20, 100).obs;
+  var min = 20.0;
+  var max = 100.0;
+  List<Map<String,dynamic>> otherFilters = [
+    {"title":"This weekend","isF":true}.obs,
+    {"title":"New shows","isF":false}.obs,
+    {"title":"Most viewed","isF":false}.obs,
+    {"title":"Comedy","isF":false}.obs,
+    {"title":"Festivals","isF":true}.obs,
+    ];
+  var isFi = false.obs;
+  var isFo = false.obs;
 }
