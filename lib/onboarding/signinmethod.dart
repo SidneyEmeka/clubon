@@ -1,6 +1,7 @@
 import 'package:clubon/homepage.dart';
 import 'package:clubon/onboarding/loginpage.dart';
 import 'package:clubon/onboarding/register.dart';
+import 'package:clubon/screens/termsandprivacy.dart';
 import 'package:clubon/utils/styles/stylings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -76,7 +77,7 @@ class _SigninmethodState extends State<Signinmethod> {
                           }));
                         },
                         child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10,vertical: 12),
+                          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 12),
                           margin: const EdgeInsets.symmetric(horizontal: 10),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
@@ -104,13 +105,13 @@ class _SigninmethodState extends State<Signinmethod> {
                       GestureDetector(
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(builder: (_){
-                            return Homepage();
+                            return const Homepage();
                           }));
                         },
                         child: Container(
                           margin: const EdgeInsets.symmetric(horizontal: 10),
                           alignment: Alignment.center,
-                         padding: EdgeInsets.symmetric(horizontal: 10,vertical: 14),
+                         padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 14),
                           decoration: BoxDecoration(
                               color: const Color(0xffffffffff2f2f2),
                               borderRadius: BorderRadius.circular(8)
@@ -134,13 +135,13 @@ class _SigninmethodState extends State<Signinmethod> {
                       ///apple//
                       GestureDetector(
                         onTap: () {
-                          Get.to(Register(),
+                          Get.to(const Register(),
                               );
                         },
                         child: Container(
                           margin: const EdgeInsets.symmetric(horizontal: 10),
                           alignment: Alignment.center,
-                          padding: EdgeInsets.symmetric(horizontal: 10,vertical: 12),
+                          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 12),
                           decoration: BoxDecoration(
                               color: const Color(0xffffffffff2f2f2),
                               borderRadius: BorderRadius.circular(8)
@@ -186,22 +187,32 @@ class _SigninmethodState extends State<Signinmethod> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text(
-                                "Terms of Use",
-                                style: Stylings.body.copyWith(color: Colors.black54)
+                            GestureDetector(
+                              onTap: (){
+                                Get.to(()=>const Termsandprivacy(which: "terms"));
+                              },
+                              child: Text(
+                                  "Terms of Use",
+                                  style: Stylings.body.copyWith(color: Colors.black54)
+                              ),
                             ),
                             GestureDetector(
                               onTap: (){
-                        
+                        Get.to(()=>const Termsandprivacy(which: "which"));
                               },
                               child: Text(
                                   "Privacy Policy",
                                   style: Stylings.body.copyWith(color: Colors.black54)
                               ),
                             ),
-                            Text(
-                                "Already Paid",
-                                style: Stylings.body.copyWith(color: Colors.black54)
+                            GestureDetector(
+                              onTap: (){
+                                Get.to(()=>const Termsandprivacy(which: "which"));
+                              },
+                              child: Text(
+                                  "Already Paid",
+                                  style: Stylings.body.copyWith(color: Colors.black54)
+                              ),
                             ),
                           ],
                         ),

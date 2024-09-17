@@ -80,6 +80,7 @@ class _ReportState extends State<Report> {
                       );
                     }),
                    feedBiz.reportId.value=="Others"? TextField(
+                     cursorColor: Colors.grey.shade200,
                      onChanged: (value){
                        feedBiz.otherReport.value = value;
                      },

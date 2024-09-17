@@ -1,9 +1,15 @@
 import 'package:clubon/screens/detandadrsettings.dart';
 import 'package:clubon/screens/privandnotsettings.dart';
+import 'package:clubon/screens/rateapp.dart';
+import 'package:clubon/screens/termsandprivacy.dart';
+import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:share_plus/share_plus.dart';
 
+import '../screens/feedback.dart';
 import '../utils/styles/stylings.dart';
 
 class Settings extends StatefulWidget {
@@ -115,34 +121,106 @@ class _SettingsState extends State<Settings> {
                 ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Colors.grey.shade100))
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(Icons.star_outline_sharp,size: 18,color: Colors.black,),
-                  const SizedBox(width: 5,),
-                  Text("Rate the app",style: Stylings.titles.copyWith(fontSize: 12),),
-                ],
+            GestureDetector(
+              onTap: (){
+                showModalBottomSheet(
+                  backgroundColor: Colors.white,
+                    context: context,
+                    showDragHandle: true,
+                    isScrollControlled: true,
+                    builder: (_){
+                  return Container(
+                    color: Colors.white,
+                   width: Get.width,
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.start,
+                     crossAxisAlignment: CrossAxisAlignment.center,
+                     mainAxisSize: MainAxisSize.min,
+                     children: [
+                       Text("How's Clubon going for you",style: Stylings.subTitles.copyWith(fontSize: 14),),
+                       RatingBar.builder(itemBuilder: (context, _)=>Icon(FluentSystemIcons.ic_fluent_star_regular,color: Stylings.orange,),
+                           onRatingUpdate: (rating){
+                         Get.to(()=>Rateapp(rate: rating,));
+                           },
+                         unratedColor: Colors.black,
+                       itemSize: 25,
+                       itemPadding: const EdgeInsets.symmetric(vertical: 15,horizontal: 4),),
+                       GestureDetector(
+                         onTap: (){
+                           Get.back();
+                         },
+                         child: Container(
+                           alignment: Alignment.center,
+                           width: Get.width*0.3,
+                           padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 5),
+                           margin: const EdgeInsets.only(bottom: 20),
+                           decoration: BoxDecoration(
+                             borderRadius: BorderRadius.circular(30),
+                             color: Stylings.bgColor
+                           ),
+                           child: Text("Ask me later",style: Stylings.titles.copyWith(fontSize: 12)),
+                         ),
+                       ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 50,vertical: 5.0),
+                        child: GestureDetector(
+                          onTap: (){
+                            Get.back();
+                          },
+                          child: RichText(textAlign: TextAlign.center,text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "Sometimes we pop by to get feedback. Not interested? you can",
+                                style: Stylings.subTitles.copyWith(fontSize: 12)
+                              ),
+                              TextSpan(
+                                text: " opt out",
+                                style: Stylings.titles.copyWith(fontSize: 12)
+                              ),
+                            ]
+                          )),
+                        ),
+                      ),
+                       const SizedBox(height: 30,),
+                       ],
+                   )
+                  );
+                });
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.grey.shade100))
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(Icons.star_outline_sharp,size: 18,color: Colors.black,),
+                    const SizedBox(width: 5,),
+                    Text("Rate the app",style: Stylings.titles.copyWith(fontSize: 12),),
+                  ],
+                ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Colors.grey.shade100))
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(Icons.notifications_none_outlined,size: 18,color: Colors.black,),
-                  const SizedBox(width: 5,),
-                  Text("Notifications",style: Stylings.titles.copyWith(fontSize: 12),),
-                ],
+            GestureDetector(
+              onTap: (){
+                Get.to(()=>const Privandnotsettings(which: "not"));
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.grey.shade100))
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(Icons.notifications_none_outlined,size: 18,color: Colors.black,),
+                    const SizedBox(width: 5,),
+                    Text("Notifications",style: Stylings.titles.copyWith(fontSize: 12),),
+                  ],
+                ),
               ),
             ),
             GestureDetector(
@@ -165,64 +243,127 @@ class _SettingsState extends State<Settings> {
                 ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Colors.grey.shade100))
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(Icons.ios_share_sharp,size: 18,color: Colors.black,),
-                  const SizedBox(width: 5,),
-                  Text("Share the app",style: Stylings.titles.copyWith(fontSize: 12),),
-                ],
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Colors.grey.shade100))
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(Icons.support_agent_rounded,size: 18,color: Colors.black,),
-                  const SizedBox(width: 5,),
-                  Text("Give us feedback",style: Stylings.titles.copyWith(fontSize: 12),),
-                ],
+            GestureDetector(
+              onTap: ()async {
+                await Share.share(
+                    "Tired of missing awesome events? Download Clubon - Clubon.com");
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.grey.shade100))
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(Icons.ios_share_sharp,size: 18,color: Colors.black,),
+                    const SizedBox(width: 5,),
+                    Text("Share the app",style: Stylings.titles.copyWith(fontSize: 12),),
+                  ],
+                ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Colors.grey.shade100))
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(Icons.padding_outlined,size: 18,color: Colors.black,),
-                  const SizedBox(width: 5,),
-                  Text("Terms and conditions",style: Stylings.titles.copyWith(fontSize: 12),),
-                ],
+            GestureDetector(
+              onTap: (){
+                Get.to(()=> const Report());
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.grey.shade100))
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(Icons.support_agent_rounded,size: 18,color: Colors.black,),
+                    const SizedBox(width: 5,),
+                    Text("Give us feedback",style: Stylings.titles.copyWith(fontSize: 12),),
+                  ],
+                ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Colors.grey.shade100))
+            GestureDetector(
+              onTap: (){
+                Get.to(()=>const Termsandprivacy(which: 'terms',));
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.grey.shade100))
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(Icons.padding_outlined,size: 18,color: Colors.black,),
+                    const SizedBox(width: 5,),
+                    Text("Terms and conditions",style: Stylings.titles.copyWith(fontSize: 12),),
+                  ],
+                ),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(Icons.delete_forever_outlined,size: 18,color: Colors.black,),
-                  const SizedBox(width: 5,),
-                  Text("Clear caches",style: Stylings.titles.copyWith(fontSize: 12),),
-                ],
+            ),
+            GestureDetector(
+              onTap: (){
+                showModalBottomSheet(
+                    backgroundColor: Colors.white,
+                    context: context,
+                    showDragHandle: true,
+                    isScrollControlled: true,
+                    builder: (_){
+                      return Container(
+                          color: Colors.white,
+                          width: Get.width,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                height: 100,
+                                width: 100,
+                                child: Image.asset("assets/images/cache.png",fit: BoxFit.cover,),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 15.0),
+                                child: Text("Clubon should be running smoother now ",style: Stylings.titles.copyWith(fontSize: 12),),
+                              ),
+                              GestureDetector(
+                                onTap: (){
+                                  Get.back();
+                                },
+                                child: Container(
+                                  margin: const EdgeInsets.symmetric(horizontal: 40),
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    color: Colors.grey.shade200),
+                                  width: Get.width,
+                                  height: 40,
+                                  child: Text("Ok",style: Stylings.titles.copyWith(fontSize: 12,color: Stylings.orange),),
+                                ),
+                              ),
+                              const SizedBox(height: 20,),
+                            ],
+                          )
+                      );
+                    });
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.grey.shade100))
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(Icons.delete_forever_outlined,size: 18,color: Colors.black,),
+                    const SizedBox(width: 5,),
+                    Text("Clear caches",style: Stylings.titles.copyWith(fontSize: 12),),
+                  ],
+                ),
               ),
             ),
             Container(

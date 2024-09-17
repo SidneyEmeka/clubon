@@ -1,5 +1,4 @@
 import 'package:clubon/getxserver/businesslogic.dart';
-import 'package:clubon/utils/reusables/toggletile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -17,6 +16,14 @@ class Privandnotsettings extends StatefulWidget {
 class _PrivandnotsettingsState extends State<Privandnotsettings> {
   bool acceptNew = false;
   var privBiz = Businness();
+
+  bool push1 = false;
+  bool push2 = false;
+  bool email2 = false;
+  bool push3 = false;
+  bool email3 = false;
+  bool push4 = false;
+  bool email4 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,21 +41,21 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
             size: 20,
           ),
         ),
-        title: Text("Privacy",style: Stylings.titles.copyWith(fontSize: 12),),
+        title:  widget.which=="pri"?Text("Privacy",style: Stylings.titles.copyWith(fontSize: 12),):Text("Notifications",style: Stylings.titles.copyWith(fontSize: 12),),
         centerTitle: true,
       ),
-      body: Obx(()=> Container(
+      body:  Container(
         height: Get.height,
         width: Get.width,
-        padding: EdgeInsets.symmetric(horizontal: 15,vertical: 20),
-        child: Column(
+        padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 20),
+        child: widget.which=="pri"?Obx(()=>Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("Connection settings",style: Stylings.titles.copyWith(fontSize: 12),),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Text("Let friends know what you're interested in. Share the events you,ve saved and booked",style: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.grey.shade500),),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Container(
               width: Get.width,
               margin: const EdgeInsets.symmetric(vertical: 10),
@@ -80,9 +87,9 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
                 title: Text("Become an influencer",style: Stylings.titles.copyWith(fontSize: 12),),
               ),
             ),
-            Expanded(flex:1,child: SizedBox()),
+            const Expanded(flex:1,child: SizedBox()),
             Text("What you're sharing",style: Stylings.titles.copyWith(fontSize: 12),),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Container(
               width: Get.width,
               margin: const EdgeInsets.symmetric(vertical: 10),
@@ -115,8 +122,8 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Icon(Icons.lock,size: 15,color: Colors.black,),
-                      SizedBox(width: 5,),
+                      const Icon(Icons.lock,size: 15,color: Colors.black,),
+                      const SizedBox(width: 5,),
                       Text("Make me private",style: Stylings.titles.copyWith(fontSize: 12),),
                     ],
                   ),
@@ -161,7 +168,7 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Icon(aT['icon'],size: 15,color: Colors.black,),
-                            SizedBox(width: 5,),
+                            const SizedBox(width: 5,),
                             Text(aT['title'],style: Stylings.titles.copyWith(fontSize: 12),),
                           ],
                         ),
@@ -170,11 +177,315 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
                   );
                 })
               ],
-            ):Container(),
-            Expanded(flex:2,child: SizedBox())
+            ):Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ...privBiz.privacy.map((aT){
+                  return Container(
+                    width: Get.width,
+                    margin: const EdgeInsets.symmetric(vertical: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    height: 60,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(7),
+                      border: Border(top:BorderSide(color: Colors.grey.shade200)),
+                    ),
+                    child: SwitchListTile(
+                      value: false,
+                      activeColor:Colors.white,
+                      contentPadding: EdgeInsets.zero,
+                      splashRadius: 2,
+                      activeTrackColor: Stylings.orange,
+                      isThreeLine: true,
+                      trackOutlineColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+                        return Colors.transparent; // Use the default color.
+                      }),
+                      inactiveTrackColor: Colors.grey.shade300,
+                      inactiveThumbColor: Colors.white,
+                      onChanged: (value){
+                      },
+                      subtitle:Text(aT['sub'],style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.grey.shade500),),
+                      title: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(aT['icon'],size: 15,color: Colors.grey.shade500,),
+                            const SizedBox(width: 5,),
+                            Text(aT['title'],style: Stylings.titles.copyWith(fontSize: 12,color: Colors.grey.shade500),),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                })
+              ],
+            ),
+            const Expanded(flex:2,child: SizedBox())
+          ],
+        )):ListView(
+          children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text("Changes to your event",style: Stylings.titles.copyWith(fontSize: 12),),
+              const SizedBox(height: 5,),
+              Text("Update to shows you're going to - like the time or lineup",style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.grey.shade600),),
+              const SizedBox(height: 5,),
+              Container(
+                width: Get.width,
+                margin: const EdgeInsets.symmetric(vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                height: 50,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(7),
+                  border: Border.all(color: Colors.grey.shade200),
+                ),
+                child: SwitchListTile(
+                  value: push1,
+                  activeColor:Colors.white,
+                  contentPadding: EdgeInsets.zero,
+                  splashRadius: 2,
+                  activeTrackColor: Stylings.orange,
+                  isThreeLine: false,
+                  trackOutlineColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+                    return Colors.transparent; // Use the default color.
+                  }),
+                  inactiveTrackColor: Colors.grey.shade300,
+                  inactiveThumbColor: Colors.white,
+                  onChanged: (value){
+                    setState(() {
+                      push1=value;
+                    });
+                  },
+                  title: Text("Push notifications",style: Stylings.titles.copyWith(fontSize: 12),),
+                ),
+              ),
+            ],
+          ),
+            const SizedBox(height: 20,),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text("Recommendations and news from Clubon",style: Stylings.titles.copyWith(fontSize: 12),),
+                const SizedBox(height: 5,),
+                Text("Update to shows you're going to - like the time or lineup",style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.grey.shade600),),
+                const SizedBox(height: 15,),
+                Container(
+                  width: Get.width,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  height: 50,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    border: Border.all(color: Colors.grey.shade200),
+                  ),
+                  child: SwitchListTile(
+                    value: push2,
+                    activeColor:Colors.white,
+                    contentPadding: EdgeInsets.zero,
+                    splashRadius: 2,
+                    activeTrackColor: Stylings.orange,
+                    isThreeLine: false,
+                    trackOutlineColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+                      return Colors.transparent; // Use the default color.
+                    }),
+                    inactiveTrackColor: Colors.grey.shade300,
+                    inactiveThumbColor: Colors.white,
+                    onChanged: (value){
+                      setState(() {
+                        push2=value;
+                      });
+                    },
+                    title: Text("Push notifications",style: Stylings.titles.copyWith(fontSize: 12),),
+                  ),
+                ),
+                const SizedBox(height: 10,),
+                Container(
+                  width: Get.width,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  height: 50,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    border: Border.all(color: Colors.grey.shade200),
+                  ),
+                  child: SwitchListTile(
+                    value: email2,
+                    activeColor:Colors.white,
+                    contentPadding: EdgeInsets.zero,
+                    splashRadius: 2,
+                    activeTrackColor: Stylings.orange,
+                    isThreeLine: false,
+                    trackOutlineColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+                      return Colors.transparent; // Use the default color.
+                    }),
+                    inactiveTrackColor: Colors.grey.shade300,
+                    inactiveThumbColor: Colors.white,
+                    onChanged: (value){
+                      setState(() {
+                        email2=value;
+                      });
+                    },
+                    title: Text("Email",style: Stylings.titles.copyWith(fontSize: 12),),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 30,),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text("Updates from your connections",style: Stylings.titles.copyWith(fontSize: 12),),
+                const SizedBox(height: 5,),
+                Text("Invites and shows your friends are interested in",style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.grey.shade600),),
+                const SizedBox(height: 15,),
+                Container(
+                  width: Get.width,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  height: 50,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    border: Border.all(color: Colors.grey.shade200),
+                  ),
+                  child: SwitchListTile(
+                    value: push3,
+                    activeColor:Colors.white,
+                    contentPadding: EdgeInsets.zero,
+                    splashRadius: 2,
+                    activeTrackColor: Stylings.orange,
+                    isThreeLine: false,
+                    trackOutlineColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+                      return Colors.transparent; // Use the default color.
+                    }),
+                    inactiveTrackColor: Colors.grey.shade300,
+                    inactiveThumbColor: Colors.white,
+                    onChanged: (value){
+                      setState(() {
+                        push3=value;
+                      });
+                    },
+                    title: Text("Push notifications",style: Stylings.titles.copyWith(fontSize: 12),),
+                  ),
+                ),
+                const SizedBox(height: 10,),
+                Container(
+                  width: Get.width,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  height: 50,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    border: Border.all(color: Colors.grey.shade200),
+                  ),
+                  child: SwitchListTile(
+                    value: email3,
+                    activeColor:Colors.white,
+                    contentPadding: EdgeInsets.zero,
+                    splashRadius: 2,
+                    activeTrackColor: Stylings.orange,
+                    isThreeLine: false,
+                    trackOutlineColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+                      return Colors.transparent; // Use the default color.
+                    }),
+                    inactiveTrackColor: Colors.grey.shade300,
+                    inactiveThumbColor: Colors.white,
+                    onChanged: (value){
+                      setState(() {
+                        email3=value;
+                      });
+                    },
+                    title: Text("Email",style: Stylings.titles.copyWith(fontSize: 12),),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 30,),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text("Updates from your connections",style: Stylings.titles.copyWith(fontSize: 12),),
+                const SizedBox(height: 5,),
+                Text("Invites and shows your friends are interested in",style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.grey.shade600),),
+                const SizedBox(height: 15,),
+                Container(
+                  width: Get.width,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  height: 50,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    border: Border.all(color: Colors.grey.shade200),
+                  ),
+                  child: SwitchListTile(
+                    value: push4,
+                    activeColor:Colors.white,
+                    contentPadding: EdgeInsets.zero,
+                    splashRadius: 2,
+                    activeTrackColor: Stylings.orange,
+                    isThreeLine: false,
+                    trackOutlineColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+                      return Colors.transparent; // Use the default color.
+                    }),
+                    inactiveTrackColor: Colors.grey.shade300,
+                    inactiveThumbColor: Colors.white,
+                    onChanged: (value){
+                      setState(() {
+                        push4=value;
+                      });
+                    },
+                    title: Text("Push notifications",style: Stylings.titles.copyWith(fontSize: 12),),
+                  ),
+                ),
+                const SizedBox(height: 10,),
+                Container(
+                  width: Get.width,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  height: 50,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    border: Border.all(color: Colors.grey.shade200),
+                  ),
+                  child: SwitchListTile(
+                    value: email4,
+                    activeColor:Colors.white,
+                    contentPadding: EdgeInsets.zero,
+                    splashRadius: 2,
+                    activeTrackColor: Stylings.orange,
+                    isThreeLine: false,
+                    trackOutlineColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+                      return Colors.transparent; // Use the default color.
+                    }),
+                    inactiveTrackColor: Colors.grey.shade300,
+                    inactiveThumbColor: Colors.white,
+                    onChanged: (value){
+                      setState(() {
+                        email4=value;
+                      });
+                    },
+                    title: Text("Email",style: Stylings.titles.copyWith(fontSize: 12),),
+                  ),
+                ),
+              ],
+            ),
+
           ],
         ),
-      ),)
+      ),
     );
   }
 }
