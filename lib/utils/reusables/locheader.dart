@@ -1,7 +1,7 @@
 import 'package:clubon/data/constantdata.dart';
 import 'package:clubon/getxserver/businesslogic.dart';
 import 'package:clubon/homes/filter.dart';
-import 'package:clubon/screens/settings.dart';
+import 'package:clubon/homes/settings.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -1,3 +1,5 @@
+import 'package:clubon/screens/detandadrsettings.dart';
+import 'package:clubon/screens/privandnotsettings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -68,40 +70,49 @@ class _SettingsState extends State<Settings> {
                   setState(() {
                   isInfluencer=value;
                   });
-                  print(isInfluencer);
                 },
                 title: Text("Become an influencer",style: Stylings.titles.copyWith(fontSize: 12),),
               ),
             ),
             const SizedBox(height: 20),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.grey.shade100))
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(Icons.person_outline_sharp,size: 18,color: Colors.black,),
-                  const SizedBox(width: 5,),
-                  Text("My details",style: Stylings.titles.copyWith(fontSize: 12),),
-                ],
+            GestureDetector(
+              onTap: (){
+                Get.to(()=>const Detandadrsettings(which: "my"));
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                decoration: BoxDecoration(
+                  border: Border(bottom: BorderSide(color: Colors.grey.shade100))
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(Icons.person_outline_sharp,size: 18,color: Colors.black,),
+                    const SizedBox(width: 5,),
+                    Text("My details",style: Stylings.titles.copyWith(fontSize: 12),),
+                  ],
+                ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Colors.grey.shade100))
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(Icons.privacy_tip_outlined,size: 18,color: Colors.black,),
-                  const SizedBox(width: 5,),
-                  Text("Privacy",style: Stylings.titles.copyWith(fontSize: 12),),
-                ],
+            GestureDetector(
+              onTap: (){
+                Get.to(()=> const Privandnotsettings(which: "pri"));
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.grey.shade100))
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(Icons.privacy_tip_outlined,size: 18,color: Colors.black,),
+                    const SizedBox(width: 5,),
+                    Text("Privacy",style: Stylings.titles.copyWith(fontSize: 12),),
+                  ],
+                ),
               ),
             ),
             Container(
@@ -134,19 +145,24 @@ class _SettingsState extends State<Settings> {
                 ],
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Colors.grey.shade100))
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(Icons.location_on_outlined,size: 18,color: Colors.black,),
-                  const SizedBox(width: 5,),
-                  Text("Address",style: Stylings.titles.copyWith(fontSize: 12),),
-                ],
+            GestureDetector(
+              onTap: (){
+                Get.to(()=> const Detandadrsettings(which: "ad"));
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.grey.shade100))
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(Icons.location_on_outlined,size: 18,color: Colors.black,),
+                    const SizedBox(width: 5,),
+                    Text("Address",style: Stylings.titles.copyWith(fontSize: 12),),
+                  ],
+                ),
               ),
             ),
             Container(
