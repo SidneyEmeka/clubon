@@ -40,11 +40,15 @@ dependencies:
   share_plus: ^10.0.2
   barcode_widget: ^2.0.4
   flutter_rating_bar: ^4.0.1
+  chewie: ^1.8.5
+  video_player: ^2.9.1
+
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

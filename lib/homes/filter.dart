@@ -18,7 +18,6 @@ class Filter extends StatefulWidget {
 
 class _FilterState extends State<Filter> {
   var filBbiz = Businness();
-  String location = "Current Location";
   var whenDate = "Select date";
   Future<void> _whenD() async {
     DateTime? _picked = await showDatePicker(
@@ -67,15 +66,20 @@ class _FilterState extends State<Filter> {
             GestureDetector(
               onTap: (){
                 showModalBottomSheet(context: context,
+                    isScrollControlled: true,
                     backgroundColor: Colors.white,
+                    enableDrag: true,
+                    showDragHandle: true,
                     builder: (_){
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 30),
-                            child: Row(
+                      return Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        width: Get.width,
+                        height: Get.height*0.6,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
@@ -112,201 +116,182 @@ class _FilterState extends State<Filter> {
                                 ))
                               ],
                             ),
-                          ),
-                          Container(
-                            child: Expanded(
-                              child: ListView(
-                                children: [
-                                  //Florida
-                                  Padding(
-                                    padding:
-                                    const EdgeInsets.only(left: 20, top: 2, bottom: 10),
-                                    child: Text(
-                                      "Florida",
-                                      style: Stylings.titles.copyWith(fontSize: 15),
-                                    ),
-                                  ),
-                                  Divider(
-                                    color: Colors.black12.withOpacity(0.05),
-                                    height: 2,
-                                  ),
-                                  ...Clubon.florida.map((aFcity) {
-                                    return GestureDetector(
+                            const SizedBox(height: 20,),
+                            Container(
+                              child: Expanded(
+                                child: ListView(
+                                  children: [
+                                    //Florida
+                                    GestureDetector(
                                       onTap: (){
-                                        setState(() {
-                                          location = aFcity;
-                                        });
+                                        Get.find<Businness>().location.value = "Florida";
+                                        Get.back();
                                       },
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 20, vertical: 15),
-                                        decoration: BoxDecoration(
-                                            border: Border(
-                                                bottom: BorderSide(
-                                                  width: 2,
-                                                  color: Colors.black12.withOpacity(0.05),
-                                                ))),
-                                        width: MediaQuery.of(context).size.width,
-                                        child: Text(
-                                          aFcity,
-                                          style: Stylings.subTitles.copyWith(fontSize: 13),
-                                        ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left: 20, top: 2,bottom: 10),
+                                        child: Text("Florida",style: Stylings.titles.copyWith(fontSize: 15),),
                                       ),
-                                    );
-                                  }),
-                                  //Canada
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 20, top: 20, bottom: 10),
-                                    child: Text(
-                                      "Canada",
-                                      style: Stylings.titles.copyWith(fontSize: 15),
                                     ),
-                                  ),
-                                  Divider(
-                                    color: Colors.black12.withOpacity(0.05),
-                                    height: 2,
-                                  ),
-                                  ...Clubon.canada.map((aFcity) {
-                                    return GestureDetector(
-                                      onTap: (){
-                                        setState(() {
-                                          location = aFcity;
-                                        });
-                                      },
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 20, vertical: 15),
-                                        decoration: BoxDecoration(
-                                            border: Border(
-                                                bottom: BorderSide(
-                                                  width: 2,
-                                                  color: Colors.black12.withOpacity(0.05),
-                                                ))),
-                                        width: MediaQuery.of(context).size.width,
-                                        child: Text(
-                                          aFcity,
-                                          style: Stylings.subTitles.copyWith(fontSize: 13),
+                                    Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
+                                    ...Clubon.florida.map((aFcity){
+                                      return GestureDetector(
+                                        onTap: (){
+                                          Get.find<Businness>().location.value = aFcity;
+                                          Get.back();
+                                          },
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                                          decoration: BoxDecoration(
+                                              border: Border(
+                                                  bottom: BorderSide(
+                                                    width: 2,
+                                                    color: Colors.black12.withOpacity(0.05),
+                                                  )
+                                              )
+                                          ),
+                                          width: MediaQuery.of(context).size.width,
+                                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
                                         ),
+                                      );
+                                    }),
+                                    //Canada
+                                    GestureDetector(
+                                      onTap: (){
+                                        Get.find<Businness>().location.value = "Canada";
+                                        Get.back();
+                                          },
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
+                                        child: Text("Canada",style: Stylings.titles.copyWith(fontSize: 15),),
                                       ),
-                                    );
-                                  }),
-                                  //Andorra
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 20, top: 20, bottom: 10),
-                                    child: Text(
-                                      "Andorra",
-                                      style: Stylings.titles.copyWith(fontSize: 15),
                                     ),
-                                  ),
-                                  Divider(
-                                    color: Colors.black12.withOpacity(0.05),
-                                    height: 2,
-                                  ),
-                                  ...Clubon.andorra.map((aFcity) {
-                                    return GestureDetector(
-                                      onTap: (){
-                                        setState(() {
-                                          location = aFcity;
-                                        });
-                                      },
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 20, vertical: 13),
-                                        decoration: BoxDecoration(
-                                            border: Border(
-                                                bottom: BorderSide(
-                                                  width: 2,
-                                                  color: Colors.black12.withOpacity(0.05),
-                                                ))),
-                                        width: MediaQuery.of(context).size.width,
-                                        child: Text(
-                                          aFcity,
-                                          style: Stylings.subTitles.copyWith(fontSize: 13),
+                                    Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
+                                    ...Clubon.canada.map((aFcity){
+                                      return GestureDetector(
+                                        onTap: (){
+                                          Get.find<Businness>().location.value = aFcity;
+                                          Get.back();
+                                            },
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                                          decoration: BoxDecoration(
+                                              border: Border(
+                                                  bottom: BorderSide(
+                                                    width: 2,
+                                                    color: Colors.black12.withOpacity(0.05),
+                                                  )
+                                              )
+                                          ),
+                                          width: MediaQuery.of(context).size.width,
+                                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
                                         ),
+                                      );
+                                    }),
+                                    //Andorra
+                                    GestureDetector(
+                                      onTap: (){
+                                        Get.find<Businness>().location.value = "Andorra";
+                                        Get.back();
+                                         },
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
+                                        child: Text("Andorra",style: Stylings.titles.copyWith(fontSize: 15),),
                                       ),
-                                    );
-                                  }),
-                                  //Austria
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 20, top: 20, bottom: 10),
-                                    child: Text(
-                                      "Austria",
-                                      style: Stylings.titles.copyWith(fontSize: 15),
                                     ),
-                                  ),
-                                  Divider(
-                                    color: Colors.black12.withOpacity(0.05),
-                                    height: 2,
-                                  ),
-                                  ...Clubon.austria.map((aFcity) {
-                                    return GestureDetector(
-                                      onTap: (){
-                                        setState(() {
-                                          location = aFcity;
-                                        });
-                                      },
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 20, vertical: 15),
-                                        decoration: BoxDecoration(
-                                            border: Border(
-                                                bottom: BorderSide(
-                                                  width: 2,
-                                                  color: Colors.black12.withOpacity(0.05),
-                                                ))),
-                                        width: MediaQuery.of(context).size.width,
-                                        child: Text(
-                                          aFcity,
-                                          style: Stylings.subTitles.copyWith(fontSize: 13),
+                                    Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
+                                    ...Clubon.andorra.map((aFcity){
+                                      return GestureDetector(
+                                        onTap: (){
+                                          Get.find<Businness>().location.value = aFcity;
+                                          Get.back();
+                                          },
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 13),
+                                          decoration: BoxDecoration(
+                                              border: Border(
+                                                  bottom: BorderSide(
+                                                    width: 2,
+                                                    color: Colors.black12.withOpacity(0.05),
+                                                  )
+                                              )
+                                          ),
+                                          width: MediaQuery.of(context).size.width,
+                                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
                                         ),
+                                      );
+                                    }),
+                                    //Austria
+                                    GestureDetector(
+                                      onTap: (){
+                                        Get.find<Businness>().location.value = "Austria";
+                                        Get.back();
+                                        },
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
+                                        child: Text("Austria",style: Stylings.titles.copyWith(fontSize: 15),),
                                       ),
-                                    );
-                                  }),
-                                  //Belgium
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 20, top: 20, bottom: 10),
-                                    child: Text(
-                                      "Belgium",
-                                      style: Stylings.titles.copyWith(fontSize: 15),
                                     ),
-                                  ),
-                                  Divider(
-                                    color: Colors.black12.withOpacity(0.05),
-                                    height: 2,
-                                  ),
-                                  ...Clubon.belguim.map((aFcity) {
-                                    return GestureDetector(
-                                      onTap: (){
-                                        setState(() {
-                                          location = aFcity;
-                                        });
-                                      },
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 20, vertical: 15),
-                                        decoration: BoxDecoration(
-                                            border: Border(
-                                                bottom: BorderSide(
-                                                  width: 2,
-                                                  color: Colors.black12.withOpacity(0.05),
-                                                ))),
-                                        width: MediaQuery.of(context).size.width,
-                                        child: Text(
-                                          aFcity,
-                                          style: Stylings.subTitles.copyWith(fontSize: 13),
+                                    Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
+                                    ...Clubon.austria.map((aFcity){
+                                      return GestureDetector(
+                                        onTap: (){
+                                          Get.find<Businness>().location.value = aFcity;
+                                          Get.back();
+                                            },
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                                          decoration: BoxDecoration(
+                                              border: Border(
+                                                  bottom: BorderSide(
+                                                    width: 2,
+                                                    color: Colors.black12.withOpacity(0.05),
+                                                  )
+                                              )
+                                          ),
+                                          width: MediaQuery.of(context).size.width,
+                                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
                                         ),
+                                      );
+                                    }),
+                                    //Belgium
+                                    GestureDetector(
+                                      onTap: (){
+                                        Get.find<Businness>().location.value = "Belguim";
+                                        Get.back();
+                                          },
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left: 20, top: 20, bottom: 10),
+                                        child: Text("Belgium",style: Stylings.titles.copyWith(fontSize: 15),),
                                       ),
-                                    );
-                                  }),
-                                ],
+                                    ),
+                                    Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
+                                    ...Clubon.belguim.map((aFcity){
+                                      return GestureDetector(
+                                        onTap: (){
+                                          Get.find<Businness>().location.value = aFcity;
+                                          Get.back();
+                                          },
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                                          decoration: BoxDecoration(
+                                              border: Border(
+                                                  bottom: BorderSide(
+                                                    width: 2,
+                                                    color: Colors.black12.withOpacity(0.05),
+                                                  )
+                                              )
+                                          ),
+                                          width: MediaQuery.of(context).size.width,
+                                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                                        ),
+                                      );
+                                    }),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       );
                     });
               },
@@ -325,7 +310,7 @@ class _FilterState extends State<Filter> {
                     children: [
                       const Icon(Icons.location_on_outlined,color: Colors.black,size: 15,),
                       const SizedBox(width: 5),
-                      Text(location,style: Stylings.subTitles.copyWith(fontSize: 12),),
+                      Text(Get.find<Businness>().location.value,style: Stylings.subTitles.copyWith(fontSize: 12),),
                       const Expanded(child: SizedBox()),
                       const Icon(Icons.arrow_forward_ios,color: Colors.black,size: 15,)
                     ],

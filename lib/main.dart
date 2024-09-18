@@ -2,9 +2,14 @@
 import 'package:clubon/onboarding/splashscreen.dart';
 import 'package:clubon/utils/styles/stylings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
+import 'getxserver/businesslogic.dart';
+
 void main() {
+  Get.put(Businness());
   runApp(const MyApp());
 }
 

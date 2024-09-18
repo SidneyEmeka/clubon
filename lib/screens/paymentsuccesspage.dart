@@ -75,7 +75,7 @@ class _PaymentsuccesspageState extends State<Paymentsuccesspage> {
             const SizedBox(height: 80),
             GestureDetector(
               onTap: (){
-                Get.to(const Tickets(),arguments: Get.arguments);
+                Get.to(()=>const Tickets(),arguments: Get.arguments);
                },
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 20),

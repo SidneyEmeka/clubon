@@ -20,26 +20,26 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
   var evBiz = Businness();
   Future _dispayBottomSheet() {
-    return showModalBottomSheet(
-        context: context,
+    return showModalBottomSheet(context: context,
         isScrollControlled: true,
-        useSafeArea: true,
         backgroundColor: Colors.white,
         enableDrag: true,
         showDragHandle: true,
-        builder: (_) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: Row(
+        builder: (_){
+          return Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            width: Get.width,
+            height: Get.height*0.6,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.85,
+                      width: MediaQuery.of(context).size.width*0.85,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
                           color: Colors.black12.withOpacity(0.04),
@@ -52,9 +52,8 @@ class _SearchState extends State<Search> {
                             border: InputBorder.none),
                       ),
                     ),
-                    Expanded(
-                        child: GestureDetector(
-                      onTap: () {
+                    Expanded(child: GestureDetector(
+                      onTap: (){
                         Navigator.pop(context);
                       },
                       child: Container(
@@ -72,169 +71,182 @@ class _SearchState extends State<Search> {
                     ))
                   ],
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                child: Expanded(
-                  child: ListView(
-                    children: [
-                      //Florida
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 20, top: 2, bottom: 10),
-                        child: Text(
-                          "Florida",
-                          style: Stylings.titles.copyWith(fontSize: 15),
-                        ),
-                      ),
-                      Divider(
-                        color: Colors.black12.withOpacity(0.05),
-                        height: 2,
-                      ),
-                      ...Clubon.florida.map((aFcity) {
-                        return Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 15),
-                          decoration: BoxDecoration(
-                              border: Border(
-                                  bottom: BorderSide(
-                            width: 2,
-                            color: Colors.black12.withOpacity(0.05),
-                          ))),
-                          width: MediaQuery.of(context).size.width,
-                          child: Text(
-                            aFcity,
-                            style: Stylings.subTitles.copyWith(fontSize: 13),
+                const SizedBox(height: 20,),
+                Container(
+                  child: Expanded(
+                    child: ListView(
+                      children: [
+                        //Florida
+                        GestureDetector(
+                          onTap: (){
+                            Get.find<Businness>().location.value = "Florida";
+                            Get.back();
+                           },
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 20, top: 2,bottom: 10),
+                            child: Text("Florida",style: Stylings.titles.copyWith(fontSize: 15),),
                           ),
-                        );
-                      }),
-                      //Canada
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 20, top: 20, bottom: 10),
-                        child: Text(
-                          "Canada",
-                          style: Stylings.titles.copyWith(fontSize: 15),
                         ),
-                      ),
-                      Divider(
-                        color: Colors.black12.withOpacity(0.05),
-                        height: 2,
-                      ),
-                      ...Clubon.canada.map((aFcity) {
-                        return Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 15),
-                          decoration: BoxDecoration(
-                              border: Border(
-                                  bottom: BorderSide(
-                            width: 2,
-                            color: Colors.black12.withOpacity(0.05),
-                          ))),
-                          width: MediaQuery.of(context).size.width,
-                          child: Text(
-                            aFcity,
-                            style: Stylings.subTitles.copyWith(fontSize: 13),
+                        Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
+                        ...Clubon.florida.map((aFcity){
+                          return GestureDetector(
+                            onTap: (){
+                              Get.find<Businness>().location.value = aFcity;
+                              Get.back();
+                                },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                              decoration: BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(
+                                        width: 2,
+                                        color: Colors.black12.withOpacity(0.05),
+                                      )
+                                  )
+                              ),
+                              width: MediaQuery.of(context).size.width,
+                              child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                            ),
+                          );
+                        }),
+                        //Canada
+                        GestureDetector(
+                          onTap: (){
+                            Get.find<Businness>().location.value = "Canada";
+                            Get.back();
+                           },
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
+                            child: Text("Canada",style: Stylings.titles.copyWith(fontSize: 15),),
                           ),
-                        );
-                      }),
-                      //Andorra
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 20, top: 20, bottom: 10),
-                        child: Text(
-                          "Andorra",
-                          style: Stylings.titles.copyWith(fontSize: 15),
                         ),
-                      ),
-                      Divider(
-                        color: Colors.black12.withOpacity(0.05),
-                        height: 2,
-                      ),
-                      ...Clubon.andorra.map((aFcity) {
-                        return Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 13),
-                          decoration: BoxDecoration(
-                              border: Border(
-                                  bottom: BorderSide(
-                            width: 2,
-                            color: Colors.black12.withOpacity(0.05),
-                          ))),
-                          width: MediaQuery.of(context).size.width,
-                          child: Text(
-                            aFcity,
-                            style: Stylings.subTitles.copyWith(fontSize: 13),
+                        Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
+                        ...Clubon.canada.map((aFcity){
+                          return GestureDetector(
+                            onTap: (){
+                              Get.find<Businness>().location.value = aFcity;
+                              Get.back();
+                              },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                              decoration: BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(
+                                        width: 2,
+                                        color: Colors.black12.withOpacity(0.05),
+                                      )
+                                  )
+                              ),
+                              width: MediaQuery.of(context).size.width,
+                              child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                            ),
+                          );
+                        }),
+                        //Andorra
+                        GestureDetector(
+                          onTap: (){
+                            Get.find<Businness>().location.value = "Andorra";
+                            Get.back();
+                             },
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
+                            child: Text("Andorra",style: Stylings.titles.copyWith(fontSize: 15),),
                           ),
-                        );
-                      }),
-                      //Austria
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 20, top: 20, bottom: 10),
-                        child: Text(
-                          "Austria",
-                          style: Stylings.titles.copyWith(fontSize: 15),
                         ),
-                      ),
-                      Divider(
-                        color: Colors.black12.withOpacity(0.05),
-                        height: 2,
-                      ),
-                      ...Clubon.austria.map((aFcity) {
-                        return Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 15),
-                          decoration: BoxDecoration(
-                              border: Border(
-                                  bottom: BorderSide(
-                            width: 2,
-                            color: Colors.black12.withOpacity(0.05),
-                          ))),
-                          width: MediaQuery.of(context).size.width,
-                          child: Text(
-                            aFcity,
-                            style: Stylings.subTitles.copyWith(fontSize: 13),
+                        Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
+                        ...Clubon.andorra.map((aFcity){
+                          return GestureDetector(
+                            onTap: (){
+                              Get.find<Businness>().location.value = aFcity;
+                              Get.back();
+                              },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 13),
+                              decoration: BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(
+                                        width: 2,
+                                        color: Colors.black12.withOpacity(0.05),
+                                      )
+                                  )
+                              ),
+                              width: MediaQuery.of(context).size.width,
+                              child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                            ),
+                          );
+                        }),
+                        //Austria
+                        GestureDetector(
+                          onTap: (){
+                            Get.find<Businness>().location.value = "Austria";
+                            Get.back();
+                             },
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
+                            child: Text("Austria",style: Stylings.titles.copyWith(fontSize: 15),),
                           ),
-                        );
-                      }),
-                      //Belgium
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 20, top: 20, bottom: 10),
-                        child: Text(
-                          "Belgium",
-                          style: Stylings.titles.copyWith(fontSize: 15),
                         ),
-                      ),
-                      Divider(
-                        color: Colors.black12.withOpacity(0.05),
-                        height: 2,
-                      ),
-                      ...Clubon.belguim.map((aFcity) {
-                        return Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 15),
-                          decoration: BoxDecoration(
-                              border: Border(
-                                  bottom: BorderSide(
-                            width: 2,
-                            color: Colors.black12.withOpacity(0.05),
-                          ))),
-                          width: MediaQuery.of(context).size.width,
-                          child: Text(
-                            aFcity,
-                            style: Stylings.subTitles.copyWith(fontSize: 13),
+                        Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
+                        ...Clubon.austria.map((aFcity){
+                          return GestureDetector(
+                            onTap: (){
+                              Get.find<Businness>().location.value = aFcity;
+                              Get.back();
+                              },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                              decoration: BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(
+                                        width: 2,
+                                        color: Colors.black12.withOpacity(0.05),
+                                      )
+                                  )
+                              ),
+                              width: MediaQuery.of(context).size.width,
+                              child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                            ),
+                          );
+                        }),
+                        //Belgium
+                        GestureDetector(
+                          onTap: (){
+                            Get.find<Businness>().location.value = "Belguim";
+                            Get.back();
+                            },
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 20, top: 20, bottom: 10),
+                            child: Text("Belgium",style: Stylings.titles.copyWith(fontSize: 15),),
                           ),
-                        );
-                      }),
-                    ],
+                        ),
+                        Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
+                        ...Clubon.belguim.map((aFcity){
+                          return GestureDetector(
+                            onTap: (){
+                              Get.find<Businness>().location.value = aFcity;
+                              Get.back();
+                             },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                              decoration: BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(
+                                        width: 2,
+                                        color: Colors.black12.withOpacity(0.05),
+                                      )
+                                  )
+                              ),
+                              width: MediaQuery.of(context).size.width,
+                              child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                            ),
+                          );
+                        }),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         });
   }
@@ -260,11 +272,10 @@ class _SearchState extends State<Search> {
                 Expanded(
                     child: GestureDetector(
                   onTap: () {
-                    // showSearch(context: context, delegate: CustomSearchDelegate());
                     Get.to(const Searching(),
                         fullscreenDialog: true,
                         transition: Transition.rightToLeft,
-                        duration: const Duration(seconds: 3));
+                        duration: const Duration(milliseconds: 600));
                   },
                   child: Container(
                       padding:

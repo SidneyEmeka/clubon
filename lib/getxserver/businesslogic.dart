@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Businness {
-  var location = "location".obs;
+class Businness extends GetxController{
+  var location = "Miami".obs;
   var ticketPrice = 0.0.obs;
   var count = 1.obs;
   var ticketType = "Regular".obs;
@@ -166,4 +166,28 @@ class Businness {
  {"title": "Show Friends", "isF": true, "sub":"Your friends will see your friends on Clubon", 'icon': Icons.people}.obs,
   ];
   var isPrivate = false.obs;
+
+
+  var liveComments = [
+    {
+      "imgUrl": "assets/images/jlop.png",
+      "name": "Jennifer Lopez",
+      "comm": "❤️❤️Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+    },
+    {
+      "imgUrl": "assets/images/jlop.png",
+      "name": "Jennifer Lopez",
+      "comm": "❤️❤️Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+    },
+    {
+      "imgUrl": "assets/images/clock.png",
+      "name": "MarkAnthony Sharad Woods",
+      "comm": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour🙈🙈🙈",
+    },
+    {
+      "imgUrl": "assets/images/f1.png",
+      "name": "Millicent Brad",
+      "comm": "Lorem Ipsum is not simply random text",
+    },
+  ].obs;
 }
