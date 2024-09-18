@@ -48,10 +48,8 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
         height: Get.height,
         width: Get.width,
         padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 20),
-        child: widget.which=="pri"?Obx(()=>Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+        child: widget.which=="pri"?Obx(()=>ListView(
+         children: [
             Text("Connection settings",style: Stylings.titles.copyWith(fontSize: 12),),
             const SizedBox(height: 10,),
             Text("Let friends know what you're interested in. Share the events you,ve saved and booked",style: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.grey.shade500),),
