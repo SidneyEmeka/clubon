@@ -38,7 +38,7 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
           child: const Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
-            size: 20,
+            size: 17,
           ),
         ),
         title:  widget.which=="pri"?Text("Privacy",style: Stylings.titles.copyWith(fontSize: 12),):Text("Notifications",style: Stylings.titles.copyWith(fontSize: 12),),
@@ -50,9 +50,9 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
         padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 20),
         child: widget.which=="pri"?Obx(()=>ListView(
          children: [
-            Text("Connection settings",style: Stylings.titles.copyWith(fontSize: 12),),
-            const SizedBox(height: 10,),
-            Text("Let friends know what you're interested in. Share the events you,ve saved and booked",style: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.grey.shade500),),
+            Text("Connection settings",style: Stylings.titles.copyWith(fontSize: 11),),
+            const SizedBox(height: 8,),
+            Text("Let friends know what you're interested in. Share the events you,ve saved and booked",style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.grey.shade500),),
             const SizedBox(height: 10,),
             Container(
               width: Get.width,
@@ -82,11 +82,11 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
                   });
                   print(acceptNew);
                 },
-                title: Text("Become an influencer",style: Stylings.titles.copyWith(fontSize: 12),),
+                title: Text("Become an influencer",style: Stylings.titles.copyWith(fontSize: 11),),
               ),
             ),
-            const Expanded(flex:1,child: SizedBox()),
-            Text("What you're sharing",style: Stylings.titles.copyWith(fontSize: 12),),
+            const SizedBox(height: 20,),
+            Text("What you're sharing",style: Stylings.titles.copyWith(fontSize: 11),),
             const SizedBox(height: 10,),
             Container(
               width: Get.width,
@@ -120,9 +120,9 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Icon(Icons.lock,size: 15,color: Colors.black,),
+                      const Icon(Icons.lock,size: 12,color: Colors.black,),
                       const SizedBox(width: 5,),
-                      Text("Make me private",style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text("Make me private",style: Stylings.titles.copyWith(fontSize: 11),),
                     ],
                   ),
                 ),
@@ -165,9 +165,9 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Icon(aT['icon'],size: 15,color: Colors.black,),
+                            Icon(aT['icon'],size: 12,color: Colors.black,),
                             const SizedBox(width: 5,),
-                            Text(aT['title'],style: Stylings.titles.copyWith(fontSize: 12),),
+                            Text(aT['title'],style: Stylings.titles.copyWith(fontSize: 11),),
                           ],
                         ),
                       ),
@@ -211,9 +211,9 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Icon(aT['icon'],size: 15,color: Colors.grey.shade500,),
+                            Icon(aT['icon'],size: 12,color: Colors.grey.shade500,),
                             const SizedBox(width: 5,),
-                            Text(aT['title'],style: Stylings.titles.copyWith(fontSize: 12,color: Colors.grey.shade500),),
+                            Text(aT['title'],style: Stylings.titles.copyWith(fontSize: 11,color: Colors.grey.shade500),),
                           ],
                         ),
                       ),
@@ -231,7 +231,7 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text("Changes to your event",style: Stylings.titles.copyWith(fontSize: 12),),
+              Text("Changes to your event",style: Stylings.titles.copyWith(fontSize: 11),),
               const SizedBox(height: 5,),
               Text("Update to shows you're going to - like the time or lineup",style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.grey.shade600),),
               const SizedBox(height: 5,),
@@ -262,7 +262,7 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
                       push1=value;
                     });
                   },
-                  title: Text("Push notifications",style: Stylings.titles.copyWith(fontSize: 12),),
+                  title: Text("Push notifications",style: Stylings.titles.copyWith(fontSize: 11),),
                 ),
               ),
             ],
@@ -273,7 +273,7 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text("Recommendations and news from Clubon",style: Stylings.titles.copyWith(fontSize: 12),),
+                Text("Recommendations and news from Clubon",style: Stylings.titles.copyWith(fontSize: 11),),
                 const SizedBox(height: 5,),
                 Text("Update to shows you're going to - like the time or lineup",style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.grey.shade600),),
                 const SizedBox(height: 15,),
@@ -303,7 +303,7 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
                         push2=value;
                       });
                     },
-                    title: Text("Push notifications",style: Stylings.titles.copyWith(fontSize: 12),),
+                    title: Text("Push notifications",style: Stylings.titles.copyWith(fontSize: 11),),
                   ),
                 ),
                 const SizedBox(height: 10,),
@@ -333,7 +333,7 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
                         email2=value;
                       });
                     },
-                    title: Text("Email",style: Stylings.titles.copyWith(fontSize: 12),),
+                    title: Text("Email",style: Stylings.titles.copyWith(fontSize: 11),),
                   ),
                 ),
               ],
@@ -344,7 +344,7 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text("Updates from your connections",style: Stylings.titles.copyWith(fontSize: 12),),
+                Text("Updates from your connections",style: Stylings.titles.copyWith(fontSize: 11),),
                 const SizedBox(height: 5,),
                 Text("Invites and shows your friends are interested in",style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.grey.shade600),),
                 const SizedBox(height: 15,),
@@ -374,7 +374,7 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
                         push3=value;
                       });
                     },
-                    title: Text("Push notifications",style: Stylings.titles.copyWith(fontSize: 12),),
+                    title: Text("Push notifications",style: Stylings.titles.copyWith(fontSize: 11),),
                   ),
                 ),
                 const SizedBox(height: 10,),
@@ -404,7 +404,7 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
                         email3=value;
                       });
                     },
-                    title: Text("Email",style: Stylings.titles.copyWith(fontSize: 12),),
+                    title: Text("Email",style: Stylings.titles.copyWith(fontSize: 11),),
                   ),
                 ),
               ],
@@ -415,7 +415,7 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text("Updates from your connections",style: Stylings.titles.copyWith(fontSize: 12),),
+                Text("Updates from your connections",style: Stylings.titles.copyWith(fontSize: 11),),
                 const SizedBox(height: 5,),
                 Text("Invites and shows your friends are interested in",style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.grey.shade600),),
                 const SizedBox(height: 15,),
@@ -445,7 +445,7 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
                         push4=value;
                       });
                     },
-                    title: Text("Push notifications",style: Stylings.titles.copyWith(fontSize: 12),),
+                    title: Text("Push notifications",style: Stylings.titles.copyWith(fontSize: 11),),
                   ),
                 ),
                 const SizedBox(height: 10,),
@@ -475,7 +475,7 @@ class _PrivandnotsettingsState extends State<Privandnotsettings> {
                         email4=value;
                       });
                     },
-                    title: Text("Email",style: Stylings.titles.copyWith(fontSize: 12),),
+                    title: Text("Email",style: Stylings.titles.copyWith(fontSize: 11),),
                   ),
                 ),
               ],

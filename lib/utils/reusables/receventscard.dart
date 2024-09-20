@@ -48,15 +48,15 @@ class Receventscard extends StatelessWidget {
                 backgroundBlendMode: BlendMode.darken,
                 borderRadius: BorderRadius.circular(20),
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
                     margin: const EdgeInsets.only(right: 10),
-                    width: 35,
-                    height: 35,
+                    width: 30,
+                    height: 30,
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                     ),
@@ -68,7 +68,7 @@ class Receventscard extends StatelessWidget {
                   Text(
                     username,
                     style: Stylings.titles
-                        .copyWith(fontSize: 12, color: Colors.white),
+                        .copyWith(fontSize: 11, color: Colors.white),
                   )
                 ],
               ),
@@ -76,17 +76,17 @@ class Receventscard extends StatelessWidget {
           ),
           //title
           Container(
-            margin: const EdgeInsets.only(left: 15,top: 10,bottom: 8),
+            margin: const EdgeInsets.only(left: 12,top: 10,bottom: 8),
             width: size.width * 0.8,
             child: Text(
               overflow: TextOverflow.ellipsis,
               title,
-              style: Stylings.titles.copyWith(fontSize: 15),
+              style: Stylings.titles.copyWith(fontSize: 12),
             ),
           ),
           //time
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -106,7 +106,7 @@ class Receventscard extends StatelessWidget {
                     ),
                     Text(
                       date,
-                      style: Stylings.subTitles,
+                      style: Stylings.subTitles.copyWith(fontSize: 10),
                     ),
                   ],
                 ),
@@ -115,19 +115,19 @@ class Receventscard extends StatelessWidget {
           ),
           //book
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: 60,
+                  width: 50,
                   child: Stack(
                     children: [
                       Container(
                         alignment: Alignment.bottomCenter,
-                        height: 20,
-                        width: 20,
+                        height: 16,
+                        width: 16,
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
@@ -137,8 +137,8 @@ class Receventscard extends StatelessWidget {
                         left: 15,
                         child: Container(
                           alignment: Alignment.bottomCenter,
-                          height: 20,
-                          width: 20,
+                          height: 16,
+                          width: 16,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
@@ -150,8 +150,8 @@ class Receventscard extends StatelessWidget {
                         left: 30,
                         child: Container(
                           alignment: Alignment.bottomCenter,
-                          height: 20,
-                          width: 20,
+                          height: 16,
+                          width: 16,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
@@ -162,7 +162,7 @@ class Receventscard extends StatelessWidget {
                     ],
                   ),
                 ),
-                Text("And others booked",style: Stylings.subTitles.copyWith(fontSize: 14),),
+                Expanded(child: Text("And others booked",style: Stylings.subTitles.copyWith(fontSize: 10),)),
               ],
             ),
           ),

@@ -2,6 +2,8 @@ import 'package:clubon/homepage.dart';
 import 'package:clubon/onboarding/signinmethod.dart';
 import 'package:clubon/utils/reusables/glassmorph.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../utils/styles/stylings.dart';
 
@@ -44,58 +46,53 @@ class Setnotification extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 40,),
+                const Expanded(flex:2,child: SizedBox()),
                 Text(
                   "Choose Your Notification",
-                  style: Stylings.titles.copyWith(fontSize: 27, fontWeight: FontWeight.w900),
+                  style: Stylings.titles.copyWith(fontSize: 20),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5.0),
                   child: Text(
                       textAlign: TextAlign.center,
                       "Select what you want to be notified on",
-                      style: Stylings.subTitles.copyWith(fontSize: 14)),
+                      style: Stylings.titles.copyWith(fontSize: 10)),
                 ),
-                //   const Expanded(child: SizedBox()),
-                Expanded(child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (_){
-                          return const Homepage();
-                        }));
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
-                        alignment: Alignment.center,
-                        width: size.width,
-                        height: 55,
-                        decoration: BoxDecoration(
-                            color: Stylings.orange,
-                            borderRadius: BorderRadius.circular(8)),
-                        child: Text("Everything", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600,color: Colors.white),),
+                const Expanded(flex:1,child: SizedBox()),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (_){
+                      return const Homepage();
+                    }));
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
+                    alignment: Alignment.center,
+                    width: size.width,
+                    height: Get.height*0.065,
+                    decoration: BoxDecoration(
+                        color: Stylings.orange,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Text("Everything", style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),),
 
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                        alignment: Alignment.center,
-                        width: size.width,
-                        height: 55,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(8)),
-                        child: Text("Just My Event", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600),),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20.0),
+                    alignment: Alignment.center,
+                    width: size.width,
+                    height: Get.height*0.065,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Text("Just My Event", style: Stylings.titles.copyWith(fontSize: 12),),
 
-                      ),
-                    ),
-                  ],
-                ))
+                  ),
+                ),
+                const Expanded(flex:2,child: SizedBox()),
               ],
             ),)
           )

@@ -31,10 +31,10 @@ class Earnbreakdown extends StatelessWidget {
           child: const Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
-            size: 20,
+            size: 17,
           ),
         ),
-        title: Text(title,style: Stylings.titles.copyWith(fontSize: 12),),
+        title: Text(title,style: Stylings.titles.copyWith(fontSize: 11),),
         centerTitle: true,
       ),
       body: Container(
@@ -47,7 +47,7 @@ class Earnbreakdown extends StatelessWidget {
           children: [
             Text(title=='Last payout'?"Total payout":"Total Amount you have earned", style: Stylings.titles.copyWith(fontSize: 11),),
             const SizedBox(height: 4,),
-            Text("\$$total", style: Stylings.titles.copyWith(fontSize: 25),),
+            Text("\$$total", style: Stylings.titles.copyWith(fontSize: 23),),
             const SizedBox(height: 5,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -68,13 +68,13 @@ class Earnbreakdown extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('This year', style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text('This year', style: Stylings.titles.copyWith(fontSize: 11),),
                       const SizedBox(height:5),
                       ...Clubon.donations.take(4).map((aDon){
                         return aDon['id']==1?Donationtile(isTop: 1, imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):aDon['id']==4?Donationtile(isTop: 3,imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):Donationtile(imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],);
                       }),
                       const SizedBox(height:15),
-                      Text('2023', style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text('2023', style: Stylings.titles.copyWith(fontSize: 11),),
                       const SizedBox(height:5),
                       ...Clubon.donations.reversed.take(6).map((aDon){
                         return aDon['id']==1?Donationtile(isTop: 1, imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):aDon['id']==4?Donationtile(isTop: 3,imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):Donationtile(imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],);
@@ -94,19 +94,19 @@ class Earnbreakdown extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Today', style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text('Today', style: Stylings.titles.copyWith(fontSize: 11),),
                       const SizedBox(height:5),
                       ...Clubon.donations.take(1).map((aDon){
                         return aDon['id']==1?Donationtile(isTop: 1, imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):aDon['id']==4?Donationtile(isTop: 3,imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):Donationtile(imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],);
                       }),
                       const SizedBox(height:15),
-                      Text('last week', style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text('last week', style: Stylings.titles.copyWith(fontSize: 11),),
                       const SizedBox(height:5),
                       ...Clubon.donations.reversed.take(7).map((aDon){
                         return aDon['id']==1?Donationtile(isTop: 1, imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):aDon['id']==4?Donationtile(isTop: 3,imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):Donationtile(imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],);
                       }),
                       const SizedBox(height:15),
-                      Text('September 6', style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text('September 6', style: Stylings.titles.copyWith(fontSize: 11),),
                       const SizedBox(height:5),
                       ...Clubon.donations.take(3).map((aDon){
                         return aDon['id']==1?Donationtile(isTop: 1, imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):aDon['id']==4?Donationtile(isTop: 3,imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):Donationtile(imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],);
@@ -127,19 +127,19 @@ class Earnbreakdown extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Today', style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text('Today', style: Stylings.titles.copyWith(fontSize: 11),),
                       const SizedBox(height:5),
                       ...Clubon.donations.reversed.take(6).map((aDon){
                         return aDon['id']==1?Donationtile(isTop: 1, imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):aDon['id']==4?Donationtile(isTop: 3,imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):Donationtile(imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],);
                       }),
                       const SizedBox(height:15),
-                      Text('Tuesday', style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text('Tuesday', style: Stylings.titles.copyWith(fontSize: 11),),
                       const SizedBox(height:5),
                       ...Clubon.donations.reversed.take(1).map((aDon){
                         return aDon['id']==1?Donationtile(isTop: 1, imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):aDon['id']==4?Donationtile(isTop: 3,imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):Donationtile(imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],);
                       }),
                       const SizedBox(height:15),
-                      Text('Sunday', style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text('Sunday', style: Stylings.titles.copyWith(fontSize: 11),),
                       const SizedBox(height:5),
                       ...Clubon.donations.take(4).map((aDon){
                         return aDon['id']==1?Donationtile(isTop: 1, imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):aDon['id']==4?Donationtile(isTop: 3,imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],):Donationtile(imgUrl: aDon['imgUrl'], username: aDon['username'], total: aDon['total'], gave: aDon['gave'],);

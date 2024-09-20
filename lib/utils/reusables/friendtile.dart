@@ -17,7 +17,7 @@ class Friendtile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 15),
+      padding: const EdgeInsets.symmetric(horizontal:10),
       width: Get.size.width,
       height: Get.size.height*0.1,
       decoration: BoxDecoration(
@@ -35,8 +35,8 @@ class Friendtile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            width: 50,
-            height: 50,
+            width: 40,
+            height: 40,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
             ),
@@ -55,22 +55,21 @@ class Friendtile extends StatelessWidget {
                 Text(
                   overflow: TextOverflow.ellipsis,
                   name,
-                  style: Stylings.titles.copyWith(fontSize: 12),
+                  style: Stylings.titles.copyWith(fontSize: 11),
                 ),
                 Text(
                   overflow: TextOverflow.ellipsis,
                   "@$username",
                   style: Stylings.subTitles
-                      .copyWith(fontSize: 12, color: Colors.black54),
+                      .copyWith(fontSize: 11, color: Colors.black54),
                 )
               ],
             ),
           ),
-          const Expanded(child: SizedBox()),
+          const Expanded(flex:2,child: SizedBox()),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12),
-          //  width: Get.size.width*0.25,
-            height: 33,
+            height: 30,
             decoration: BoxDecoration(
               color: Stylings.bgColor,
               borderRadius: BorderRadius.circular(20),
@@ -79,13 +78,14 @@ class Friendtile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(iP,color: Colors.black, size: 20,),
+                Icon(iP,color: Colors.black, size: 15,),
                 const SizedBox(width: 7),
-                Text(action,style: Stylings.titles.copyWith(fontSize: 12),)
+                Text(action,style: Stylings.titles.copyWith(fontSize: 10),)
               ],
             ),
           ),
-          IconButton(onPressed:(){}, icon: Icon(iC,color: Colors.black54, size: 20,))
+          const Expanded(flex:1,child: SizedBox()),
+          Icon(iC,color: Colors.black54, size: 17,)
         ],
       ),
     );

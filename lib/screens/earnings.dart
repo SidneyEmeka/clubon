@@ -32,10 +32,10 @@ class Earnings extends StatelessWidget {
           child: const Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
-            size: 20,
+            size: 17,
           ),
         ),
-        title: Text("Earnings",style: Stylings.titles.copyWith(fontSize: 12),),
+        title: Text("Earnings",style: Stylings.titles.copyWith(fontSize: 11),),
         centerTitle: true,
       ),
       body: Container(
@@ -48,7 +48,7 @@ class Earnings extends StatelessWidget {
           children: [
             Text("Amount you have earned", style: Stylings.titles.copyWith(fontSize: 11),),
             const SizedBox(height: 4,),
-            Get.arguments!=0? Text("\$${earnBiz.totalEarning.value==32000?"32,000":"0.00"}", style: Stylings.titles.copyWith(fontSize: 25),):Text("\$0.00", style: Stylings.titles.copyWith(fontSize: 25),),
+            Get.arguments!=0? Text("\$${earnBiz.totalEarning.value==32000?"32,000":"0.00"}", style: Stylings.titles.copyWith(fontSize: 23),):Text("\$0.00", style: Stylings.titles.copyWith(fontSize: 23),),
             const SizedBox(height: 5,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -79,7 +79,7 @@ class Earnings extends StatelessWidget {
                       children: [
                         Text(
                           "40M",
-                          style: Stylings.titles.copyWith(fontSize: 12),
+                          style: Stylings.titles.copyWith(fontSize: 11),
                         ),
                         const SizedBox(height: 10,),
                         Text(
@@ -102,7 +102,7 @@ class Earnings extends StatelessWidget {
                       children: [
                         Text(
                           "3631",
-                          style: Stylings.titles.copyWith(fontSize: 12),
+                          style: Stylings.titles.copyWith(fontSize: 11),
                         ),
                         const SizedBox(height: 10,),
                         Text(
@@ -125,7 +125,7 @@ class Earnings extends StatelessWidget {
                       children: [
                         Text(
                           "9M",
-                          style: Stylings.titles.copyWith(fontSize: 12),
+                          style: Stylings.titles.copyWith(fontSize: 11),
                         ),
                         const SizedBox(height: 10,),
                         Text(
@@ -150,15 +150,17 @@ class Earnings extends StatelessWidget {
                     color: Stylings.bgColor,
                     borderRadius: BorderRadius.circular(5)
                   ),
-                  height: Get.height*0.08,
+                  height: Get.height*0.1,
                   width: Get.width,
+                  padding: EdgeInsets.symmetric(vertical: 10),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const SizedBox(height: 5,),
-                      Expanded(child: Text("No Gifting History",style: Stylings.titles.copyWith(fontSize: 12),)),
-                      Expanded(child: Text("No one has gifted you yet. Go live to start earning",textAlign: TextAlign.center,style: Stylings.titles.copyWith(fontSize: 12,color: Colors.grey.shade400),)),
+
+                      Text("No Gifting History",style: Stylings.titles.copyWith(fontSize: 11),),
+                      Expanded(child: SizedBox()),
+                      Text("No one has gifted you yet. Go live to start earning",textAlign: TextAlign.center,style: Stylings.titles.copyWith(fontSize: 11,color: Colors.grey.shade400),),
                     ],
                   ),
                 ),
@@ -173,9 +175,9 @@ class Earnings extends StatelessWidget {
                       height: Get.height*0.05,
                       decoration: BoxDecoration(
                           color: Stylings.orange,
-                          borderRadius: BorderRadius.circular(5)
+                          borderRadius: BorderRadius.circular(7)
                       ),
-                      child: Text("Go live",style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),),
+                      child: Text("Go live",style: Stylings.titles.copyWith(fontSize: 11,color: Colors.white),),
                     ),
                   ),
                 ],
@@ -202,16 +204,16 @@ class Earnings extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          const Icon(FluentSystemIcons.ic_fluent_payment_regular,size: 20,color: Colors.black87,),
+                          const Icon(FluentSystemIcons.ic_fluent_payment_regular,size: 17,color: Colors.black87,),
                           const SizedBox(width: 10,),
                           Text(
                             "Your latest live",
-                            style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black87,),
+                            style: Stylings.titles.copyWith(fontSize: 11,color: Colors.black87,),
                           ),
                           const Expanded(child: SizedBox()),
                           Text(
                             "\$${earnBiz.latestLive.value==2000?"2,000":"0.0"}",
-                            style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black87,),
+                            style: Stylings.titles.copyWith(fontSize: 11,color: Colors.black87,),
                           ),
                           const SizedBox(width: 5),
                           const Icon(Icons.arrow_forward_ios,size: 15,color: Colors.black87,),
@@ -233,16 +235,16 @@ class Earnings extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          const Icon(FluentSystemIcons.ic_fluent_payment_regular,size: 20,color: Colors.black87,),
+                          const Icon(FluentSystemIcons.ic_fluent_payment_regular,size: 17,color: Colors.black87,),
                           const SizedBox(width: 10,),
                           Text(
                             "This week",
-                            style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black87,),
+                            style: Stylings.titles.copyWith(fontSize: 11,color: Colors.black87,),
                           ),
                           const Expanded(child: SizedBox()),
                           Text(
                             "\$${earnBiz.thisWeek.value==8500?"8,500":"0.0"}",
-                            style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black87,),
+                            style: Stylings.titles.copyWith(fontSize: 11,color: Colors.black87,),
                           ),
                           const SizedBox(width: 5),
                           const Icon(Icons.arrow_forward_ios,size: 15,color: Colors.black87,),
@@ -264,16 +266,16 @@ class Earnings extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          const Icon(FluentSystemIcons.ic_fluent_payment_regular,size: 20,color: Colors.black87,),
+                          const Icon(FluentSystemIcons.ic_fluent_payment_regular,size: 17,color: Colors.black87,),
                           const SizedBox(width: 10,),
                           Text(
                             "This month",
-                            style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black87,),
+                            style: Stylings.titles.copyWith(fontSize: 11,color: Colors.black87,),
                           ),
                           const Expanded(child: SizedBox()),
                           Text(
                             "\$${earnBiz.thisMonth.value==14000?"14,000":"0.0"}",
-                            style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black87,),
+                            style: Stylings.titles.copyWith(fontSize: 11,color: Colors.black87,),
                           ),
                           const SizedBox(width: 5),
                           const Icon(Icons.arrow_forward_ios,size: 15,color: Colors.black87,),
@@ -297,16 +299,16 @@ class Earnings extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          const Icon(FluentSystemIcons.ic_fluent_payment_regular,size: 20,color: Colors.black87,),
+                          const Icon(FluentSystemIcons.ic_fluent_payment_regular,size: 17,color: Colors.black87,),
                           const SizedBox(width: 10,),
                           Text(
                             "Last payout",
-                            style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black87,),
+                            style: Stylings.titles.copyWith(fontSize: 11,color: Colors.black87,),
                           ),
                           const Expanded(child: SizedBox()),
                           Text(
                             "\$${earnBiz.lastPayout.value==8700.67?"8,700.67":"0.0"}",
-                            style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black87,),
+                            style: Stylings.titles.copyWith(fontSize: 11,color: Colors.black87,),
                           ),
                           const SizedBox(width: 5),
                           const Icon(Icons.arrow_forward_ios,size: 15,color: Colors.black87,),
@@ -333,9 +335,9 @@ class Earnings extends StatelessWidget {
                 height: Get.height*0.05,
                 decoration: BoxDecoration(
                   color: Stylings.orange,
-                  borderRadius: BorderRadius.circular(5)
+                  borderRadius: BorderRadius.circular(7)
                 ),
-                child: Text("Request payout",style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),),
+                child: Text("Request payout",style: Stylings.titles.copyWith(fontSize: 11,color: Colors.white),),
               ),
             ),
             const SizedBox(height: 40,),

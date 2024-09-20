@@ -36,13 +36,13 @@ class _PaymentsuccesspageState extends State<Paymentsuccesspage> {
             },
             icon: finBiz.paymentStatus.value==false?Container():const Icon(
               FluentSystemIcons.ic_fluent_ios_arrow_left_filled,
-              size: 20,
+              size: 17,
               color: Colors.black,
             ),
           ),),
           title: Obx(()=>finBiz.paymentStatus.value==false?Container():Text(
             "Let's go have fun",
-            style: Stylings.titles.copyWith(fontSize: 13),
+            style: Stylings.titles.copyWith(fontSize: 12),
           ),),
           centerTitle: true,
         ),
@@ -52,11 +52,15 @@ class _PaymentsuccesspageState extends State<Paymentsuccesspage> {
         strokeCap: StrokeCap.round,
       ):
       Container(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        width: Get.width,
+        height: Get.height*0.6,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Icon(FluentSystemIcons.ic_fluent_checkmark_circle_regular,color: Colors.green,size: 100,),
+            Expanded(flex:1,child: const SizedBox()),
+            const Icon(FluentSystemIcons.ic_fluent_checkmark_circle_regular,color: Colors.green,size: 90,),
             const SizedBox(height: 10),
             Text("Thank you for booking",style: Stylings.titles.copyWith(fontSize: 12),),
             const SizedBox(height: 20,),
@@ -65,14 +69,14 @@ class _PaymentsuccesspageState extends State<Paymentsuccesspage> {
                 text: TextSpan(
                 children: [
                   TextSpan(
-                      text: "You have successfully booked a ticket for ", style: Stylings.subTitles.copyWith(fontSize: 13)
+                      text: "You have successfully booked a ticket for ", style: Stylings.subTitles.copyWith(fontSize: 11)
                   ),
                   TextSpan(
-                      text: widget.booked['title'], style: Stylings.titles.copyWith(fontSize: 12)
+                      text: widget.booked['title'], style: Stylings.titles.copyWith(fontSize: 11)
                   ),
                 ]
             )),
-            const SizedBox(height: 80),
+            Expanded(flex:2,child: const SizedBox()),
             GestureDetector(
               onTap: (){
                 Get.to(()=>const Tickets(),arguments: Get.arguments);
@@ -80,13 +84,13 @@ class _PaymentsuccesspageState extends State<Paymentsuccesspage> {
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 20),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(7),
                   color: Stylings.orange,
                 ),
                 alignment: Alignment.center,
                 width: Get.size.width,
                 height:45,
-                child: Text("View your ticket",style: Stylings.titles.copyWith(fontSize: 12, color: Colors.white),),
+                child: Text("View your ticket",style: Stylings.titles.copyWith(fontSize: 11, color: Colors.white),),
               ),
             )
           ],

@@ -48,8 +48,9 @@ class _RegisterState extends State<Register> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              width: 50,
-              height: 50,
+              padding: const EdgeInsets.all(15),
+              width: 70,
+              height: 70,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
               ),
@@ -61,20 +62,20 @@ class _RegisterState extends State<Register> {
               ),
             ),
             Text(
-              "Welcome back to Clubon",
-              style: Stylings.titles.copyWith(fontSize: 20),
+              "Welcome to Clubon",
+              style: Stylings.titles.copyWith(fontSize: 15),
             ),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 40.0, vertical: 5),
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
               child: Text(
                   textAlign: TextAlign.center,
                   "Enter your details to continue",
-                  style: Stylings.body),
+                  style: Stylings.subTitles.copyWith(fontSize: 11)),
             ),
-            SizedBox(height: size.height*0.06),
             Expanded(
                 child: SingleChildScrollView(
+                  reverse: true,
               scrollDirection: Axis.vertical,
               physics: const BouncingScrollPhysics(),
               child: Column(
@@ -83,27 +84,24 @@ class _RegisterState extends State<Register> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.white70,
-                          border: Border.all(
-                            color: Colors.black38,
-                          )),
-                      child: TextFormField(
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please Enter Name";
-                          }
-                          return null;
-                        },
-                        //controller: _nameController,
-                        decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.only(left: 20),
-                            hintText: "First Name",
-                            border: InputBorder.none),
+                    child: TextField(
+                      keyboardType: TextInputType.emailAddress,
+                      cursorColor: Colors.grey.shade500,
+                      cursorHeight: 15,
+                      decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(7),
+                              borderSide: BorderSide(color: Stylings.orange)
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(7),
+                              borderSide: const BorderSide(color: Colors.black,width: 0.5)
+                          ),
+                          labelText: "First Name",
+                          floatingLabelStyle: Stylings.titles.copyWith(fontSize: 11) ,
+                          labelStyle: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.grey.shade500)
                       ),
+
                     ),
                   ),
                   const SizedBox(
@@ -111,27 +109,24 @@ class _RegisterState extends State<Register> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.white70,
-                          border: Border.all(
-                            color: Colors.black38,
-                          )),
-                      child: TextFormField(
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please Enter Name";
-                          }
-                          return null;
-                        },
-                        //controller: _nameController,
-                        decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.only(left: 20),
-                            hintText: "Last Name",
-                            border: InputBorder.none),
+                    child: TextField(
+                      keyboardType: TextInputType.emailAddress,
+                      cursorColor: Colors.grey.shade500,
+                      cursorHeight: 15,
+                      decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(7),
+                              borderSide: BorderSide(color: Stylings.orange)
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(7),
+                              borderSide: const BorderSide(color: Colors.black,width: 0.5)
+                          ),
+                          labelText: "Last Name",
+                          floatingLabelStyle: Stylings.titles.copyWith(fontSize: 11) ,
+                          labelStyle: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.grey.shade500)
                       ),
+
                     ),
                   ),
                   const SizedBox(
@@ -139,27 +134,24 @@ class _RegisterState extends State<Register> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.white70,
-                          border: Border.all(
-                            color: Colors.black38,
-                          )),
-                      child: TextFormField(
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please Enter Name";
-                          }
-                          return null;
-                        },
-                        //controller: _nameController,
-                        decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.only(left: 20),
-                            hintText: "Email",
-                            border: InputBorder.none),
+                    child: TextField(
+                      keyboardType: TextInputType.emailAddress,
+                      cursorColor: Colors.grey.shade500,
+                      cursorHeight: 15,
+                      decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(7),
+                              borderSide: BorderSide(color: Stylings.orange)
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(7),
+                              borderSide: const BorderSide(color: Colors.black,width: 0.5)
+                          ),
+                          labelText: "Email",
+                          floatingLabelStyle: Stylings.titles.copyWith(fontSize: 11) ,
+                          labelStyle: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.grey.shade500)
                       ),
+
                     ),
                   ),
                   const SizedBox(
@@ -167,27 +159,24 @@ class _RegisterState extends State<Register> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.white70,
-                          border: Border.all(
-                            color: Colors.black38,
-                          )),
-                      child: TextFormField(
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please Enter Name";
-                          }
-                          return null;
-                        },
-                        //controller: _nameController,
-                        decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.only(left: 20),
-                            hintText: "Date of Birth",
-                            border: InputBorder.none),
+                    child: TextField(
+                      keyboardType: TextInputType.emailAddress,
+                      cursorColor: Colors.grey.shade500,
+                      cursorHeight: 15,
+                      decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(7),
+                              borderSide: BorderSide(color: Stylings.orange)
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(7),
+                              borderSide: const BorderSide(color: Colors.black,width: 0.5)
+                          ),
+                          labelText: "Date of Birth",
+                          floatingLabelStyle: Stylings.titles.copyWith(fontSize: 11) ,
+                          labelStyle: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.grey.shade500)
                       ),
+
                     ),
                   ),
                   const SizedBox(
@@ -195,27 +184,24 @@ class _RegisterState extends State<Register> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.white70,
-                          border: Border.all(
-                            color: Colors.black38,
-                          )),
-                      child: TextFormField(
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please Enter Name";
-                          }
-                          return null;
-                        },
-                        //controller: _nameController,
-                        decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.only(left: 20),
-                            hintText: "Password",
-                            border: InputBorder.none),
+                    child: TextField(
+                      keyboardType: TextInputType.emailAddress,
+                      cursorColor: Colors.grey.shade500,
+                      cursorHeight: 15,
+                      decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(7),
+                              borderSide: BorderSide(color: Stylings.orange)
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(7),
+                              borderSide: const BorderSide(color: Colors.black,width: 0.5)
+                          ),
+                          labelText: "Password",
+                          floatingLabelStyle: Stylings.titles.copyWith(fontSize: 11) ,
+                          labelStyle: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.grey.shade500)
                       ),
+
                     ),
                   ),
                   const SizedBox(
@@ -223,27 +209,24 @@ class _RegisterState extends State<Register> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.white70,
-                          border: Border.all(
-                            color: Colors.black38,
-                          )),
-                      child: TextFormField(
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please Enter Name";
-                          }
-                          return null;
-                        },
-                        //controller: _nameController,
-                        decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.only(left: 20),
-                            hintText: "Confirm Password",
-                            border: InputBorder.none),
+                    child: TextField(
+                      keyboardType: TextInputType.emailAddress,
+                      cursorColor: Colors.grey.shade500,
+                      cursorHeight: 15,
+                      decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(7),
+                              borderSide: BorderSide(color: Stylings.orange)
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(7),
+                              borderSide: const BorderSide(color: Colors.black,width: 0.5)
+                          ),
+                          labelText: "Confirm Password",
+                          floatingLabelStyle: Stylings.titles.copyWith(fontSize: 11) ,
+                          labelStyle: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.grey.shade500)
                       ),
+
                     ),
                   ),
                   const SizedBox(
@@ -260,11 +243,11 @@ class _RegisterState extends State<Register> {
                       margin: const EdgeInsets.symmetric(horizontal: 20.0),
                       alignment: Alignment.center,
                       width: size.width,
-                      height: 55,
+                      height: 50,
                       decoration: BoxDecoration(
                           color: Stylings.orange,
                           borderRadius: BorderRadius.circular(8)),
-                      child: Text("Create Account", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600,color: Colors.white),),
+                      child: Text("Create Account", style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),),
 
                     ),
                   ),
@@ -276,7 +259,7 @@ class _RegisterState extends State<Register> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Already have an account?", style: Stylings.body),
+                        Text("Already have an account?", style: Stylings.subTitles.copyWith(fontSize: 10)),
                         const SizedBox(
                           width: 5,
                         ),
@@ -288,8 +271,8 @@ class _RegisterState extends State<Register> {
                                 }));
                           },
                           child: Text("Log in",
-                              style: Stylings.body
-                                  .copyWith(color: Stylings.orange)),
+                              style: Stylings.subTitles
+                                  .copyWith(color: Stylings.orange,fontSize: 11)),
                         ),
                       ],
                     ),

@@ -63,7 +63,7 @@ class Donationtile extends StatelessWidget {
             ),
           ),
           const Expanded(child: SizedBox()),
-          Text("+\$$gave",style: Stylings.titles.copyWith(fontSize: 12),)
+          Text("+\$$gave",style: Stylings.titles.copyWith(fontSize: 11),)
         ],
       ),
     );

@@ -39,33 +39,33 @@ class _PayoutsuccessState extends State<Payoutsuccess> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: Get.height*0.1,),
-              const Icon(FluentSystemIcons.ic_fluent_checkmark_circle_regular,color: Colors.green,size: 100,),
+              const  Expanded(flex:1,child: SizedBox()),
+              const Icon(FluentSystemIcons.ic_fluent_checkmark_circle_regular,color: Colors.green,size: 90,),
               const SizedBox(height: 10),
-              Text("Payout complete",style: Stylings.titles.copyWith(fontSize: 14),),
+              Text("Payout complete",style: Stylings.titles.copyWith(fontSize: 12),),
               const SizedBox(height: 15,),
               RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
                       children: [
                         TextSpan(
-                            text: "Your payout of ", style: Stylings.subTitles.copyWith(fontSize: 13)
+                            text: "Your payout of ", style: Stylings.subTitles.copyWith(fontSize: 11)
                         ),
                         TextSpan(
-                            text: "${Get.arguments["amount"]} ${Get.arguments["currency"]}", style: Stylings.titles.copyWith(fontSize: 12)
+                            text: "${Get.arguments["amount"]} ${Get.arguments["currency"]}", style: Stylings.titles.copyWith(fontSize: 11)
                         ),
                         TextSpan(
-                            text: " to", style: Stylings.subTitles.copyWith(fontSize: 13)
+                            text: " to", style: Stylings.subTitles.copyWith(fontSize: 11)
                         ),
                         TextSpan(
-                            text: " Your account", style: Stylings.titles.copyWith(fontSize: 12)
+                            text: " Your account", style: Stylings.titles.copyWith(fontSize: 11)
                         ),
                         TextSpan(
-                            text: " has been successfully sent", style: Stylings.subTitles.copyWith(fontSize: 13)
+                            text: " has been successfully sent", style: Stylings.subTitles.copyWith(fontSize: 11)
                         ),
                       ]
                   )),
-              const  Expanded(child: SizedBox()),
+              const  Expanded(flex:2,child: SizedBox()),
               GestureDetector(
                 onTap: (){
                   Get.to(const Earnings(),arguments: 0);
@@ -79,7 +79,7 @@ class _PayoutsuccessState extends State<Payoutsuccess> {
                   alignment: Alignment.center,
                   width: Get.size.width,
                   height:45,
-                  child: Text("Done",style: Stylings.titles.copyWith(fontSize: 12, color: Colors.white),),
+                  child: Text("Done",style: Stylings.titles.copyWith(fontSize: 11, color: Colors.white),),
                 ),
               )
             ],

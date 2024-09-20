@@ -62,7 +62,7 @@ class _FilterState extends State<Filter> {
         padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20,),
         child: ListView(
           children: [
-            Text("Location",style: Stylings.titles.copyWith(fontSize: 12),),
+            Text("Location",style: Stylings.titles.copyWith(fontSize: 11),),
             GestureDetector(
               onTap: (){
                 showModalBottomSheet(context: context,
@@ -90,10 +90,12 @@ class _FilterState extends State<Filter> {
                                       color: Colors.black12.withOpacity(0.04),
                                       border: Border.all(color: Colors.white)),
                                   child: TextFormField(
+                                    cursorHeight: 20,
+                                    cursorColor: Colors.grey.shade500,
                                     decoration: InputDecoration(
                                         contentPadding: const EdgeInsets.only(left: 20),
                                         hintText: "Search your city",
-                                        hintStyle: Stylings.titles.copyWith(fontSize: 12),
+                                        hintStyle: Stylings.subTitles.copyWith(fontSize: 12),
                                         border: InputBorder.none),
                                   ),
                                 ),
@@ -129,7 +131,7 @@ class _FilterState extends State<Filter> {
                                       },
                                       child: Padding(
                                         padding: const EdgeInsets.only(left: 20, top: 2,bottom: 10),
-                                        child: Text("Florida",style: Stylings.titles.copyWith(fontSize: 15),),
+                                        child: Text("Florida",style: Stylings.titles.copyWith(fontSize: 12),),
                                       ),
                                     ),
                                     Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
@@ -150,7 +152,7 @@ class _FilterState extends State<Filter> {
                                               )
                                           ),
                                           width: MediaQuery.of(context).size.width,
-                                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 11),),
                                         ),
                                       );
                                     }),
@@ -162,7 +164,7 @@ class _FilterState extends State<Filter> {
                                           },
                                       child: Padding(
                                         padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
-                                        child: Text("Canada",style: Stylings.titles.copyWith(fontSize: 15),),
+                                        child: Text("Canada",style: Stylings.titles.copyWith(fontSize: 12),),
                                       ),
                                     ),
                                     Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
@@ -183,7 +185,7 @@ class _FilterState extends State<Filter> {
                                               )
                                           ),
                                           width: MediaQuery.of(context).size.width,
-                                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 11),),
                                         ),
                                       );
                                     }),
@@ -195,7 +197,7 @@ class _FilterState extends State<Filter> {
                                          },
                                       child: Padding(
                                         padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
-                                        child: Text("Andorra",style: Stylings.titles.copyWith(fontSize: 15),),
+                                        child: Text("Andorra",style: Stylings.titles.copyWith(fontSize: 12),),
                                       ),
                                     ),
                                     Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
@@ -216,7 +218,7 @@ class _FilterState extends State<Filter> {
                                               )
                                           ),
                                           width: MediaQuery.of(context).size.width,
-                                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 11),),
                                         ),
                                       );
                                     }),
@@ -228,7 +230,7 @@ class _FilterState extends State<Filter> {
                                         },
                                       child: Padding(
                                         padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
-                                        child: Text("Austria",style: Stylings.titles.copyWith(fontSize: 15),),
+                                        child: Text("Austria",style: Stylings.titles.copyWith(fontSize: 12),),
                                       ),
                                     ),
                                     Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
@@ -249,7 +251,7 @@ class _FilterState extends State<Filter> {
                                               )
                                           ),
                                           width: MediaQuery.of(context).size.width,
-                                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 11),),
                                         ),
                                       );
                                     }),
@@ -261,7 +263,7 @@ class _FilterState extends State<Filter> {
                                           },
                                       child: Padding(
                                         padding: const EdgeInsets.only(left: 20, top: 20, bottom: 10),
-                                        child: Text("Belgium",style: Stylings.titles.copyWith(fontSize: 15),),
+                                        child: Text("Belgium",style: Stylings.titles.copyWith(fontSize: 12),),
                                       ),
                                     ),
                                     Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
@@ -282,7 +284,7 @@ class _FilterState extends State<Filter> {
                                               )
                                           ),
                                           width: MediaQuery.of(context).size.width,
-                                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 11),),
                                         ),
                                       );
                                     }),
@@ -317,7 +319,7 @@ class _FilterState extends State<Filter> {
                   )
               ),
             ),
-            Text("When",style: Stylings.titles.copyWith(fontSize: 12),),
+            Text("When",style: Stylings.titles.copyWith(fontSize: 11),),
             GestureDetector(
               onTap: _whenD,
               child: Container(
@@ -333,7 +335,7 @@ class _FilterState extends State<Filter> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(whenDate,style: Stylings.subTitles.copyWith(fontSize: 12),),
+                      Text(whenDate,style: Stylings.subTitles.copyWith(fontSize: 11),),
                       const Expanded(child: SizedBox()),
                       const Icon(Icons.arrow_forward_ios,color: Colors.black,size: 15,)
                     ],
@@ -341,7 +343,7 @@ class _FilterState extends State<Filter> {
               ),
             ),
             const SizedBox(height: 10,),
-            Text("Budget",style: Stylings.titles.copyWith(fontSize: 12),),
+            Text("Budget",style: Stylings.titles.copyWith(fontSize: 11),),
             Container(
               width: Get.width,
               height: 142,
@@ -373,6 +375,7 @@ class _FilterState extends State<Filter> {
                     borderRadius: BorderRadius.circular(5)
                   ),
                   child: TextField(
+                    cursorHeight: 20,
                     style: Stylings.titles.copyWith(fontSize: 15),
                     cursorColor: Colors.grey.shade200,
                     keyboardType: TextInputType.number,
@@ -380,8 +383,8 @@ class _FilterState extends State<Filter> {
                       border: InputBorder.none,
                       labelText: "Enter minimum",
                       prefixText: '\$ ',
-                      prefixStyle: Stylings.titles.copyWith(fontSize: 15),
-                      labelStyle: Stylings.subTitles.copyWith(fontSize: 12)
+                      prefixStyle: Stylings.titles.copyWith(fontSize: 11),
+                      labelStyle: Stylings.subTitles.copyWith(fontSize: 11)
                     ),
                   ),
                 ),
@@ -394,6 +397,7 @@ class _FilterState extends State<Filter> {
                       borderRadius: BorderRadius.circular(5)
                   ),
                   child: TextField(
+                    cursorHeight: 20,
                     style: Stylings.titles.copyWith(fontSize: 15),
                     cursorColor: Colors.grey.shade200,
                     keyboardType: TextInputType.number,
@@ -401,8 +405,8 @@ class _FilterState extends State<Filter> {
                         border: InputBorder.none,
                         labelText: "Enter maximum",
                         prefixText: '\$ ',
-                        prefixStyle: Stylings.titles.copyWith(fontSize: 15),
-                        labelStyle: Stylings.subTitles.copyWith(fontSize: 12)
+                        prefixStyle: Stylings.titles.copyWith(fontSize: 11),
+                        labelStyle: Stylings.subTitles.copyWith(fontSize: 11)
                     ),
                   ),
                 ),
@@ -434,7 +438,7 @@ class _FilterState extends State<Filter> {
                   onChanged: (value){
                   filBbiz.isFi.value = !filBbiz.isFi.value;
                   },
-                  title: Text("Tonight",style: Stylings.titles.copyWith(fontSize: 12),),
+                  title: Text("Tonight",style: Stylings.titles.copyWith(fontSize: 11),),
               ),
            ),
             ...filBbiz.otherFilters.map((m){
@@ -459,7 +463,7 @@ class _FilterState extends State<Filter> {
                   onChanged: (value){
                     m['isF'] = !m['isF'];
                   },
-                  title: Text(m['title'],style: Stylings.titles.copyWith(fontSize: 12),),
+                  title: Text(m['title'],style: Stylings.titles.copyWith(fontSize: 11),),
                 ),
               );
             }),
@@ -488,7 +492,7 @@ class _FilterState extends State<Filter> {
                 onChanged: (value){
                   filBbiz.isFo.value = !filBbiz.isFo.value;
                 },
-                title: Text("Top shows",style: Stylings.titles.copyWith(fontSize: 12),),
+                title: Text("Top shows",style: Stylings.titles.copyWith(fontSize: 11),),
               ),
             ),
             const SizedBox(height: 25,),
@@ -506,9 +510,9 @@ class _FilterState extends State<Filter> {
                       height: Get.height*0.055,
                       decoration: BoxDecoration(
                         color: Colors.grey.shade300,
-                          borderRadius: BorderRadius.circular(5)
+                          borderRadius: BorderRadius.circular(7)
                       ),
-                      child: Text("Cancel",style: Stylings.titles.copyWith(fontSize: 12),)
+                      child: Text("Cancel",style: Stylings.titles.copyWith(fontSize: 11),)
                     ),
                   ),
                 ),
@@ -522,9 +526,9 @@ class _FilterState extends State<Filter> {
                          alignment: Alignment.center,
                          height: Get.height*0.055,     decoration: BoxDecoration(
                             color: Stylings.orange,
-                            borderRadius: BorderRadius.circular(5)
+                            borderRadius: BorderRadius.circular(7)
                         ),
-                        child: Text("Show",style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),)
+                        child: Text("Show",style: Stylings.titles.copyWith(fontSize: 11,color: Colors.white),)
                     ),
                   ),
                 ),

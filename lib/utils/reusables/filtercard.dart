@@ -16,8 +16,8 @@ class Filtercard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            width: title=="Popular"?24:26,
-            height: title=="Popular"?23:26,
+            width: title=="Popular"?22:24,
+            height: title=="Popular"?20:23,
             decoration: const BoxDecoration(
               color: Colors.transparent,
               shape: BoxShape.circle,
@@ -26,7 +26,7 @@ class Filtercard extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 5.0,top: 3),
-            child: Text(title, style: Stylings.titles.copyWith(fontSize: 12),),
+            child: Text(title, style: Stylings.titles.copyWith(fontSize: 10),),
           ),
           selected==title?
           Container(

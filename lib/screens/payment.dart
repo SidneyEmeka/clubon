@@ -23,6 +23,7 @@ class _PaymentState extends State<Payment> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
         appBar: AppBar(
           backgroundColor: Colors.white,
           scrolledUnderElevation: 0,
@@ -32,13 +33,13 @@ class _PaymentState extends State<Payment> {
             },
             icon: const Icon(
               FluentSystemIcons.ic_fluent_ios_arrow_left_filled,
-              size: 20,
+              size: 17,
               color: Colors.black,
             ),
           ),
           title: Text(
             "Payment",
-            style: Stylings.titles.copyWith(fontSize: 13),
+            style: Stylings.titles.copyWith(fontSize: 12),
           ),
           centerTitle: true,
         ),
@@ -58,7 +59,7 @@ class _PaymentState extends State<Payment> {
                       margin: const EdgeInsets.symmetric(
                           vertical: 10, horizontal: 10),
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 20),
+                          horizontal: 15, vertical: 15),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
@@ -72,18 +73,18 @@ class _PaymentState extends State<Payment> {
                         children: [
                           Text(
                             "Pay with card",
-                            style: Stylings.titles.copyWith(fontSize: 14),
+                            style: Stylings.titles.copyWith(fontSize: 12),
                           ),
                           payBiz.cardType.value == "Card"
                               ? Icon(
                                   Icons.check_circle_rounded,
                                   color: Stylings.orange,
-                                  size: 20,
+                                  size: 17,
                                 )
                               : const Icon(
                                   Icons.circle_outlined,
                                   color: Colors.black12,
-                                  size: 20,
+                                  size: 17,
                                 ),
                         ],
                       ),
@@ -106,13 +107,15 @@ class _PaymentState extends State<Payment> {
                           children: [
                             Text(
                               "Card number",
-                              style: Stylings.titles.copyWith(fontSize: 12),
+                              style: Stylings.titles.copyWith(fontSize: 11),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
                             Container(
                               padding: const EdgeInsets.symmetric(vertical: 1),
+                              width: Get.width,
+                              height: Get.height*0.06,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(8),
                                   color: Colors.white70,
@@ -127,7 +130,8 @@ class _PaymentState extends State<Payment> {
                                   Expanded(
                                     child: TextFormField(
                                       keyboardType: TextInputType.number,
-                                      cursorColor: Colors.black,
+                                      cursorColor: Colors.grey.shade500,
+                                      cursorHeight: 20,
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
                                           return "Please Enter Name";
@@ -169,14 +173,14 @@ class _PaymentState extends State<Payment> {
                               children: [
                                 Text(
                                   "Expiry",
-                                  style: Stylings.titles.copyWith(fontSize: 12),
+                                  style: Stylings.titles.copyWith(fontSize: 11),
                                 ),
                                 const SizedBox(
                                   height: 10,
                                 ),
                                 Container(
                                   width: Get.size.width * 0.4,
-                                  height: 50,
+                                  height: Get.height*0.06,
                                   padding:
                                       const EdgeInsets.symmetric(vertical: 1),
                                   decoration: BoxDecoration(
@@ -187,7 +191,8 @@ class _PaymentState extends State<Payment> {
                                       )),
                                   child: TextFormField(
                                     keyboardType: TextInputType.number,
-                                    cursorColor: Colors.black,
+                                    cursorColor: Colors.grey.shade500,
+                                    cursorHeight: 20,
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
                                         return "Please Enter Name";
@@ -213,14 +218,14 @@ class _PaymentState extends State<Payment> {
                               children: [
                                 Text(
                                   "CVC",
-                                  style: Stylings.titles.copyWith(fontSize: 12),
+                                  style: Stylings.titles.copyWith(fontSize: 11),
                                 ),
                                 const SizedBox(
                                   height: 10,
                                 ),
                                 Container(
                                   width: Get.size.width * 0.4,
-                                  height: 50,
+                                  height: Get.height*0.06,
                                   padding:
                                       const EdgeInsets.symmetric(vertical: 1),
                                   decoration: BoxDecoration(
@@ -231,7 +236,8 @@ class _PaymentState extends State<Payment> {
                                       )),
                                   child: TextFormField(
                                     keyboardType: TextInputType.number,
-                                    cursorColor: Colors.black,
+                                    cursorColor: Colors.grey.shade500,
+                                    cursorHeight: 20,
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
                                         return "Please Enter Name";
@@ -306,7 +312,7 @@ class _PaymentState extends State<Payment> {
                       margin: const EdgeInsets.symmetric(
                           vertical: 10, horizontal: 10),
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 20),
+                          horizontal: 15, vertical: 12),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
@@ -320,18 +326,18 @@ class _PaymentState extends State<Payment> {
                         children: [
                           Text(
                             "Apple Pay",
-                            style: Stylings.titles.copyWith(fontSize: 14),
+                            style: Stylings.titles.copyWith(fontSize: 12),
                           ),
                           payBiz.cardType.value == "Apple"
                               ? Icon(
                                   Icons.check_circle_rounded,
                                   color: Stylings.orange,
-                                  size: 20,
+                                  size: 17,
                                 )
                               : const Icon(
                                   Icons.circle_outlined,
                                   color: Colors.black12,
-                                  size: 20,
+                                  size: 17,
                                 ),
                         ],
                       ),
@@ -340,18 +346,18 @@ class _PaymentState extends State<Payment> {
                   Expanded(child: SizedBox()),
                   GestureDetector(
                     onTap: (){
-                      Get.to(Paymentsuccesspage(booked: widget.booking,),arguments: Get.arguments);
+                      Get.to(()=>Paymentsuccesspage(booked: widget.booking,),arguments: Get.arguments);
                     },
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(7),
                         color: Stylings.orange,
                       ),
                       alignment: Alignment.center,
                       width: Get.size.width,
-                      height:50,
-                      child: Text("Pay \$${Get.arguments.toStringAsFixed(2)}",style: Stylings.titles.copyWith(fontSize: 12, color: Colors.white),),
+                      height:45,
+                      child: Text("Pay \$${Get.arguments.toStringAsFixed(2)}",style: Stylings.titles.copyWith(fontSize: 11, color: Colors.white),),
                     ),
                   )
                 ],

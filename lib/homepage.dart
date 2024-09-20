@@ -57,8 +57,8 @@ class _UserTimelineState extends State<Homepage> {
   List<BottomNavigationBarItem> navItems = <BottomNavigationBarItem>[
     BottomNavigationBarItem(
       icon: Container(
-        width: 20,
-        height: 20,
+        width: 15,
+        height: 15,
         decoration: const BoxDecoration(
           color: Colors.transparent,
           shape: BoxShape.circle,
@@ -66,8 +66,8 @@ class _UserTimelineState extends State<Homepage> {
         child: Image.asset("${Stylings.imgPath}/home.png", fit: BoxFit.contain,),
       ),
       activeIcon: Container(
-        width: 20,
-        height: 20,
+        width: 15,
+        height: 15,
         decoration: const BoxDecoration(
           color: Colors.transparent,
           shape: BoxShape.circle,
@@ -78,8 +78,8 @@ class _UserTimelineState extends State<Homepage> {
     ),
      BottomNavigationBarItem(
       icon: Container(
-        width: 20,
-        height: 20,
+        width: 15,
+        height: 15,
         decoration: const BoxDecoration(
           color: Colors.transparent,
           shape: BoxShape.circle,
@@ -87,8 +87,8 @@ class _UserTimelineState extends State<Homepage> {
         child: Image.asset("${Stylings.imgPath}/frnds.png", fit: BoxFit.contain,),
       ),
       activeIcon: Container(
-        width: 20,
-        height: 20,
+        width: 15,
+        height: 15,
         decoration: const BoxDecoration(
           color: Colors.transparent,
           shape: BoxShape.circle,
@@ -99,8 +99,8 @@ class _UserTimelineState extends State<Homepage> {
     ),
      BottomNavigationBarItem(
        icon: Container(
-         width: 20,
-         height: 20,
+         width: 15,
+         height: 15,
          decoration: const BoxDecoration(
            color: Colors.transparent,
            shape: BoxShape.circle,
@@ -108,8 +108,8 @@ class _UserTimelineState extends State<Homepage> {
          child: Image.asset("${Stylings.imgPath}/sech.png", fit: BoxFit.contain,),
        ),
        activeIcon: Container(
-         width: 20,
-         height: 20,
+         width: 15,
+         height: 15,
          decoration: const BoxDecoration(
            color: Colors.transparent,
            shape: BoxShape.circle,
@@ -120,8 +120,8 @@ class _UserTimelineState extends State<Homepage> {
     ),
      BottomNavigationBarItem(
        icon: Container(
-         width: 20,
-         height: 20,
+         width: 15,
+         height: 15,
          decoration: const BoxDecoration(
            color: Colors.transparent,
            shape: BoxShape.circle,
@@ -129,8 +129,8 @@ class _UserTimelineState extends State<Homepage> {
          child: Image.asset("${Stylings.imgPath}/tickets.png", fit: BoxFit.contain,),
        ),
        activeIcon: Container(
-         width: 20,
-         height: 20,
+         width: 15,
+         height: 15,
          decoration: const BoxDecoration(
            color: Colors.transparent,
            shape: BoxShape.circle,
@@ -140,8 +140,8 @@ class _UserTimelineState extends State<Homepage> {
       label: "Tickets",
     ),
      BottomNavigationBarItem(
-       icon: const Icon(Icons.person_outline_outlined, size: 24, color: Colors.black,),
-       activeIcon: Icon(Icons.person, size: 24, color:Stylings.orange,),
+       icon: const Icon(CupertinoIcons.person, size: 15, color: Colors.black,),
+       activeIcon: Icon(CupertinoIcons.person, size: 15, color:Stylings.orange,),
       label: "Profile",
     ),
   ];

@@ -28,13 +28,13 @@ class Frfopreviewpage extends StatelessWidget {
           },
           icon: const Icon(
             FluentSystemIcons.ic_fluent_ios_arrow_left_filled,
-            size: 20,
+            size: 17,
             color: Colors.black,
           ),
         ),
         title: Text(
           Get.arguments,
-          style: Stylings.titles.copyWith(fontSize: 13),
+          style: Stylings.titles.copyWith(fontSize: 11),
         ),
         centerTitle: true,
         actions: const [
@@ -49,7 +49,7 @@ class Frfopreviewpage extends StatelessWidget {
         height: Get.height,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          child:  Get.arguments.toString().contains("Following")?Center(child: Text("You are not following anyone",style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black26),),):Get.arguments.toString().contains("Followers")?Column(
+          child:  Get.arguments.toString().contains("Following")?Center(child: Text("You are not following anyone",style: Stylings.titles.copyWith(fontSize: 11,color: Colors.black26),),):Get.arguments.toString().contains("Followers")?Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ...frfobiz.people.reversed.map((aFrfo){

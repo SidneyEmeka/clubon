@@ -30,13 +30,13 @@ class _ReportState extends State<Report> {
           },
           icon: const Icon(
             FluentSystemIcons.ic_fluent_ios_arrow_left_filled,
-            size: 20,
+            size: 17,
             color: Colors.black,
           ),
         ),
         title: Text(
           "Feedback",
-          style: Stylings.titles.copyWith(fontSize: 13),
+          style: Stylings.titles.copyWith(fontSize: 12),
         ),
         centerTitle: true,
       ),
@@ -48,8 +48,8 @@ class _ReportState extends State<Report> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("What issue did you find ?",style: Stylings.titles.copyWith(fontSize: 12),),
-            const SizedBox(height: 25,),
+            Text("What issue did you find ?",style: Stylings.titles.copyWith(fontSize: 11),),
+            const SizedBox(height: 10),
             Expanded(
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
@@ -71,9 +71,9 @@ class _ReportState extends State<Report> {
                             children: [
                               Container(
                                 width: Get.size.width*0.8,
-                                child: Text(aReport,style: Stylings.subTitles.copyWith(fontSize: 12),),
+                                child: Text(aReport,style: Stylings.subTitles.copyWith(fontSize: 11),),
                               ),
-                              feedBiz.reportId.value==aReport?Icon(FluentSystemIcons.ic_fluent_record_regular,color: Stylings.orange,size: 20,):const Icon(Icons.circle_outlined, size: 20, color: Colors.black54,)
+                              feedBiz.reportId.value==aReport?Icon(FluentSystemIcons.ic_fluent_record_regular,color: Stylings.orange,size: 17,):const Icon(Icons.circle_outlined, size: 17, color: Colors.black54,)
                             ],
                           ),
                         ),
@@ -101,8 +101,14 @@ class _ReportState extends State<Report> {
                 ),
               ),
             ),
+            SizedBox(height: 20,),
             GestureDetector(
               onTap: (){
+                feedBiz.reportId.value=="Others"&&feedBiz.otherReport.value.isEmpty? Get.snackbar("OTP",
+                    "Your one time password is 83020",
+                    titleText: Text("Invalid Feedback",style: Stylings.titles.copyWith(fontSize: 12),),
+                    messageText: Text("Kindly choose the feedback you want to give\nEnsure you write a feedback if you selected others",style: Stylings.subTitles.copyWith(fontSize: 12),),
+                    duration: const Duration(seconds: 2)):
                 Get.to(const Feedbacksuccesspage());
               },
               child: Container(
@@ -114,7 +120,7 @@ class _ReportState extends State<Report> {
                 width: Get.size.width,
                 height: 40,
 
-                child: Text("Submit",style: Stylings.titles.copyWith(fontSize: 12,color: feedBiz.reportId.value=="Others"&&feedBiz.otherReport.value.isEmpty?Colors.black54:Colors.white),),
+                child: Text("Submit",style: Stylings.titles.copyWith(fontSize: 11,color: feedBiz.reportId.value=="Others"&&feedBiz.otherReport.value.isEmpty?Colors.black54:Colors.white),),
               ),
             )
           ],

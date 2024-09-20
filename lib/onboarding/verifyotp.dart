@@ -15,6 +15,19 @@ class Verifyotp extends StatefulWidget {
 }
 
 class _VerifyotpState extends State<Verifyotp> {
+  void initState() {
+    Future.delayed(const Duration(seconds: 1), (){
+      Get.snackbar("OTP",
+          "Your one time password is 83020",
+          titleText: Text("OTP",style: Stylings.titles.copyWith(fontSize: 12),),
+          messageText: Text("Your one time password is 83020",style: Stylings.subTitles.copyWith(fontSize: 12),),
+          duration: const Duration(seconds: 5));
+    });
+    super.initState();
+  }
+
+  TextEditingController _otp = TextEditingController();
+  bool invalid = false;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -35,14 +48,14 @@ class _VerifyotpState extends State<Verifyotp> {
         ),
       ),
       body: Container(
+        margin: const EdgeInsets.symmetric(vertical: 20,horizontal: 20),
         width: size.width,
-        height: size.height,
+        height: size.height*0.6,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              margin: EdgeInsets.only(top: size.height*0.1),
               padding: const EdgeInsets.all(15),
               width: 70,
               height: 70,
@@ -57,56 +70,109 @@ class _VerifyotpState extends State<Verifyotp> {
               ),
             ),
             Text(
-              "Please Verify Your Email",
-              style: Stylings.titles.copyWith(fontSize: 20),
+              "Please verify your email",
+              style: Stylings.titles.copyWith(fontSize: 15),
             ),
             Padding(
               padding:
-              const EdgeInsets.symmetric(horizontal: 40.0, vertical: 5),
+              const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
               child: Text(
                   textAlign: TextAlign.center,
-                  "We sent a code to your email please enter the code below ",
-                  style: Stylings.body),
+                  "We just sent you an OTP please enter the code below to continue",
+                  style: Stylings.subTitles.copyWith(fontSize: 11)),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
-              child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 5),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.white70,
-                    border: Border.all(
-                      color: Colors.black38,
-                    )),
-                child: TextFormField(
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Please Enter Name";
-                    }
-                    return null;
-                  },
-                  //controller: _nameController,
-                  decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.only(left: 20),
-                      hintText: "Enter Code",
-                      border: InputBorder.none),
+            const Expanded(child: SizedBox()),
+            invalid?Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.error_outline_rounded,
+                    size: 15,
+                    color: Stylings.orange,
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    "Invalid code",
+                    style: Stylings.subTitles
+                        .copyWith(color: Stylings.orange, fontSize: 12),
+                  ),
+                ],
+              ),
+            ):Container(),
+            TextField(
+              controller: _otp,
+              cursorColor: Stylings.bgColor,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "Enter Code",
+                labelStyle: Stylings.subTitles.copyWith(fontSize: 12),
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: BorderSide(color: Colors.grey.shade600)
+                ),
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide:  BorderSide(color: Colors.grey.shade500,width: 0.5)
                 ),
               ),
+
             ),
+            const SizedBox(height: 20,),
             GestureDetector(
               onTap: () {
-                Get.to(Chooselocation());
-                },
+                if(int.parse(_otp.text)==83020){
+                  Get.defaultDialog(
+                    radius: 10,
+                    titlePadding: const EdgeInsets.only(top: 25),
+                    contentPadding: const EdgeInsets.only(bottom: 20,top: 15,left: 15,right: 15),
+                    title: "Email Verification",
+                    titleStyle: Stylings.titles.copyWith(fontSize: 14),
+                    middleText:  "A verification link was sent to your email address, kindly click the link to complete verification",
+                    middleTextStyle: Stylings.subTitles.copyWith(fontSize: 12),
+                    backgroundColor: Colors.white,
+                    confirm: GestureDetector(
+                      onTap: (){
+                        Get.to(()=>const Chooselocation());
+                      },
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Colors.black26)
+                          ),
+                          width: 100,
+                          height: Get.size.height*0.04,
+                          child: Text("Continue", style: Stylings.titles.copyWith(fontSize: 12),),
+                        ),
+                      ),
+                    ),
+
+
+                  );
+                }
+                else {
+                  invalid = true;
+                  setState(() {
+                  });
+                }
+              },
               child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 20.0),
                 alignment: Alignment.center,
                 width: size.width,
-                height: 55,
+                height: 50,
                 decoration: BoxDecoration(
                     color: Stylings.orange,
                     borderRadius: BorderRadius.circular(8)),
-                child: Text("Confirm", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600,color: Colors.white),),
+                child: Text("Confirm", style: Stylings.titles.copyWith(fontSize: 13,color: Colors.white),),
 
               ),
             ),
@@ -118,13 +184,13 @@ class _VerifyotpState extends State<Verifyotp> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text("Resend code in", style: Stylings.body),
+                  Text("Resend code in", style: Stylings.subTitles.copyWith(fontSize: 10)),
                   const SizedBox(
                     width: 5,
                   ),
                   Text("30 secs",
-                      style: Stylings.titles
-                          .copyWith(color: Stylings.orange, fontSize: 12)),
+                      style: Stylings.subTitles
+                          .copyWith(color: Stylings.orange, fontSize: 11)),
                 ],
               ),
             ),

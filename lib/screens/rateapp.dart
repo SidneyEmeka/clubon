@@ -26,7 +26,7 @@ class Rateapp extends StatelessWidget {
           child: const Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
-            size: 20,
+            size: 17,
           ),
         ),
         title: Text("Feedback",style: Stylings.titles.copyWith(fontSize: 12),),
@@ -40,13 +40,13 @@ class Rateapp extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Thank you - anything to add?",style: Stylings.titles.copyWith(fontSize: 12),),
+            Text("Thank you - anything to add?",style: Stylings.titles.copyWith(fontSize: 11),),
             RatingBar.builder(itemBuilder: (context, _)=>Icon(FluentSystemIcons.ic_fluent_star_filled,color: Stylings.orange,),
               onRatingUpdate: (rating){
               },
               initialRating: rate,
               unratedColor: Colors.grey.shade300,
-              itemSize: 25,
+              itemSize: 23,
               itemPadding: const EdgeInsets.symmetric(vertical: 15,horizontal: 1),),
             TextField(
               cursorColor: Colors.grey.shade200,
@@ -60,7 +60,7 @@ class Rateapp extends StatelessWidget {
                   filled: true,
                   fillColor: Colors.grey.shade200,
                   hintText: "Let us know",
-                  hintStyle: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.black54),
+                  hintStyle: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.black54),
                   border: OutlineInputBorder(
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(5))),
@@ -78,7 +78,7 @@ class Rateapp extends StatelessWidget {
                   color: Stylings.orange,
                   borderRadius: BorderRadius.circular(7)
                 ),
-                child: Text("Submit",style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),),
+                child: Text("Submit",style: Stylings.titles.copyWith(fontSize: 11,color: Colors.white),),
               ),
             )
           ],

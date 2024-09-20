@@ -42,79 +42,89 @@ class Tickets extends StatelessWidget {
                            children: [
                              IconButton(onPressed: (){
                                Get.to(Homepage());
-                             }, icon: const Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,)),
-                             Text("Your tickets",style: Stylings.titles.copyWith(fontSize: 15),),
+                             }, icon: const Icon(Icons.arrow_back_ios,size: 15,color: Colors.black,)),
+                             Text("Your tickets",style: Stylings.titles.copyWith(fontSize: 12),),
                            ],
                          ),
                        ),
-                       Row(
-                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                         crossAxisAlignment: CrossAxisAlignment.center,
-                         children: [
-                           GestureDetector(
-                             onTap: () {
-                               tickBiz.ticketPage.value = "All";
-                             },
-                             child: Container(
-                               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-                               decoration: BoxDecoration(
-                                   color: tickBiz.ticketPage.value == "All"
-                                       ? Stylings.orange
-                                       : Colors.white,
-                                   borderRadius: BorderRadius.circular(20)),
-                               child: Text(
-                                 "All bookings",
-                                 style: Stylings.titles.copyWith(
-                                     fontSize: 13,
-                                     color:tickBiz.ticketPage.value == "All"
-                                         ? Colors.white
-                                         : Colors.black),
+                       SizedBox(
+                         width: Get.width,
+                         child: SingleChildScrollView(
+                           reverse: true,
+                         scrollDirection: Axis.horizontal,
+                           child: Row(
+                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                             crossAxisAlignment: CrossAxisAlignment.center,
+                             children: [
+                               GestureDetector(
+                                 onTap: () {
+                                   tickBiz.ticketPage.value = "All";
+                                 },
+                                 child: Container(
+                                   alignment: Alignment.center,
+                                   padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                                   decoration: BoxDecoration(
+                                       color: tickBiz.ticketPage.value == "All"
+                                           ? Stylings.orange
+                                           : Colors.white,
+                                       borderRadius: BorderRadius.circular(20)),
+                                   child: Text(
+                                     "All bookings",
+                                     style: Stylings.titles.copyWith(
+                                         fontSize: 11,
+                                         color:tickBiz.ticketPage.value == "All"
+                                             ? Colors.white
+                                             : Colors.black),
+                                   ),
+                                 ),
                                ),
-                             ),
-                           ),
-                           GestureDetector(
-                             onTap: () {
-                               tickBiz.ticketPage.value = "UC";
-                             },
-                             child: Container(
-                               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-                               decoration: BoxDecoration(
-                                   color: tickBiz.ticketPage.value == "UC"
-                                       ? Stylings.orange
-                                       : Colors.white,
-                                   borderRadius: BorderRadius.circular(20)),
-                               child: Text(
-                                 "Upcoming booking",
-                                 style: Stylings.titles.copyWith(
-                                     fontSize: 13,
-                                     color: tickBiz.ticketPage.value == "UC"
-                                         ? Colors.white
-                                         : Colors.black),
+                               GestureDetector(
+                                 onTap: () {
+                                   tickBiz.ticketPage.value = "UC";
+                                 },
+                                 child: Container(
+                                   alignment: Alignment.center,
+                                   padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                                   decoration: BoxDecoration(
+                                       color: tickBiz.ticketPage.value == "UC"
+                                           ? Stylings.orange
+                                           : Colors.white,
+                                       borderRadius: BorderRadius.circular(20)),
+                                   child: Text(
+                                     "Upcoming booking",
+                                     style: Stylings.titles.copyWith(
+                                         fontSize: 11,
+                                         color: tickBiz.ticketPage.value == "UC"
+                                             ? Colors.white
+                                             : Colors.black),
+                                   ),
+                                 ),
                                ),
-                             ),
-                           ),
-                           GestureDetector(
-                             onTap: () {
-                               tickBiz.ticketPage.value = "P";
-                             },
-                             child: Container(
-                               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-                               decoration: BoxDecoration(
-                                   color: tickBiz.ticketPage.value == "P"
-                                       ? Stylings.orange
-                                       : Colors.white,
-                                   borderRadius: BorderRadius.circular(20)),
-                               child: Text(
-                                 "Past booking",
-                                 style: Stylings.titles.copyWith(
-                                     fontSize: 13,
-                                     color: tickBiz.ticketPage.value == "P"
-                                         ? Colors.white
-                                         : Colors.black),
+                               GestureDetector(
+                                 onTap: () {
+                                   tickBiz.ticketPage.value = "P";
+                                 },
+                                 child: Container(
+                                   alignment: Alignment.center,
+                                   padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                                   decoration: BoxDecoration(
+                                       color: tickBiz.ticketPage.value == "P"
+                                           ? Stylings.orange
+                                           : Colors.white,
+                                       borderRadius: BorderRadius.circular(20)),
+                                   child: Text(
+                                     "Past booking",
+                                     style: Stylings.titles.copyWith(
+                                         fontSize: 11,
+                                         color: tickBiz.ticketPage.value == "P"
+                                             ? Colors.white
+                                             : Colors.black),
+                                   ),
+                                 ),
                                ),
-                             ),
+                             ],
                            ),
-                         ],
+                         ),
                        ),
                      ],
                    ),

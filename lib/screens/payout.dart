@@ -32,7 +32,7 @@ class Payout extends StatelessWidget {
           child: const Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
-            size: 20,
+            size: 17,
           ),
         ),
         title: Text("Payout",style: Stylings.titles.copyWith(fontSize: 12),),
@@ -53,7 +53,7 @@ class Payout extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text("Amount to withdraw",style: Stylings.titles.copyWith(fontSize: 12),),
+                  Text("Amount to withdraw",style: Stylings.titles.copyWith(fontSize: 11),),
                   moneyBiz.showError.value?Text("Amount exceed balance",style: Stylings.titles.copyWith(fontSize: 10,color: Colors.red),):Container(),
                 ],
               ),
@@ -86,12 +86,12 @@ class Payout extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("USD",style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text("USD",style: Stylings.titles.copyWith(fontSize: 11),),
                       const SizedBox(height: 3),
                       RichText(text: TextSpan(
                           children: [
-                            TextSpan(text: "Balance: ",style: Stylings.titles.copyWith(fontSize: 10,color: Colors.grey.shade500)),
-                            TextSpan(text: " 32,000 USD",style: Stylings.titles.copyWith(fontSize:9,)),
+                            TextSpan(text: "Balance: ",style: Stylings.titles.copyWith(fontSize: 9,color: Colors.grey.shade500)),
+                            TextSpan(text: " 32,000 USD",style: Stylings.titles.copyWith(fontSize:8,)),
                           ]
                       ))
                     ],
@@ -108,7 +108,7 @@ class Payout extends StatelessWidget {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       hintText: "0.0",
-                        hintStyle: Stylings.titles.copyWith(fontSize: 15,color: Colors.grey.shade500),
+                        hintStyle: Stylings.titles.copyWith(fontSize: 13,color: Colors.grey.shade500),
                         border: InputBorder.none
                     ),
                   ))
@@ -133,7 +133,7 @@ class Payout extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text("You will receive",style: Stylings.titles.copyWith(fontSize: 12),),
+                  Text("You will receive",style: Stylings.titles.copyWith(fontSize: 11),),
                   Text("1 USD = ${moneyBiz.selectedRate.value=="GBP"?"0.76 GBP":"1650 NGN"}",style: Stylings.titles.copyWith(fontSize: 11),),
                 ],
               ),
@@ -177,7 +177,7 @@ class Payout extends StatelessWidget {
                               value: aState,
                               child: Text(
                                 aState,
-                                style: Stylings.titles.copyWith(fontSize: 12),
+                                style: Stylings.titles.copyWith(fontSize: 11),
                               ));
                         })
                       ],
@@ -187,7 +187,7 @@ class Payout extends StatelessWidget {
                       }),
                   const SizedBox(width: 50),
                   const Expanded(child:SizedBox()),
-                  Text(moneyBiz.toRecieve.value.toString(),style: Stylings.titles.copyWith(fontSize: 15),)
+                  Text(moneyBiz.toRecieve.value.toString(),style: Stylings.titles.copyWith(fontSize: 13),)
                 ],
               ),
             ),
@@ -209,7 +209,7 @@ class Payout extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text("Add Account",style: Stylings.titles.copyWith(fontSize: 12),),
+                    Text("Add Account",style: Stylings.titles.copyWith(fontSize: 11),),
                     const Icon(Icons.arrow_forward_ios,size: 15,color: Colors.black,)
                   ],
                 ),
@@ -231,8 +231,8 @@ class Payout extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text("To",style: Stylings.titles.copyWith(fontSize: 12),),
-                      Text(Get.arguments[0]['acname'],style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text("To",style: Stylings.titles.copyWith(fontSize: 11),),
+                      Text(Get.arguments[0]['acname'],style: Stylings.titles.copyWith(fontSize: 11),),
                     ],
                   ),
                 ),
@@ -247,25 +247,8 @@ class Payout extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text("Account number",style: Stylings.titles.copyWith(fontSize: 12),),
-                      Text(Get.arguments[0]['acnum'],style: Stylings.titles.copyWith(fontSize: 12),),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 19),
-                  padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 15),
-                  width: Get.width,
-                  decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.vertical(top: Radius.circular(5)),
-                      border: Border.all(color: Colors.grey.shade200)
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text("Bank name",style: Stylings.titles.copyWith(fontSize: 12),),
-                      Text(Get.arguments[0]['bankName'],style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text("Account number",style: Stylings.titles.copyWith(fontSize: 11),),
+                      Text(Get.arguments[0]['acnum'],style: Stylings.titles.copyWith(fontSize: 11),),
                     ],
                   ),
                 ),
@@ -281,8 +264,25 @@ class Payout extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text("Sort code",style: Stylings.titles.copyWith(fontSize: 12),),
-                      Text(Get.arguments[0]['sortcode'].toString().isEmpty?"XXXXX":Get.arguments[0]['sortcode'],style: Stylings.titles.copyWith(fontSize: 12),),
+                      Text("Bank name",style: Stylings.titles.copyWith(fontSize: 11),),
+                      Text(Get.arguments[0]['bankName'],style: Stylings.titles.copyWith(fontSize: 11),),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 19),
+                  padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 15),
+                  width: Get.width,
+                  decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.vertical(top: Radius.circular(5)),
+                      border: Border.all(color: Colors.grey.shade200)
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text("Sort code",style: Stylings.titles.copyWith(fontSize: 11),),
+                      Text(Get.arguments[0]['sortcode'].toString().isEmpty?"XXXXX":Get.arguments[0]['sortcode'],style: Stylings.titles.copyWith(fontSize: 11),),
                     ],
                   ),
                 ),
@@ -303,7 +303,7 @@ class Payout extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Change account",style: Stylings.titles.copyWith(fontSize: 12),),
+                        Text("Change account",style: Stylings.titles.copyWith(fontSize: 11),),
                         const Icon(Icons.arrow_forward_ios,color: Colors.black,size: 15,)
                       ],
                     ),
@@ -338,9 +338,9 @@ class Payout extends StatelessWidget {
                 height: Get.height*0.05,
                 decoration: BoxDecoration(
                     color: Stylings.orange,
-                    borderRadius: BorderRadius.circular(5)
+                    borderRadius: BorderRadius.circular(7)
                 ),
-                child: Text("Request payout",style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),),
+                child: Text("Request payout",style: Stylings.titles.copyWith(fontSize: 11,color: Colors.white),),
               ),
             ),
             const SizedBox(height: 10,),
@@ -355,9 +355,9 @@ class Payout extends StatelessWidget {
                 height: Get.height*0.05,
                 decoration: BoxDecoration(
                     color: Stylings.bgColor,
-                    borderRadius: BorderRadius.circular(5)
+                    borderRadius: BorderRadius.circular(7)
                 ),
-                child: Text("Cancel",style: Stylings.titles.copyWith(fontSize: 12),),
+                child: Text("Cancel",style: Stylings.titles.copyWith(fontSize: 11),),
               ),
             ),
           ],

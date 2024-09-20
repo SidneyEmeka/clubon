@@ -24,26 +24,26 @@ class Live extends StatefulWidget {
 }
 
 class _LiveState extends State<Live> {
-  // final VideoPlayerController vpc = VideoPlayerController.asset("assets/images/ama.mp4");
-  // ChewieController? chewieController;
-  //
-  // @override
-  // void initState() {
-  //   chewieController = ChewieController(videoPlayerController: vpc,
-  //   aspectRatio: Get.width/Get.height,
-  //   autoPlay: true,
-  //   looping: true,
-  //   autoInitialize: true,
-  //   showControls: false);
-  //   super.initState();
-  // }
-  //
-  // @override
-  // void dispose() {
-  //   vpc.dispose();
-  //   chewieController!.dispose();
-  //   super.dispose();
-  // }
+  final VideoPlayerController vpc = VideoPlayerController.asset("assets/images/ama.mp4");
+  ChewieController? chewieController;
+
+  @override
+  void initState() {
+    chewieController = ChewieController(videoPlayerController: vpc,
+    aspectRatio: Get.width/Get.height,
+    autoPlay: true,
+    looping: true,
+    autoInitialize: true,
+    showControls: false);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    vpc.dispose();
+    chewieController!.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,10 +51,11 @@ class _LiveState extends State<Live> {
       body: Container(
         width: Get.width,
         height: Get.height,
+        color: Colors.black87,
         child: Stack(
           children: [
-            Positioned.fill(child: Container(color: Colors.black45,)),
-           //Positioned.fill(child: Chewie(controller: chewieController!)),
+            //Positioned.fill(child: Container(color: Colors.black45,)),
+           Positioned.fill(child:Chewie(controller: chewieController!)),
             //header
             SafeArea(child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
@@ -65,8 +66,8 @@ class _LiveState extends State<Live> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   GestureDetector(
-                      onTap: (){Get.back();},child: Icon(Icons.arrow_back_ios,size: 17,color: Colors.white,)),
-                  SizedBox(width: 5,),
+                      onTap: (){Get.back();},child: const Icon(Icons.arrow_back_ios,size: 17,color: Colors.white,)),
+                  const SizedBox(width: 5,),
                   //location
                   GestureDetector(
                     onTap: (){
@@ -76,21 +77,21 @@ class _LiveState extends State<Live> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(FluentSystemIcons.ic_fluent_location_regular,size: 20,color: Colors.white,),
+                        const Icon(FluentSystemIcons.ic_fluent_location_regular,size: 17,color: Colors.white,),
                         Container(
                           margin: const EdgeInsets.only(left: 5),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Obx(()=> Text(Get.find<Businness>().location.value, style: Stylings.subTitles.copyWith(fontSize: 13,color: Colors.white),),),
+                              Obx(()=> Text(Get.find<Businness>().location.value, style: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.white),),),
                             ],
                           ),
                         ),
                       ],
                     ),
                   ),
-                  Expanded(child: SizedBox()),
+                  const Expanded(child: SizedBox()),
                   //live
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -114,18 +115,18 @@ class _LiveState extends State<Live> {
                               children: [
                                 Icon(FluentSystemIcons.ic_fluent_record_regular, color: Stylings.orange, size: 12,),
                                 const SizedBox(width: 5,),
-                                Text("Live", style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),)
+                                Text("Live", style: Stylings.titles.copyWith(fontSize: 10,color: Colors.white),)
                               ],
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(width: 15),
+                      const SizedBox(width: 15),
                       GestureDetector(
                         onTap: (){
                           Get.to(()=>const Settings());
                         },
-                        child:  Icon(FluentSystemIcons.ic_fluent_settings_dev_regular,size: 20,color: Colors.white,),
+                        child:  const Icon(FluentSystemIcons.ic_fluent_settings_dev_regular,size: 20,color: Colors.white,),
                       ),
                     ],
                   ),
@@ -137,7 +138,7 @@ class _LiveState extends State<Live> {
               bottom: 10,
               child: Container(
                 width: Get.width,
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -150,7 +151,7 @@ class _LiveState extends State<Live> {
                        Container(
                          height: 200,
                          child: SingleChildScrollView(
-                           reverse: true,
+                           reverse: false,
                            scrollDirection: Axis.vertical,
                            child: Obx(()=>Column(
                              mainAxisAlignment: MainAxisAlignment.end,
@@ -162,7 +163,7 @@ class _LiveState extends State<Live> {
                            ),)
                          ),
                        ),
-                       SizedBox(height: 20,),
+                       const SizedBox(height: 20,),
                        //host
                        Container(
                          alignment: Alignment.centerLeft,
@@ -177,8 +178,8 @@ class _LiveState extends State<Live> {
                            crossAxisAlignment: CrossAxisAlignment.center,
                            children: [
                              Container(
-                               width: 35,
-                               height: 35,
+                               width: 30,
+                               height: 30,
                                decoration: const BoxDecoration(
                                  shape: BoxShape.circle,
                                ),
@@ -187,41 +188,41 @@ class _LiveState extends State<Live> {
                                  fit: BoxFit.cover,
                                ),
                              ),
-                             SizedBox(width: 8,),
-                             Text("Nnaemeka Sidney",style: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.white),),
-                             SizedBox(width: 8,),
+                             const SizedBox(width: 8,),
+                             Text("Nnaemeka Sidney",style: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.white),),
+                             const SizedBox(width: 8,),
                              Container(
                                alignment: Alignment.center,
-                               padding: EdgeInsets.symmetric(horizontal: 10),
-                               height: 18,
+                               padding: const EdgeInsets.symmetric(horizontal: 10),
+                               height: 17,
                                decoration: BoxDecoration(
                                    borderRadius: BorderRadius.circular(5),
                                    border: Border.all(color:Colors.white),
 
                                ),
-                               child: Text("Follow",style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.white),),
+                               child: Text("Follow",style: Stylings.subTitles.copyWith(fontSize: 8,color: Colors.white),),
                              ),
                            ],
                          ),
                        ),
-                       SizedBox(height: 15),
+                       const SizedBox(height: 15),
                        //buy
                        Container(
                          alignment: Alignment.center,
-                         width: Get.width*0.8,
+                         width: Get.width*0.75,
                          height: 40,
                          decoration: BoxDecoration(
                            borderRadius: BorderRadius.circular(7),
                            color: Stylings.orange
                          ),
-                         child: Text("Buy Ticket - From \$25",style: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.white),),
+                         child: Text("Buy Ticket - From \$25",style: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.white),),
                        ),
-                SizedBox(height: 5,),
+                const SizedBox(height: 5,),
                 //comment
                 ClipRRect(
                   child: BackdropFilter(filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
                     child: Container(
-                      width: Get.width*0.8,
+                      width: Get.width*0.75,
                       height: 40,
                       decoration: BoxDecoration(
                           color: Colors.white.withOpacity(0.2),
@@ -256,44 +257,49 @@ class _LiveState extends State<Live> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(FluentSystemIcons.ic_fluent_chat_filled,color: Colors.white,size: 23,),
-                            Text("282",style: Stylings.titles.copyWith(fontSize: 10,color: Colors.white),)
+                            const Icon(FluentSystemIcons.ic_fluent_chat_filled,color: Colors.white,size: 20,),
+                            const SizedBox(height: 1.5,),
+                            Text("282",style: Stylings.titles.copyWith(fontSize: 8,color: Colors.white),)
                           ],
                         ),
-                        SizedBox(height: 20,),
+                        const SizedBox(height: 20,),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(FluentSystemIcons.ic_fluent_send_filled,color: Colors.white,size: 21,),
-                            Text("3.8K",style: Stylings.titles.copyWith(fontSize: 10,color: Colors.white),)
+                            const Icon(FluentSystemIcons.ic_fluent_send_filled,color: Colors.white,size: 18,),
+                            const SizedBox(height: 1.5,),
+                            Text("3.8K",style: Stylings.titles.copyWith(fontSize: 8,color: Colors.white),)
                           ],
                         ),
-                        SizedBox(height: 20,),
+                        const SizedBox(height: 20,),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(FluentSystemIcons.ic_fluent_heart_filled,color: Colors.white,size: 23,),
-                            Text("343K",style: Stylings.titles.copyWith(fontSize: 10,color: Colors.white),)
+                            const Icon(FluentSystemIcons.ic_fluent_heart_filled,color: Colors.white,size: 20,),
+                            const SizedBox(height: 1.5,),
+                            Text("343K",style: Stylings.titles.copyWith(fontSize: 8,color: Colors.white),)
                           ],
                         ),
-                        SizedBox(height: 20,),
+                        const SizedBox(height: 20,),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(FluentSystemIcons.ic_fluent_gift_regular,color: Colors.white,size: 23,),
-                            Text("Gift",style: Stylings.titles.copyWith(fontSize: 10,color: Colors.white),)
+                            const Icon(FluentSystemIcons.ic_fluent_gift_regular,color: Colors.white,size: 20,),
+                            const SizedBox(height: 1.5,),
+                            Text("Gift",style: Stylings.titles.copyWith(fontSize: 8,color: Colors.white),)
                           ],
                         ),
-                        SizedBox(height: 16,),
+                        const SizedBox(height: 16,),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(FluentSystemIcons.ic_fluent_arrow_up_circle_regular,color: Colors.white,size: 21,),
-                            Text("Details",style: Stylings.titles.copyWith(fontSize: 10,color: Colors.white),)
+                            const Icon(FluentSystemIcons.ic_fluent_arrow_up_circle_regular,color: Colors.white,size: 18,),
+                            const SizedBox(height: 1.5,),
+                            Text("Details",style: Stylings.titles.copyWith(fontSize: 8,color: Colors.white),)
                           ],
                         ),
                       ],

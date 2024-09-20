@@ -20,8 +20,8 @@ class Commenttile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 35,
-            height: 35,
+            width: 30,
+            height: 30,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
             ),
@@ -31,15 +31,18 @@ class Commenttile extends StatelessWidget {
             ),
           ),
           SizedBox(width: 9),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(name,style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),),
-              Container(
-                  width: Get.width*0.4,
-                  child: Text(comm,style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.white),)),
-            ],
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(width:Get.width*0.4,child: Text(overflow: TextOverflow.ellipsis,name,style: Stylings.titles.copyWith(fontSize: 10,color: Colors.white),)),
+                SizedBox(height: 3),
+                Container(
+                    width: Get.width*0.4,
+                    child: Text(comm,style: Stylings.subTitles.copyWith(fontSize: 9,color: Colors.white),)),
+              ],
+            ),
           )
         ],
       ),

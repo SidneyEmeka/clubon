@@ -49,7 +49,7 @@ class Locheader extends StatelessWidget {
                    mainAxisAlignment: MainAxisAlignment.start,
                    crossAxisAlignment: CrossAxisAlignment.center,
                    children: [
-                     Obx(()=> Text(Get.find<Businness>().location.value, style: Stylings.subTitles.copyWith(fontSize: 13),),),
+                     Obx(()=> Text(Get.find<Businness>().location.value, style: Stylings.titles.copyWith(fontSize: 11),),),
                      const SizedBox(width: 2),
                      Container(
                        width: 13,
@@ -88,7 +88,7 @@ class Locheader extends StatelessWidget {
                     children: [
                       Icon(FluentSystemIcons.ic_fluent_record_regular, color: Stylings.orange, size: 15,),
                       const SizedBox(width: 5,),
-                      Text("Live", style: Stylings.titles.copyWith(fontSize: 14),)
+                      Text("Live", style: Stylings.titles.copyWith(fontSize: 10),)
                     ],
                   ),
                 ),

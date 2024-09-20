@@ -23,10 +23,10 @@ class Profile extends StatelessWidget {
         scrolledUnderElevation: 0,
         automaticallyImplyLeading: false,
         leading: Padding(
-          padding: const EdgeInsets.only(left: 15, top: 15.0),
+          padding: const EdgeInsets.only(left: 15, top: 20.0),
           child: Text(
             "Profile",
-            style: Stylings.titles.copyWith(fontSize: 15),
+            style: Stylings.titles.copyWith(fontSize: 12),
           ),
         ),
         actions: [
@@ -107,7 +107,7 @@ class Profile extends StatelessWidget {
                 //pfp
                 Positioned(
                   top: Get.height * 0.18,
-                  left: Get.width * 0.07,
+                  left: Get.width * 0.06,
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
@@ -127,8 +127,8 @@ class Profile extends StatelessWidget {
                             shape: BoxShape.circle),
                       ),
                       Positioned(
-                        top: 60,
-                        left: 65,
+                        top: Get.height*0.065,
+                        left: Get.width*0.17,
                         child: Container(
                           width: 20,
                           height: 20,
@@ -155,7 +155,7 @@ class Profile extends StatelessWidget {
                     ),
                     child: Text(
                       "Nnaemeka Sidney",
-                      style: Stylings.titles.copyWith(fontSize: 15),
+                      style: Stylings.titles.copyWith(fontSize: 12),
                     ),
                   ),
                 ),
@@ -180,14 +180,14 @@ class Profile extends StatelessWidget {
                     children: [
                       Text(
                         "0",
-                        style: Stylings.titles.copyWith(fontSize: 12),
+                        style: Stylings.titles.copyWith(fontSize: 11),
                       ),
                       const SizedBox(
                         height: 5,
                       ),
                       Text(
                         "Following",
-                        style: Stylings.titles.copyWith(fontSize: 11),
+                        style: Stylings.titles.copyWith(fontSize: 10),
                       ),
                     ],
                   ),
@@ -204,14 +204,14 @@ class Profile extends StatelessWidget {
                     children: [
                       Text(
                         "10",
-                        style: Stylings.titles.copyWith(fontSize: 12),
+                        style: Stylings.titles.copyWith(fontSize: 11),
                       ),
                       const SizedBox(
                         height: 5,
                       ),
                       Text(
                         "Followers",
-                        style: Stylings.titles.copyWith(fontSize: 11),
+                        style: Stylings.titles.copyWith(fontSize: 10),
                       ),
                     ],
                   ),
@@ -228,14 +228,14 @@ class Profile extends StatelessWidget {
                     children: [
                       Text(
                         "5",
-                        style: Stylings.titles.copyWith(fontSize: 12),
+                        style: Stylings.titles.copyWith(fontSize: 11),
                       ),
                       const SizedBox(
                         height: 5,
                       ),
                       Text(
                         "Hosts",
-                        style: Stylings.titles.copyWith(fontSize: 11),
+                        style: Stylings.titles.copyWith(fontSize: 10),
                       ),
                     ],
                   ),
@@ -251,14 +251,14 @@ class Profile extends StatelessWidget {
                     children: [
                       Text(
                         "\$32k",
-                        style: Stylings.titles.copyWith(fontSize: 12),
+                        style: Stylings.titles.copyWith(fontSize: 11),
                       ),
                       const SizedBox(
                         height: 5,
                       ),
                       Text(
                         "Earnings",
-                        style: Stylings.titles.copyWith(fontSize: 11),
+                        style: Stylings.titles.copyWith(fontSize: 10),
                       ),
                     ],
                   ),
@@ -283,7 +283,7 @@ class Profile extends StatelessWidget {
                         color: Stylings.bgColor),
                     child: Text(
                       "Edit profile",
-                      style: Stylings.titles.copyWith(fontSize: 12),
+                      style: Stylings.titles.copyWith(fontSize: 11),
                     ),
                   ),
                 ),
@@ -297,7 +297,7 @@ class Profile extends StatelessWidget {
                         color: Stylings.bgColor),
                     child: Text(
                       "Share profile",
-                      style: Stylings.titles.copyWith(fontSize: 12),
+                      style: Stylings.titles.copyWith(fontSize: 11),
                     ),
                   ),
                 ),
@@ -311,7 +311,7 @@ class Profile extends StatelessWidget {
                           color: Stylings.bgColor),
                       child: const Icon(
                         Icons.person_add_alt_outlined,
-                        size: 20,
+                        size: 17,
                         color: Colors.black,
                       )),
                 ),
@@ -331,13 +331,13 @@ class Profile extends StatelessWidget {
                 Text(
                   "Upcoming events",
                   style: Stylings.titles
-                      .copyWith(fontSize: 12, color: Colors.black),
+                      .copyWith(fontSize: 11, color: Colors.black),
                 ),
                 const Expanded(child: SizedBox()),
                 Text(
                   "See all",
                   style: Stylings.titles
-                      .copyWith(fontSize: 12, color: Colors.black),
+                      .copyWith(fontSize: 11, color: Colors.black),
                 ),
                 const SizedBox(
                   width: 5,
@@ -345,7 +345,7 @@ class Profile extends StatelessWidget {
                 const Icon(
                   Icons.arrow_forward_ios_outlined,
                   color: Colors.black,
-                  size: 15,
+                  size: 12,
                 )
               ],
             ),
@@ -381,13 +381,13 @@ class Profile extends StatelessWidget {
                 Text(
                   "Past events",
                   style: Stylings.titles
-                      .copyWith(fontSize: 12, color: Colors.black),
+                      .copyWith(fontSize: 11, color: Colors.black),
                 ),
                 const Expanded(child: SizedBox()),
                 Text(
                   "See all",
                   style: Stylings.titles
-                      .copyWith(fontSize: 12, color: Colors.black),
+                      .copyWith(fontSize: 11, color: Colors.black),
                 ),
                 const SizedBox(
                   width: 5,
@@ -395,7 +395,7 @@ class Profile extends StatelessWidget {
                 const Icon(
                   Icons.arrow_forward_ios_outlined,
                   color: Colors.black,
-                  size: 15,
+                  size: 12,
                 )
               ],
             ),
@@ -412,12 +412,12 @@ class Profile extends StatelessWidget {
                 Text(
                   "No Past Events",
                   style: Stylings.titles
-                      .copyWith(fontSize: 12, color: Colors.black),
+                      .copyWith(fontSize: 11, color: Colors.black),
                 ),
                 Text(
                   "You don't have any past events",
                   style: Stylings.titles
-                      .copyWith(fontSize: 10, color: Colors.black12),
+                      .copyWith(fontSize: 10, color: Colors.black26),
                 ),
               ],
             ),
@@ -429,9 +429,8 @@ class Profile extends StatelessWidget {
             child: Container(
                 alignment: Alignment.center,
                 margin: const EdgeInsets.symmetric(horizontal: 40),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                height: Get.height * 0.05,
+                 height: Get.height * 0.05,
+                width: Get.width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
                   color: Stylings.orange,
@@ -439,7 +438,7 @@ class Profile extends StatelessWidget {
                 child: Text(
                   "Browse Events",
                   style: Stylings.titles
-                      .copyWith(fontSize: 12, color: Colors.white),
+                      .copyWith(fontSize: 11, color: Colors.white),
                 )),
           ),
           Container(
@@ -454,13 +453,13 @@ class Profile extends StatelessWidget {
                 Text(
                   "Saved",
                   style: Stylings.titles
-                      .copyWith(fontSize: 12, color: Colors.black),
+                      .copyWith(fontSize: 11, color: Colors.black),
                 ),
                 const Expanded(child: SizedBox()),
                 Text(
                   "See all",
                   style: Stylings.titles
-                      .copyWith(fontSize: 12, color: Colors.black),
+                      .copyWith(fontSize: 11, color: Colors.black),
                 ),
                 const SizedBox(
                   width: 5,
@@ -468,7 +467,7 @@ class Profile extends StatelessWidget {
                 const Icon(
                   Icons.arrow_forward_ios_outlined,
                   color: Colors.black,
-                  size: 15,
+                  size: 12,
                 )
               ],
             ),

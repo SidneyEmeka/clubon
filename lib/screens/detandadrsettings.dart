@@ -31,10 +31,10 @@ class _DetandadrsettingsState extends State<Detandadrsettings> {
           child: const Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
-            size: 20,
+            size: 17,
           ),
         ),
-        title: widget.which=="my"?Text("My details",style: Stylings.titles.copyWith(fontSize: 12),):Text("Address",style: Stylings.titles.copyWith(fontSize: 12),),
+        title: widget.which=="my"?Text("My details",style: Stylings.titles.copyWith(fontSize: 11),):Text("Address",style: Stylings.titles.copyWith(fontSize: 11),),
         centerTitle: true,
       ),
       body: Container(
@@ -139,7 +139,7 @@ class _DetandadrsettingsState extends State<Detandadrsettings> {
               cursorColor: Stylings.bgColor,
               decoration: InputDecoration(
                 hintText: "Enter address",
-                hintStyle: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.grey.shade500),
+                hintStyle: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.grey.shade500),
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
                     borderSide: BorderSide(color: Stylings.orange)
@@ -162,7 +162,7 @@ class _DetandadrsettingsState extends State<Detandadrsettings> {
               cursorColor: Stylings.bgColor,
               decoration: InputDecoration(
                 hintText: "Enter address",
-                hintStyle: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.grey.shade500),
+                hintStyle: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.grey.shade500),
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
                     borderSide: BorderSide(color: Stylings.orange)
@@ -184,7 +184,7 @@ class _DetandadrsettingsState extends State<Detandadrsettings> {
               cursorColor: Stylings.bgColor,
               decoration: InputDecoration(
                 hintText: "Enter city",
-                hintStyle: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.grey.shade500),
+                hintStyle: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.grey.shade500),
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
                     borderSide: BorderSide(color: Stylings.orange)
@@ -206,7 +206,7 @@ class _DetandadrsettingsState extends State<Detandadrsettings> {
               cursorColor: Stylings.bgColor,
               decoration: InputDecoration(
                 hintText: "Enter country",
-                hintStyle: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.grey.shade500),
+                hintStyle: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.grey.shade500),
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
                     borderSide: BorderSide(color: Stylings.orange)
@@ -237,9 +237,9 @@ class _DetandadrsettingsState extends State<Detandadrsettings> {
                 height: Get.height*0.05,
                 decoration: BoxDecoration(
                     color: Stylings.orange,
-                    borderRadius: BorderRadius.circular(5)
+                    borderRadius: BorderRadius.circular(7)
                 ),
-                child: Text("Add address",style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),),
+                child: Text("Add address",style: Stylings.titles.copyWith(fontSize: 11,color: Colors.white),),
               ),
             ),
           ],

@@ -317,7 +317,7 @@ class Clubon {
       "likes": "5k",
       "title":
       "Friday Hangout: Hangover Party for 9-5ers",
-      "date": "Mon, 27 September",
+      "date": "Mon, 27 Sept",
       "location": "Maldives",
       "price": "20",
       "place":"Conference Hall",
@@ -331,7 +331,7 @@ class Clubon {
       "comments": "21k",
       "likes": "2k",
       "title":"Saturday Community Sip and Paint, Recovery Strategies for a Changing Climate",
-      "date": "Mon, 27 Sept",
+      "date": "Fri, 19 Dec",
       "location": "Chrispie",
       "price": "61",
       "place":"Conference Hall",

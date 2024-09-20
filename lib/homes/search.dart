@@ -279,7 +279,7 @@ class _SearchState extends State<Search> {
                   },
                   child: Container(
                       padding:
-                          const EdgeInsets.symmetric(horizontal: 15, vertical: 13),
+                          const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                       decoration: BoxDecoration(
                           color: Colors.grey.shade200,
                           borderRadius: BorderRadius.circular(5)),
@@ -290,10 +290,10 @@ class _SearchState extends State<Search> {
                           const Icon(
                             FluentSystemIcons.ic_fluent_search_regular,
                             color: Colors.black,
-                            size: 20,
+                            size: 15,
                           ),
                           const SizedBox(
-                            width: 15,
+                            width: 12,
                           ),
                           Text(
                             "Search",
@@ -303,7 +303,7 @@ class _SearchState extends State<Search> {
                           const Icon(
                             FluentSystemIcons.ic_fluent_settings_dev_regular,
                             color: Colors.black,
-                            size: 20,
+                            size: 17,
                           ),
                         ],
                       )),
@@ -312,10 +312,242 @@ class _SearchState extends State<Search> {
                   width: 20,
                 ),
                 GestureDetector(
-                  onTap: _dispayBottomSheet,
+                  onTap: (){
+                    showModalBottomSheet(context: context,
+                        isScrollControlled: true,
+                        backgroundColor: Colors.white,
+                        enableDrag: true,
+                        showDragHandle: true,
+                        builder: (_){
+                          return Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                            width: Get.width,
+                            height: Get.height*0.6,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.of(context).size.width*0.85,
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(12),
+                                          color: Colors.black12.withOpacity(0.04),
+                                          border: Border.all(color: Colors.white)),
+                                      child: TextFormField(
+                                        cursorHeight: 20,
+                                        cursorColor: Colors.grey.shade500,
+                                        decoration: InputDecoration(
+                                            contentPadding: const EdgeInsets.only(left: 20),
+                                            hintText: "Search your city",
+                                            hintStyle: Stylings.subTitles.copyWith(fontSize: 12),
+                                            border: InputBorder.none),
+                                      ),
+                                    ),
+                                    Expanded(child: GestureDetector(
+                                      onTap: (){
+                                        Navigator.pop(context);
+                                      },
+                                      child: Container(
+                                        width: 25,
+                                        height: 25,
+                                        decoration: const BoxDecoration(
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Image.asset(
+                                          color: Colors.black,
+                                          "${Stylings.imgPath}/bad.png",
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ))
+                                  ],
+                                ),
+                                const SizedBox(height: 20,),
+                                Container(
+                                  child: Expanded(
+                                    child: ListView(
+                                      children: [
+                                        //Florida
+                                        GestureDetector(
+                                          onTap: (){
+                                            Get.find<Businness>().location.value = "Florida";
+                                            Get.back();
+                                          },
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(left: 20, top: 2,bottom: 10),
+                                            child: Text("Florida",style: Stylings.titles.copyWith(fontSize: 12),),
+                                          ),
+                                        ),
+                                        Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
+                                        ...Clubon.florida.map((aFcity){
+                                          return GestureDetector(
+                                            onTap: (){
+                                              Get.find<Businness>().location.value = aFcity;
+                                              Get.back();
+                                            },
+                                            child: Container(
+                                              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                                              decoration: BoxDecoration(
+                                                  border: Border(
+                                                      bottom: BorderSide(
+                                                        width: 2,
+                                                        color: Colors.black12.withOpacity(0.05),
+                                                      )
+                                                  )
+                                              ),
+                                              width: MediaQuery.of(context).size.width,
+                                              child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 11),),
+                                            ),
+                                          );
+                                        }),
+                                        //Canada
+                                        GestureDetector(
+                                          onTap: (){
+                                            Get.find<Businness>().location.value = "Canada";
+                                            Get.back();
+                                          },
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
+                                            child: Text("Canada",style: Stylings.titles.copyWith(fontSize: 12),),
+                                          ),
+                                        ),
+                                        Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
+                                        ...Clubon.canada.map((aFcity){
+                                          return GestureDetector(
+                                            onTap: (){
+                                              Get.find<Businness>().location.value = aFcity;
+                                              Get.back();
+                                            },
+                                            child: Container(
+                                              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                                              decoration: BoxDecoration(
+                                                  border: Border(
+                                                      bottom: BorderSide(
+                                                        width: 2,
+                                                        color: Colors.black12.withOpacity(0.05),
+                                                      )
+                                                  )
+                                              ),
+                                              width: MediaQuery.of(context).size.width,
+                                              child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 11),),
+                                            ),
+                                          );
+                                        }),
+                                        //Andorra
+                                        GestureDetector(
+                                          onTap: (){
+                                            Get.find<Businness>().location.value = "Andorra";
+                                            Get.back();
+                                          },
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
+                                            child: Text("Andorra",style: Stylings.titles.copyWith(fontSize: 12),),
+                                          ),
+                                        ),
+                                        Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
+                                        ...Clubon.andorra.map((aFcity){
+                                          return GestureDetector(
+                                            onTap: (){
+                                              Get.find<Businness>().location.value = aFcity;
+                                              Get.back();
+                                            },
+                                            child: Container(
+                                              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 13),
+                                              decoration: BoxDecoration(
+                                                  border: Border(
+                                                      bottom: BorderSide(
+                                                        width: 2,
+                                                        color: Colors.black12.withOpacity(0.05),
+                                                      )
+                                                  )
+                                              ),
+                                              width: MediaQuery.of(context).size.width,
+                                              child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 11),),
+                                            ),
+                                          );
+                                        }),
+                                        //Austria
+                                        GestureDetector(
+                                          onTap: (){
+                                            Get.find<Businness>().location.value = "Austria";
+                                            Get.back();
+                                          },
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
+                                            child: Text("Austria",style: Stylings.titles.copyWith(fontSize: 12),),
+                                          ),
+                                        ),
+                                        Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
+                                        ...Clubon.austria.map((aFcity){
+                                          return GestureDetector(
+                                            onTap: (){
+                                              Get.find<Businness>().location.value = aFcity;
+                                              Get.back();
+                                            },
+                                            child: Container(
+                                              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                                              decoration: BoxDecoration(
+                                                  border: Border(
+                                                      bottom: BorderSide(
+                                                        width: 2,
+                                                        color: Colors.black12.withOpacity(0.05),
+                                                      )
+                                                  )
+                                              ),
+                                              width: MediaQuery.of(context).size.width,
+                                              child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 11),),
+                                            ),
+                                          );
+                                        }),
+                                        //Belgium
+                                        GestureDetector(
+                                          onTap: (){
+                                            Get.find<Businness>().location.value = "Belguim";
+                                            Get.back();
+                                          },
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(left: 20, top: 20, bottom: 10),
+                                            child: Text("Belgium",style: Stylings.titles.copyWith(fontSize: 12),),
+                                          ),
+                                        ),
+                                        Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
+                                        ...Clubon.belguim.map((aFcity){
+                                          return GestureDetector(
+                                            onTap: (){
+                                              Get.find<Businness>().location.value = aFcity;
+                                              Get.back();
+                                            },
+                                            child: Container(
+                                              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                                              decoration: BoxDecoration(
+                                                  border: Border(
+                                                      bottom: BorderSide(
+                                                        width: 2,
+                                                        color: Colors.black12.withOpacity(0.05),
+                                                      )
+                                                  )
+                                              ),
+                                              width: MediaQuery.of(context).size.width,
+                                              child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 11),),
+                                            ),
+                                          );
+                                        }),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        });
+                  },
                   child: Container(
-                    width: 20,
-                    height: 20,
+                    width: 17,
+                    height: 17,
                     decoration: const BoxDecoration(
                       color: Colors.transparent,
                       shape: BoxShape.circle,
@@ -341,7 +573,7 @@ class _SearchState extends State<Search> {
                   },
                   child: Container(
                     alignment: Alignment.center,
-                    height: Get.height*0.04,
+                    height: Get.height*0.035,
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     decoration: BoxDecoration(
                         color: evBiz.searchPage.value == "All"
@@ -351,7 +583,7 @@ class _SearchState extends State<Search> {
                     child: Text(
                       "All",
                       style: Stylings.titles.copyWith(
-                          fontSize: 13,
+                          fontSize: 12,
                           color: evBiz.searchPage.value == "All"
                               ? Colors.white
                               : Colors.black),
@@ -364,7 +596,7 @@ class _SearchState extends State<Search> {
                   },
                   child: Container(
                     alignment: Alignment.center,
-                    height: Get.height*0.04,
+                    height: Get.height*0.035,
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     decoration: BoxDecoration(
                         color: evBiz.searchPage.value == "UC"
@@ -374,7 +606,7 @@ class _SearchState extends State<Search> {
                     child: Text(
                       "Upcoming event",
                       style: Stylings.titles.copyWith(
-                          fontSize: 13,
+                          fontSize: 12,
                           color: evBiz.searchPage.value == "UC"
                               ? Colors.white
                               : Colors.black),
@@ -387,7 +619,7 @@ class _SearchState extends State<Search> {
                   },
                   child: Container(
                     alignment: Alignment.center,
-                    height: Get.height*0.04,
+                    height: Get.height*0.035,
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     decoration: BoxDecoration(
                         color: evBiz.searchPage.value == "P"
@@ -397,7 +629,7 @@ class _SearchState extends State<Search> {
                     child: Text(
                       "Past event",
                       style: Stylings.titles.copyWith(
-                          fontSize: 13,
+                          fontSize: 12,
                           color: evBiz.searchPage.value == "P"
                               ? Colors.white
                               : Colors.black),
@@ -422,9 +654,9 @@ class _SearchState extends State<Search> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            "Past event",
+                            "Past events",
                             style: Stylings.titles.copyWith(
-                                fontSize: 15,
+                                fontSize: 12,
                                 color:  Colors.black),
                           ),
                           const Expanded(child: SizedBox()),
@@ -435,7 +667,7 @@ class _SearchState extends State<Search> {
                                 color:  Colors.black),
                           ),
                           const SizedBox(width: 5,),
-                          const Icon(Icons.arrow_forward_ios_outlined,color: Colors.black,size: 20,)
+                          const Icon(Icons.arrow_forward_ios_outlined,color: Colors.black,size: 15,)
                         ],
                       ),
                     ),
@@ -463,7 +695,7 @@ class _SearchState extends State<Search> {
                           Text(
                             "Upcoming event",
                             style: Stylings.titles.copyWith(
-                                fontSize: 15,
+                                fontSize: 12,
                                 color:  Colors.black),
                           ),
                           const Expanded(child: SizedBox()),
@@ -474,7 +706,7 @@ class _SearchState extends State<Search> {
                                 color:  Colors.black),
                           ),
                           const SizedBox(width: 5,),
-                          const Icon(Icons.arrow_forward_ios_outlined,color: Colors.black,size: 20,)
+                          const Icon(Icons.arrow_forward_ios_outlined,color: Colors.black,size: 15,)
                         ],
                       ),
                     ),

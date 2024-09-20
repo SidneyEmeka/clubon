@@ -447,7 +447,7 @@ class _SearchingState extends State<Searching> {
                   icon: const Icon(
                     FluentSystemIcons.ic_fluent_ios_arrow_left_filled,
                     color: Colors.black,
-                    size: 20,
+                    size: 17,
                   ),
                   onPressed: () {
                     Get.back();
@@ -467,13 +467,13 @@ class _SearchingState extends State<Searching> {
                       prefixIcon: const Icon(
                         FluentSystemIcons.ic_fluent_search_regular,
                         color: Colors.black,
-                        size: 20,
+                        size: 17,
                       ),
                       hintText: "Search",
                       suffixIcon:  IconButton(
                         icon:const Icon(FluentSystemIcons.ic_fluent_settings_dev_regular,
                         color: Colors.black,
-                        size: 20,),
+                        size: 17,),
                         onPressed: (){
                           Get.to(()=>const Filter());
                         },
@@ -499,7 +499,7 @@ class _SearchingState extends State<Searching> {
                         padding: const EdgeInsets.symmetric(horizontal: 15),
                         child: Text(
                           "Try searching for",
-                          style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black.withOpacity(0.8)),
+                          style: Stylings.titles.copyWith(fontSize: 11,color: Colors.black.withOpacity(0.8)),
                         ),
                       ),
                       SizedBox(
@@ -537,7 +537,7 @@ class _SearchingState extends State<Searching> {
                                                      children: [
                                                        const Icon(FluentSystemIcons.ic_fluent_flag_off_filled,color: Colors.black,size: 15,),
                                                        const SizedBox(width: 15,),
-                                                       Text("Report",style: Stylings.titles.copyWith(fontSize: 12),)
+                                                       Text("Report",style: Stylings.titles.copyWith(fontSize: 11),)
                                                      ],
                                                    ),
                                                  ),
@@ -559,7 +559,7 @@ class _SearchingState extends State<Searching> {
                                                      children: [
                                                        const Icon(FluentSystemIcons.ic_fluent_eye_hide_filled,color: Colors.black,size: 15,),
                                                        const SizedBox(width: 15,),
-                                                       Text("Mark as irrelevant",style: Stylings.titles.copyWith(fontSize: 12),)
+                                                       Text("Mark as irrelevant",style: Stylings.titles.copyWith(fontSize: 11),)
                                                      ],
                                                    ),
                                                  ),
@@ -592,7 +592,7 @@ class _SearchingState extends State<Searching> {
                                       anEvent['title'],
                                       overflow: TextOverflow.ellipsis,
                                       style:
-                                          Stylings.titles.copyWith(fontSize: 12),
+                                          Stylings.titles.copyWith(fontSize: 11),
                                     ),
                                   ),
                                 );
@@ -607,7 +607,7 @@ class _SearchingState extends State<Searching> {
                           padding: const EdgeInsets.symmetric(vertical: 15.0),
                           child: Text(
                             "Press and hold a suggestion to report it",
-                            style: Stylings.titles.copyWith(fontSize: 12, color: Colors.black45),
+                            style: Stylings.titles.copyWith(fontSize: 11, color: Colors.black45),
                           ),
                         ),
                       ),
@@ -619,41 +619,38 @@ class _SearchingState extends State<Searching> {
                         padding: const EdgeInsets.symmetric(horizontal: 15),
                         child: Text(
                           "Previously searched",
-                          style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black.withOpacity(0.8)),
+                          style: Stylings.titles.copyWith(fontSize: 11,color: Colors.black.withOpacity(0.8)),
                         ),
                       ):Container(),
-                      SizedBox(
-                        height: Get.size.height * 0.18,
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.vertical,
-                          child: Column(
-                            children: [
-                              ..._previous.take(3).map((anEvent) {
-                                return ListTile(
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      horizontal: 15),
-                                  leading: const Icon(
-                                    FluentSystemIcons.ic_fluent_history_regular,
-                                    color: Colors.black,
-                                    size: 15,
-                                  ),
-                                  isThreeLine: false,
-                                  horizontalTitleGap: 0.0,
-                                  trailing: IconButton(onPressed: (){
-                                    setState(() {
-                                      _previous.remove(anEvent);
-                                    });
-                                  }, icon: const Icon(FluentSystemIcons.ic_fluent_dismiss_circle_regular, color: Colors.black, size: 15,)),
-                                  title: Text(
-                                    anEvent['title'],
-                                    overflow: TextOverflow.ellipsis,
-                                    style:
-                                        Stylings.titles.copyWith(fontSize: 12),
-                                  ),
-                                );
-                              })
-                            ],
-                          ),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Column(
+                          children: [
+                            ..._previous.take(3).map((anEvent) {
+                              return ListTile(
+                                contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 15),
+                                leading: const Icon(
+                                  FluentSystemIcons.ic_fluent_history_regular,
+                                  color: Colors.black,
+                                  size: 15,
+                                ),
+                                isThreeLine: false,
+                                horizontalTitleGap: 0.0,
+                                trailing: IconButton(onPressed: (){
+                                  setState(() {
+                                    _previous.remove(anEvent);
+                                  });
+                                }, icon: const Icon(FluentSystemIcons.ic_fluent_dismiss_circle_regular, color: Colors.black, size: 15,)),
+                                title: Text(
+                                  anEvent['title'],
+                                  overflow: TextOverflow.ellipsis,
+                                  style:
+                                      Stylings.titles.copyWith(fontSize: 11),
+                                ),
+                              );
+                            })
+                          ],
                         ),
                       ),
                     ],
@@ -661,7 +658,7 @@ class _SearchingState extends State<Searching> {
                 : Container(
               alignment: Alignment.bottomCenter,
               height: Get.size.height*0.4,
-                child: Text("No results...",style: Stylings.subTitles.copyWith(fontSize: 12),)),
+                child: Text("No results...",style: Stylings.subTitles.copyWith(fontSize: 11),)),
             _foundEvent.isNotEmpty?Align(
               alignment: Alignment.center,
               child: GestureDetector(
@@ -717,7 +714,7 @@ class _SearchingState extends State<Searching> {
 
                   );
                 },
-                child: Text("Clear all", style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black54),),
+                child: Text("Clear all", style: Stylings.titles.copyWith(fontSize: 11,color: Colors.black54),),
               ),
             ):Container(),
             GestureDetector(
@@ -730,18 +727,17 @@ class _SearchingState extends State<Searching> {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     color: Colors.transparent,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.black12)
+                    borderRadius: BorderRadius.circular(7),
+                    border: Border.all(color: Colors.black54)
                 ),
                 width: Get.size.width*0.35,
                 height: Get.size.height*0.04,
-                child: Text("Give feedback", style: Stylings.titles.copyWith(fontSize: 12,color: Colors.black54),),
+                child: Text("Give feedback", style: Stylings.titles.copyWith(fontSize: 11,color: Colors.black),),
               ),
             ),
           ],
         ),
       )),
     );
-    ;
   }
 }

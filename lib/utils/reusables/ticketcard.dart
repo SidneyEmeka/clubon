@@ -55,21 +55,20 @@ class Ticketcard extends StatelessWidget {
                     ),
                       ),
                   const SizedBox(width: 15,),
-                  SizedBox(
-                    width: Get.width*0.6,
+                  Expanded(
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(overflow: TextOverflow.ellipsis,title,style: Stylings.titles.copyWith(fontSize: 14),),
+                          Text(overflow: TextOverflow.ellipsis,title,style: Stylings.titles.copyWith(fontSize: 12),),
                           const SizedBox(height: 5,),
                           Row(mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Icon(FluentSystemIcons.ic_fluent_location_regular,size: 15,color: Colors.grey.shade500,),
-                          const SizedBox(width: 5),
-                          Text(location,style: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.grey.shade400),),
-
+                          Icon(FluentSystemIcons.ic_fluent_location_regular,size: 11,color: Colors.grey.shade500,),
+                          const SizedBox(width: 2),
+                          Text(location,style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.grey.shade400),),
+                    
                         ])
                         ],
                       ),
@@ -85,16 +84,16 @@ class Ticketcard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Icon(FluentSystemIcons.ic_fluent_headphones_regular,color: Colors.black,size: 22,),
+                  const Icon(Icons.headphones_outlined,color: Colors.black,size: 17,),
                   const SizedBox(width: 10,),
-                  Text(username,style: Stylings.titles.copyWith(fontSize: 13),),
+                  Text(username,style: Stylings.titles.copyWith(fontSize: 11),),
                   const Expanded(child: SizedBox()),
-                  Text("\$ $price.99",style: Stylings.titles.copyWith(fontSize: 13),),
+                  Text("\$ $price.99",style: Stylings.titles.copyWith(fontSize: 11),),
 
                 ],
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 15,),
             //divider
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -109,7 +108,7 @@ class Ticketcard extends StatelessWidget {
                   ),
                 ),
                 const Expanded(
-                    child: Layoutcalc(randomDiv: 14, dashWidth: 9, theCol: Colors.black26,)),
+                    child: Layoutcalc(randomDiv: 10, dashWidth: 5, theCol: Colors.black26,)),
                 Container(
                   height: 25,
                   width: 20,
@@ -120,7 +119,7 @@ class Ticketcard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 15,),
             //date and time row
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -128,14 +127,16 @@ class Ticketcard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Date",style: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.grey.shade400),),
-                      const SizedBox(height: 10,),
-                      Text(date,style: Stylings.titles.copyWith(fontSize: 12),),
-                    ],
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Date",style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.grey.shade400),),
+                        const SizedBox(height: 5,),
+                        Text(date,style: Stylings.titles.copyWith(fontSize: 10),),
+                      ],
+                    ),
                   ),
                   Container(
                     width: Get.width*0.3,
@@ -162,19 +163,21 @@ class Ticketcard extends StatelessWidget {
                      ],
                    ),
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text("Time",style: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.grey.shade400),),
-                      const SizedBox(height: 10),
-                      Text("10:00 PM",style: Stylings.titles.copyWith(fontSize: 12),),
-                    ],
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text("Time",style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.grey.shade400),),
+                        const SizedBox(height: 5),
+                        Text("10:00 PM",style: Stylings.titles.copyWith(fontSize: 10),),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 15,),
           //barcode
             !isExpired?
           Column(
@@ -183,12 +186,12 @@ class Ticketcard extends StatelessWidget {
             children: [
               Divider(color: Stylings.bgColor,thickness: 2,),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 5),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: BarcodeWidget(data: "Clubon.com/tickets/eventId", barcode: Barcode.code128(),
                     drawText: false,
-                    height: Get.height*0.07,),
+                    height: Get.height*0.06,),
                 ),
               )
             ],

@@ -35,10 +35,10 @@ class _SettingsState extends State<Settings> {
           child: const Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
-            size: 20,
+            size: 17,
           ),
         ),
-        title: Text("Settings",style: Stylings.titles.copyWith(fontSize: 12),),
+        title: Text("Settings",style: Stylings.titles.copyWith(fontSize: 11),),
         centerTitle: true,
       ),
       body: Container(
@@ -47,9 +47,9 @@ class _SettingsState extends State<Settings> {
         padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
         child: ListView(
           children: [
-            Text("Become an influencer",style: Stylings.titles.copyWith(fontSize: 12),),
+            Text("Become an influencer",style: Stylings.titles.copyWith(fontSize: 11),),
             const SizedBox(height: 10,),
-            Text("You can earn up to \$30,000 every month when you become an influencer",textAlign: TextAlign.start,style: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.grey.shade600),),
+            Text("You can earn up to \$30,000 every month when you become an influencer",textAlign: TextAlign.start,style: Stylings.subTitles.copyWith(fontSize: 10,color: Colors.grey.shade600),),
             Container(
               width: Get.width,
               margin: const EdgeInsets.symmetric(vertical: 10),
@@ -77,7 +77,7 @@ class _SettingsState extends State<Settings> {
                   isInfluencer=value;
                   });
                 },
-                title: Text("Become an influencer",style: Stylings.titles.copyWith(fontSize: 12),),
+                title: Text("Become an influencer",style: Stylings.titles.copyWith(fontSize: 11),),
               ),
             ),
             const SizedBox(height: 20),
@@ -94,9 +94,9 @@ class _SettingsState extends State<Settings> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(Icons.person_outline_sharp,size: 18,color: Colors.black,),
+                    const Icon(Icons.person_outline_sharp,size: 17,color: Colors.black,),
                     const SizedBox(width: 5,),
-                    Text("My details",style: Stylings.titles.copyWith(fontSize: 12),),
+                    Text("My details",style: Stylings.titles.copyWith(fontSize: 11),),
                   ],
                 ),
               ),
@@ -114,9 +114,9 @@ class _SettingsState extends State<Settings> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(Icons.privacy_tip_outlined,size: 18,color: Colors.black,),
+                    const Icon(Icons.privacy_tip_outlined,size: 17,color: Colors.black,),
                     const SizedBox(width: 5,),
-                    Text("Privacy",style: Stylings.titles.copyWith(fontSize: 12),),
+                    Text("Privacy",style: Stylings.titles.copyWith(fontSize: 11),),
                   ],
                 ),
               ),
@@ -137,13 +137,13 @@ class _SettingsState extends State<Settings> {
                      crossAxisAlignment: CrossAxisAlignment.center,
                      mainAxisSize: MainAxisSize.min,
                      children: [
-                       Text("How's Clubon going for you",style: Stylings.subTitles.copyWith(fontSize: 14),),
+                       Text("How's Clubon going for you",style: Stylings.titles.copyWith(fontSize: 12),),
                        RatingBar.builder(itemBuilder: (context, _)=>Icon(FluentSystemIcons.ic_fluent_star_regular,color: Stylings.orange,),
                            onRatingUpdate: (rating){
                          Get.to(()=>Rateapp(rate: rating,));
                            },
                          unratedColor: Colors.black,
-                       itemSize: 25,
+                       itemSize: 23,
                        itemPadding: const EdgeInsets.symmetric(vertical: 15,horizontal: 4),),
                        GestureDetector(
                          onTap: (){
@@ -158,7 +158,7 @@ class _SettingsState extends State<Settings> {
                              borderRadius: BorderRadius.circular(30),
                              color: Stylings.bgColor
                            ),
-                           child: Text("Ask me later",style: Stylings.titles.copyWith(fontSize: 12)),
+                           child: Text("Ask me later",style: Stylings.titles.copyWith(fontSize: 11)),
                          ),
                        ),
                       Padding(
@@ -171,11 +171,11 @@ class _SettingsState extends State<Settings> {
                             children: [
                               TextSpan(
                                 text: "Sometimes we pop by to get feedback. Not interested? you can",
-                                style: Stylings.subTitles.copyWith(fontSize: 12)
+                                style: Stylings.subTitles.copyWith(fontSize: 11)
                               ),
                               TextSpan(
                                 text: " opt out",
-                                style: Stylings.titles.copyWith(fontSize: 12)
+                                style: Stylings.titles.copyWith(fontSize: 11)
                               ),
                             ]
                           )),
@@ -196,9 +196,9 @@ class _SettingsState extends State<Settings> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(Icons.star_outline_sharp,size: 18,color: Colors.black,),
+                    const Icon(Icons.star_outline_sharp,size: 17,color: Colors.black,),
                     const SizedBox(width: 5,),
-                    Text("Rate the app",style: Stylings.titles.copyWith(fontSize: 12),),
+                    Text("Rate the app",style: Stylings.titles.copyWith(fontSize: 11),),
                   ],
                 ),
               ),
@@ -216,9 +216,9 @@ class _SettingsState extends State<Settings> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(Icons.notifications_none_outlined,size: 18,color: Colors.black,),
+                    const Icon(Icons.notifications_none_outlined,size: 17,color: Colors.black,),
                     const SizedBox(width: 5,),
-                    Text("Notifications",style: Stylings.titles.copyWith(fontSize: 12),),
+                    Text("Notifications",style: Stylings.titles.copyWith(fontSize: 11),),
                   ],
                 ),
               ),
@@ -236,9 +236,9 @@ class _SettingsState extends State<Settings> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(Icons.location_on_outlined,size: 18,color: Colors.black,),
+                    const Icon(Icons.location_on_outlined,size: 17,color: Colors.black,),
                     const SizedBox(width: 5,),
-                    Text("Address",style: Stylings.titles.copyWith(fontSize: 12),),
+                    Text("Address",style: Stylings.titles.copyWith(fontSize: 11),),
                   ],
                 ),
               ),
@@ -257,9 +257,9 @@ class _SettingsState extends State<Settings> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(Icons.ios_share_sharp,size: 18,color: Colors.black,),
+                    const Icon(Icons.ios_share_sharp,size: 17,color: Colors.black,),
                     const SizedBox(width: 5,),
-                    Text("Share the app",style: Stylings.titles.copyWith(fontSize: 12),),
+                    Text("Share the app",style: Stylings.titles.copyWith(fontSize: 11),),
                   ],
                 ),
               ),
@@ -277,9 +277,9 @@ class _SettingsState extends State<Settings> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(Icons.support_agent_rounded,size: 18,color: Colors.black,),
+                    const Icon(Icons.support_agent_rounded,size: 17,color: Colors.black,),
                     const SizedBox(width: 5,),
-                    Text("Give us feedback",style: Stylings.titles.copyWith(fontSize: 12),),
+                    Text("Give us feedback",style: Stylings.titles.copyWith(fontSize: 11),),
                   ],
                 ),
               ),
@@ -297,9 +297,9 @@ class _SettingsState extends State<Settings> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(Icons.padding_outlined,size: 18,color: Colors.black,),
+                    const Icon(Icons.padding_outlined,size: 17,color: Colors.black,),
                     const SizedBox(width: 5,),
-                    Text("Terms and conditions",style: Stylings.titles.copyWith(fontSize: 12),),
+                    Text("Terms and conditions",style: Stylings.titles.copyWith(fontSize: 11),),
                   ],
                 ),
               ),
@@ -327,7 +327,7 @@ class _SettingsState extends State<Settings> {
                               ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(vertical: 15.0),
-                                child: Text("Clubon should be running smoother now ",style: Stylings.titles.copyWith(fontSize: 12),),
+                                child: Text("Clubon should be running smoother now ",style: Stylings.titles.copyWith(fontSize: 11),),
                               ),
                               GestureDetector(
                                 onTap: (){
@@ -359,9 +359,9 @@ class _SettingsState extends State<Settings> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(Icons.delete_forever_outlined,size: 18,color: Colors.black,),
+                    const Icon(Icons.delete_forever_outlined,size: 17,color: Colors.black,),
                     const SizedBox(width: 5,),
-                    Text("Clear caches",style: Stylings.titles.copyWith(fontSize: 12),),
+                    Text("Clear caches",style: Stylings.titles.copyWith(fontSize: 11),),
                   ],
                 ),
               ),
@@ -375,9 +375,9 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.help_outline_outlined,size: 18,color: Colors.black,),
+                  const Icon(Icons.help_outline_outlined,size: 17,color: Colors.black,),
                   const SizedBox(width: 5,),
-                  Text("Support",style: Stylings.titles.copyWith(fontSize: 12),),
+                  Text("Support",style: Stylings.titles.copyWith(fontSize: 11),),
                 ],
               ),
             ),
@@ -390,9 +390,9 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.logout,size: 18,color: Colors.black,),
+                  const Icon(Icons.logout,size: 17,color: Colors.black,),
                   const SizedBox(width: 5,),
-                  Text("Log out",style: Stylings.titles.copyWith(fontSize: 12),),
+                  Text("Log out",style: Stylings.titles.copyWith(fontSize: 11),),
                 ],
               ),
             ),
@@ -402,9 +402,9 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.person_off_outlined,size: 18,color: Colors.black,),
+                  const Icon(Icons.person_off_outlined,size: 17,color: Colors.black,),
                   const SizedBox(width: 5,),
-                  Text("Delete account",style: Stylings.titles.copyWith(fontSize: 12),),
+                  Text("Delete account",style: Stylings.titles.copyWith(fontSize: 11),),
                 ],
               ),
             ),

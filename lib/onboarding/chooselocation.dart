@@ -44,10 +44,12 @@ class _ChooselocationState extends State<Chooselocation> {
                       color: Colors.black12.withOpacity(0.04),
                       border: Border.all(color: Colors.white)),
                   child: TextFormField(
+                    cursorHeight: 20,
+                    cursorColor: Colors.grey.shade500,
                     decoration: InputDecoration(
                         contentPadding: const EdgeInsets.only(left: 20),
                         hintText: "Search your city",
-                        hintStyle: Stylings.titles.copyWith(fontSize: 12),
+                        hintStyle: Stylings.subTitles.copyWith(fontSize: 12),
                         border: InputBorder.none),
                   ),
                 ),
@@ -80,12 +82,12 @@ class _ChooselocationState extends State<Chooselocation> {
                       onTap: (){
                         Get.find<Businness>().location.value = "Florida";
                         Get.back();
-                        Future.delayed(Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                        Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
 
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20, top: 2,bottom: 10),
-                        child: Text("Florida",style: Stylings.titles.copyWith(fontSize: 15),),
+                        child: Text("Florida",style: Stylings.titles.copyWith(fontSize: 12),),
                       ),
                     ),
                      Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
@@ -94,7 +96,7 @@ class _ChooselocationState extends State<Chooselocation> {
                         onTap: (){
                           Get.find<Businness>().location.value = aFcity;
                           Get.back();
-                          Future.delayed(Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                          Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
@@ -107,7 +109,7 @@ class _ChooselocationState extends State<Chooselocation> {
                             )
                           ),
                           width: MediaQuery.of(context).size.width,
-                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 11),),
                         ),
                       );
                     }),
@@ -116,12 +118,12 @@ class _ChooselocationState extends State<Chooselocation> {
                       onTap: (){
                         Get.find<Businness>().location.value = "Canada";
                         Get.back();
-                        Future.delayed(Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                        Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
 
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
-                        child: Text("Canada",style: Stylings.titles.copyWith(fontSize: 15),),
+                        child: Text("Canada",style: Stylings.titles.copyWith(fontSize: 12),),
                       ),
                     ),
                     Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
@@ -130,7 +132,7 @@ class _ChooselocationState extends State<Chooselocation> {
                         onTap: (){
                           Get.find<Businness>().location.value = aFcity;
                           Get.back();
-                          Future.delayed(Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                          Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
 
                         },
                         child: Container(
@@ -144,7 +146,7 @@ class _ChooselocationState extends State<Chooselocation> {
                               )
                           ),
                           width: MediaQuery.of(context).size.width,
-                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 11),),
                         ),
                       );
                     }),
@@ -153,12 +155,12 @@ class _ChooselocationState extends State<Chooselocation> {
                       onTap: (){
                         Get.find<Businness>().location.value = "Andorra";
                         Get.back();
-                        Future.delayed(Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                        Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
 
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
-                        child: Text("Andorra",style: Stylings.titles.copyWith(fontSize: 15),),
+                        child: Text("Andorra",style: Stylings.titles.copyWith(fontSize: 12),),
                       ),
                     ),
                     Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
@@ -167,7 +169,7 @@ class _ChooselocationState extends State<Chooselocation> {
                         onTap: (){
                           Get.find<Businness>().location.value = aFcity;
                           Get.back();
-                          Future.delayed(Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                          Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
 
                         },
                         child: Container(
@@ -181,7 +183,7 @@ class _ChooselocationState extends State<Chooselocation> {
                               )
                           ),
                           width: MediaQuery.of(context).size.width,
-                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 11),),
                         ),
                       );
                     }),
@@ -190,12 +192,12 @@ class _ChooselocationState extends State<Chooselocation> {
                       onTap: (){
                         Get.find<Businness>().location.value = "Austria";
                         Get.back();
-                        Future.delayed(Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                        Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
 
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20, top: 20,bottom: 10),
-                        child: Text("Austria",style: Stylings.titles.copyWith(fontSize: 15),),
+                        child: Text("Austria",style: Stylings.titles.copyWith(fontSize: 12),),
                       ),
                     ),
                     Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
@@ -204,7 +206,7 @@ class _ChooselocationState extends State<Chooselocation> {
                         onTap: (){
                           Get.find<Businness>().location.value = aFcity;
                           Get.back();
-                          Future.delayed(Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                          Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
 
                         },
                         child: Container(
@@ -218,7 +220,7 @@ class _ChooselocationState extends State<Chooselocation> {
                               )
                           ),
                           width: MediaQuery.of(context).size.width,
-                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 11),),
                         ),
                       );
                     }),
@@ -227,12 +229,12 @@ class _ChooselocationState extends State<Chooselocation> {
                       onTap: (){
                         Get.find<Businness>().location.value = "Belguim";
                         Get.back();
-                        Future.delayed(Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                        Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
 
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20, top: 20, bottom: 10),
-                        child: Text("Belgium",style: Stylings.titles.copyWith(fontSize: 15),),
+                        child: Text("Belgium",style: Stylings.titles.copyWith(fontSize: 12),),
                       ),
                     ),
                     Divider(color: Colors.black12.withOpacity(0.05), height: 2,),
@@ -241,7 +243,7 @@ class _ChooselocationState extends State<Chooselocation> {
                         onTap: (){
                           Get.find<Businness>().location.value = aFcity;
                           Get.back();
-                          Future.delayed(Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                          Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
 
                         },
                         child: Container(
@@ -255,7 +257,7 @@ class _ChooselocationState extends State<Chooselocation> {
                               )
                           ),
                           width: MediaQuery.of(context).size.width,
-                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 13),),
+                          child: Text(aFcity,style: Stylings.subTitles.copyWith(fontSize: 11),),
                         ),
                       );
                     }),
@@ -300,62 +302,56 @@ class _ChooselocationState extends State<Chooselocation> {
             height: size.height*0.4,
             width: size.width,
             margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-            child: Glassmorph(blur: 20, opacity: 0.2, child: Container(
-              margin: const EdgeInsets.symmetric(vertical: 20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 30),
-                  Text(
-                    "See What's on Near You",
-                    style: Stylings.titles.copyWith(fontSize: 30, fontWeight: FontWeight.w900),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5.0),
-                    child: Text(
-                        textAlign: TextAlign.center,
-                        "Select an area to get a tailored experience",
-                        style: Stylings.subTitles.copyWith(fontSize: 14)),
-                  ),
-                  Expanded(child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                         Get.to(()=>const Setnotification());
-                        },
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
-                          alignment: Alignment.center,
-                          width: size.width,
-                          height: 55,
-                          decoration: BoxDecoration(
-                              color: Stylings.orange,
-                              borderRadius: BorderRadius.circular(8)),
-                          child: Text("Use Current Location", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600,color: Colors.white),),
+            child: Glassmorph(blur: 20, opacity: 0.2, child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Expanded(flex:2,child: SizedBox()),
+                Text(
+                  "See What's on Near You",
+                  style: Stylings.titles.copyWith(fontSize: 20),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5.0),
+                  child: Text(
+                      textAlign: TextAlign.center,
+                      "Select an area to get a tailored experience",
+                      style: Stylings.titles.copyWith(fontSize: 10)),
+                ),
+                const Expanded(flex:1,child: SizedBox()),
+                GestureDetector(
+                  onTap: () {
+                   Get.to(()=>const Setnotification());
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
+                    alignment: Alignment.center,
+                    width: size.width,
+                    height: Get.height*0.065,
+                    decoration: BoxDecoration(
+                        color: Stylings.orange,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Text("Use Current Location", style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),),
 
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: _dispayBottomSheet,
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                          alignment: Alignment.center,
-                          width: size.width,
-                          height: 55,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8)),
-                          child: Text("Choose Location", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600),),
+                  ),
+                ),
+                const SizedBox(height: 5),
+                GestureDetector(
+                  onTap: _dispayBottomSheet,
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20.0),
+                    alignment: Alignment.center,
+                    width: size.width,
+                    height: Get.height*0.065,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Text("Choose Location", style: Stylings.titles.copyWith(fontSize: 12),),
 
-                        ),
-                      ),
-                    ],
-                  ))
-                ],
-              ),
+                  ),
+                ),
+                const Expanded(flex:2,child: SizedBox()),
+              ],
             ),)
           )
         ],

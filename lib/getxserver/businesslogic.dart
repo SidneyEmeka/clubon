@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../utils/styles/stylings.dart';
+
 class Businness extends GetxController{
   var location = "Miami".obs;
   var ticketPrice = 0.0.obs;
@@ -13,7 +15,9 @@ class Businness extends GetxController{
     if (count <= 4) {
       count++;
     } else {
-      Get.snackbar("Ticket Limit", "You can not buy more than 5 tickets once");
+      Get.snackbar("Ticket Limit", "You can not buy more than 5 tickets once",titleText: Text("Ticket Limit",style: Stylings.titles.copyWith(fontSize: 12),),
+        messageText: Text("You can not buy more than 5 tickets once",style: Stylings.subTitles.copyWith(fontSize: 12),),
+      );
     }
   }
 
@@ -21,7 +25,9 @@ class Businness extends GetxController{
     if (count >= 2) {
       count--;
     } else {
-      Get.snackbar("Ticket Limit", "You can not buy less than a ticket");
+      Get.snackbar("Ticket Limit", "You can not buy less than a ticket",titleText: Text("Ticket Limit",style: Stylings.titles.copyWith(fontSize: 12),),
+        messageText: Text("You can not buy less than a ticket",style: Stylings.subTitles.copyWith(fontSize: 12),),
+      );
     }
   }
 
@@ -175,18 +181,18 @@ class Businness extends GetxController{
       "comm": "❤️❤️Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
     },
     {
-      "imgUrl": "assets/images/jlop.png",
-      "name": "Jennifer Lopez",
+      "imgUrl": "assets/images/f2.png",
+      "name": "Qing Sidney",
       "comm": "❤️❤️Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
     },
     {
-      "imgUrl": "assets/images/clock.png",
+      "imgUrl": "assets/images/f1.png",
       "name": "MarkAnthony Sharad Woods",
       "comm": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour🙈🙈🙈",
     },
     {
-      "imgUrl": "assets/images/f1.png",
-      "name": "Millicent Brad",
+      "imgUrl": "assets/images/f3.png",
+      "name": "Millicent Cherry",
       "comm": "Lorem Ipsum is not simply random text",
     },
   ].obs;

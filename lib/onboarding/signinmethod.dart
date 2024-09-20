@@ -45,7 +45,7 @@ class _SigninmethodState extends State<Signinmethod> {
               Positioned.fill(
                 top: size.height * 0.44,
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
                   width: size.width,
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -58,27 +58,24 @@ class _SigninmethodState extends State<Signinmethod> {
                       const Expanded(child: SizedBox()),
                       Text(
                         "Welcome to Clubon",
-                        style: Stylings.titles.copyWith(fontSize: 20),
+                        style: Stylings.titles.copyWith(fontSize: 15),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 5),
+                        padding: const EdgeInsets.symmetric(vertical: 5),
                         child: Text(
                             textAlign: TextAlign.center,
                             "Use Email to sign in/sign up or continue with a Google or Apple account",
-                            style: Stylings.body
+                            style: Stylings.subTitles.copyWith(fontSize: 11)
                         ),
                       ),
                       const SizedBox(height: 15,),
                       ///email///
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (_){
-                            return const Loginpage();
-                          }));
+                        Get.to(()=>Loginpage());
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 12),
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               border: Border.all(
@@ -90,27 +87,24 @@ class _SigninmethodState extends State<Signinmethod> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              const Icon(Icons.mail, color: Colors.black, size: 20,),
-                              const SizedBox(width: 10),
-                              Text("Sign in with Email", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600,color: Colors.black),),
+                              const Icon(Icons.mail, color: Colors.black, size: 18,),
+                              const SizedBox(width: 5),
+                              Text("Sign in with Email", style: Stylings.titles.copyWith(fontSize: 11),),
                             ],
                           ),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10.0),
-                        child: Text("OR", style: Stylings.titles.copyWith(fontSize: 14),),
+                        child: Text("OR", style: Stylings.titles.copyWith(fontSize: 10),),
                       ),
                       ///google///
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (_){
-                            return const Homepage();
-                          }));
+                          Get.to(()=>Homepage());
                         },
                         child: Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
-                          alignment: Alignment.center,
+                           alignment: Alignment.center,
                          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 14),
                           decoration: BoxDecoration(
                               color: const Color(0xffffffffff2f2f2),
@@ -121,27 +115,25 @@ class _SigninmethodState extends State<Signinmethod> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               SizedBox(
-                                height: 20,
-                                width: 20,
+                                height: 18,
+                                width: 18,
                                 child: Image.asset("${Stylings.imgPath}/googleicon.png"),
                               ),
-                              const SizedBox(width: 10),
-                              Text("Sign in with google", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600,color: Colors.black),),
+                              const SizedBox(width: 5),
+                              Text("Sign in with google", style: Stylings.titles.copyWith(fontSize: 11),),
                             ],
                           ),
                         ),
                       ),
-                      const SizedBox(height: 10,),
+                      const SizedBox(height: 5,),
                       ///apple//
                       GestureDetector(
                         onTap: () {
-                          Get.to(const Register(),
-                              );
+                          Get.to(()=>const Register());
                         },
                         child: Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
                           alignment: Alignment.center,
-                          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 12),
+                          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
                           decoration: BoxDecoration(
                               color: const Color(0xffffffffff2f2f2),
                               borderRadius: BorderRadius.circular(8)
@@ -150,9 +142,11 @@ class _SigninmethodState extends State<Signinmethod> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              const Icon(Icons.apple, color: Colors.black, size: 26,),
-                              const SizedBox(width: 8),
-                              Text("Sign in with Apple", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600,color: Colors.black),),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 4,right: 2),
+                                child: const Icon(Icons.apple_sharp, color: Colors.black, size: 24,),
+                              ),
+                              Text("Sign in with Apple", style: Stylings.titles.copyWith(fontSize: 11),),
                             ],
                           ),
                         ),
@@ -165,18 +159,16 @@ class _SigninmethodState extends State<Signinmethod> {
                           children: [
                             Text(
                                 "Don't have an account?",
-                                style: Stylings.body
+                                style: Stylings.subTitles.copyWith(fontSize: 10)
                             ),
                             const SizedBox(width: 5,),
                             GestureDetector(
                               onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (_){
-                                  return const Register();
-                                }));
+                                Get.to(()=>Register());
                               },
                               child: Text(
                                   "Register",
-                                  style: Stylings.body.copyWith(color: Stylings.orange)
+                                  style: Stylings.subTitles.copyWith(color: Stylings.orange,fontSize: 11)
                               ),
                             ),
                           ],
@@ -193,7 +185,7 @@ class _SigninmethodState extends State<Signinmethod> {
                               },
                               child: Text(
                                   "Terms of Use",
-                                  style: Stylings.body.copyWith(color: Colors.black54)
+                                  style: Stylings.subTitles.copyWith(color: Colors.black54,fontSize: 10)
                               ),
                             ),
                             GestureDetector(
@@ -202,7 +194,7 @@ class _SigninmethodState extends State<Signinmethod> {
                               },
                               child: Text(
                                   "Privacy Policy",
-                                  style: Stylings.body.copyWith(color: Colors.black54)
+                                  style: Stylings.subTitles.copyWith(color: Colors.black54,fontSize: 10)
                               ),
                             ),
                             GestureDetector(
@@ -211,7 +203,7 @@ class _SigninmethodState extends State<Signinmethod> {
                               },
                               child: Text(
                                   "Already Paid",
-                                  style: Stylings.body.copyWith(color: Colors.black54)
+                                  style: Stylings.subTitles.copyWith(color: Colors.black54,fontSize: 10)
                               ),
                             ),
                           ],

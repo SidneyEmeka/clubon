@@ -54,7 +54,7 @@ class Eventcard extends StatelessWidget {
                 backgroundBlendMode: BlendMode.darken,
                 borderRadius: BorderRadius.circular(20),
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -75,10 +75,10 @@ class Eventcard extends StatelessWidget {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      Text(username,style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),)
+                      Text(username,style: Stylings.titles.copyWith(fontSize: 10,color: Colors.white),)
                     ],
                   ),
-                  IconButton(onPressed: (){}, icon: const Icon(Icons.more_horiz,color: Colors.white,))
+                  Icon(Icons.more_horiz,color: Colors.white,)
                 ],
               ),
             ),
@@ -95,11 +95,11 @@ class Eventcard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(FluentSystemIcons.ic_fluent_heart_regular,color: Colors.black, size: 23,),
+                    Icon(FluentSystemIcons.ic_fluent_heart_regular,color: Colors.black, size: 20,),
                     SizedBox(width: 10,),
-                    Icon(FluentSystemIcons.ic_fluent_chat_regular,color: Colors.black, size: 20,),
+                    Icon(FluentSystemIcons.ic_fluent_chat_regular,color: Colors.black, size: 17,),
                     SizedBox(width: 10,),
-                    Icon(FluentSystemIcons.ic_fluent_share_ios_regular,color: Colors.black, size: 20,),
+                    Icon(FluentSystemIcons.ic_fluent_share_ios_regular,color: Colors.black, size: 17,),
                   ],
                 ),
                 //counts
@@ -107,9 +107,9 @@ class Eventcard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-            Text("$comments Comments", style: Stylings.subTitles.copyWith(fontSize: 14),),
+            Text("$comments Comments", style: Stylings.subTitles.copyWith(fontSize: 12),),
             const SizedBox(width: 13),
-            Text("$likes Likes", style: Stylings.subTitles.copyWith(fontSize: 14),),
+            Text("$likes Likes", style: Stylings.subTitles.copyWith(fontSize: 12),),
                   ],
                 )
               ],
@@ -120,7 +120,7 @@ class Eventcard extends StatelessWidget {
             margin: const EdgeInsets.only(left: 17),
             width: size.width*0.8,
             child: Text(overflow: TextOverflow.ellipsis,
-              title, style: Stylings.titles.copyWith(fontSize: 15),),
+              title, style: Stylings.titles.copyWith(fontSize: 12),),
           ),
           //time and place
           Padding(
@@ -134,13 +134,13 @@ class Eventcard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Icon(FluentSystemIcons.ic_fluent_calendar_regular,color: Colors.black, size: 15,),
+                    const Icon(FluentSystemIcons.ic_fluent_calendar_regular,color: Colors.black, size: 13,),
                    const SizedBox(width: 5,),
-                   Text(date, style: Stylings.subTitles,),
+                   Text(date, style: Stylings.subTitles.copyWith(fontSize: 11),),
                     const SizedBox(width: 15),
-                    const Icon(FluentSystemIcons.ic_fluent_location_regular,color: Colors.black, size: 15,),
+                    const Icon(FluentSystemIcons.ic_fluent_location_regular,color: Colors.black, size: 13,),
                     const SizedBox(width: 5,),
-                    Text(location, style: Stylings.subTitles,),
+                    Text(location, style: Stylings.subTitles.copyWith(fontSize: 11),),
                   ],
                 ),
               ],
@@ -157,10 +157,10 @@ class Eventcard extends StatelessWidget {
                RichText(text: TextSpan(
                  children: [
                    TextSpan(
-                     text: "From \$$price", style: Stylings.titles.copyWith(fontSize: 18)
+                     text: "\$$price", style: Stylings.titles.copyWith(fontSize: 17)
                    ),
                    TextSpan(
-                       text: ".99", style: Stylings.titles.copyWith(fontSize: 14)
+                       text: ".99", style: Stylings.titles.copyWith(fontSize: 12)
                    ),
                  ]
                )),
@@ -172,11 +172,11 @@ class Eventcard extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: Stylings.orange,
-                        borderRadius: BorderRadius.circular(5)
+                        borderRadius: BorderRadius.circular(7)
                       ),
                       width: size.width*0.4,
                       height: Get.height*0.045,
-                      child: Text("Buy Ticket", style: Stylings.titles.copyWith(color: Colors.white, fontSize: 15),),
+                      child: Text("Buy Ticket", style: Stylings.titles.copyWith(color: Colors.white, fontSize: 12),),
                     ),
                   )
                 ],

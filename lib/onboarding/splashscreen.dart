@@ -34,13 +34,14 @@ class _SplashscreenState extends State<Splashscreen>
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            width: 100,
-            height: 100,
-            child: Image.asset("assets/images/Logo.png"),
+            width: 50,
+            height: 50,
+            child: Image.asset("assets/images/Logo.png",fit: BoxFit.cover,),
           ),
+          SizedBox(height: 10,),
           Text(
             "Clubon",
-            style: Stylings.titles.copyWith(color: Colors.white, fontSize: 18),
+            style: Stylings.titles.copyWith(color: Colors.white, fontSize: 12),
           )
         ],
       )),

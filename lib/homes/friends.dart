@@ -30,7 +30,7 @@ class _FriendsState extends State<Friends> {
           padding: const EdgeInsets.only(left: 20.0, top: 20),
           child: Text(
             "Friends",
-            style: Stylings.titles.copyWith(fontSize: 15),
+            style: Stylings.titles.copyWith(fontSize: 12),
           ),
         ),
         actions: [
@@ -65,20 +65,21 @@ class _FriendsState extends State<Friends> {
                         border: Border(top: BorderSide(color: Colors.grey.shade200))),
                     child: Container(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 15,
+                        horizontal: 10,
                       ),
+                      width: Get.width,
                       decoration: BoxDecoration(
                           color: Stylings.bgColor,
                           borderRadius: BorderRadius.circular(10)),
-                      height: Get.size.height * 0.05,
+                      height: Get.size.height * 0.055,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
                               alignment: Alignment.center,
-                              width: 30,
-                              height: 30,
+                              width: 25,
+                              height: 25,
                               decoration: BoxDecoration(
                                   shape: BoxShape.circle, color: Stylings.orange),
                               child: Text(
@@ -93,26 +94,27 @@ class _FriendsState extends State<Friends> {
                             children: [
                               Text(
                                 "Invite your friends to join Clubon",
-                                style: Stylings.titles.copyWith(fontSize: 12),
+                                style: Stylings.titles.copyWith(fontSize: 10),
                               ),
                               Text(
                                 "Clubon.com/Sidney",
                                 style: Stylings.subTitles
-                                    .copyWith(fontSize: 12, color: Colors.black54),
+                                    .copyWith(fontSize: 9, color: Colors.black54),
                               )
                             ],
                           ),
                           const Expanded(child: SizedBox()),
-                          IconButton(
-                              onPressed: () async {
-                                await Share.share(
-                                    "Tired of missing awesome events? Join me on\nClubon.com/Sidney");
-                              },
-                              icon: const Icon(
-                                FluentSystemIcons.ic_fluent_share_ios_regular,
-                                color: Colors.black,
-                                size: 22,
-                              ))
+                          GestureDetector(
+                            onTap: () async {
+                          await Share.share(
+                          "Tired of missing awesome events? Join me on\nClubon.com/Sidney");
+                          },
+                            child: Icon(
+                                  FluentSystemIcons.ic_fluent_share_ios_regular,
+                                  color: Colors.black,
+                                  size: 20,
+                                ),
+                          )
                         ],
                       ),
                     ),
@@ -139,7 +141,7 @@ class _FriendsState extends State<Friends> {
                                 Text(
                                   "Sea all",
                                   style: Stylings.titles
-                                      .copyWith(fontSize: 12, color: Colors.black54),
+                                      .copyWith(fontSize: 11, color: Colors.black54),
                                 )
                               ],
                             ),
@@ -277,7 +279,7 @@ class _FriendsState extends State<Friends> {
                               children: [
                                 Text(
                                   "My friends (10)",
-                                  style: Stylings.titles.copyWith(fontSize: 12),
+                                  style: Stylings.titles.copyWith(fontSize: 11),
                                 ),
                               ],
                             ),
@@ -305,7 +307,7 @@ class _FriendsState extends State<Friends> {
                               children: [
                                 Text(
                                   "Sent Request (4)",
-                                  style: Stylings.titles.copyWith(fontSize: 12),
+                                  style: Stylings.titles.copyWith(fontSize: 11),
                                 ),
                               ],
                             ),
@@ -328,7 +330,7 @@ class _FriendsState extends State<Friends> {
                               children: [
                                 Text(
                                   "Friend Requests (6)",
-                                  style: Stylings.titles.copyWith(fontSize: 12),
+                                  style: Stylings.titles.copyWith(fontSize: 11),
                                 ),
                               ],
                             ),
@@ -358,20 +360,18 @@ class _FriendsState extends State<Friends> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: (){
-                        pplBiz.friendPage.value="Suggestion";
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: pplBiz.friendPage.value=="Suggestion"?Colors.white:Stylings.bgColor,
-                        ),
-                        child: Text("Suggestions",style: Stylings.titles.copyWith(fontSize: 12),),
+                  GestureDetector(
+                    onTap: (){
+                      pplBiz.friendPage.value="Suggestion";
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: pplBiz.friendPage.value=="Suggestion"?Colors.white:Stylings.bgColor,
                       ),
+                      child: Text("Suggestions",style: Stylings.titles.copyWith(fontSize: 11),),
                     ),
                   ),
                   Expanded(
@@ -386,24 +386,22 @@ class _FriendsState extends State<Friends> {
                           borderRadius: BorderRadius.circular(30),
                           color: pplBiz.friendPage.value=="Friends"?Colors.white:Stylings.bgColor,
                         ),
-                        child: Text("Friends",style: Stylings.titles.copyWith(fontSize: 12),),
+                        child: Text("Friends",style: Stylings.titles.copyWith(fontSize: 11),),
                       ),
                     ),
                   ),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: (){
-                        pplBiz.friendPage.value="Requests";
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: pplBiz.friendPage.value=="Requests"?Colors.white:Stylings.bgColor,
-                        ),
-                        child: Text("Requests",style: Stylings.titles.copyWith(fontSize: 12),),
+                  GestureDetector(
+                    onTap: (){
+                      pplBiz.friendPage.value="Requests";
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 11),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: pplBiz.friendPage.value=="Requests"?Colors.white:Stylings.bgColor,
                       ),
+                      child: Text("Requests",style: Stylings.titles.copyWith(fontSize: 12),),
                     ),
                   ),
                 ],

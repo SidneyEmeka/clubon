@@ -53,17 +53,17 @@ Future _dispayBottomSheet() {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Icon(FluentSystemIcons.ic_fluent_ticket_regular, size: 25, color: Colors.black,),
+                      const Icon(FluentSystemIcons.ic_fluent_ticket_regular, size: 20, color: Colors.black,),
                       const SizedBox(width: 20,),
-                      Text(business.ticketType.toString(),style: Stylings.titles.copyWith(fontSize: 15),),
+                      Text(business.ticketType.toString(),style: Stylings.titles.copyWith(fontSize: 12),),
                       const Expanded(child: SizedBox()),
                       GestureDetector(
                         onTap: (){
                           Get.back();
                         },
                         child: SizedBox(
-                          height: 20,
-                          width: 20,
+                          height: 17,
+                          width: 17,
                           child: Image.asset("${Stylings.imgPath}/bad.png"),
                         ),
                       ),
@@ -79,7 +79,7 @@ Future _dispayBottomSheet() {
                   child: Container(
                     width: Get.size.width,
                     margin: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-                    padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 12),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
@@ -90,16 +90,16 @@ Future _dispayBottomSheet() {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Regular  (\$${widget.theEvent['price']}.99)",style: Stylings.titles.copyWith(fontSize: 14),),
+                        Text("Regular  (\$${widget.theEvent['price']}.99)",style: Stylings.titles.copyWith(fontSize: 12),),
                         business.ticketType.value=="Regular"?
                         Icon(
                           Icons.check_circle_rounded,
                           color: Stylings.orange,
-                          size: 20,
+                          size: 17,
                         ):const Icon(
                           Icons.circle_outlined,
                           color: Colors.black12,
-                          size: 20,
+                          size: 17,
                         ),
 
 
@@ -116,7 +116,7 @@ Future _dispayBottomSheet() {
                   child: Container(
                     width: Get.size.width,
                     margin: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-                    padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 12),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
@@ -127,16 +127,16 @@ Future _dispayBottomSheet() {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("VIP  (\$${int.parse(widget.theEvent['price'])+10}.99)",style: Stylings.titles.copyWith(fontSize: 14),),
+                        Text("VIP  (\$${int.parse(widget.theEvent['price'])+10}.99)",style: Stylings.titles.copyWith(fontSize: 12),),
                         business.ticketType.value=="VIP"?
                         Icon(
                           Icons.check_circle_rounded,
                           color: Stylings.orange,
-                          size: 20,
+                          size: 17,
                         ):const Icon(
                           Icons.circle_outlined,
                           color: Colors.black12,
-                          size: 20,
+                          size: 17,
                         ),
 
 
@@ -153,7 +153,7 @@ Future _dispayBottomSheet() {
                   child: Container(
                     width: Get.size.width,
                     margin: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-                    padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 12),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
@@ -164,16 +164,16 @@ Future _dispayBottomSheet() {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("MVP  (\$${int.parse(widget.theEvent['price'])+20}.99)",style: Stylings.titles.copyWith(fontSize: 14),),
+                        Text("MVP  (\$${int.parse(widget.theEvent['price'])+20}.99)",style: Stylings.titles.copyWith(fontSize: 12),),
                         business.ticketType.value=="MVP"?
                         Icon(
                           Icons.check_circle_rounded,
                           color: Stylings.orange,
-                          size: 20,
+                          size: 17,
                         ):const Icon(
                           Icons.circle_outlined,
                           color: Colors.black12,
-                          size: 20,
+                          size: 17,
                         ),
 
 
@@ -185,7 +185,7 @@ Future _dispayBottomSheet() {
                 Expanded(
                   child: Container(
                     height: Get.size.height*0.08,
-                    width: Get.size.width*0.5,
+                    width: Get.size.width*0.45,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -195,8 +195,8 @@ Future _dispayBottomSheet() {
                               business.increment();
                           },
                           child: Container(
-                            width: 25,
-                            height: 25,
+                            width: 20,
+                            height: 20,
                             decoration: const BoxDecoration(
                               color: Colors.transparent,
                               shape: BoxShape.circle,
@@ -216,16 +216,16 @@ Future _dispayBottomSheet() {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                width: 25,
+                                width: 20,
                                 height: 15,
                                 decoration: const BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.vertical(bottom: Radius.circular(50))
                                 ),
                               ),
-                              Obx(()=>Text(business.count.toString(),style: Stylings.titles.copyWith(fontSize: 15),),),
+                              Obx(()=>Text(business.count.toString(),style: Stylings.titles.copyWith(fontSize: 12),),),
                               Container(
-                                width: 25,
+                                width: 20,
                                 height: 15,
                                 decoration: const BoxDecoration(
                                     color: Colors.white,
@@ -240,8 +240,8 @@ Future _dispayBottomSheet() {
                                business.decreament();
                           },
                           child: Container(
-                            width: 25,
-                            height: 25,
+                            width: 20,
+                            height: 20,
                             decoration: const BoxDecoration(
                               color: Colors.transparent,
                               shape: BoxShape.circle,
@@ -271,7 +271,7 @@ Future _dispayBottomSheet() {
                         color: Stylings.orange
                     ),
                     child: Text(
-                          "Pays ${(business.ticketPrice*business.count.value).toStringAsFixed(2)}", style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),)
+                          "Pay ${(business.ticketPrice*business.count.value).toStringAsFixed(2)}", style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),)
                   ),
                 ),),
               ],
@@ -295,7 +295,7 @@ Future _dispayBottomSheet() {
           child: const Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
-            size: 20,
+            size: 15,
           ),
         ),
         title: Text("Details",style: Stylings.titles.copyWith(fontSize: 12),),
@@ -317,7 +317,7 @@ Future _dispayBottomSheet() {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(widget.theEvent["title"],style: Stylings.titles.copyWith(fontSize: 14),),
+                Text(widget.theEvent["title"],style: Stylings.titles.copyWith(fontSize: 12),),
                 const SizedBox(height: 20,),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -327,9 +327,9 @@ Future _dispayBottomSheet() {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const Icon(FluentSystemIcons.ic_fluent_clock_regular, color: Colors.black, size: 20,),
+                        const Icon(FluentSystemIcons.ic_fluent_clock_regular, color: Colors.black, size: 15,),
                         const SizedBox(width: 10,),
-                        Text(widget.theEvent['date'],style: Stylings.subTitles)
+                        Text(widget.theEvent['date'],style: Stylings.subTitles.copyWith(fontSize: 10))
                       ],
                     ),
                     const SizedBox(height: 10,),
@@ -337,9 +337,9 @@ Future _dispayBottomSheet() {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const Icon(FluentSystemIcons.ic_fluent_location_regular, color: Colors.black, size: 20,),
+                        const Icon(FluentSystemIcons.ic_fluent_location_regular, color: Colors.black, size: 15,),
                         const SizedBox(width: 10,),
-                        Text(widget.theEvent['place']??"Club House Center",style: Stylings.subTitles)
+                        Text(widget.theEvent['place']??"Club House Center",style: Stylings.subTitles.copyWith(fontSize: 10))
                       ],
                     ),
                     const SizedBox(height: 10,),
@@ -347,9 +347,9 @@ Future _dispayBottomSheet() {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const Icon(FluentSystemIcons.ic_fluent_city_regular, color: Colors.black, size: 20,),
+                        const Icon(FluentSystemIcons.ic_fluent_city_regular, color: Colors.black, size: 15,),
                         const SizedBox(width: 10,),
-                        Text(widget.theEvent['location'],style: Stylings.subTitles)
+                        Text(widget.theEvent['location'],style: Stylings.subTitles.copyWith(fontSize: 10))
                       ],
                     ),],
                 ),
@@ -369,9 +369,9 @@ Future _dispayBottomSheet() {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Icon(Icons.person_add_alt_outlined, color: Colors.black, size: 20,),
+                const Icon(Icons.person_add_alt_outlined, color: Colors.black, size: 18,),
                 const SizedBox(width: 10,),
-                Text("Invite Friends",style: Stylings.titles.copyWith(fontSize: 12))
+                Text("Invite Friends",style: Stylings.titles.copyWith(fontSize: 11))
               ],
             ),
           ),
@@ -384,10 +384,11 @@ Future _dispayBottomSheet() {
               borderRadius: BorderRadius.circular(10),
               color: Colors.white
             ),
-            child: Text("Join us for an enchanting evening at the annual Twilight Lantern Festival, a celebration of light, community, and creativity. As the sun sets over Willow Park, the festivities will begin with a serene lantern-making workshop where attendees of all ages can craft their own unique lanterns using a variety of materials and guided instructions.",style: Stylings.subTitles,),
+            child: Text("Join us for an enchanting evening at the annual Twilight Lantern Festival, a celebration of light, community, and creativity. As the sun sets over Willow Park, the festivities will begin with a serene lantern-making workshop where attendees of all ages can craft their own unique lanterns using a variety of materials and guided instructions.",
+              style: Stylings.subTitles.copyWith(fontSize: 11),),
 
           ),
-          Padding(padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),child: Text("Meet your host",style: Stylings.titles.copyWith(fontSize: 12),),),
+          Padding(padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),child: Text("Meet your host",style: Stylings.titles.copyWith(fontSize: 11),),),
           //Rating
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -402,8 +403,8 @@ Future _dispayBottomSheet() {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 40,
+                  height: 40,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                   ),
@@ -417,20 +418,20 @@ Future _dispayBottomSheet() {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(widget.theEvent['username'],style: Stylings.titles.copyWith(fontSize: 14)),
+                    Text(widget.theEvent['username'],style: Stylings.titles.copyWith(fontSize: 11)),
                     const SizedBox(height: 5),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const Icon(FluentSystemIcons.ic_fluent_star_filled, size: 15, color: Colors.orangeAccent,),
-                        const Icon(FluentSystemIcons.ic_fluent_star_filled, size: 15, color: Colors.orangeAccent,),
-                        const Icon(FluentSystemIcons.ic_fluent_star_filled, size: 15, color: Colors.orangeAccent,),
+                        const Icon(FluentSystemIcons.ic_fluent_star_filled, size: 12, color: Colors.orangeAccent,),
+                        const Icon(FluentSystemIcons.ic_fluent_star_filled, size: 12, color: Colors.orangeAccent,),
+                        const Icon(FluentSystemIcons.ic_fluent_star_filled, size: 12, color: Colors.orangeAccent,),
                         widget.theEvent['rating']==null?
-                        const Icon(FluentSystemIcons.ic_fluent_star_filled, size: 15, color: Colors.orangeAccent,): const Icon(FluentSystemIcons.ic_fluent_star_filled, size: 15, color: Colors.black12),
-                        const Icon(FluentSystemIcons.ic_fluent_star_filled, size: 15, color: Colors.black12),
+                        const Icon(FluentSystemIcons.ic_fluent_star_filled, size: 12, color: Colors.orangeAccent,): const Icon(FluentSystemIcons.ic_fluent_star_filled, size: 12, color: Colors.black12),
+                        const Icon(FluentSystemIcons.ic_fluent_star_filled, size: 12, color: Colors.black12),
                         const SizedBox(width: 10,),
-                        Text(widget.theEvent['rating']??"4.5",style: Stylings.titles.copyWith(fontSize: 12)),
+                        Text(widget.theEvent['rating']??"4.5",style: Stylings.titles.copyWith(fontSize: 10)),
                       ],
                     )
                   ],
@@ -452,9 +453,9 @@ Future _dispayBottomSheet() {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Where it will be",style: Stylings.titles.copyWith(fontSize: 12)),
+                Text("Where it will be",style: Stylings.titles.copyWith(fontSize: 11)),
                 const SizedBox(height: 5),
-                Text(widget.theEvent['direction']??"107, New Sean Close, The Club House Center",style: Stylings.subTitles),
+                Text(widget.theEvent['direction']??"107, New Sean Close, The Club House Center",style: Stylings.subTitles.copyWith(fontSize: 10)),
                 const SizedBox(height: 5),
                 SizedBox(
                   width: size.width,
@@ -464,7 +465,7 @@ Future _dispayBottomSheet() {
               ],
             ),
           ),
-          Padding(padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),child: Text("Rules",style: Stylings.titles.copyWith(fontSize: 12),),),
+          Padding(padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),child: Text("Rules",style: Stylings.titles.copyWith(fontSize: 11),),),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),
             padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
@@ -486,8 +487,8 @@ Future _dispayBottomSheet() {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          width: 18,
-                          height: 18,
+                          width: 15,
+                          height: 15,
                           decoration: const BoxDecoration(
                             color: Colors.transparent,
                             shape: BoxShape.circle,
@@ -495,7 +496,7 @@ Future _dispayBottomSheet() {
                           child: Image.asset("${Stylings.imgPath}/dressicon.png", fit: BoxFit.contain,),
                         ),
                         const SizedBox(width: 10,),
-                        Text("Dress Code: Smart and Glamorous",style: Stylings.subTitles)
+                        Text("Dress Code: Smart and Glamorous",style: Stylings.subTitles.copyWith(fontSize: 10))
                       ],
                     ),
                     const SizedBox(height: 10,),
@@ -504,8 +505,8 @@ Future _dispayBottomSheet() {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          width: 18,
-                          height: 18,
+                          width: 15,
+                          height: 15,
                           decoration: const BoxDecoration(
                             color: Colors.transparent,
                             shape: BoxShape.circle,
@@ -513,7 +514,7 @@ Future _dispayBottomSheet() {
                           child: Image.asset("assets/images/person.png", fit: BoxFit.contain,),
                         ),
                         const SizedBox(width: 10,),
-                        Text("Minimum Age: 18",style: Stylings.subTitles)
+                        Text("Minimum Age: 18",style: Stylings.subTitles.copyWith(fontSize: 10))
                       ],
                     ),
                     const SizedBox(height: 10,),
@@ -522,15 +523,15 @@ Future _dispayBottomSheet() {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          width: 18,
-                          height: 18,
+                          width: 15,
+                          height: 15,
                           decoration: const BoxDecoration(
                             color: Colors.transparent,
                             shape: BoxShape.circle,
                           ),
                           child: Image.asset("${Stylings.imgPath}/smoke.png", fit: BoxFit.contain,),
                         ), const SizedBox(width: 10,),
-                        Text('Not permitted to smoke',style: Stylings.subTitles)
+                        Text('Not permitted to smoke',style: Stylings.subTitles.copyWith(fontSize: 10))
                       ],
                     ),
                    ],
@@ -539,7 +540,7 @@ Future _dispayBottomSheet() {
             ),
           ),
 
-          Padding(padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),child: Text("Options",style: Stylings.titles.copyWith(fontSize: 12),),),
+          Padding(padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),child: Text("Options",style: Stylings.titles.copyWith(fontSize: 11),),),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),
             padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
@@ -561,8 +562,8 @@ Future _dispayBottomSheet() {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          width: 18,
-                          height: 18,
+                          width: 15,
+                          height: 15,
                           decoration: const BoxDecoration(
                             color: Colors.transparent,
                             shape: BoxShape.circle,
@@ -570,7 +571,7 @@ Future _dispayBottomSheet() {
                           child: Image.asset("${Stylings.imgPath}/lock.png", fit: BoxFit.contain,),
                         ),
                         const SizedBox(width: 10,),
-                        Text("Got a code?",style: Stylings.subTitles)
+                        Text("Got a code?",style: Stylings.subTitles.copyWith(fontSize: 10))
                       ],
                     ),
                     const SizedBox(height: 10,),
@@ -578,9 +579,9 @@ Future _dispayBottomSheet() {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                       const Icon(FluentSystemIcons.ic_fluent_calendar_regular,size: 18, color: Colors.black,),
+                       const Icon(FluentSystemIcons.ic_fluent_calendar_regular,size: 15, color: Colors.black,),
                         const SizedBox(width: 10,),
-                        Text("Add to calendar",style: Stylings.subTitles)
+                        Text("Add to calendar",style: Stylings.subTitles.copyWith(fontSize: 10))
                       ],
                     ),
                     const SizedBox(height: 10,),
@@ -593,15 +594,15 @@ Future _dispayBottomSheet() {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
-                            width: 18,
-                            height: 18,
+                            width: 15,
+                            height: 15,
                             decoration: const BoxDecoration(
                               color: Colors.transparent,
                               shape: BoxShape.circle,
                             ),
                             child: Image.asset("${Stylings.imgPath}/abt.png", fit: BoxFit.contain,),
                           ), const SizedBox(width: 10,),
-                          Text('Need help?',style: Stylings.subTitles)
+                          Text('Need help?',style: Stylings.subTitles.copyWith(fontSize: 10))
                         ],
                       ),
                     ),
@@ -620,7 +621,7 @@ Future _dispayBottomSheet() {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("\$${widget.theEvent['price']}.99",style: Stylings.titles.copyWith(fontSize: 15),),
+              Text("\$${widget.theEvent['price']}.99",style: Stylings.titles.copyWith(fontSize: 12),),
               GestureDetector(
                 onTap: (){
                   //
@@ -634,7 +635,7 @@ Future _dispayBottomSheet() {
                   ),
                   width: size.width*0.3,
                   height: size.height*0.04,
-                  child: Text("Book", style: Stylings.titles.copyWith(color: Colors.white, fontSize: 15),),
+                  child: Text("Book", style: Stylings.titles.copyWith(color: Colors.white, fontSize: 12),),
                 ),
               ),
             ],

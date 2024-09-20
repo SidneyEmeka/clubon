@@ -28,7 +28,7 @@ class Addbankacc extends StatelessWidget {
           child: const Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
-            size: 20,
+            size: 17,
           ),
         ),
         title: Text("Enter bank details",style: Stylings.titles.copyWith(fontSize: 12),),
@@ -56,7 +56,7 @@ class Addbankacc extends StatelessWidget {
                       borderSide: const BorderSide(color: Colors.black,width: 0.5)
                   ),
                   labelText: "Account name",
-                  labelStyle: Stylings.subTitles.copyWith(fontSize: 12)
+                  labelStyle: Stylings.subTitles.copyWith(fontSize: 11)
               ),
 
             ),
@@ -76,7 +76,7 @@ class Addbankacc extends StatelessWidget {
                       borderSide: const BorderSide(color: Colors.black,width: 0.5)
                   ),
                   labelText: "Account number",
-                  labelStyle: Stylings.subTitles.copyWith(fontSize: 12)
+                  labelStyle: Stylings.subTitles.copyWith(fontSize: 11)
               ),
 
             ),
@@ -96,7 +96,7 @@ class Addbankacc extends StatelessWidget {
                       borderSide: const BorderSide(color: Colors.black,width: 0.5)
                   ),
                   labelText: "Sort code",
-                  labelStyle: Stylings.subTitles.copyWith(fontSize: 12)
+                  labelStyle: Stylings.subTitles.copyWith(fontSize: 11)
               ),
 
             ),
@@ -124,7 +124,7 @@ class Addbankacc extends StatelessWidget {
                          value: aState,
                          child: Text(
                            aState,
-                           style: Stylings.titles.copyWith(fontSize: 12),
+                           style: Stylings.titles.copyWith(fontSize: 11),
                          ));
                    })
                  ],

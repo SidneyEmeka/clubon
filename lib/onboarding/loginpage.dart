@@ -2,6 +2,8 @@ import 'package:clubon/onboarding/register.dart';
 import 'package:clubon/onboarding/signinmethod.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../utils/styles/stylings.dart';
 
@@ -40,7 +42,6 @@ class _LoginpageState extends State<Loginpage> {
       ),
       body: Container(
         height: size.height,
-        margin: EdgeInsets.only(bottom:size.height*0.03),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -48,8 +49,8 @@ class _LoginpageState extends State<Loginpage> {
             SizedBox(height: size.height*0.01,),
             Container(
               padding: const EdgeInsets.all(15),
-              width: 80,
-              height: 80,
+              width: 70,
+              height: 70,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
               ),
@@ -62,41 +63,20 @@ class _LoginpageState extends State<Loginpage> {
             ),
             Text(
               "Welcome back to Clubon",
-              style: Stylings.titles.copyWith(fontSize: 20),
+              style: Stylings.titles.copyWith(fontSize: 15),
             ),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 40.0, vertical: 5),
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
               child: Text(
                   textAlign: TextAlign.center,
                   "Type in your email and password to continue",
-                  style: Stylings.body),
+                  style: Stylings.subTitles.copyWith(fontSize: 11)),
             ),
-            SizedBox(height: size.height*0.15,),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.error_outline_rounded,
-                    size: 20,
-                    color: Stylings.orange,
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "An error occured right now",
-                    style: Stylings.subTitles
-                        .copyWith(color: Stylings.orange, fontSize: 12),
-                  ),
-                ],
-              ),
-            ),
+            //SizedBox(height: size.height*0.15,),
             Expanded(
               child: SingleChildScrollView(
+                reverse: true,
                 scrollDirection: Axis.vertical,
                 physics: const BouncingScrollPhysics(),
                 child: Form(
@@ -105,89 +85,81 @@ class _LoginpageState extends State<Loginpage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      //email
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(vertical: 5),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              color: Colors.white70,
-                              border: Border.all(
-                                color: Colors.black38,
-                              )),
-                          child: TextFormField(
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return "Please Enter Name";
-                              }
-                              return null;
-                            },
-                            //controller: _nameController,
-                            decoration: const InputDecoration(
-                                contentPadding: EdgeInsets.only(left: 20),
-                                hintText: "Email",
-                                border: InputBorder.none),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Container(
-                              padding: const EdgeInsets.symmetric(vertical: 5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  color: Colors.white70,
-                                  border: Border.all(
-                                    color: Colors.black38,
-                                  )),
-                              child: TextFormField(
-                                validator: (value) {
-                                  if (value != _passwordController.text.trim() ||
-                                      value == null) {
-                                    return "Password doesn't match";
-                                  }
-                                  return null;
-                                },
-                                controller: _passwordController,
-                                obscureText: hidePassword,
-                                obscuringCharacter: "*",
-                                decoration: InputDecoration(
-                                    suffix: IconButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            hidePassword == true
-                                                ? hidePassword = false
-                                                : hidePassword = true;
-                                          });
-                                        },
-                                        icon: Icon(
-                                          hidePassword == true
-                                              ? FluentSystemIcons
-                                                  .ic_fluent_eye_hide_filled
-                                              : FluentSystemIcons
-                                                  .ic_fluent_eye_show_filled,
-                                          size: 15,
-                                          color: Colors.brown,
-                                        )),
-                                    contentPadding: const EdgeInsets.only(left: 20),
-                                    hintText: "Password",
-                                    border: InputBorder.none),
-                              ),
+                            Icon(
+                              Icons.error_outline_rounded,
+                              size: 15,
+                              color: Stylings.orange,
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "An error occured right now",
+                              style: Stylings.subTitles
+                                  .copyWith(color: Stylings.orange, fontSize: 10),
                             ),
                           ],
                         ),
                       ),
+                      //email
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: TextField(
+                          keyboardType: TextInputType.emailAddress,
+                          cursorColor: Colors.grey.shade500,
+                          cursorHeight: 15,
+                          decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(7),
+                                  borderSide: BorderSide(color: Stylings.orange)
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(7),
+                                  borderSide: const BorderSide(color: Colors.black,width: 0.5)
+                              ),
+                              labelText: "Email",
+                              floatingLabelStyle: Stylings.titles.copyWith(fontSize: 11) ,
+                              labelStyle: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.grey.shade500)
+                          ),
 
+                        ),
+                      ),
                       const SizedBox(
                         height: 10,
+                      ),
+                      //Implement hidepassfeature
+                      //password
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: TextField(
+                          keyboardType: TextInputType.emailAddress,
+                          cursorColor: Colors.grey.shade500,
+                          cursorHeight: 15,
+                          decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(7),
+                                  borderSide: BorderSide(color: Stylings.orange)
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(7),
+                                  borderSide: const BorderSide(color: Colors.black,width: 0.5)
+                              ),
+                              labelText: "Password",
+                              floatingLabelStyle: Stylings.titles.copyWith(fontSize: 11) ,
+                              labelStyle: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.grey.shade500)
+                          ),
+
+                        ),
+                      ),
+
+                      const SizedBox(
+                        height: 20,
                       ),
                       //button
                       GestureDetector(
@@ -196,11 +168,11 @@ class _LoginpageState extends State<Loginpage> {
                           margin: const EdgeInsets.symmetric(horizontal: 20.0),
                           alignment: Alignment.center,
                           width: size.width,
-                          height: 55,
+                          height: 50,
                           decoration: BoxDecoration(
                               color: Stylings.orange,
                               borderRadius: BorderRadius.circular(8)),
-                          child:  Text("Log In", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600,color: Colors.white),),
+                          child:  Text("Log In", style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),),
 
                         ),
                       ),
@@ -225,20 +197,16 @@ class _LoginpageState extends State<Loginpage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text("Don't have an account?", style: Stylings.body),
+                Text("Don't have an account?", style: Stylings.subTitles.copyWith(fontSize: 10)),
                 const SizedBox(
                   width: 5,
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) {
-                          return const Register();
-                        }));
+                    Get.to(()=>Register());
                   },
                   child: Text("Register",
-                      style: Stylings.body
-                          .copyWith(color: Stylings.orange)),
+                      style: Stylings.subTitles.copyWith(color: Stylings.orange,fontSize: 11)),
                 ),
               ],
             ),
@@ -249,14 +217,14 @@ class _LoginpageState extends State<Loginpage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text("Terms of Use",
-                      style: Stylings.body.copyWith(color: Colors.black54)),
+                      style: Stylings.subTitles.copyWith(color: Colors.black54,fontSize: 10)),
                   GestureDetector(
                     onTap: () {},
                     child: Text("Privacy Policy",
-                        style: Stylings.body.copyWith(color: Colors.black54)),
+                        style: Stylings.subTitles.copyWith(color: Colors.black54,fontSize: 10)),
                   ),
                   Text("Already Paid",
-                      style: Stylings.body.copyWith(color: Colors.black54)),
+                      style: Stylings.subTitles.copyWith(color: Colors.black54,fontSize: 10)),
                 ],
               ),
             ),

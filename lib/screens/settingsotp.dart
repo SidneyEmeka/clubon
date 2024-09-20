@@ -19,7 +19,8 @@ class _SettingsotpState extends State<Settingsotp> {
   @override
   void initState() {
    Future.delayed(const Duration(seconds: 1), (){
-     Get.snackbar("OTP", "Your one time password is 83020",duration: const Duration(seconds: 5));
+     Get.snackbar("OTP", "Your one time password is 83020",titleText: Text("OTP",style: Stylings.titles.copyWith(fontSize: 12),),
+     messageText: Text("Your one time password is 83020",style: Stylings.subTitles.copyWith(fontSize: 12)),duration: const Duration(seconds: 5));
    });
     super.initState();
   }
@@ -46,7 +47,7 @@ class _SettingsotpState extends State<Settingsotp> {
       body: Container(
         margin: const EdgeInsets.symmetric(vertical: 20,horizontal: 20),
         width: size.width,
-        height: size.height*0.5,
+        height: size.height*0.6,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -67,15 +68,15 @@ class _SettingsotpState extends State<Settingsotp> {
             ),
             Text(
               "Please verify your email",
-              style: Stylings.titles.copyWith(fontSize: 20),
+              style: Stylings.titles.copyWith(fontSize: 15),
             ),
             Padding(
               padding:
-              const EdgeInsets.symmetric(horizontal: 40.0, vertical: 5),
+              const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
               child: Text(
                   textAlign: TextAlign.center,
-                  "We sent a code to your email please enter the code below ",
-                  style: Stylings.body),
+                  "We just sent you an OTP please enter the code below to continue",
+                  style: Stylings.subTitles.copyWith(fontSize: 11)),
             ),
             const Expanded(child: SizedBox()),
             invalid?Padding(
@@ -145,7 +146,7 @@ class _SettingsotpState extends State<Settingsotp> {
                               borderRadius: BorderRadius.circular(10),
                               border: Border.all(color: Colors.black26)
                           ),
-                          width: Get.width*0.2,
+                          width: 100,
                           height: Get.size.height*0.04,
                           child: Text("Continue", style: Stylings.titles.copyWith(fontSize: 12),),
                         ),
@@ -164,11 +165,11 @@ class _SettingsotpState extends State<Settingsotp> {
               child: Container(
                 alignment: Alignment.center,
                 width: size.width,
-                height: 55,
+                height: 45,
                 decoration: BoxDecoration(
                     color: Stylings.orange,
-                    borderRadius: BorderRadius.circular(8)),
-                child: Text("Confirm", style: Stylings.body.copyWith(fontSize: 13,fontWeight: FontWeight.w600,color: Colors.white),),
+                    borderRadius: BorderRadius.circular(7)),
+                child: Text("Confirm", style: Stylings.titles.copyWith(fontSize: 12,color: Colors.white),),
 
               ),
             ),
@@ -180,13 +181,13 @@ class _SettingsotpState extends State<Settingsotp> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text("Resend code in", style: Stylings.body),
+                  Text("Resend code in", style: Stylings.subTitles.copyWith(fontSize: 10)),
                   const SizedBox(
                     width: 5,
                   ),
                   Text("30 secs",
-                      style: Stylings.titles
-                          .copyWith(color: Stylings.orange, fontSize: 12)),
+                      style: Stylings.subTitles
+                          .copyWith(color: Stylings.orange, fontSize: 11)),
                 ],
               ),
             ),
