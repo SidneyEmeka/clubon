@@ -1,5 +1,7 @@
+import 'package:clubon/onboarding/chooselocation.dart';
 import 'package:clubon/onboarding/register.dart';
 import 'package:clubon/onboarding/signinmethod.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,7 +20,45 @@ class _LoginpageState extends State<Loginpage> {
   final _passwordController = TextEditingController();
   final _emailController = TextEditingController();
   bool hidePassword = true;
+  String passWord = '', eMail = '', error = '';
+  bool isLoading = false;
   final _formKey = GlobalKey<FormState>();
+
+  void login() async{
+    try{
+      await FirebaseAuth.instance.signInWithEmailAndPassword(email: eMail, password: passWord);
+      setState(() {
+        isLoading=true;
+      });
+      Future.delayed(const Duration(seconds: 2),(){
+        Get.offAll(()=>const Chooselocation());
+        isLoading=false;
+      });
+    }on FirebaseAuthException catch(e){
+      print(e.code);
+      if(e.code=='user-not-found'){
+        setState(() {
+          error = "No user found for $eMail";
+        });
+      }
+     else if(e.code=='wrong-password'){
+        setState(() {
+          error = "Incorrect login details";
+        });
+      }
+     else if(e.code=='invalid-email'){
+        setState(() {
+          error = "Invalid email address";
+        });
+      }
+     else if(e.code=='Invalid-credential'){
+        setState(() {
+          error = "Details not correct";
+        });
+      }
+     //print(e.code);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +73,7 @@ class _LoginpageState extends State<Loginpage> {
               return const Signinmethod();
             }));
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
             size: 20,
@@ -46,6 +86,7 @@ class _LoginpageState extends State<Loginpage> {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            isLoading==true?const LinearProgressIndicator(color: Colors.white,):Container(),
             SizedBox(height: size.height*0.01,),
             Container(
               padding: const EdgeInsets.all(15),
@@ -85,7 +126,7 @@ class _LoginpageState extends State<Loginpage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(
+                     error.isNotEmpty? Padding(
                         padding: const EdgeInsets.symmetric(vertical: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -100,22 +141,35 @@ class _LoginpageState extends State<Loginpage> {
                               width: 10,
                             ),
                             Text(
-                              "An error occured right now",
+                              error,
                               style: Stylings.subTitles
                                   .copyWith(color: Stylings.orange, fontSize: 10),
                             ),
                           ],
                         ),
-                      ),
+                      ):Container(),
                       //email
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: TextField(
+                        child: TextFormField(
+                          style: Stylings.subTitles.copyWith(fontSize: 11),
+                          controller: _emailController,
+                          validator: (value){
+                            if(value==null||value.isEmpty){
+                              return 'Please enter your email';
+                            }
+                            return null;
+                          },
                           keyboardType: TextInputType.emailAddress,
                           cursorColor: Colors.grey.shade500,
                           cursorHeight: 15,
                           decoration: InputDecoration(
                               focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(7),
+                                  borderSide: BorderSide(color: Stylings.orange)
+                              ),
+                              errorStyle: Stylings.subTitles.copyWith(fontSize: 10,color: Stylings.orange),
+                              errorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(7),
                                   borderSide: BorderSide(color: Stylings.orange)
                               ),
@@ -133,15 +187,34 @@ class _LoginpageState extends State<Loginpage> {
                       const SizedBox(
                         height: 10,
                       ),
-                      //Implement hidepassfeature
                       //password
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: TextField(
+                        child: TextFormField(
+                          style: Stylings.subTitles.copyWith(fontSize: 11),
+                          controller: _passwordController,
+                          validator: (value){
+                            if(value==null||value.isEmpty){
+                              return 'Enter your password';
+                            }
+                            return null;
+                          },
+                          obscureText: hidePassword,
                           keyboardType: TextInputType.emailAddress,
                           cursorColor: Colors.grey.shade500,
                           cursorHeight: 15,
                           decoration: InputDecoration(
+                              errorStyle: Stylings.subTitles.copyWith(fontSize: 10,color: Stylings.orange),
+                              errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(7),
+                                  borderSide: BorderSide(color: Stylings.orange)
+                              ),
+                              suffixIcon: GestureDetector(
+                                  onTap: (){
+                                    setState(() {
+                                      hidePassword==true?hidePassword=false:hidePassword=true;
+                                    });
+                                  },child: Icon(hidePassword==true?FluentSystemIcons.ic_fluent_eye_hide_filled:FluentSystemIcons.ic_fluent_eye_show_filled,color: Colors.grey.shade500,size: 15,)),
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(7),
                                   borderSide: BorderSide(color: Stylings.orange)
@@ -163,7 +236,15 @@ class _LoginpageState extends State<Loginpage> {
                       ),
                       //button
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          if(_formKey.currentState!.validate()){
+                            setState(() {
+                              eMail = _emailController.text.trim();
+                              passWord = _passwordController.text.trim();
+                            });
+                          }
+                          login();
+                        },
                         child: Container(
                           margin: const EdgeInsets.symmetric(horizontal: 20.0),
                           alignment: Alignment.center,
@@ -203,7 +284,7 @@ class _LoginpageState extends State<Loginpage> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Get.to(()=>Register());
+                    Get.to(()=>const Register());
                   },
                   child: Text("Register",
                       style: Stylings.subTitles.copyWith(color: Stylings.orange,fontSize: 11)),

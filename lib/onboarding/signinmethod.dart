@@ -1,3 +1,4 @@
+import 'package:clubon/auths/authservice.dart';
 import 'package:clubon/homepage.dart';
 import 'package:clubon/onboarding/loginpage.dart';
 import 'package:clubon/onboarding/register.dart';
@@ -65,21 +66,21 @@ class _SigninmethodState extends State<Signinmethod> {
                         child: Text(
                             textAlign: TextAlign.center,
                             "Use Email to sign in/sign up or continue with a Google or Apple account",
-                            style: Stylings.subTitles.copyWith(fontSize: 11)
+                            style: Stylings.subTitles.copyWith(fontSize: 10)
                         ),
                       ),
                       const SizedBox(height: 15,),
                       ///email///
                       GestureDetector(
                         onTap: () {
-                        Get.to(()=>Loginpage());
+                        Get.to(()=>const Loginpage());
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 12),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               border: Border.all(
-                                color: Colors.black12,
+                                color: Colors.black26,
                               ),
                               borderRadius: BorderRadius.circular(8)
                           ),
@@ -101,7 +102,7 @@ class _SigninmethodState extends State<Signinmethod> {
                       ///google///
                       GestureDetector(
                         onTap: () {
-                          Get.to(()=>Homepage());
+                         AuthServices().signInWithGoogle(context);
                         },
                         child: Container(
                            alignment: Alignment.center,
@@ -129,7 +130,7 @@ class _SigninmethodState extends State<Signinmethod> {
                       ///apple//
                       GestureDetector(
                         onTap: () {
-                          Get.to(()=>const Register());
+                          Get.snackbar("title", "message",messageText: Text("This feature is only available for IOS devices",style: Stylings.subTitles.copyWith(fontSize: 11),),titleText: Text("Not Supported",style: Stylings.titles.copyWith(fontSize: 12),));
                         },
                         child: Container(
                           alignment: Alignment.center,
@@ -142,9 +143,9 @@ class _SigninmethodState extends State<Signinmethod> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 4,right: 2),
-                                child: const Icon(Icons.apple_sharp, color: Colors.black, size: 24,),
+                              const Padding(
+                                padding: EdgeInsets.only(bottom: 4,right: 2),
+                                child: Icon(Icons.apple_sharp, color: Colors.black, size: 24,),
                               ),
                               Text("Sign in with Apple", style: Stylings.titles.copyWith(fontSize: 11),),
                             ],
@@ -155,7 +156,7 @@ class _SigninmethodState extends State<Signinmethod> {
                         padding: const EdgeInsets.symmetric(vertical: 20.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
                                 "Don't have an account?",
@@ -164,7 +165,7 @@ class _SigninmethodState extends State<Signinmethod> {
                             const SizedBox(width: 5,),
                             GestureDetector(
                               onTap: (){
-                                Get.to(()=>Register());
+                                Get.to(()=>const Register());
                               },
                               child: Text(
                                   "Register",

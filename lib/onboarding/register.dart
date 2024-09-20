@@ -4,6 +4,7 @@ import 'package:clubon/onboarding/loginpage.dart';
 import 'package:clubon/onboarding/signinmethod.dart';
 import 'package:clubon/onboarding/verifyotp.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -72,7 +73,7 @@ class _RegisterState extends State<Register> {
          Get.offAll(()=>const Verifyotp());
          isLoading=false;
        });
-        print("Successful");
+     //   print("Successful");
       }on FirebaseAuthException catch(e){
         if (e.code=='weak-password'){setState(() {
           _error = "Password too weak";
@@ -146,8 +147,6 @@ class _RegisterState extends State<Register> {
                   "Enter your details to continue",
                   style: Stylings.subTitles.copyWith(fontSize: 11)),
             ),
-
-
          _error!=""? Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: Row(
@@ -326,6 +325,7 @@ class _RegisterState extends State<Register> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextFormField(
+                        obscureText: hidePassword,
                         style: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.grey.shade500),
                         validator: (value){
                           if(value==null||value.isEmpty){
@@ -364,6 +364,7 @@ class _RegisterState extends State<Register> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextFormField(
+                        obscureText: hidePassword,
                         style: Stylings.subTitles.copyWith(fontSize: 12,color: Colors.grey.shade500),
                         validator: (value){
                           if(value==null||value.isEmpty||confirmPass!=password){
@@ -376,6 +377,12 @@ class _RegisterState extends State<Register> {
                         cursorColor: Colors.grey.shade500,
                         cursorHeight: 15,
                         decoration: InputDecoration(
+                            suffixIcon: GestureDetector(
+                                onTap: (){
+                                  setState(() {
+                                    hidePassword==true?hidePassword=false:hidePassword=true;
+                                  });
+                                },child: Icon(hidePassword==true?FluentSystemIcons.ic_fluent_eye_hide_filled:FluentSystemIcons.ic_fluent_eye_show_filled,color: Colors.grey.shade500,size: 15,)),
                           errorStyle: Stylings.subTitles.copyWith(fontSize: 10,color: Stylings.orange),
                             errorBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(7),
