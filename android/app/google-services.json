@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "980310603168",
+    "project_id": "clubon-events",
+    "storage_bucket": "clubon-events.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980310603168:android:31d95f05b388763961e0c5",
+        "android_client_info": {
+          "package_name": "com.example.clubon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACqBWLz_gjBvvUcUuuKpBuiiumTFxmVS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

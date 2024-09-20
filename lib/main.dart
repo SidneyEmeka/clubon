@@ -1,6 +1,7 @@
 
 import 'package:clubon/onboarding/splashscreen.dart';
 import 'package:clubon/utils/styles/stylings.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -8,7 +9,9 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'getxserver/businesslogic.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   Get.put(Businness());
   runApp(const MyApp());
 }

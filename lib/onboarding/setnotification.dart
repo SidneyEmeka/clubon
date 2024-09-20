@@ -61,9 +61,7 @@ class Setnotification extends StatelessWidget {
                 const Expanded(flex:1,child: SizedBox()),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_){
-                      return const Homepage();
-                    }));
+                    Get.offAll(()=>const Homepage());
                   },
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
@@ -79,6 +77,7 @@ class Setnotification extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
+                    Get.offAll(()=>const Homepage());
                   },
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20.0),

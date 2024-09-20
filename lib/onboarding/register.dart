@@ -1,3 +1,4 @@
+import 'package:clubon/auths/authservice.dart';
 import 'package:clubon/onboarding/loginpage.dart';
 import 'package:clubon/onboarding/signinmethod.dart';
 import 'package:clubon/onboarding/verifyotp.dart';
@@ -15,9 +16,36 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  final _passwordController = TextEditingController();
-  final _emailController = TextEditingController();
+
+  final _fnameco = TextEditingController();
+  final _lnameco = TextEditingController();
+  final _emailco = TextEditingController();
+  final _dobco = TextEditingController();
+  final _passwordco = TextEditingController();
+  final _confirmco = TextEditingController();
+  String _error = '';
+  bool isLoading = false;
   bool hidePassword = true;
+  void signUp() async{
+    String res = await AuthServices().register(fName: _fnameco.text.trim(),
+        lName: _lnameco.text.trim(),
+        email: _emailco.text.trim(),
+        dob: _dobco.text.trim(),
+        password: _passwordco.text.trim());
+    if(res=="success"){
+      setState(() {
+        isLoading = true;
+      });
+      Get.off(()=> const Verifyotp());
+    }
+    else{
+setState(() {
+  _error = "An error gbam";
+  isLoading = false;
+});
+    }
+
+  }
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -73,6 +101,30 @@ class _RegisterState extends State<Register> {
                   "Enter your details to continue",
                   style: Stylings.subTitles.copyWith(fontSize: 11)),
             ),
+
+
+         _error!=""? Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.error_outline_rounded,
+                    size: 15,
+                    color: Stylings.orange,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    _error,
+                    style: Stylings.subTitles
+                        .copyWith(color: Stylings.orange, fontSize: 10),
+                  ),
+                ],
+              ),
+            ):Container(),
             Expanded(
                 child: SingleChildScrollView(
                   reverse: true,
@@ -85,6 +137,7 @@ class _RegisterState extends State<Register> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: TextField(
+                      controller: _fnameco,
                       keyboardType: TextInputType.emailAddress,
                       cursorColor: Colors.grey.shade500,
                       cursorHeight: 15,
@@ -110,6 +163,7 @@ class _RegisterState extends State<Register> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: TextField(
+                      controller: _lnameco,
                       keyboardType: TextInputType.emailAddress,
                       cursorColor: Colors.grey.shade500,
                       cursorHeight: 15,
@@ -135,6 +189,7 @@ class _RegisterState extends State<Register> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: TextField(
+                      controller: _emailco,
                       keyboardType: TextInputType.emailAddress,
                       cursorColor: Colors.grey.shade500,
                       cursorHeight: 15,
@@ -160,6 +215,7 @@ class _RegisterState extends State<Register> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: TextField(
+                      controller: _dobco,
                       keyboardType: TextInputType.emailAddress,
                       cursorColor: Colors.grey.shade500,
                       cursorHeight: 15,
@@ -185,6 +241,7 @@ class _RegisterState extends State<Register> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: TextField(
+                      controller: _passwordco,
                       keyboardType: TextInputType.emailAddress,
                       cursorColor: Colors.grey.shade500,
                       cursorHeight: 15,
@@ -210,6 +267,7 @@ class _RegisterState extends State<Register> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: TextField(
+                      controller: _confirmco,
                       keyboardType: TextInputType.emailAddress,
                       cursorColor: Colors.grey.shade500,
                       cursorHeight: 15,
@@ -233,12 +291,7 @@ class _RegisterState extends State<Register> {
                     height: 20,
                   ),
                   GestureDetector(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_){
-                        return const Verifyotp();
-                      }));
-
-                    },
+                    onTap: signUp,
                     child: Container(
                       margin: const EdgeInsets.symmetric(horizontal: 20.0),
                       alignment: Alignment.center,
