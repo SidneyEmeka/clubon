@@ -27,14 +27,12 @@ class Setnotification extends StatelessWidget {
             left: 10,
             child: GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) {
-                  return const Signinmethod();
-                }));
+                Get.to(()=>Signinmethod());
               },
               child: const Icon(
                 Icons.arrow_back_ios,
                 color: Colors.white,
-                size: 25,
+                size: 20,
               ),
             ),
           ),

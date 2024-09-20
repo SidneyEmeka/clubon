@@ -21,7 +21,7 @@ class _VerifyotpState extends State<Verifyotp> {
           "Your one time password is 83020",
           titleText: Text("OTP",style: Stylings.titles.copyWith(fontSize: 12),),
           messageText: Text("Your one time password is 83020",style: Stylings.subTitles.copyWith(fontSize: 12),),
-          duration: const Duration(seconds: 5));
+          duration: const Duration(seconds: 8));
     });
     super.initState();
   }
@@ -137,7 +137,7 @@ class _VerifyotpState extends State<Verifyotp> {
                     backgroundColor: Colors.white,
                     confirm: GestureDetector(
                       onTap: (){
-                        Get.to(()=>const Chooselocation());
+                        Get.offAll(()=>const Chooselocation());
                       },
                       child: Align(
                         alignment: Alignment.bottomRight,

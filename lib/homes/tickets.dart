@@ -47,8 +47,8 @@ class Tickets extends StatelessWidget {
                            ],
                          ),
                        ),
-                       SizedBox(
-                         width: Get.width,
+                       SingleChildScrollView(
+                         scrollDirection: Axis.horizontal,
                          child: Row(
                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                            crossAxisAlignment: CrossAxisAlignment.center,

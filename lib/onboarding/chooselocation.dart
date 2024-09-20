@@ -287,14 +287,12 @@ class _ChooselocationState extends State<Chooselocation> {
             left: 10,
             child: GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) {
-                  return const Signinmethod();
-                }));
+                Get.to(()=>Signinmethod());
               },
               child: const Icon(
                 Icons.arrow_back_ios,
                 color: Colors.white,
-                size: 25,
+                size: 20,
               ),
             ),
           ),
@@ -321,7 +319,7 @@ class _ChooselocationState extends State<Chooselocation> {
                 const Expanded(flex:1,child: SizedBox()),
                 GestureDetector(
                   onTap: () {
-                   Get.to(()=>const Setnotification());
+                   Get.offAll(()=>const Setnotification());
                   },
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
