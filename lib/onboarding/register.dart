@@ -59,6 +59,9 @@ class _RegisterState extends State<Register> {
     else if(password.isNotEmpty&&confirmPass.isNotEmpty&&email.isNotEmpty&&fname.isNotEmpty&&lname.isNotEmpty){
       String fullName = "$fname $lname";
       try{
+        setState(() {
+          isLoading=true;
+        });
         UserCredential credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
        await FirebaseFirestore.instance.collection("users").doc(credential.user!.uid).set({
         'firstname': fname,
@@ -69,8 +72,10 @@ class _RegisterState extends State<Register> {
         'uid':credential.user!.uid,
       });
        Future.delayed(const Duration(seconds: 1),(){
+         setState(() {
+           isLoading=false;
+         });
          Get.offAll(()=>const Verifyotp());
-         isLoading=false;
        });
      //   print("Successful");
       }on FirebaseAuthException catch(e){
@@ -427,9 +432,6 @@ class _RegisterState extends State<Register> {
                     ),
                     GestureDetector(
                       onTap: (){
-                        setState(() {
-                          isLoading=true;
-                        });
                         if(_formKey.currentState!.validate()){
                           setState(() {
                             fname = _fnameco.text.trim();
@@ -438,8 +440,8 @@ class _RegisterState extends State<Register> {
                             password = _passwordco.text.trim();
                             confirmPass =_confirmco.text.trim();
                           });
+                          register();
                         }
-                        register();
                       },
                       child: Container(
                         margin: const EdgeInsets.symmetric(horizontal: 20.0),

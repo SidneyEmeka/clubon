@@ -5,11 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../getxserver/businesslogic.dart';
 import '../utils/styles/stylings.dart';
 
-class Setnotification extends StatelessWidget {
+class Setnotification extends StatefulWidget {
   const Setnotification({super.key});
 
+  @override
+  State<Setnotification> createState() => _SetnotificationState();
+}
+
+class _SetnotificationState extends State<Setnotification> {
+  @override
+  void initState() {
+    Get.find<Businness>().getUDetails();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

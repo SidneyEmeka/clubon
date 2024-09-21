@@ -20,11 +20,7 @@ class _TimelineState extends State<Timeline> {
   String selectedtab = "Tonight";
   String location = "Miami";
 
-  @override
-  void initState() {
-    Get.find<Businness>().getUDetails();
-    super.initState();
-  }
+
 
 
 
