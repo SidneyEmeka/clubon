@@ -1,3 +1,5 @@
+import 'package:clubon/homepage.dart';
+import 'package:clubon/homes/timeline.dart';
 import 'package:clubon/onboarding/chooselocation.dart';
 import 'package:clubon/onboarding/register.dart';
 import 'package:clubon/onboarding/signinmethod.dart';
@@ -31,11 +33,10 @@ class _LoginpageState extends State<Loginpage> {
         isLoading=true;
       });
       Future.delayed(const Duration(seconds: 2),(){
-        Get.offAll(()=>const Chooselocation());
+        Get.offAll(()=>const Homepage());
         isLoading=false;
       });
     }on FirebaseAuthException catch(e){
-      print(e.code);
       if(e.code=='user-not-found'){
         setState(() {
           error = "No user found for $eMail";
@@ -51,7 +52,7 @@ class _LoginpageState extends State<Loginpage> {
           error = "Invalid email address";
         });
       }
-     else if(e.code=='Invalid-credential'){
+     else if(e.code=='invalid-credential'){
         setState(() {
           error = "Details not correct";
         });

@@ -228,7 +228,7 @@ class _DetandadrsettingsState extends State<Detandadrsettings> {
                   setState(() {
                     loading=false;
                   });
-                  Get.to(()=>const Settings());
+                  Get.to(()=>const Settingspref());
                 });
               },
               child: Container(

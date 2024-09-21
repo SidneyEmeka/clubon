@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clubon/auths/authservice.dart';
 import 'package:clubon/homepage.dart';
+import 'package:clubon/homes/settings.dart';
 import 'package:clubon/screens/buyticket.dart';
 import 'package:clubon/screens/earnings.dart';
 import 'package:clubon/screens/frfopreviewpage.dart';
@@ -53,38 +54,43 @@ class _ProfileState extends State<Profile> {
           ),
         ),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 15.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  width: 20,
-                  height: 20,
-                  decoration: const BoxDecoration(
-                    color: Colors.transparent,
-                    shape: BoxShape.circle,
+          GestureDetector(
+            onTap: (){
+              Get.to(()=>const Settingspref());
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 20,
+                    height: 20,
+                    decoration: const BoxDecoration(
+                      color: Colors.transparent,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Image.asset(
+                      "${Stylings.imgPath}/chatl.png",
+                      fit: BoxFit.contain,
+                    ),
                   ),
-                  child: Image.asset(
-                    "${Stylings.imgPath}/chatl.png",
-                    fit: BoxFit.contain,
+                  const SizedBox(width: 10),
+                  Container(
+                    width: 20,
+                    height: 20,
+                    decoration: const BoxDecoration(
+                      color: Colors.transparent,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Image.asset(
+                      "${Stylings.imgPath}/barl.png",
+                      fit: BoxFit.contain,
+                    ),
                   ),
-                ),
-                const SizedBox(width: 10),
-                Container(
-                  width: 20,
-                  height: 20,
-                  decoration: const BoxDecoration(
-                    color: Colors.transparent,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Image.asset(
-                    "${Stylings.imgPath}/barl.png",
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           )
         ],
@@ -151,7 +157,7 @@ class _ProfileState extends State<Profile> {
                       ),
                       Positioned(
                         top: Get.height*0.065,
-                        left: Get.width*0.17,
+                        left: Get.width*0.16,
                         child: Container(
                           width: 20,
                           height: 20,

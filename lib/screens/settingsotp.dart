@@ -134,7 +134,7 @@ class _SettingsotpState extends State<Settingsotp> {
                     backgroundColor: Colors.white,
                     confirm: GestureDetector(
                       onTap: (){
-                        Get.to(()=>const Settings());
+                        Get.to(()=>const Settingspref());
                       },
                       child: Align(
                         alignment: Alignment.bottomRight,

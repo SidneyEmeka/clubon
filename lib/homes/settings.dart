@@ -14,14 +14,14 @@ import 'package:share_plus/share_plus.dart';
 import '../screens/feedback.dart';
 import '../utils/styles/stylings.dart';
 
-class Settings extends StatefulWidget {
-  const Settings({super.key});
+class Settingspref extends StatefulWidget {
+  const Settingspref({super.key});
 
   @override
-  State<Settings> createState() => _SettingsState();
+  State<Settingspref> createState() => _SettingsprefState();
 }
 
-class _SettingsState extends State<Settings> {
+class _SettingsprefState extends State<Settingspref> {
   bool isInfluencer = false;
   @override
   Widget build(BuildContext context) {

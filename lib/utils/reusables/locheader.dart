@@ -95,7 +95,7 @@ class Locheader extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: (){
-                  Get.to(()=>const Settings());
+                  Get.to(()=>const Settingspref());
                 },
                 child: Container(
                   width: 14,

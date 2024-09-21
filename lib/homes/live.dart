@@ -124,7 +124,7 @@ class _LiveState extends State<Live> {
                       const SizedBox(width: 15),
                       GestureDetector(
                         onTap: (){
-                          Get.to(()=>const Settings());
+                          Get.to(()=>const Settingspref());
                         },
                         child:  const Icon(FluentSystemIcons.ic_fluent_settings_dev_regular,size: 20,color: Colors.white,),
                       ),
