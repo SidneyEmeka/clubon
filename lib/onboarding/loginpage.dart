@@ -173,6 +173,10 @@ class _LoginpageState extends State<Loginpage> {
                                   borderRadius: BorderRadius.circular(7),
                                   borderSide: BorderSide(color: Stylings.orange)
                               ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(7),
+                                  borderSide: BorderSide(color: Stylings.orange)
+                              ),
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(7),
                                   borderSide: const BorderSide(color: Colors.black,width: 0.5)
@@ -204,6 +208,10 @@ class _LoginpageState extends State<Loginpage> {
                           cursorColor: Colors.grey.shade500,
                           cursorHeight: 15,
                           decoration: InputDecoration(
+                              focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(7),
+                                  borderSide: BorderSide(color: Stylings.orange)
+                              ),
                               errorStyle: Stylings.subTitles.copyWith(fontSize: 10,color: Stylings.orange),
                               errorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(7),

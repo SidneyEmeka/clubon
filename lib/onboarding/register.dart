@@ -195,6 +195,10 @@ class _RegisterState extends State<Register> {
                         cursorColor: Colors.grey.shade500,
                         cursorHeight: 15,
                         decoration: InputDecoration(
+                            focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(7),
+                                borderSide: BorderSide(color: Stylings.orange)
+                            ),
                             errorStyle: Stylings.subTitles.copyWith(fontSize: 10,color: Stylings.orange),
                             errorBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(7),
@@ -233,6 +237,10 @@ class _RegisterState extends State<Register> {
                         cursorColor: Colors.grey.shade500,
                         cursorHeight: 15,
                         decoration: InputDecoration(
+                            focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(7),
+                                borderSide: BorderSide(color: Stylings.orange)
+                            ),
                             errorStyle: Stylings.subTitles.copyWith(fontSize: 10,color: Stylings.orange),
                             errorBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(7),
@@ -271,6 +279,10 @@ class _RegisterState extends State<Register> {
                         cursorColor: Colors.grey.shade500,
                         cursorHeight: 15,
                         decoration: InputDecoration(
+                            focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(7),
+                                borderSide: BorderSide(color: Stylings.orange)
+                            ),
                             errorStyle: Stylings.subTitles.copyWith(fontSize: 10,color: Stylings.orange),
                             errorBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(7),
@@ -338,6 +350,10 @@ class _RegisterState extends State<Register> {
                         cursorColor: Colors.grey.shade500,
                         cursorHeight: 15,
                         decoration: InputDecoration(
+                            focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(7),
+                                borderSide: BorderSide(color: Stylings.orange)
+                            ),
                             errorStyle: Stylings.subTitles.copyWith(fontSize: 10,color: Stylings.orange),
                             errorBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(7),
@@ -377,6 +393,10 @@ class _RegisterState extends State<Register> {
                         cursorColor: Colors.grey.shade500,
                         cursorHeight: 15,
                         decoration: InputDecoration(
+                            focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(7),
+                                borderSide: BorderSide(color: Stylings.orange)
+                            ),
                             suffixIcon: GestureDetector(
                                 onTap: (){
                                   setState(() {

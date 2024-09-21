@@ -56,7 +56,7 @@ class _SigninmethodState extends State<Signinmethod> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Expanded(child: SizedBox()),
+                      const Expanded(flex:1,child: SizedBox()),
                       Text(
                         "Welcome to Clubon",
                         style: Stylings.titles.copyWith(fontSize: 15),
@@ -175,7 +175,7 @@ class _SigninmethodState extends State<Signinmethod> {
                           ],
                         ),
                       ),
-                      Expanded(
+                      Expanded(flex: 1,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.center,
