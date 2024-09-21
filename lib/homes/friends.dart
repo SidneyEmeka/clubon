@@ -112,7 +112,7 @@ class _FriendsState extends State<Friends> {
                                 style: Stylings.titles.copyWith(fontSize: 10),
                               ),
                               Text(
-                                "Clubon.com/${name.toLowerCase()}",
+                                "Clubon.com/${Get.find<Businness>().firename.value.removeAllWhitespace.toLowerCase()}",
                                 style: Stylings.subTitles
                                     .copyWith(fontSize: 9, color: Colors.black54),
                               )
@@ -122,7 +122,7 @@ class _FriendsState extends State<Friends> {
                           GestureDetector(
                             onTap: () async {
                           await Share.share(
-                          "Don't miss the fun, Join $name on Clubon");
+                          "Don't miss the fun, Join ${Get.find<Businness>().firename.value} on Clubon");
                           },
                             child: const Icon(
                                   FluentSystemIcons.ic_fluent_share_ios_regular,

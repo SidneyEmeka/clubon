@@ -23,19 +23,19 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-   String name = '';
-  getDetails() async{
-    QuerySnapshot theSnapshot =await FirebaseFirestore.instance.collection('users').where('uid', isEqualTo: FirebaseAuth.instance.currentUser!.uid).get();
-    name = "${theSnapshot.docs[0]['name']}";
-    setState(() {
-    });
-  }
-
-  @override
-  void initState() {
-   getDetails();
-    super.initState();
-  }
+  //  String name = '';
+  // getDetails() async{
+  //   QuerySnapshot theSnapshot =await FirebaseFirestore.instance.collection('users').where('uid', isEqualTo: FirebaseAuth.instance.currentUser!.uid).get();
+  //   name = "${theSnapshot.docs[0]['name']}";
+  //   setState(() {
+  //   });
+  // }
+  //
+  // @override
+  // void initState() {
+  //  getDetails();
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,7 @@ class _ProfileState extends State<Profile> {
           )
         ],
       ),
-      body: ListView(
+      body: Obx(()=>ListView(
         children: [
           Container(
             width: Get.width,
@@ -176,7 +176,7 @@ class _ProfileState extends State<Profile> {
                     decoration: const BoxDecoration(
                       color: Colors.white,
                     ),
-                    child:   Text(name, style: Stylings.titles.copyWith(fontSize: 12),
+                    child:   Text(Get.find<Businness>().firename.value, style: Stylings.titles.copyWith(fontSize: 12),
                     ),
                   ),
                 ),
@@ -513,6 +513,6 @@ class _ProfileState extends State<Profile> {
           ),
         ],
       ),
-    );
+    ));
   }
 }

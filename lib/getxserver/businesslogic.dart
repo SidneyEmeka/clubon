@@ -204,9 +204,7 @@ class Businness extends GetxController{
   Timer? timer;
   int remSecs = 1;
   final time = '15'.obs;
-
   var isDone = false.obs;
-
   startTimer(int seconds){
     const duration = Duration(seconds: 1);
     remSecs = seconds;
@@ -221,6 +219,13 @@ class Businness extends GetxController{
         remSecs --;
       }
     });
+  }
+
+
+  var firename = ''.obs;
+  getUDetails() async{
+    QuerySnapshot theSnapshot = await FirebaseFirestore.instance.collection('users').where('uid', isEqualTo: FirebaseAuth.instance.currentUser!.uid).get();
+    firename.value = "${theSnapshot.docs[0]['name']}";
   }
 
 

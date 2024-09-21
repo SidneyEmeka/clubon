@@ -1,7 +1,10 @@
 import 'package:clubon/data/constantdata.dart';
+import 'package:clubon/getxserver/businesslogic.dart';
 import 'package:clubon/utils/reusables/locheader.dart';
 import 'package:clubon/utils/styles/stylings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../utils/reusables/eventcard.dart';
 import '../utils/reusables/filtercard.dart';
@@ -17,10 +20,17 @@ class _TimelineState extends State<Timeline> {
   String selectedtab = "Tonight";
   String location = "Miami";
 
+  @override
+  void initState() {
+    Get.find<Businness>().getUDetails();
+    super.initState();
+  }
+
 
 
   @override
   Widget build(BuildContext context) {
+    print(Get.find<Businness>().firename);
     return SafeArea(
         child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
