@@ -189,7 +189,7 @@ class _LiveState extends State<Live> {
                                ),
                              ),
                              const SizedBox(width: 8,),
-                             Text("Nnaemeka Sidney",style: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.white),),
+                             Obx(()=>Text(Get.find<Businness>().firename.value,style: Stylings.subTitles.copyWith(fontSize: 11,color: Colors.white),)),
                              const SizedBox(width: 8,),
                              Container(
                                alignment: Alignment.center,
