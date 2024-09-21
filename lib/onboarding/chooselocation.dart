@@ -82,7 +82,7 @@ class _ChooselocationState extends State<Chooselocation> {
                       onTap: (){
                         Get.find<Businness>().location.value = "Florida";
                         Get.back();
-                        Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                        Future.delayed(const Duration(milliseconds: 300),(){ Get.to(()=>const Setnotification());});
 
                       },
                       child: Padding(
@@ -96,7 +96,7 @@ class _ChooselocationState extends State<Chooselocation> {
                         onTap: (){
                           Get.find<Businness>().location.value = aFcity;
                           Get.back();
-                          Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                          Future.delayed(const Duration(milliseconds: 300),(){ Get.to(()=>const Setnotification());});
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
@@ -118,7 +118,7 @@ class _ChooselocationState extends State<Chooselocation> {
                       onTap: (){
                         Get.find<Businness>().location.value = "Canada";
                         Get.back();
-                        Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                        Future.delayed(const Duration(milliseconds: 300),(){ Get.to(()=>const Setnotification());});
 
                       },
                       child: Padding(
@@ -132,7 +132,7 @@ class _ChooselocationState extends State<Chooselocation> {
                         onTap: (){
                           Get.find<Businness>().location.value = aFcity;
                           Get.back();
-                          Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                          Future.delayed(const Duration(milliseconds: 300),(){ Get.to(()=>const Setnotification());});
 
                         },
                         child: Container(
@@ -155,7 +155,7 @@ class _ChooselocationState extends State<Chooselocation> {
                       onTap: (){
                         Get.find<Businness>().location.value = "Andorra";
                         Get.back();
-                        Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                        Future.delayed(const Duration(milliseconds: 300),(){ Get.to(()=>const Setnotification());});
 
                       },
                       child: Padding(
@@ -169,7 +169,7 @@ class _ChooselocationState extends State<Chooselocation> {
                         onTap: (){
                           Get.find<Businness>().location.value = aFcity;
                           Get.back();
-                          Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                          Future.delayed(const Duration(milliseconds: 300),(){ Get.to(()=>const Setnotification());});
 
                         },
                         child: Container(
@@ -192,7 +192,7 @@ class _ChooselocationState extends State<Chooselocation> {
                       onTap: (){
                         Get.find<Businness>().location.value = "Austria";
                         Get.back();
-                        Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                        Future.delayed(const Duration(milliseconds: 300),(){ Get.to(()=>const Setnotification());});
 
                       },
                       child: Padding(
@@ -206,7 +206,7 @@ class _ChooselocationState extends State<Chooselocation> {
                         onTap: (){
                           Get.find<Businness>().location.value = aFcity;
                           Get.back();
-                          Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                          Future.delayed(const Duration(milliseconds: 300),(){ Get.to(()=>const Setnotification());});
 
                         },
                         child: Container(
@@ -229,7 +229,7 @@ class _ChooselocationState extends State<Chooselocation> {
                       onTap: (){
                         Get.find<Businness>().location.value = "Belguim";
                         Get.back();
-                        Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                        Future.delayed(const Duration(milliseconds: 300),(){ Get.to(()=>const Setnotification());});
 
                       },
                       child: Padding(
@@ -243,7 +243,7 @@ class _ChooselocationState extends State<Chooselocation> {
                         onTap: (){
                           Get.find<Businness>().location.value = aFcity;
                           Get.back();
-                          Future.delayed(const Duration(milliseconds: 200),(){ Get.to(()=>const Setnotification());});
+                          Future.delayed(const Duration(milliseconds: 300),(){ Get.to(()=>const Setnotification());});
 
                         },
                         child: Container(

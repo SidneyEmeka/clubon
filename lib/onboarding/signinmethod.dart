@@ -85,7 +85,8 @@ class _SigninmethodState extends State<Signinmethod> {
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               border: Border.all(
-                                color: Colors.black26,
+                                color: Colors.black45,
+                                width: 0.5
                               ),
                               borderRadius: BorderRadius.circular(8)
                           ),

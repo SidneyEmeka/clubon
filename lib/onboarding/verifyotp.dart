@@ -128,38 +128,7 @@ class _VerifyotpState extends State<Verifyotp> {
             GestureDetector(
               onTap: () {
                 if(int.parse(_otp.text)==83020){
-                  Get.defaultDialog(
-                    radius: 10,
-                    titlePadding: const EdgeInsets.only(top: 25),
-                    contentPadding: const EdgeInsets.only(bottom: 20,top: 15,left: 15,right: 15),
-                    title: "Email Verification",
-                    titleStyle: Stylings.titles.copyWith(fontSize: 14),
-                    middleText:  "A verification link was sent to your email address, kindly click the link to complete verification",
-                    middleTextStyle: Stylings.subTitles.copyWith(fontSize: 12),
-                    backgroundColor: Colors.white,
-                    confirm: GestureDetector(
-                      onTap: (){
-                        Get.offAll(()=>const Chooselocation());
-                      },
-                      child: Align(
-                        alignment: Alignment.bottomRight,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Colors.black26)
-                          ),
-                          width: 100,
-                          height: Get.size.height*0.04,
-                          child: Text("Continue", style: Stylings.titles.copyWith(fontSize: 12),),
-                        ),
-                      ),
-                    ),
-
-
-                  );
+                  Get.offAll(()=>const Chooselocation());
                 }
                 else {
                   invalid = true;

@@ -30,13 +30,12 @@ class _TimelineState extends State<Timeline> {
 
   @override
   Widget build(BuildContext context) {
-    print(Get.find<Businness>().firename);
     return SafeArea(
         child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Locheader(),
+        const Locheader(),
         selectedtab == "Tonight"
             ? Expanded(
                 child: ListView(
