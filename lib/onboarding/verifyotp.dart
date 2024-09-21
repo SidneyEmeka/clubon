@@ -1,3 +1,4 @@
+import 'package:clubon/getxserver/businesslogic.dart';
 import 'package:clubon/onboarding/chooselocation.dart';
 import 'package:clubon/onboarding/signinmethod.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,8 @@ class _VerifyotpState extends State<Verifyotp> {
           "Your one time password is 83020",
           titleText: Text("OTP",style: Stylings.titles.copyWith(fontSize: 12),),
           messageText: Text("Your one time password is 83020",style: Stylings.subTitles.copyWith(fontSize: 12),),
-          duration: const Duration(seconds: 8));
+          duration: const Duration(seconds: 5));
+      Get.find<Businness>().startTimer(14);
     });
     super.initState();
   }
@@ -47,7 +49,7 @@ class _VerifyotpState extends State<Verifyotp> {
           ),
         ),
       ),
-      body: Container(
+      body: Obx(()=>Container(
         margin: const EdgeInsets.symmetric(vertical: 20,horizontal: 20),
         width: size.width,
         height: size.height*0.6,
@@ -180,23 +182,34 @@ class _VerifyotpState extends State<Verifyotp> {
               padding: const EdgeInsets.symmetric(
                 vertical: 20.0,
               ),
-              child: Row(
+              child:Get.find<Businness>().isDone==false? Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text("Resend code in", style: Stylings.subTitles.copyWith(fontSize: 10)),
                   const SizedBox(
                     width: 5,
                   ),
-                  Text("30 secs",
+                  Text(Get.find<Businness>().time.value,
                       style: Stylings.subTitles
                           .copyWith(color: Stylings.orange, fontSize: 11)),
                 ],
-              ),
+              ):
+              GestureDetector(
+                  onTap: (){
+                    Get.snackbar("OTP",
+                        "Your one time password is 83020",
+                        titleText: Text("OTP",style: Stylings.titles.copyWith(fontSize: 12),),
+                        messageText: Text("Your one time password is 83020",style: Stylings.subTitles.copyWith(fontSize: 12),),
+                        duration: const Duration(seconds: 5));
+                    Get.find<Businness>().startTimer(14);
+                    Get.find<Businness>().isDone.value=false;
+                  },child: Text("Resend OTP", style: Stylings.subTitles.copyWith(color: Stylings.orange, fontSize: 11))),
+
             ),
           ],
         ),
-      ),
+      ),)
     );
   }
 }

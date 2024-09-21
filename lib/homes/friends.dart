@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:clubon/auths/authservice.dart';
 import 'package:clubon/getxserver/businesslogic.dart';
 import 'package:clubon/screens/searching.dart';
 import 'package:clubon/utils/reusables/friendtile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,6 +20,18 @@ class Friends extends StatefulWidget {
 
 class _FriendsState extends State<Friends> {
   var pplBiz = Businness();
+  String name = '';
+  getDetails() async{
+    QuerySnapshot theSnapshot =await FirebaseFirestore.instance.collection('users').where('uid', isEqualTo: FirebaseAuth.instance.currentUser!.uid).get();
+    name = "${theSnapshot.docs[0]['name']}";
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    getDetails();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,7 +112,7 @@ class _FriendsState extends State<Friends> {
                                 style: Stylings.titles.copyWith(fontSize: 10),
                               ),
                               Text(
-                                "Clubon.com/Sidney",
+                                "Clubon.com/${name.toLowerCase()}",
                                 style: Stylings.subTitles
                                     .copyWith(fontSize: 9, color: Colors.black54),
                               )
@@ -107,9 +122,9 @@ class _FriendsState extends State<Friends> {
                           GestureDetector(
                             onTap: () async {
                           await Share.share(
-                          "Tired of missing awesome events? Join me on\nClubon.com/Sidney");
+                          "Don't miss the fun, Join $name on Clubon");
                           },
-                            child: Icon(
+                            child: const Icon(
                                   FluentSystemIcons.ic_fluent_share_ios_regular,
                                   color: Colors.black,
                                   size: 20,

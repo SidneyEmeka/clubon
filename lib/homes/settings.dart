@@ -1,7 +1,9 @@
+import 'package:clubon/onboarding/signinmethod.dart';
 import 'package:clubon/screens/detandadrsettings.dart';
 import 'package:clubon/screens/privandnotsettings.dart';
 import 'package:clubon/screens/rateapp.dart';
 import 'package:clubon/screens/termsandprivacy.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -366,6 +368,70 @@ class _SettingsState extends State<Settings> {
                 ),
               ),
             ),
+            GestureDetector(
+              onTap: (){
+                Get.defaultDialog(
+                  radius: 10,
+                  titlePadding: const EdgeInsets.only(top: 25),
+                  contentPadding: const EdgeInsets.only(bottom: 20,top: 15,left: 10,right: 10),
+                  title: "Sign out",
+                  titleStyle: Stylings.titles.copyWith(fontSize: 14),
+                  middleText: "Are you sure you sure you want to log out?",
+                  middleTextStyle: Stylings.subTitles.copyWith(fontSize: 12),
+                  backgroundColor: Colors.white,
+                  cancel: GestureDetector(
+                    onTap: (){
+                      Get.back();
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.black26)
+                      ),
+                      width: Get.size.width*0.3,
+                      height: Get.size.height*0.04,
+                      child: Text("Stay", style: Stylings.titles.copyWith(fontSize: 12),),
+                    ),
+                  ),
+                  confirm: GestureDetector(
+                    onTap: (){
+                      FirebaseAuth.instance.signOut();
+                      Get.offAll(()=>const Signinmethod());
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.black26)
+                      ),
+                      width: Get.size.width*0.3,
+                      height: Get.size.height*0.04,
+                      child: Text("Log out", style: Stylings.titles.copyWith(fontSize: 12),),
+                    ),
+                  ),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.grey.shade100))
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(Icons.logout,size: 17,color: Colors.black,),
+                    const SizedBox(width: 5,),
+                    Text("Log out",style: Stylings.titles.copyWith(fontSize: 11),),
+                  ],
+                ),
+              ),
+            ),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 20),
               decoration: BoxDecoration(
@@ -378,21 +444,6 @@ class _SettingsState extends State<Settings> {
                   const Icon(Icons.help_outline_outlined,size: 17,color: Colors.black,),
                   const SizedBox(width: 5,),
                   Text("Support",style: Stylings.titles.copyWith(fontSize: 11),),
-                ],
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Colors.grey.shade100))
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(Icons.logout,size: 17,color: Colors.black,),
-                  const SizedBox(width: 5,),
-                  Text("Log out",style: Stylings.titles.copyWith(fontSize: 11),),
                 ],
               ),
             ),

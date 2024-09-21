@@ -1,18 +1,41 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:clubon/auths/authservice.dart';
 import 'package:clubon/homepage.dart';
 import 'package:clubon/screens/buyticket.dart';
 import 'package:clubon/screens/earnings.dart';
 import 'package:clubon/screens/frfopreviewpage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../data/constantdata.dart';
+import '../getxserver/businesslogic.dart';
 import '../utils/reusables/receventscard.dart';
 import '../utils/styles/stylings.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
   const Profile({super.key});
+
+  @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+   String name = '';
+  getDetails() async{
+    QuerySnapshot theSnapshot =await FirebaseFirestore.instance.collection('users').where('uid', isEqualTo: FirebaseAuth.instance.currentUser!.uid).get();
+    name = "${theSnapshot.docs[0]['name']}";
+    setState(() {
+    });
+  }
+
+  @override
+  void initState() {
+   getDetails();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -153,9 +176,7 @@ class Profile extends StatelessWidget {
                     decoration: const BoxDecoration(
                       color: Colors.white,
                     ),
-                    child: Text(
-                      "Nnaemeka Sidney",
-                      style: Stylings.titles.copyWith(fontSize: 12),
+                    child:   Text(name, style: Stylings.titles.copyWith(fontSize: 12),
                     ),
                   ),
                 ),

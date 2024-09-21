@@ -57,19 +57,18 @@ class _RegisterState extends State<Register> {
       });
     }
     else if(password.isNotEmpty&&confirmPass.isNotEmpty&&email.isNotEmpty&&fname.isNotEmpty&&lname.isNotEmpty){
+      String fullName = "$fname $lname";
       try{
         UserCredential credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
        await FirebaseFirestore.instance.collection("users").doc(credential.user!.uid).set({
         'firstname': fname,
         'lastname' : lname,
+         'name' : fullName,
         'email': email,
         'dob':dob,
-        'uid':credential.user!.uid
+        'uid':credential.user!.uid,
       });
-       setState(() {
-         isLoading=true;
-       });
-       Future.delayed(const Duration(seconds: 2),(){
+       Future.delayed(const Duration(seconds: 1),(){
          Get.offAll(()=>const Verifyotp());
          isLoading=false;
        });
@@ -120,7 +119,7 @@ class _RegisterState extends State<Register> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            isLoading==true?const LinearProgressIndicator(color: Colors.white,):Container(),
+            isLoading==true? LinearProgressIndicator(color: Stylings.orange,borderRadius: BorderRadius.circular(20),):Container(),
             Container(
               padding: const EdgeInsets.all(15),
               width: 70,
@@ -428,6 +427,9 @@ class _RegisterState extends State<Register> {
                     ),
                     GestureDetector(
                       onTap: (){
+                        setState(() {
+                          isLoading=true;
+                        });
                         if(_formKey.currentState!.validate()){
                           setState(() {
                             fname = _fnameco.text.trim();

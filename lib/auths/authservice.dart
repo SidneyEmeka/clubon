@@ -37,11 +37,12 @@ class AuthServices {
         "email": userDetails?.email,
         "name": userDetails?.displayName,
         "imgUrl": userDetails?.photoURL,
-        "id": userDetails?.uid,
+        "uid": userDetails?.uid,
       };
-
       await FirebaseFirestore.instance.collection("users").doc(userDetails!.uid).set(userInfoMap).then((value) {});
-      Get.to(()=>const Chooselocation());
+      Future.delayed(const Duration(milliseconds: 200),(){
+        Get.off(()=>const Chooselocation());
+      });
   }
 }
 

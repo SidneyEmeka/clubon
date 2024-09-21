@@ -710,8 +710,6 @@ class _SearchingState extends State<Searching> {
                         child: Text("Confirm", style: Stylings.titles.copyWith(fontSize: 12),),
                       ),
                     ),
-
-
                   );
                 },
                 child: Text("Clear all", style: Stylings.titles.copyWith(fontSize: 11,color: Colors.black54),),

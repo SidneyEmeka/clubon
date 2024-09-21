@@ -10,6 +10,9 @@ import 'package:get/get.dart';
 import 'package:get/get_common/get_reset.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../getxserver/businesslogic.dart';
+import 'chooselocation.dart';
+
 class Signinmethod extends StatefulWidget {
   const Signinmethod({super.key});
 
@@ -19,6 +22,7 @@ class Signinmethod extends StatefulWidget {
 
 
 class _SigninmethodState extends State<Signinmethod> {
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +60,7 @@ class _SigninmethodState extends State<Signinmethod> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      isLoading==true? LinearProgressIndicator(color: Stylings.orange,borderRadius: BorderRadius.circular(20),):Container(),
                       const Expanded(flex:1,child: SizedBox()),
                       Text(
                         "Welcome to Clubon",
@@ -102,6 +107,9 @@ class _SigninmethodState extends State<Signinmethod> {
                       ///google///
                       GestureDetector(
                         onTap: () {
+                          setState(() {
+                            isLoading=true;
+                          });
                          AuthServices().signInWithGoogle(context);
                         },
                         child: Container(

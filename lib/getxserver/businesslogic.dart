@@ -1,4 +1,8 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clubon/onboarding/chooselocation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -196,4 +200,28 @@ class Businness extends GetxController{
       "comm": "Lorem Ipsum is not simply random text",
     },
   ].obs;
+
+  Timer? timer;
+  int remSecs = 1;
+  final time = '15'.obs;
+
+  var isDone = false.obs;
+
+  startTimer(int seconds){
+    const duration = Duration(seconds: 1);
+    remSecs = seconds;
+    timer = Timer.periodic(duration, (Timer timer){
+      if(remSecs < 0){
+        timer.cancel();
+        isDone.value = true;
+      }else{
+        int min = remSecs~/60;
+        int secs = remSecs%60;
+        time.value=secs.toString().padLeft(2,'0');
+        remSecs --;
+      }
+    });
+  }
+
+
 }
